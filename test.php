@@ -32,6 +32,14 @@ $bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $_SERVER);
 
 $om = $bootstrap->getObjectManager();
 
+//$cfact = $om->create(\Magento\SearchStorefront\Model\Eav\Attribute\Product\CollectionFactory::class);
+//
+//$collection = $cfact->create()->addFieldToFilter(
+//    ['is_searchable', 'is_visible_in_advanced_search', 'is_filterable', 'is_filterable_in_search'],
+//    [1, 1, [1, 2], 1]
+//);
+//$collection->load();
+
 /** @var ProductSearchRequestMapper $requestMapper */
 $requestMapper = $om->create(ProductSearchRequestMapper::class);
 
