@@ -8,7 +8,7 @@ namespace Magento\SearchStorefront\Plugin\Search\Request;
 use Magento\Catalog\Api\Data\EavAttributeInterface;
 use Magento\SearchStorefront\Model\Search\RequestGenerator;
 use Magento\SearchStorefront\Model\Search\RequestGenerator\GeneratorResolver;
-use Magento\Eav\Model\Entity\Attribute;
+use Magento\SearchStorefront\Model\Eav\Attribute;
 use Magento\Framework\Search\Request\FilterInterface;
 use Magento\Framework\Search\Request\QueryInterface;
 use Magento\Catalog\Model\ResourceModel\Product\Attribute\CollectionFactory;
@@ -43,12 +43,16 @@ class ConfigReader
     /**
      * @var CollectionFactory
      */
-    private $productAttributeCollectionFactory;
+    private $productAttributeCollectionFactory1;
 
     /**
      * @var array
      */
     private $exactMatchAttributes = [];
+    /**
+     * @var CollectionFactory|\Magento\SearchStorefront\Model\Eav\Attribute\Product\CollectionFactory
+     */
+    private $productAttributeCollectionFactory;
 
     /**
      * @param GeneratorResolver $generatorResolver
@@ -57,12 +61,14 @@ class ConfigReader
      */
     public function __construct(
         GeneratorResolver $generatorResolver,
-        CollectionFactory $productAttributeCollectionFactory,
+        CollectionFactory $productAttributeCollectionFactory1,
+        \Magento\SearchStorefront\Model\Eav\Attribute\Product\CollectionFactory $productAttributeCollectionFactory,
         array $exactMatchAttributes = []
     ) {
         $this->generatorResolver = $generatorResolver;
-        $this->productAttributeCollectionFactory = $productAttributeCollectionFactory;
+        $this->productAttributeCollectionFactory1 = $productAttributeCollectionFactory1;
         $this->exactMatchAttributes = array_merge($this->exactMatchAttributes, $exactMatchAttributes);
+        $this->productAttributeCollectionFactory = $productAttributeCollectionFactory;
     }
 
     /**
@@ -96,6 +102,24 @@ class ConfigReader
      *
      * @return Attribute[]
      */
+//    private function getSearchableAttributes(): array
+//    {
+//        $attributes = [];
+//        /** @var Collection $productAttributes */
+//        $productAttributes = $this->productAttributeCollectionFactory->create();
+//        $productAttributes->addFieldToFilter(
+//            ['is_searchable', 'is_visible_in_advanced_search', 'is_filterable', 'is_filterable_in_search'],
+//            [1, 1, [1, 2], 1]
+//        );
+//
+//        /** @var Attribute $attribute */
+//        foreach ($productAttributes->getItems() as $attribute) {
+//            $attributes[$attribute->getAttributeCode()] = $attribute;
+//        }
+//
+//        return $attributes;
+//    }
+
     private function getSearchableAttributes(): array
     {
         $attributes = [];

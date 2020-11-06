@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefront\DataProvider;
 
-use Magento\Eav\Model\Config;
 use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\DB\Select;
 use Magento\Framework\EntityManager\MetadataPool;
@@ -56,29 +55,21 @@ class AttributeQuery
     private $entityTypeIdMap;
 
     /**
-     * @var Config
-     */
-    private $eavConfig;
-
-    /**
      * @param string $entityType
      * @param ResourceConnection $resourceConnection
      * @param MetadataPool $metadataPool
-     * @param Config $eavConfig
      * @param array $linkedAttributes
      */
     public function __construct(
         string $entityType,
         ResourceConnection $resourceConnection,
         MetadataPool $metadataPool,
-        Config $eavConfig,
         array $linkedAttributes = []
     ) {
         $this->resourceConnection = $resourceConnection;
         $this->metadataPool = $metadataPool;
         $this->entityType = $entityType;
         $this->linkedAttributes = $linkedAttributes;
-        $this->eavConfig = $eavConfig;
     }
 
     /**
@@ -343,12 +334,7 @@ class AttributeQuery
      */
     private function getEntityTypeId(): int
     {
-        if (!isset($this->entityTypeIdMap[$this->entityType])) {
-            $this->entityTypeIdMap[$this->entityType] = (int)$this->eavConfig->getEntityType(
-                $this->metadataPool->getMetadata($this->entityType)->getEavEntityType()
-            )->getId();
-        }
-
-        return $this->entityTypeIdMap[$this->entityType];
+        //TODO get entity from table
+        return 3;
     }
 }

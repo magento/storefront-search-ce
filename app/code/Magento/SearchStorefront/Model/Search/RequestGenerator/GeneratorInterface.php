@@ -6,7 +6,7 @@
 
 namespace Magento\SearchStorefront\Model\Search\RequestGenerator;
 
-use Magento\Catalog\Model\ResourceModel\Eav\Attribute;
+use Magento\SearchStorefront\Model\Eav\Attribute;
 
 /**
  * Catalog search reguest generator interface.
