@@ -1,44 +1,24 @@
 <?php
 
-namespace Magento\SearchStorefront\Model\Eav\Attribute;
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+declare(strict_types=1);
 
-use Magento\Framework\DB\Select;
-use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
+namespace Magento\SearchStorefront\Model\Catalog\ResourceModel\Category;
 
-class Collection extends AbstractCollection
+class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
     /**
-     * @var string
+     * {@inheritDoc}
      */
-    private $entityCode;
-
-    protected $_idFieldName = 'attribute_id';
-
     protected function _construct()
     {
         $this->_init(
-            \Magento\SearchStorefront\Model\Eav\Attribute::class,
-            \Magento\SearchStorefront\Model\Eav\Attribute\ResourceModel\Attribute::class
+            \Magento\SearchStorefront\Model\Catalog\Category::class,
+            \Magento\SearchStorefront\Model\Catalog\ResourceModel\Category::class
         );
-    }
-
-    /**
-     * @param string|null $entityCode
-     * @return $this
-     */
-    public function setEntityTypeFilter(?string $entityCode = null)
-    {
-        if ($entityCode) {
-            $connection = $this->getConnection();
-            $select = $connection->select()
-                ->from($connection->getTableName('eav_entity_type'))
-                ->where('entity_type_code = ?', $entityCode);
-
-            $result = $connection->fetchRow($select);
-            $this->entityCode = $result['entity_type_id'] ?? null;
-        }
-
-        return $this;
     }
 
     /**
@@ -96,15 +76,4 @@ class Collection extends AbstractCollection
         return $this;
     }
 
-    /**
-     * @return Collection
-     */
-    public function _beforeLoad()
-    {
-        if ($this->entityCode) {
-            $this->addFieldToFilter('entity_type_id', $this->entityCode);
-        }
-
-        return parent::_beforeLoad();
-    }
 }
