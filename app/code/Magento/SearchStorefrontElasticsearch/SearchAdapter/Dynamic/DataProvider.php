@@ -13,6 +13,7 @@ use Magento\SearchStorefrontElasticsearch\SearchAdapter\QueryContainer;
  *
  * @api
  * @since 100.1.0
+ * @deprecated this class replaced in StorefrontSearch
  */
 class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInterface, QueryAwareInterface
 {

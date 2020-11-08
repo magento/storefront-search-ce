@@ -5,7 +5,6 @@
  */
 namespace Magento\SearchStorefrontElasticsearch\SearchAdapter;
 
-use Magento\CatalogSearch\Model\Indexer\Fulltext;
 use Magento\SearchStorefrontElasticsearch\Model\Config;
 
 /**

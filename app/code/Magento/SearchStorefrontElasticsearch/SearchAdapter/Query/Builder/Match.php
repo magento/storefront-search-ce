@@ -74,6 +74,7 @@ class Match implements QueryInterface
      */
     public function build(array $selectQuery, RequestQueryInterface $requestQuery, $conditionType)
     {
+
         $queryValue = $this->prepareQuery($requestQuery->getValue(), $conditionType);
         $queries = $this->buildQueries($requestQuery->getMatches(), $queryValue);
         $requestQueryBoost = $requestQuery->getBoost() ?: 1;

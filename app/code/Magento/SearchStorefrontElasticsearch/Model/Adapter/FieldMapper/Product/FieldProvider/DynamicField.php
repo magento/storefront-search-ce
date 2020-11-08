@@ -21,6 +21,7 @@ use Magento\Store\Api\GroupRepositoryInterface;
 
 /**
  * Provide dynamic fields for product.
+ * @deprecated this class replaced in StorefrontSearch
  */
 class DynamicField implements FieldProviderInterface
 {
