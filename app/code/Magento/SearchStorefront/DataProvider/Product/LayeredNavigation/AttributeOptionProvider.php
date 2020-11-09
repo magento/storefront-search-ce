@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace Magento\SearchStorefront\DataProvider\Product\LayeredNavigation;
 
 use Magento\Framework\App\ResourceConnection;
-use Magento\Store\Model\Store;
 
 /**
  * Fetch product attribute option data including attribute info
@@ -53,7 +52,8 @@ class AttributeOptionProvider
             return [];
         }
 
-        $storeId = $storeId ?: Store::DEFAULT_STORE_ID;
+        //TODO Replace default store Id
+        $storeId = $storeId ?: 0;
         $connection = $this->resourceConnection->getConnection();
         $select = $connection->select()
             ->from(
@@ -87,7 +87,7 @@ class AttributeOptionProvider
                 ]
             )->where(
                 'a.attribute_id = options.attribute_id AND option_value.store_id = ?',
-                Store::DEFAULT_STORE_ID
+                0
             );
 
         $select->where('option_value.option_id IN (?)', $optionIds);
