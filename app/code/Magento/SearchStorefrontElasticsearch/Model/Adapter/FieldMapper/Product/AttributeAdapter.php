@@ -11,6 +11,8 @@ use Magento\Framework\Api\CustomAttributesDataInterface;
 
 /**
  * Product attribute adapter for elasticsearch context.
+ * Copied from Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\AttributeAdapter
+ * removed dependencies on eav and catalog
  */
 class AttributeAdapter
 {
@@ -25,15 +27,23 @@ class AttributeAdapter
     private $attributeCode;
 
     /**
+     * @var string
+     */
+    private string $eavModelClass;
+
+    /**
      * @param CustomAttributesDataInterface $attribute
      * @param string $attributeCode
+     * @param string $eavModelClass
      */
     public function __construct(
         CustomAttributesDataInterface $attribute,
-        string $attributeCode
+        string $attributeCode,
+        string $eavModelClass = ''
     ) {
         $this->attribute = $attribute;
         $this->attributeCode = $attributeCode;
+        $this->eavModelClass = $eavModelClass;
     }
 
     /**
@@ -145,7 +155,7 @@ class AttributeAdapter
      */
     public function isEavAttribute(): bool
     {
-        return $this->getAttribute() instanceof \Magento\SearchStorefront\Model\Eav\Attribute;
+        return !empty($this->eavModelClass) ? $this->getAttribute() instanceof $this->eavModelClass : false;
     }
 
     /**
@@ -191,7 +201,7 @@ class AttributeAdapter
     /**
      * Get product attribute instance.
      *
-     * @return CustomAttributesDataInterface|\Magento\Eav\Api\Data\AttributeInterface
+     * @return CustomAttributesDataInterface
      */
     private function getAttribute()
     {

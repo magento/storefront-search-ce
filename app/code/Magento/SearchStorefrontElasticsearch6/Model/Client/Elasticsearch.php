@@ -14,6 +14,7 @@ use Magento\Framework\Exception\LocalizedException;
  * Elasticsearch client
  *
  * @deprecated the new minor release supports compatibility with Elasticsearch 7
+ * Copy of  Magento\Elasticsearch6\Model\Client\Elasticsearch
  */
 class Elasticsearch implements ClientInterface
 {
@@ -385,8 +386,7 @@ class Elasticsearch implements ClientInterface
      */
     public function query($query)
     {
-        $res = $this->getClient()->search($query);
-        return $res;
+        return $this->getClient()->search($query);
     }
 
     /**

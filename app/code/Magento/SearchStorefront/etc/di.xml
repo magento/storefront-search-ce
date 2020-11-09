@@ -172,43 +172,15 @@
         </arguments>
     </type>
 
-    <!-- configure replacements for catalog dependencies in elasticsearch field providers -->
-    <type name="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\CompositeFieldProvider">
+    <!-- configure elasticsearch overrides to avoid circular dependencies-->
+    <type name="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeProvider">
         <arguments>
-            <argument name="providers" xsi:type="array">
-                <item name="static" xsi:type="object">\Magento\SearchStorefront\Model\Elasticsearch\FieldMapper\Product\FieldProvider\StaticField</item>
-                <item name="dynamic" xsi:type="object">\Magento\SearchStorefront\Model\Elasticsearch\FieldMapper\Product\FieldProvider\DynamicField</item>
-            </argument>
+            <argument name="collectionFactory" xsi:type="string">Magento\SearchStorefront\Model\Eav\Attribute\CollectionFactory</argument>
         </arguments>
     </type>
-    <virtualType name="storefrontElasticsearch5FieldProvider" type="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\CompositeFieldProvider">
+    <type name="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeAdapter">
         <arguments>
-            <argument name="providers" xsi:type="array">
-                <item name="static" xsi:type="object">storefrontElasticsearch5StaticFieldProvider</item>
-                <item name="dynamic" xsi:type="object">storefrontElasticsearch5DynamicFieldProvider</item>
-            </argument>
-        </arguments>
-    </virtualType>
-    <virtualType name="storefrontElasticsearch5StaticFieldProvider" type="Magento\SearchStorefront\Model\Elasticsearch\FieldMapper\Product\FieldProvider\StaticField">
-        <arguments>
-            <argument name="fieldTypeConverter" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Converter</argument>
-            <argument name="indexTypeConverter" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\Converter</argument>
-            <argument name="fieldIndexResolver" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\IndexResolver</argument>
-            <argument name="fieldTypeResolver" xsi:type="object">\Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Resolver\CompositeResolver</argument>
-            <argument name="fieldNameResolver" xsi:type="object">storefrontElasticsearch5FieldNameResolver</argument>
-        </arguments>
-    </virtualType>
-    <virtualType name="storefrontElasticsearch5DynamicFieldProvider" type="\Magento\SearchStorefront\Model\Elasticsearch\FieldMapper\Product\FieldProvider\DynamicField">
-        <arguments>
-            <argument name="fieldTypeConverter" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Converter</argument>
-            <argument name="indexTypeConverter" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\Converter</argument>
-        </arguments>
-    </virtualType>
-    <type name="Magento\SearchStorefront\Model\Elasticsearch\FieldMapper\Product\FieldProvider\StaticField">
-        <arguments>
-            <argument name="excludedAttributes" xsi:type="array">
-                <item name="price" xsi:type="string">price</item>
-            </argument>
+            <argument name="eavModelClass" xsi:type="string">Magento\SearchStorefront\Model\Eav\Attribute</argument>
         </arguments>
     </type>
 </config>
