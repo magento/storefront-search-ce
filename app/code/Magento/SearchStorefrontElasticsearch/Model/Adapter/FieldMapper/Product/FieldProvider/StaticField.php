@@ -7,15 +7,12 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider;
 
-use Magento\Catalog\Api\Data\ProductAttributeInterface;
-use Magento\Eav\Model\Config;
-use Magento\Eav\Model\Entity\Attribute\AbstractAttribute;
-
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeProvider;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\ConverterInterface
     as IndexTypeConverterInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\ResolverInterface
     as FieldIndexResolver;
+use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\ResolverInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\ConverterInterface
     as FieldTypeConverterInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\ResolverInterface
@@ -25,15 +22,11 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface;
 
 /**
  * Provide static fields for mapping of product.
- * @deprecated this class replaced in StorefrontSearch
+ * Copied from  Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\StaticField
+ * removed dependencies on eav and catalog
  */
 class StaticField implements FieldProviderInterface
 {
-    /**
-     * @var Config
-     */
-    private $eavConfig;
-
     /**
      * @var FieldTypeConverterInterface
      */
@@ -60,7 +53,7 @@ class StaticField implements FieldProviderInterface
     private $fieldIndexResolver;
 
     /**
-     * @var FieldName\ResolverInterface
+     * @var ResolverInterface
      */
     private $fieldNameResolver;
 
@@ -70,26 +63,23 @@ class StaticField implements FieldProviderInterface
     private $excludedAttributes;
 
     /**
-     * @param Config $eavConfig
      * @param FieldTypeConverterInterface $fieldTypeConverter
      * @param IndexTypeConverterInterface $indexTypeConverter
      * @param FieldTypeResolver $fieldTypeResolver
      * @param FieldIndexResolver $fieldIndexResolver
      * @param AttributeProvider $attributeAdapterProvider
-     * @param FieldName\ResolverInterface $fieldNameResolver
+     * @param ResolverInterface $fieldNameResolver
      * @param array $excludedAttributes
      */
     public function __construct(
-        Config $eavConfig,
         FieldTypeConverterInterface $fieldTypeConverter,
         IndexTypeConverterInterface $indexTypeConverter,
         FieldTypeResolver $fieldTypeResolver,
         FieldIndexResolver $fieldIndexResolver,
         AttributeProvider $attributeAdapterProvider,
-        FieldName\ResolverInterface $fieldNameResolver,
+        ResolverInterface $fieldNameResolver,
         array $excludedAttributes = []
     ) {
-        $this->eavConfig = $eavConfig;
         $this->fieldTypeConverter = $fieldTypeConverter;
         $this->indexTypeConverter = $indexTypeConverter;
         $this->fieldTypeResolver = $fieldTypeResolver;
@@ -108,28 +98,16 @@ class StaticField implements FieldProviderInterface
      */
     public function getFields(array $context = []): array
     {
-        $attributes = $this->eavConfig->getEntityAttributes(ProductAttributeInterface::ENTITY_TYPE_CODE);
-        $allAttributes = [];
-
-        foreach ($attributes as $attribute) {
-            $allAttributes += $this->getField($attribute);
-        }
-
-        $allAttributes['store_id'] = [
-            'type' => $this->fieldTypeConverter->convert(FieldTypeConverterInterface::INTERNAL_DATA_TYPE_STRING),
-            'index' => $this->indexTypeConverter->convert(IndexTypeConverterInterface::INTERNAL_NO_INDEX_VALUE),
-        ];
-
-        return $allAttributes;
+        return [];
     }
 
     /**
      * Get field mapping for specific attribute.
      *
-     * @param AbstractAttribute $attribute
+     * @param $attribute
      * @return array
      */
-    public function getField(AbstractAttribute $attribute): array
+    public function getField($attribute): array
     {
         $fieldMapping = [];
         if (in_array($attribute->getAttributeCode(), $this->excludedAttributes, true)) {

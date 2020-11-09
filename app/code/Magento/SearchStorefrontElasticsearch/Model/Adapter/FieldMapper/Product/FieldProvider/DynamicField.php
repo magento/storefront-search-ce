@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider;
 
+use Magento\Framework\App\ResourceConnection;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeProvider;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\ConverterInterface
     as IndexTypeConverterInterface;
@@ -16,28 +17,14 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\Fiel
     as FieldTypeConverterInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProviderInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
-use Magento\Store\Api\GroupRepositoryInterface;
 
 /**
  * Provide dynamic fields for product.
- * @deprecated this class replaced in StorefrontSearch
+ * Copied from  Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\DynamicField
+ * removed dependencies on eav and catalog
  */
 class DynamicField implements FieldProviderInterface
 {
-    /**
-     * Category collection.
-     *
-     * @var Collection
-     */
-    private $categoryCollection;
-
-    /**
-     * Customer group repository.
-     *
-     * @var GroupRepositoryInterface
-     */
-    private $groupRepository;
-
     /**
      * Search criteria builder.
      *
@@ -66,30 +53,32 @@ class DynamicField implements FieldProviderInterface
     private $fieldNameResolver;
 
     /**
+     * @var ResourceConnection
+     */
+    private $resourceConnection;
+
+    /**
      * @param FieldTypeConverterInterface $fieldTypeConverter
      * @param IndexTypeConverterInterface $indexTypeConverter
-     * @param GroupRepositoryInterface $groupRepository
      * @param SearchCriteriaBuilder $searchCriteriaBuilder
      * @param FieldNameResolver $fieldNameResolver
      * @param AttributeProvider $attributeAdapterProvider
-     * @param Collection $categoryCollection
+     * @param ResourceConnection $resourceConnection
      */
     public function __construct(
         FieldTypeConverterInterface $fieldTypeConverter,
         IndexTypeConverterInterface $indexTypeConverter,
-        GroupRepositoryInterface $groupRepository,
         SearchCriteriaBuilder $searchCriteriaBuilder,
         FieldNameResolver $fieldNameResolver,
         AttributeProvider $attributeAdapterProvider,
-        Collection $categoryCollection
+        ResourceConnection $resourceConnection
     ) {
-        $this->groupRepository = $groupRepository;
         $this->searchCriteriaBuilder = $searchCriteriaBuilder;
         $this->fieldTypeConverter = $fieldTypeConverter;
         $this->indexTypeConverter = $indexTypeConverter;
         $this->fieldNameResolver = $fieldNameResolver;
         $this->attributeAdapterProvider = $attributeAdapterProvider;
-        $this->categoryCollection = $categoryCollection;
+        $this->resourceConnection = $resourceConnection;
     }
 
     /**
@@ -98,7 +87,7 @@ class DynamicField implements FieldProviderInterface
     public function getFields(array $context = []): array
     {
         $allAttributes = [];
-        $categoryIds = $this->categoryCollection->getAllIds();
+        $categoryIds = $this->getAllCategoryIds();
         $positionAttribute = $this->attributeAdapterProvider->getByAttributeCode('position');
         $categoryNameAttribute = $this->attributeAdapterProvider->getByAttributeCode('category_name');
         foreach ($categoryIds as $categoryId) {
@@ -120,12 +109,11 @@ class DynamicField implements FieldProviderInterface
             ];
         }
 
-        $searchCriteria = $this->searchCriteriaBuilder->create();
-        $groups = $this->groupRepository->getList($searchCriteria)->getItems();
+        $groups = $this->getAllCustomerGroupIds();
         $priceAttribute = $this->attributeAdapterProvider->getByAttributeCode('price');
         $ctx = isset($context['websiteId']) ? ['websiteId' => $context['websiteId']] : [];
-        foreach ($groups as $group) {
-            $ctx['customerGroupId'] = $group->getId();
+        foreach ($groups as $groupId) {
+            $ctx['customerGroupId'] = $groupId;
             $groupPriceKey = $this->fieldNameResolver->getFieldName(
                 $priceAttribute,
                 $ctx
@@ -137,5 +125,39 @@ class DynamicField implements FieldProviderInterface
         }
 
         return $allAttributes;
+    }
+
+    /**
+     * Get customer group ids instead of using repository interface.
+     *
+     * @return array
+     */
+    public function getAllCustomerGroupIds()
+    {
+        $connection = $this->resourceConnection->getConnection();
+        $select = $connection->select()
+            ->from(
+                $connection->getTableName('customer_group'),
+                ['customer_group_id']
+            );
+
+        return $connection->fetchCol($select);
+    }
+
+    /**
+     * Get customer group ids instead of using repository interface.
+     *
+     * @return array
+     */
+    public function getAllCategoryIds()
+    {
+        $connection = $this->resourceConnection->getConnection();
+        $select = $connection->select()
+            ->from(
+                $connection->getTableName('catalog_category_entity'),
+                ['entity_id']
+            );
+
+        return $connection->fetchCol($select);
     }
 }

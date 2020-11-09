@@ -7,13 +7,13 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product;
 
-use Magento\SearchStorefront\Model\Eav\Attribute\CollectionFactory;
-use Magento\SearchStorefront\Model\Eav\Attribute\Collection as AttributeCollection;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeAdapter\DummyAttribute;
 use Psr\Log\LoggerInterface;
 
 /**
  * Provide attribute adapter.
+ * Copied from Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\AttributeProvider
+ * removed dependencies on eav and catalog
  */
 class AttributeProvider
 {
@@ -50,20 +50,20 @@ class AttributeProvider
      * Factory constructor
      *
      * @param \Magento\Framework\ObjectManagerInterface $objectManager
-     * @param CollectionFactory $collectionFactory
      * @param LoggerInterface $logger
+     * @param string $collectionFactory
      * @param string $instanceName
      */
     public function __construct(
         \Magento\Framework\ObjectManagerInterface $objectManager,
-        CollectionFactory $collectionFactory,
         LoggerInterface $logger,
+        string $collectionFactory = '',
         $instanceName = AttributeAdapter::class
     ) {
         $this->objectManager = $objectManager;
+        $this->logger = $logger;
         $this->collectionFactory = $collectionFactory;
         $this->instanceName = $instanceName;
-        $this->logger = $logger;
     }
 
     /**
@@ -72,8 +72,12 @@ class AttributeProvider
     public function getByAttributeCode(string $attributeCode): AttributeAdapter
     {
         if (!isset($this->cachedPool[$attributeCode])) {
-            /** @var AttributeCollection $collection */
-            $collection = $this->collectionFactory->create();
+            if (empty($this->collectionFactory)) {
+                throw new \InvalidArgumentException('Attribute collection class name not provided');
+            }
+
+            $collectionFactory = $this->objectManager->create($this->collectionFactory);
+            $collection = $collectionFactory->create();
             $collection->addFieldToFilter('attribute_code', $attributeCode);
             $collection->setEntityTypeFilter('catalog_product')->load();
             $attribute = $collection->getFirstItem();
