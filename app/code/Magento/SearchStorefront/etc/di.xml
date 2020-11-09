@@ -49,7 +49,7 @@
     <preference for="Magento\Framework\App\ScopeResolver" type="Magento\SearchStorefront\Model\Scope\ScopeResolver" />
     <preference for="Magento\Framework\App\ScopeResolverInterface" type="Magento\SearchStorefront\Model\Scope\ScopeResolver" />
     <preference for="Magento\SearchStorefrontStore\Model\StoreManagerInterface" type="Magento\SearchStorefrontStore\Model\StoreManager" />
-    <preference for="Magento\SearchStorefrontStore\Api\Data\StoreInterface" type="Magento\SearchStorefrontStore\Model\Store" />
+    <preference for="Magento\SearchStorefrontStore\Model\StoreInterface" type="Magento\SearchStorefrontStore\Model\Store" />
 
     <type name="Magento\Framework\EntityManager\MetadataPool">
         <arguments>

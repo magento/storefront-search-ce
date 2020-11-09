@@ -9,9 +9,10 @@ use Magento\SearchStorefrontStore\Api\Data\StoreExtensionInterface;
 /**
  * Store model stub for search service
  */
-class Store extends \Magento\Framework\DataObject implements \Magento\SearchStorefrontStore\Api\Data\StoreInterface, \Magento\Framework\App\ScopeInterface
+class Store extends \Magento\Framework\DataObject implements \Magento\SearchStorefrontStore\Model\StoreInterface, \Magento\Framework\App\ScopeInterface
 {
     const DEFAULT_STORE_ID = 0;
+
     /**
      * @var ResourceConnection
      */
@@ -70,39 +71,6 @@ class Store extends \Magento\Framework\DataObject implements \Magento\SearchStor
     public function setWebsiteId($websiteId)
     {
         $this->setData('website_id', (int)$websiteId);
-        return $this;
-    }
-
-    public function getStoreGroupId()
-    {
-        return (int)$this->getData('store_group_id');
-    }
-
-    public function setIsActive($isActive)
-    {
-        $this->setData('is_active', (int)$isActive);
-        return $this;
-    }
-
-    public function getIsActive()
-    {
-        return (int)$this->getData('is_active');
-    }
-
-    public function setStoreGroupId($storeGroupId)
-    {
-        $this->setData('store_group_id', (int)$storeGroupId);
-        return $this;
-    }
-
-    public function getExtensionAttributes()
-    {
-        return $this->getData('extension_attributes');
-    }
-
-    public function setExtensionAttributes(StoreExtensionInterface $extensionAttributes)
-    {
-        $this->setData('extension_attributes', $extensionAttributes);
         return $this;
     }
 
@@ -196,7 +164,6 @@ class Store extends \Magento\Framework\DataObject implements \Magento\SearchStor
         $this->setRootCategoryId($result['root_category_id']);
         $this->setCode($result['code']);
         $this->setName($result['name']);
-        $this->setStoreGroupId($result['group_id']);
 
         return $this;
     }
