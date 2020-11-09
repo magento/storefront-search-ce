@@ -145,6 +145,7 @@ class AttributeAdapter
      */
     public function isEavAttribute(): bool
     {
+        //@TODO RESOLVE CORRECTLY
         return $this->getAttribute() instanceof \Magento\Eav\Api\Data\AttributeInterface;
     }
 
@@ -193,7 +194,7 @@ class AttributeAdapter
      *
      * @return CustomAttributesDataInterface|\Magento\Eav\Api\Data\AttributeInterface
      */
-    private function getAttribute(): CustomAttributesDataInterface
+    private function getAttribute()
     {
         return $this->attribute;
     }

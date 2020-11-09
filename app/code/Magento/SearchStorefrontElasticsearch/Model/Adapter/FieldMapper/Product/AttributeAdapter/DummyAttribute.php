@@ -13,7 +13,7 @@ use Magento\Framework\Api\CustomAttributesDataInterface;
  * Dummy class for Not EAV attribute.
  * @SuppressWarnings(PHPMD)
  */
-class DummyAttribute implements CustomAttributesDataInterface
+class DummyAttribute extends \Magento\Framework\DataObject implements CustomAttributesDataInterface
 {
     /**
      * Get an attribute value.

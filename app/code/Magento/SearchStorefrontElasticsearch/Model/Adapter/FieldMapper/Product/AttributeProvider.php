@@ -9,7 +9,6 @@ namespace Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Produc
 
 use Magento\SearchStorefront\Model\Eav\Attribute\CollectionFactory;
 use Magento\SearchStorefront\Model\Eav\Attribute\Collection as AttributeCollection;
-use Magento\SearchStorefront\Model\Elasticsearch\FieldMapper\Product\AttributeAdapter;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeAdapter\DummyAttribute;
 use Psr\Log\LoggerInterface;
 

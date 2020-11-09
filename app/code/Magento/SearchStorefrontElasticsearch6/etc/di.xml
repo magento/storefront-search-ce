@@ -45,13 +45,13 @@
         </arguments>
     </type>
 
-    <type name="Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\BatchDataMapper\CategoryFieldsProviderProxy">
-        <arguments>
-            <argument name="categoryFieldsProviders" xsi:type="array">
-                <item name="storefrontElasticsearch6" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\BatchDataMapper\CategoryFieldsProvider</item>
-            </argument>
-        </arguments>
-    </type>
+<!--    <type name="Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\BatchDataMapper\CategoryFieldsProviderProxy">-->
+<!--        <arguments>-->
+<!--            <argument name="categoryFieldsProviders" xsi:type="array">-->
+<!--                <item name="storefrontElasticsearch6" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\BatchDataMapper\CategoryFieldsProvider</item>-->
+<!--            </argument>-->
+<!--        </arguments>-->
+<!--    </type>-->
 
     <type name="Magento\Framework\Search\Dynamic\IntervalFactory">
         <arguments>
