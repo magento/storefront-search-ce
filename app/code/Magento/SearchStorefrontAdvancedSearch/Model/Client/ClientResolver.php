@@ -12,8 +12,7 @@ use Magento\Framework\ObjectManagerInterface;
 use Magento\Framework\Search\EngineResolverInterface;
 
 /**
- * @api
- * @since 100.1.0
+ * Copied from Magento_AdvancedSearch
  */
 class ClientResolver
 {
@@ -21,7 +20,6 @@ class ClientResolver
      * Object Manager instance
      *
      * @var ObjectManagerInterface
-     * @since 100.1.0
      */
     protected $objectManager;
 
@@ -66,7 +64,6 @@ class ClientResolver
      * Returns configured search engine
      *
      * @return string
-     * @since 100.1.0
      */
     public function getCurrentEngine()
     {
@@ -79,7 +76,6 @@ class ClientResolver
      * @param string $engine
      * @param array $data
      * @return ClientInterface
-     * @since 100.1.0
      */
     public function create($engine = '', array $data = [])
     {
