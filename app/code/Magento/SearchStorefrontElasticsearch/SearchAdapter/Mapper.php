@@ -42,7 +42,6 @@ class Mapper extends Elasticsearch5Mapper
      *
      * @param RequestInterface $request
      * @return array
-     * @since 100.1.0
      */
     public function buildQuery(RequestInterface $request)
     {

@@ -25,8 +25,6 @@ use Magento\Framework\App\Cache\Type\Config;
 /**
  * System configuration type
  *
- * @api
- * @since 100.1.2
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  * @SuppressWarnings(PHPMD.UnusedPrivateMethod)
  */
@@ -165,7 +163,6 @@ class System implements ConfigTypeInterface
      * '{scopeType}/{scopeCode}/some/config/variable' - will return value of the config variable in the specified scope
      *
      * @inheritdoc
-     * @since 100.1.2
      */
     public function get($path = '')
     {
@@ -405,7 +402,6 @@ class System implements ConfigTypeInterface
      * - All records in cache storage tagged with CACHE_TAG
      *
      * @return void
-     * @since 100.1.2
      */
     public function clean()
     {

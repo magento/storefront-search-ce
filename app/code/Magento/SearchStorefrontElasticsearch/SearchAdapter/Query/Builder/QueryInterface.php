@@ -17,7 +17,6 @@ interface QueryInterface
      * @param RequestQueryInterface $requestQuery
      * @param string $conditionType
      * @return array
-     * @since 100.1.0
      */
     public function build(
         array $selectQuery,

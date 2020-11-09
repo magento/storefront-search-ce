@@ -10,9 +10,6 @@ use Magento\SearchStorefront\Model\Eav\Attribute;
 
 /**
  * Catalog search reguest generator interface.
- *
- * @api
- * @since 100.1.6
  */
 interface GeneratorInterface
 {
@@ -22,7 +19,6 @@ interface GeneratorInterface
      * @param Attribute $attribute
      * @param string $filterName
      * @return array
-     * @since 100.1.6
      */
     public function getFilterData(Attribute $attribute, $filterName);
 
@@ -32,7 +28,6 @@ interface GeneratorInterface
      * @param Attribute $attribute
      * @param string $bucketName
      * @return array
-     * @since 100.1.6
      */
     public function getAggregationData(Attribute $attribute, $bucketName);
 }

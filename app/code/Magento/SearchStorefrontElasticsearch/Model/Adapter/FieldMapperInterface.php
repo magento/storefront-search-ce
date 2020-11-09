@@ -24,7 +24,6 @@ interface FieldMapperInterface
      * @param string $attributeCode
      * @param array $context
      * @return string
-     * @since 100.1.0
      */
     public function getFieldName($attributeCode, $context = []);
 
@@ -33,7 +32,6 @@ interface FieldMapperInterface
      *
      * @param array $context
      * @return array
-     * @since 100.1.0
      */
     public function getAllAttributesTypes($context = []);
 }

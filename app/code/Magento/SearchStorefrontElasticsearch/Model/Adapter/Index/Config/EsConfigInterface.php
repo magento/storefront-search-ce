@@ -12,13 +12,11 @@ interface EsConfigInterface
 {
     /**
      * @return array
-     * @since 100.1.0
      */
     public function getStemmerInfo();
 
     /**
      * @return array
-     * @since 100.1.0
      */
     public function getStopwordsInfo();
 }

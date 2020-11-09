@@ -13,9 +13,6 @@ use Magento\SearchStorefrontStore\Model\ScopeInterface;
 
 /**
  * Catalog search config.
- *
- * @api
- * @since 100.0.2
  */
 class Options implements OptionsInterface
 {

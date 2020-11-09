@@ -17,7 +17,6 @@ class ResponseFactory
      * Object Manager instance
      *
      * @var ObjectManagerInterface
-     * @since 100.1.0
      */
     protected $objectManager;
 
@@ -25,16 +24,14 @@ class ResponseFactory
      * Document Factory
      *
      * @var DocumentFactory
-     * @since 100.1.0
-     */
+    */
     protected $documentFactory;
 
     /**
      * Aggregation Factory
      *
      * @var AggregationFactory
-     * @since 100.1.0
-     */
+    */
     protected $aggregationFactory;
 
     /**
@@ -57,8 +54,7 @@ class ResponseFactory
      *
      * @param array $response
      * @return \Magento\Framework\Search\Response\QueryResponse
-     * @since 100.1.0
-     */
+    */
     public function create($response)
     {
         $documents = [];

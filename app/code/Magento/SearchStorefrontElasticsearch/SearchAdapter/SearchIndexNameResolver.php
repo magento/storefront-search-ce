@@ -35,7 +35,6 @@ class SearchIndexNameResolver
      * @param int $storeId
      * @param string $indexerId
      * @return string
-     * @since 100.1.0
      */
     public function getIndexName($storeId, $indexerId)
     {

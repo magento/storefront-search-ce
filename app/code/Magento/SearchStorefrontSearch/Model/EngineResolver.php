@@ -11,37 +11,30 @@ use Psr\Log\LoggerInterface;
 
 /**
  * Search engine resolver model.
- *
- * @api
- * @since 100.1.0
  */
 class EngineResolver implements EngineResolverInterface
 {
     /**
      * @var ScopeConfigInterface
-     * @since 100.1.0
-     */
+    */
     protected $scopeConfig;
 
     /**
      * Path to catalog search engine
      * @var string
-     * @since 100.1.0
-     */
+    */
     protected $path;
 
     /**
      * Scope type
      * @var string
-     * @since 100.1.0
-     */
+    */
     protected $scopeType;
 
     /**
      * Scope code
      * @var null|string
-     * @since 100.1.0
-     */
+    */
     protected $scopeCode;
 
     /**
@@ -93,8 +86,7 @@ class EngineResolver implements EngineResolverInterface
      * It returns string identifier of Search Engine that is currently chosen in configuration
      *
      * @return string
-     * @since 100.1.0
-     */
+    */
     public function getCurrentSearchEngine()
     {
         $engine = $this->scopeConfig->getValue(

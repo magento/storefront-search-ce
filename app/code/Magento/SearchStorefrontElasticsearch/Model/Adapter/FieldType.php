@@ -38,7 +38,6 @@ class FieldType
      * @see ResolverInterface::getFieldType
      *
      * @return string
-     * @since 100.1.0
      */
     public function getFieldType($attribute)
     {

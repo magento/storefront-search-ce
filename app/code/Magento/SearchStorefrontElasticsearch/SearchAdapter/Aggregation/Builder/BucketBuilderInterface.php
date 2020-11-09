@@ -20,7 +20,6 @@ interface BucketBuilderInterface
      * @param array $queryResult
      * @param DataProviderInterface $dataProvider
      * @return array
-     * @since 100.1.0
      */
     public function build(
         RequestBucketInterface $bucket,

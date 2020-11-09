@@ -16,8 +16,6 @@ namespace Magento\SearchStorefrontSearch\Model;
  * @method int getWebsiteId()
  * @method \Magento\SearchStorefrontSearch\Model\SynonymReader setSynonyms(string $value)
  * @method string getSynonyms()
- * @api
- * @since 100.1.0
  */
 class SynonymReader extends \Magento\Framework\DataObject
 {
@@ -25,16 +23,14 @@ class SynonymReader extends \Magento\Framework\DataObject
      * Event prefix
      *
      * @var string
-     * @since 100.1.0
-     */
+    */
     protected $_eventPrefix = 'search_synonyms';
 
     /**
      * Event object key name
      *
      * @var string
-     * @since 100.1.0
-     */
+    */
     protected $_eventObject = 'search_synonyms';
 
     /**
@@ -43,8 +39,7 @@ class SynonymReader extends \Magento\Framework\DataObject
      * @param string $phrase
      * @return $this
      * @throws \Magento\Framework\Exception\LocalizedException
-     * @since 100.1.0
-     */
+    */
     public function loadByPhrase($phrase)
     {
         // @TODO synonyms reader need to be implemented to read data from another storage then DB (eg create indexer to index synonyms to elastic)

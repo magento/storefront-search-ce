@@ -17,7 +17,6 @@ class AggregationFactory
      * Object Manager instance
      *
      * @var ObjectManagerInterface
-     * @since 100.1.0
      */
     protected $objectManager;
 
@@ -34,8 +33,7 @@ class AggregationFactory
      *
      * @param array $rawAggregation
      * @return \Magento\Framework\Search\Response\Aggregation
-     * @since 100.1.0
-     */
+    */
     public function create(array $rawAggregation)
     {
         $buckets = [];

@@ -7,10 +7,6 @@ namespace Magento\SearchStorefrontSearch\Model;
 
 use Magento\Framework\Search\EngineResolverInterface;
 
-/**
- * @api
- * @since 100.0.2
- */
 class AdapterFactory
 {
     /**

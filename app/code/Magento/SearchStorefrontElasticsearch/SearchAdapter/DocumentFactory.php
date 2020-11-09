@@ -36,7 +36,6 @@ class DocumentFactory
      *
      * @param array $rawDocument
      * @return Document
-     * @since 100.1.0
      */
     public function create($rawDocument)
     {

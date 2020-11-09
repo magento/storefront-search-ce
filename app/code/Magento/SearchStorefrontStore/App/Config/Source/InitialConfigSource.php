@@ -11,6 +11,8 @@ use Magento\Framework\App\DeploymentConfig\Reader;
 
 /**
  * Config source. Retrieve all configuration data from files for specified config type
+ *
+ * Copied and adapted from Magento/Store
  */
 class InitialConfigSource implements ConfigSourceInterface
 {

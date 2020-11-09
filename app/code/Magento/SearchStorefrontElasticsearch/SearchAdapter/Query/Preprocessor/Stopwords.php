@@ -35,31 +35,26 @@ class Stopwords implements PreprocessorInterface
 
     /**
      * @var Resolver
-     * @since 100.1.0
      */
     protected $localeResolver;
 
     /**
      * @var ReadFactory
-     * @since 100.1.0
      */
     protected $readFactory;
 
     /**
      * @var Config
-     * @since 100.1.0
      */
     protected $configCache;
 
     /**
      * @var EsConfigInterface
-     * @since 100.1.0
      */
     protected $esConfig;
 
     /**
      * @var Reader
-     * @since 100.1.0
      */
     protected $moduleDirReader;
 
@@ -119,7 +114,6 @@ class Stopwords implements PreprocessorInterface
 
     /**
      * @inheritDoc
-     * @since 100.1.0
      */
     public function process($query)
     {
@@ -133,7 +127,6 @@ class Stopwords implements PreprocessorInterface
      * Get stopwords list for current locale
      *
      * @return array
-     * @since 100.1.0
      */
     protected function getStopwordsList()
     {
@@ -157,7 +150,6 @@ class Stopwords implements PreprocessorInterface
      * Get stopwords file for current locale
      *
      * @return string
-     * @since 100.1.0
      */
     protected function getStopwordsFile()
     {

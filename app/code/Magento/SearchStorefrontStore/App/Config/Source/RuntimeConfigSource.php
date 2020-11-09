@@ -13,6 +13,8 @@ use Magento\Framework\DB\Adapter\TableNotFoundException;
 
 /**
  * Config source. Retrieve all configuration for scopes from db
+ *
+ * Copied and adapted from Magento/Store
  */
 class RuntimeConfigSource implements ConfigSourceInterface
 {

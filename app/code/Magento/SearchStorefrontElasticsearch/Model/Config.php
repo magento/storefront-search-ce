@@ -42,7 +42,6 @@ class Config implements ClientOptionsInterface
 
     /**
      * @var ScopeConfigInterface
-     * @since 100.1.0
      */
     protected $scopeConfig;
 
@@ -100,7 +99,6 @@ class Config implements ClientOptionsInterface
     /**
      * @inheritdoc
      *
-     * @since 100.1.0
      */
     public function prepareClientOptions($options = [])
     {
@@ -133,7 +131,6 @@ class Config implements ClientOptionsInterface
      * @param string $field
      * @param int $storeId
      * @return string|int
-     * @since 100.1.0
      */
     public function getElasticsearchConfigData($field, $storeId = null) // @TODO scope based config??
     {
@@ -145,7 +142,6 @@ class Config implements ClientOptionsInterface
      * Return true if third party search engine is used
      *
      * @return bool
-     * @since 100.1.0
      */
     public function isElasticsearchEnabled()
     {
@@ -157,7 +153,6 @@ class Config implements ClientOptionsInterface
      * Get Elasticsearch index prefix
      *
      * @return string
-     * @since 100.1.0
      */
     public function getIndexPrefix()
     {
@@ -168,7 +163,6 @@ class Config implements ClientOptionsInterface
      * Get Elasticsearch entity type
      *
      * @return string
-     * @since 100.1.0
      */
     public function getEntityType()
     {

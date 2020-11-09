@@ -19,26 +19,22 @@ class ConnectionManager
 {
     /**
      * @var Elasticsearch
-     * @since 100.1.0
      */
     protected $client;
 
     /**
      * @var LoggerInterface
-     * @since 100.1.0
-     */
+    */
     protected $logger;
 
     /**
      * @var ClientFactoryInterface
-     * @since 100.1.0
-     */
+    */
     protected $clientFactory;
 
     /**
      * @var ClientOptionsInterface
-     * @since 100.1.0
-     */
+    */
     protected $clientConfig;
 
     /**
@@ -62,8 +58,7 @@ class ConnectionManager
      * @param array $options
      * @throws \RuntimeException
      * @return Elasticsearch
-     * @since 100.1.0
-     */
+    */
     public function getConnection($options = [])
     {
         if (!$this->client) {

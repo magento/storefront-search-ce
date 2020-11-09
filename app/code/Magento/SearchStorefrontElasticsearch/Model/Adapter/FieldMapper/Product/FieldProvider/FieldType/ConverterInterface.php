@@ -28,7 +28,6 @@ interface ConverterInterface
      *
      * @param string $internalType
      * @return string
-     * @since 100.3.0
      */
     public function convert(string $internalType): string;
 }

@@ -12,27 +12,21 @@ use Magento\SearchStorefrontElasticsearch\SearchAdapter\QueryContainer;
 
 /**
  * Elastic search data provider
- *
- * @api
- * @since 100.1.0
  */
 class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInterface, QueryAwareInterface
 {
     /**
      * @var \Magento\SearchStorefrontElasticsearch\SearchAdapter\ConnectionManager
-     * @since 100.1.0
      */
     protected $connectionManager;
 
     /**
      * @var \Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface
-     * @since 100.1.0
      */
     protected $fieldMapper;
 
     /**
      * @var \Magento\Framework\Search\Dynamic\IntervalFactory
-     * @since 100.1.0
      */
     protected $intervalFactory;
 
@@ -40,7 +34,6 @@ class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInte
      * @var \Magento\SearchStorefrontElasticsearch\Model\Config
      * @deprecated 100.2.0 as this class shouldn't be responsible for query building
      * and should only modify existing query
-     * @since 100.1.0
      */
     protected $clientConfig;
 
@@ -48,7 +41,6 @@ class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInte
      * @var \Magento\SearchStorefrontElasticsearch\SearchAdapter\SearchIndexNameResolver
      * @deprecated 100.2.0 as this class shouldn't be responsible for query building
      * and should only modify existing query
-     * @since 100.1.0
      */
     protected $searchIndexNameResolver;
 
@@ -56,13 +48,11 @@ class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInte
      * @var string
      * @deprecated 100.2.0 as this class shouldn't be responsible for query building
      * and should only modify existing query
-     * @since 100.1.0
      */
     protected $indexerId;
 
     /**
      * @var \Magento\Framework\App\ScopeResolverInterface
-     * @since 100.1.0
      */
     protected $scopeResolver;
 
@@ -113,7 +103,6 @@ class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInte
 
     /**
      * @inheritdoc
-     * @since 100.1.0
      */
     public function getRange()
     {
@@ -122,7 +111,6 @@ class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInte
 
     /**
      * @inheritdoc
-     * @since 100.1.0
      */
     public function getAggregations(\Magento\Framework\Search\Dynamic\EntityStorage $entityStorage)
     {
@@ -161,7 +149,6 @@ class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInte
 
     /**
      * @inheritdoc
-     * @since 100.1.0
      */
     public function getInterval(
         \Magento\Framework\Search\Request\BucketInterface $bucket,
@@ -185,7 +172,6 @@ class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInte
 
     /**
      * @inheritdoc
-     * @since 100.1.0
      */
     public function getAggregation(
         \Magento\Framework\Search\Request\BucketInterface $bucket,
@@ -220,7 +206,6 @@ class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInte
 
     /**
      * @inheritdoc
-     * @since 100.1.0
      */
     public function prepareData($range, array $dbRanges)
     {

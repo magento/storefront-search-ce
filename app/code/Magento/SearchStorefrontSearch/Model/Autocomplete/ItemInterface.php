@@ -6,10 +6,6 @@
 
 namespace Magento\SearchStorefrontSearch\Model\Autocomplete;
 
-/**
- * @api
- * @since 100.0.2
- */
 interface ItemInterface
 {
     /**

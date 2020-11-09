@@ -15,7 +15,6 @@ interface FilterInterface
     /**
      * @param RequestFilterInterface $filter
      * @return array
-     * @since 100.1.0
      */
     public function buildFilter(RequestFilterInterface $filter);
 }

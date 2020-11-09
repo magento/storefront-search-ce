@@ -50,7 +50,6 @@ class Builder extends Elasticsearch5Builder
      *
      * @param RequestInterface $request
      * @return array
-     * @since 100.1.0
      */
     public function initQuery(RequestInterface $request)
     {

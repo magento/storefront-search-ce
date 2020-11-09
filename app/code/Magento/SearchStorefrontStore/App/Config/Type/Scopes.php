@@ -12,6 +12,8 @@ use Magento\SearchStorefrontStore\Model\ScopeInterface;
 
 /**
  * Merge and hold scopes data from different sources
+ *
+ * Copied and adapted from Magento/Store
  */
 class Scopes implements ConfigTypeInterface
 {

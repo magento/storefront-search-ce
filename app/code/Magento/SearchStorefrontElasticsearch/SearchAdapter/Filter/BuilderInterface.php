@@ -22,7 +22,6 @@ interface BuilderInterface
      * @param RequestFilterInterface $filter
      * @param string $conditionType
      * @return string
-     * @since 100.1.0
      */
     public function build(RequestFilterInterface $filter, $conditionType);
 }
