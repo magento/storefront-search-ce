@@ -76,7 +76,7 @@
     <virtualType name="systemConfigPostProcessorComposite" type="Magento\Framework\App\Config\PostProcessorComposite">
         <arguments>
             <argument name="processors" xsi:type="array">
-                <!--                <item name="placeholder" xsi:type="object">Magento\Store\Model\Config\Processor\Placeholder</item>-->
+                <!--                <item name="placeholder" xsi:type="object">Magento\SearchStorefrontStore\Model\Config\Processor\Placeholder</item>-->
                 <item name="metadata" xsi:type="object">Magento\Framework\App\Config\MetadataConfigTypeProcessor</item>
             </argument>
         </arguments>

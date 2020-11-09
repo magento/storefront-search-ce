@@ -16,7 +16,7 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\Fiel
     as FieldTypeConverterInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProviderInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
-use Magento\Store\Api\GroupRepositoryInterface;
+use Magento\SearchStorefrontStore\Api\GroupRepositoryInterface;
 
 /**
  * Provide dynamic fields for product.

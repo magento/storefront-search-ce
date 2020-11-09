@@ -18,7 +18,7 @@ use Magento\Framework\Cache\LockGuardedCacheLoader;
 use Magento\Framework\Lock\LockManagerInterface;
 use Magento\Framework\Serialize\SerializerInterface;
 use Magento\Framework\Encryption\Encryptor;
-use Magento\Store\Model\ScopeInterface as StoreScope;
+use Magento\SearchStorefrontStore\Model\ScopeInterface as StoreScope;
 use Magento\Framework\App\Cache\StateInterface;
 use Magento\Framework\App\Cache\Type\Config;
 

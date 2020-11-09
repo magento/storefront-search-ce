@@ -8,8 +8,8 @@ declare(strict_types=1);
 namespace Magento\SearchStorefront\Model\Filter\Price;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Store\Model\ScopeInterface;
-use Magento\Store\Model\StoreManagerInterface;
+use Magento\SearchStorefrontStore\Model\ScopeInterface;
+use Magento\SearchStorefrontStore\Model\StoreManagerInterface;
 
 class Range
 {

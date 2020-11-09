@@ -15,8 +15,8 @@ use Magento\SearchStorefrontApi\Api\Data\ProductsSearchResultInterface;
 use Magento\SearchStorefrontApi\Api\SearchServerInterface;
 use Magento\SearchStorefrontApi\Api\Data\ProductsSearchResult;
 use Magento\SearchStorefrontSearch\Api\SearchInterface;
-use Magento\Store\Api\Data\StoreInterface;
-use Magento\Store\Model\StoreManagerInterface;
+use Magento\SearchStorefrontStore\Api\Data\StoreInterface;
+use Magento\SearchStorefrontStore\Model\StoreManagerInterface;
 use Psr\Log\LoggerInterface;
 
 /**
