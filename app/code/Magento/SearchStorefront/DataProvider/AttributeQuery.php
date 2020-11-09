@@ -204,7 +204,7 @@ class AttributeQuery
                     ['eav' => $this->resourceConnection->getTableName($attributeTable)],
                     \sprintf('e.%1$s = eav.%1$s', $linkField) .
                     $connection->quoteInto(' AND eav.attribute_id IN (?)', \array_keys($eavAttributesMetaData)) .
-                    $connection->quoteInto(' AND eav.store_id = ?', \Magento\Store\Model\Store::DEFAULT_STORE_ID),
+                    $connection->quoteInto(' AND eav.store_id = ?', \Magento\SearchStorefrontStore\Model\Store::DEFAULT_STORE_ID),
                     []
                 )
                 ->joinLeft(

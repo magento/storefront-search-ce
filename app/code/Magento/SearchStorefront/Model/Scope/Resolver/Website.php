@@ -47,7 +47,7 @@ class Website implements \Magento\Framework\App\ScopeResolverInterface
     /**
      * Retrieve a list of available stores
      *
-     * @return \Magento\Store\Model\Store[]
+     * @return \Magento\SearchStorefrontStore\Model\Store[]
      */
     public function getScopes()
     {

@@ -10,7 +10,7 @@ namespace Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Produc
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeAdapter;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\ResolverInterface;
 use Magento\Framework\Registry;
-use Magento\Store\Model\StoreManagerInterface as StoreManager;
+use Magento\SearchStorefrontStore\Model\StoreManagerInterface as StoreManager;
 
 /**
  * Resolver field name for position attribute.

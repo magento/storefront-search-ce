@@ -29,7 +29,7 @@ class AttributeAdapter
     /**
      * @var string
      */
-    private string $eavModelClass;
+    private $eavModelClass;
 
     /**
      * @param CustomAttributesDataInterface $attribute

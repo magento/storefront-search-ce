@@ -6,8 +6,7 @@
 namespace Magento\SearchStorefrontAdvancedSearch\Model\Client;
 
 /**
- * @api
- * @since 100.1.0
+ * Copied from Magento_AdvancedSearch
  */
 interface ClientInterface
 {
@@ -15,7 +14,6 @@ interface ClientInterface
      * Validate connection params for search engine
      *
      * @return bool
-     * @since 100.1.0
      */
     public function testConnection();
 }

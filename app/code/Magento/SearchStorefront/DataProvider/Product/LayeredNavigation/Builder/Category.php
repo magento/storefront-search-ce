@@ -15,7 +15,7 @@ use Magento\Framework\Api\Search\AggregationValueInterface;
 use Magento\Framework\Api\Search\BucketInterface;
 use Magento\Framework\App\ResourceConnection;
 use Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\Formatter\LayerFormatter;
-use Magento\SearchStorefront\Model\Store\Store;
+use Magento\SearchStorefrontStore\Model\Store;
 
 /**
  * @inheritdoc

@@ -76,7 +76,7 @@ class RequestTypeApplier extends FilterApplier
         // config need to be set in deployment configuration files
         $priceRangeCalculation = $this->scopeConfig->getValue(
             self::XML_PATH_RANGE_CALCULATION,
-            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
+            \Magento\SearchStorefrontStore\Model\ScopeInterface::SCOPE_STORE,
             $store
         );
 

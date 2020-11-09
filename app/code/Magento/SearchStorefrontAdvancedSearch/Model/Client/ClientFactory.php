@@ -7,6 +7,9 @@ namespace Magento\SearchStorefrontAdvancedSearch\Model\Client;
 
 use Magento\Framework\ObjectManagerInterface;
 
+/**
+ * Copied from Magento_AdvancedSearch
+ */
 class ClientFactory implements ClientFactoryInterface
 {
     /**

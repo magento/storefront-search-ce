@@ -48,8 +48,8 @@
 
     <preference for="Magento\Framework\App\ScopeResolver" type="Magento\SearchStorefront\Model\Scope\ScopeResolver" />
     <preference for="Magento\Framework\App\ScopeResolverInterface" type="Magento\SearchStorefront\Model\Scope\ScopeResolver" />
-    <preference for="Magento\Store\Model\StoreManagerInterface" type="Magento\SearchStorefront\Model\Store\StoreManager" />
-    <preference for="Magento\Store\Api\Data\StoreInterface" type="Magento\SearchStorefront\Model\Store\Store" />
+    <preference for="Magento\SearchStorefrontStore\Model\StoreManagerInterface" type="Magento\SearchStorefrontStore\Model\StoreManager" />
+    <preference for="Magento\SearchStorefrontStore\Model\StoreInterface" type="Magento\SearchStorefrontStore\Model\Store" />
 
     <type name="Magento\Framework\EntityManager\MetadataPool">
         <arguments>
@@ -59,7 +59,7 @@
                     <item name="eavEntityType" xsi:type="string">catalog_category</item>
                     <item name="identifierField" xsi:type="string">entity_id</item>
                     <item name="entityContext" xsi:type="array">
-                        <item name="store" xsi:type="string">Magento\Store\Model\StoreScopeProvider</item>
+                        <item name="store" xsi:type="string">Magento\SearchStorefrontStore\Model\StoreScopeProvider</item>
                     </item>
                 </item>
             </argument>
@@ -122,7 +122,13 @@
         </arguments>
     </type>
 
-    <!-- scope config settings -->
+    <!-- store/scope -->
+
+    <type name="Magento\Framework\App\Config\Initial\SchemaLocator">
+        <arguments>
+            <argument name="moduleName" xsi:type="string">Magento_SearchStorefront</argument>
+        </arguments>
+    </type>
     <type name="Magento\Framework\App\Config\Initial\Converter">
         <arguments>
             <argument name="nodeMap" xsi:type="array">
@@ -132,12 +138,6 @@
             </argument>
         </arguments>
     </type>
-    <type name="Magento\Framework\Reflection\MethodsMap">
-        <arguments>
-            <argument name="cache" xsi:type="object">Magento\Framework\App\Cache\Type\Reflection</argument>
-        </arguments>
-    </type>
-    <!-- scope resolvers replacements that are reading via direct sql -->
     <type name="Magento\Framework\App\ScopeResolverPool">
         <arguments>
             <argument name="scopeResolvers" xsi:type="array">
@@ -150,6 +150,15 @@
             </argument>
         </arguments>
     </type>
+
+    <!--/ store/scope -->
+
+    <type name="Magento\Framework\Reflection\MethodsMap">
+        <arguments>
+            <argument name="cache" xsi:type="object">Magento\Framework\App\Cache\Type\Reflection</argument>
+        </arguments>
+    </type>
+    <!-- scope resolvers replacements that are reading via direct sql -->
 
     <type name="Magento\Framework\Search\Request\Config\FilesystemReader">
         <plugin name="productAttributesDynamicFields"  type="Magento\SearchStorefront\Plugin\Search\Request\ConfigReader" />

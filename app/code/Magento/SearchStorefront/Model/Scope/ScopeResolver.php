@@ -5,20 +5,20 @@ namespace Magento\SearchStorefront\Model\Scope;
 class ScopeResolver implements \Magento\Framework\App\ScopeResolverInterface
 {
     /**
-     * @var \Magento\Store\Model\StoreManagerInterface
+     * @var \Magento\SearchStorefrontStore\Model\StoreManagerInterface
      */
     protected $_storeManager;
 
     /**
-     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
+     * @param \Magento\SearchStorefrontStore\Model\StoreManagerInterface $storeManager
      */
-    public function __construct(\Magento\Store\Model\StoreManagerInterface $storeManager)
+    public function __construct(\Magento\SearchStorefrontStore\Model\StoreManagerInterface $storeManager)
     {
         $this->_storeManager = $storeManager;
     }
 
     /**
-     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
+     * @param \Magento\SearchStorefrontStore\Model\StoreManagerInterface $storeManager
      */
     public function getScope($scopeId = null)
     {

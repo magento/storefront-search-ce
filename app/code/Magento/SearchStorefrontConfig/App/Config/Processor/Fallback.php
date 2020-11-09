@@ -9,7 +9,7 @@ use Magento\Framework\App\Config\Spi\PostProcessorInterface;
 use Magento\Framework\App\DeploymentConfig;
 use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\DB\Adapter\TableNotFoundException;
-use Magento\Store\App\Config\Type\Scopes;
+use Magento\SearchStorefrontStore\App\Config\Type\Scopes;
 
 /**
  * Fallback through different scopes and merge them

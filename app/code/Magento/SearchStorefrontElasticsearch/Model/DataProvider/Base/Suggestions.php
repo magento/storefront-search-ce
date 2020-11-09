@@ -15,8 +15,8 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\ObjectManager;
 use Magento\Search\Model\QueryInterface;
 use Magento\Search\Model\QueryResultFactory;
-use Magento\Store\Model\ScopeInterface;
-use Magento\Store\Model\StoreManagerInterface as StoreManager;
+use Magento\SearchStorefrontStore\Model\ScopeInterface;
+use Magento\SearchStorefrontStore\Model\StoreManagerInterface as StoreManager;
 use Psr\Log\LoggerInterface;
 
 /**

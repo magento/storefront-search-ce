@@ -14,8 +14,8 @@ use Magento\SearchStorefrontElasticsearch\SearchAdapter\SearchIndexNameResolver;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Search\Model\QueryInterface;
 use Magento\Search\Model\QueryResultFactory;
-use Magento\Store\Model\ScopeInterface;
-use Magento\Store\Model\StoreManagerInterface as StoreManager;
+use Magento\SearchStorefrontStore\Model\ScopeInterface;
+use Magento\SearchStorefrontStore\Model\StoreManagerInterface as StoreManager;
 
 /**
  * The implementation to provide suggestions mechanism for Elasticsearch5
