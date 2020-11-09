@@ -10,5 +10,5 @@ namespace Magento\SearchStorefront\Model\Catalog;
 
 class Category extends \Magento\Framework\Model\AbstractExtensibleModel
 {
-
+    const ENTITY = 'catalog_category';
 }

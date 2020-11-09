@@ -115,8 +115,8 @@
     <preference for="Magento\SearchStorefront\DataProvider\Product\SearchCriteria\SearchCriteriaBuilderInterface"
             type="Magento\SearchStorefront\DataProvider\Product\SearchCriteria\Builder"/>
 
-    <preference for="Magento\Catalog\Api\CategoryRepositoryInterface" type="Magento\Catalog\Model\CategoryRepository" />
-    <preference for="Magento\Catalog\Api\CategoryAttributeRepositoryInterface" type="Magento\Catalog\Model\Category\AttributeRepository" />
+<!--    <preference for="Magento\Catalog\Api\CategoryRepositoryInterface" type="Magento\Catalog\Model\CategoryRepository" />-->
+<!--    <preference for="Magento\Catalog\Api\CategoryAttributeRepositoryInterface" type="Magento\Catalog\Model\Category\AttributeRepository" />-->
 
     <preference for="Magento\Framework\Search\Dynamic\DataProviderInterface" type="Magento\SearchStorefront\SearchAdapter\Dynamic\DataProvider" />
 

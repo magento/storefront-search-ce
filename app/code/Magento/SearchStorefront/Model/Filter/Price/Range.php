@@ -38,11 +38,11 @@ class Range
      */
     public function __construct(
         StoreManagerInterface $storeManager,
-        CategoryRepositoryInterface $categoryRepository,
+//        CategoryRepositoryInterface $categoryRepository,
         ScopeConfigInterface $scopeConfig
     ) {
         $this->storeManager = $storeManager;
-        $this->categoryRepository = $categoryRepository;
+//        $this->categoryRepository = $categoryRepository;
         $this->scopeConfig = $scopeConfig;
     }
 
@@ -52,6 +52,7 @@ class Range
      */
     public function getPriceRange()
     {
+        return 10;
         $rootCategoryId = $this->storeManager->getStore()->getRootCategoryId();
         $category = $this->categoryRepository->get($rootCategoryId);
         return $category->getFilterPriceRange() ?? $this->getConfigRangeStep($this->storeManager->getStore()->getId());

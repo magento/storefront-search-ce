@@ -47,7 +47,7 @@ $requestArray = [
     'phrase' => 'top',
     'store' => '1',
     'include_aggregations' => true,
-    'customer_group_id' => 1,
+    'customer_group_id' => 0,
     'filters' => [
         [
             'attribute' => 'color',
