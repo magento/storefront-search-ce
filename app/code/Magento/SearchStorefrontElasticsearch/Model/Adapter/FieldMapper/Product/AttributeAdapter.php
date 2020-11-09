@@ -145,8 +145,7 @@ class AttributeAdapter
      */
     public function isEavAttribute(): bool
     {
-        //@TODO RESOLVE CORRECTLY
-        return $this->getAttribute() instanceof \Magento\Eav\Api\Data\AttributeInterface;
+        return $this->getAttribute() instanceof \Magento\SearchStorefront\Model\Eav\Attribute;
     }
 
     /**

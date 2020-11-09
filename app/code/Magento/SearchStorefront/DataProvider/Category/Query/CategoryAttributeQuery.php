@@ -7,8 +7,8 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefront\DataProvider\Category\Query;
 
-use Magento\Catalog\Api\Data\CategoryInterface;
 use Magento\Framework\DB\Select;
+use Magento\SearchStorefront\Model\Catalog\Category;
 
 /**
  * Provide category attributes for specified category ids and attributes
@@ -51,7 +51,7 @@ class CategoryAttributeQuery
 
         $attributeQuery = $this->attributeQueryFactory->create(
             [
-            'entityType' => CategoryInterface::class
+            'entityType' => Category::class
             ]
         );
 

@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefront\Model\Filter\Price;
 
-use Magento\Catalog\Api\CategoryRepositoryInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;
 use Magento\Store\Model\StoreManagerInterface;
@@ -38,11 +37,9 @@ class Range
      */
     public function __construct(
         StoreManagerInterface $storeManager,
-//        CategoryRepositoryInterface $categoryRepository,
         ScopeConfigInterface $scopeConfig
     ) {
         $this->storeManager = $storeManager;
-//        $this->categoryRepository = $categoryRepository;
         $this->scopeConfig = $scopeConfig;
     }
 
@@ -52,6 +49,7 @@ class Range
      */
     public function getPriceRange()
     {
+        //TODO implement!
         return 10;
         $rootCategoryId = $this->storeManager->getStore()->getRootCategoryId();
         $category = $this->categoryRepository->get($rootCategoryId);
