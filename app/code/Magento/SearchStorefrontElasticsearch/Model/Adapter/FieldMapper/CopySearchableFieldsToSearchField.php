@@ -11,6 +11,7 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldsMappingPreprocesso
 
 /**
  * Add "copy_to" parameter for default search field to index fields.
+ * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapper\CopySearchableFieldsToSearchField
  */
 class CopySearchableFieldsToSearchField implements FieldsMappingPreprocessorInterface
 {

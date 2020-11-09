@@ -19,6 +19,7 @@ use Magento\Framework\App\ScopeResolverInterface;
  *
  * @api
  * @since 100.2.2
+ * Copy of Magento\Elasticsearch\Elasticsearch5\SearchAdapter\Query\Builder
  */
 class Builder
 {

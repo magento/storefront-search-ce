@@ -17,8 +17,7 @@ use Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\Mapper as
 /**
  * Mapper class for Elasticsearch2
  *
- * @api
- * @since 100.1.0
+ * Copy of Magento\Elasticsearch\SearchAdapter\Mapper
  * @deprecated 100.3.5 because of EOL for Elasticsearch2
  */
 class Mapper extends Elasticsearch5Mapper

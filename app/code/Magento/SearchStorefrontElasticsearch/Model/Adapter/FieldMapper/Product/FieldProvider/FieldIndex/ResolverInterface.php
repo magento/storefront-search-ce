@@ -11,6 +11,7 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\Attr
 
 /**
  * Field index type resolver interface.
+ * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\ResolverInterface
  */
 interface ResolverInterface
 {

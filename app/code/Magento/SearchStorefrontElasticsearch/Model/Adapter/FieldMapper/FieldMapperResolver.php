@@ -11,6 +11,7 @@ use Magento\SearchStorefrontElasticsearch\Model\Config;
 
 /**
  * Field Mapper resolver.
+ * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapper\FieldMapperResolver
  */
 class FieldMapperResolver implements FieldMapperInterface
 {

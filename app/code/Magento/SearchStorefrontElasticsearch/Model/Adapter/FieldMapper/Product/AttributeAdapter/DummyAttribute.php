@@ -12,6 +12,8 @@ use Magento\Framework\Api\CustomAttributesDataInterface;
 /**
  * Dummy class for Not EAV attribute.
  * @SuppressWarnings(PHPMD)
+ * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\AttributeAdapter\DummyAttribute
+ * Added extend of \Magento\Framework\DataObject to avoid invocation of unexisted methods
  */
 class DummyAttribute extends \Magento\Framework\DataObject implements CustomAttributesDataInterface
 {

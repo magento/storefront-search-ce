@@ -11,6 +11,7 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldsMappingPreprocesso
 
 /**
  * Add default search field (catch all field) to the mapping.
+ * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapper\AddDefaultSearchField
  */
 class AddDefaultSearchField implements FieldsMappingPreprocessorInterface
 {

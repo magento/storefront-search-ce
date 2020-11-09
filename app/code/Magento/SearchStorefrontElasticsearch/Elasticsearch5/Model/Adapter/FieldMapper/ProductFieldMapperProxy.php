@@ -10,6 +10,7 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface;
 
 /**
  * Proxy for product fields mappers
+ * Copy of Magento\Elasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\ProductFieldMapperProxy
  */
 class ProductFieldMapperProxy implements FieldMapperInterface
 {

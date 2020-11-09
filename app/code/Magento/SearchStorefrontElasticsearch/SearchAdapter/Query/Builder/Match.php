@@ -16,6 +16,7 @@ use Magento\Framework\Search\Adapter\Preprocessor\PreprocessorInterface;
 
 /**
  * Builder for match query.
+ * Copy of Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Builder\Match
  */
 class Match implements QueryInterface
 {

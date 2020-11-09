@@ -19,8 +19,7 @@ use Magento\Framework\Serialize\SerializerInterface;
 /**
  * Elasticsearch stopwords preprocessor
  *
- * @api
- * @since 100.1.0
+ * Copy of Magento\Elasticsearch\SearchAdapter\Query\Preprocessor\Stopwords
  */
 class Stopwords implements PreprocessorInterface
 {

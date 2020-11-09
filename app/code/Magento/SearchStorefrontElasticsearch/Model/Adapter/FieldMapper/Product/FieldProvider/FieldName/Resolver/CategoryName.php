@@ -14,6 +14,7 @@ use Magento\Store\Model\StoreManagerInterface as StoreManager;
 
 /**
  * Resolver field name for Category name attribute.
+ * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\Resolver\CategoryName
  */
 class CategoryName implements ResolverInterface
 {
@@ -56,8 +57,6 @@ class CategoryName implements ResolverInterface
     }
 
     /**
-     * Category id should be passed in context. Retrieving it from store - only on phase 1 of search service.
-     *
      * @param $context
      * @return int
      * @throws \Magento\Framework\Exception\NoSuchEntityException
@@ -67,7 +66,9 @@ class CategoryName implements ResolverInterface
         if (isset($context['categoryId'])) {
             $id = $context['categoryId'];
         } else {
-            $id = $this->storeManager->getStore()->getRootCategoryId();
+            $id = $this->coreRegistry->registry('current_category')
+                ? $this->coreRegistry->registry('current_category')->getId()
+                : $this->storeManager->getStore()->getRootCategoryId();
         }
 
         return (int)$id;

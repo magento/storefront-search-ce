@@ -63,7 +63,9 @@ class Position implements ResolverInterface
         if (isset($context['categoryId'])) {
             $id = $context['categoryId'];
         } else {
-            $id = $this->storeManager->getStore()->getRootCategoryId();
+            $id = $this->coreRegistry->registry('current_category')
+                ? $this->coreRegistry->registry('current_category')->getId()
+                : $this->storeManager->getStore()->getRootCategoryId();
         }
 
         return $id;

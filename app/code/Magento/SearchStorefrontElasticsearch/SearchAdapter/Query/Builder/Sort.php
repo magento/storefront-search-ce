@@ -14,6 +14,7 @@ use Magento\Framework\Search\RequestInterface;
 
 /**
  * Sort builder.
+ * Copy of Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Builder\Sort
  */
 class Sort
 {

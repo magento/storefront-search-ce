@@ -9,6 +9,7 @@ namespace Magento\SearchStorefrontElasticsearch\SearchAdapter\Query;
 
 /**
  * Pool of value transformers.
+ * Copy of Magento\Elasticsearch\SearchAdapter\Query\ValueTransformerPool
  */
 class ValueTransformerPool
 {

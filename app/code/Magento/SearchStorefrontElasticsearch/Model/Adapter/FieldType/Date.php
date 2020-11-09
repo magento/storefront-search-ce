@@ -9,6 +9,9 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Stdlib\DateTime;
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
 
+/**
+ * Copy of  Magento\Elasticsearch\Model\Adapter\FieldType\Date
+ */
 class Date
 {
     /**

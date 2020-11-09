@@ -17,8 +17,9 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\Fiel
 
 /**
  * Default name resolver.
+ * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\Resolver\DefaultResolver
  */
-class DefaultResolver implements \Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\ResolverInterface
+class DefaultResolver implements ResolverInterface
 {
     /**
      * @var FieldTypeResolver

@@ -11,6 +11,7 @@ use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\ValueTransformerIn
 
 /**
  * Value transformer for float type fields.
+ * Copy of Magento\Elasticsearch\SearchAdapter\Query\ValueTransformer\FloatTransformer
  */
 class FloatTransformer implements ValueTransformerInterface
 {

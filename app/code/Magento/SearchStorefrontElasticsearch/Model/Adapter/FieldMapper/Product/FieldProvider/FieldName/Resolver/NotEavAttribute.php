@@ -12,6 +12,7 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\Fiel
 
 /**
  * Resolver field name for not EAV attribute.
+ * Copy of MagentoElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\Resolver\NotEavAttribute
  */
 class NotEavAttribute implements ResolverInterface
 {

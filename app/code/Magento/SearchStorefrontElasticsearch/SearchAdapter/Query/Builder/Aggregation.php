@@ -10,8 +10,7 @@ use Magento\Framework\Search\RequestInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface;
 
 /**
- * @api
- * @since 100.1.0
+ * Copy of Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Builder\Aggregation
  */
 class Aggregation
 {

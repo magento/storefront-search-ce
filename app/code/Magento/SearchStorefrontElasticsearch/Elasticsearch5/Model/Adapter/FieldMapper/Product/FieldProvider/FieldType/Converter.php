@@ -11,6 +11,7 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\Fiel
 
 /**
  * Field type converter from internal data types to elastic service.
+ * Copy of Magento\Elasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Converter
  */
 class Converter implements ConverterInterface
 {

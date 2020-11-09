@@ -5,17 +5,14 @@
  */
 namespace Magento\SearchStorefrontElasticsearch\Model\Adapter;
 
-use Magento\Eav\Model\Entity\Attribute\AbstractAttribute;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\ResolverInterface;
 
 /**
  * Class FieldType
  *
- * @api
- * @since 100.1.0
- *
  * @deprecated 100.3.0 This class provide not full data about field type. Only basic rules apply in this class.
  * @see ResolverInterface
+ * Copy of Magento\Elasticsearch\Model\Adapter\FieldType removed soft dependency on EAV module
  */
 class FieldType
 {
@@ -40,7 +37,6 @@ class FieldType
      * @deprecated 100.3.0
      * @see ResolverInterface::getFieldType
      *
-     * @param AbstractAttribute $attribute
      * @return string
      * @since 100.1.0
      */

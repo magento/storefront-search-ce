@@ -11,6 +11,7 @@ use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\ValueTransformerIn
 
 /**
  * Value transformer for integer type fields.
+ * Copy of Magento\Elasticsearch\SearchAdapter\Query\ValueTransformer\IntegerTransformer
  */
 class IntegerTransformer implements ValueTransformerInterface
 {

@@ -10,6 +10,7 @@ use Magento\Framework\Search\Dynamic\DataProviderInterface;
 
 /**
  * Builder for term buckets.
+ * Copy of Magento\Elasticsearch\SearchAdapter\Aggregation\Builder\Term
  */
 class Term implements BucketBuilderInterface
 {

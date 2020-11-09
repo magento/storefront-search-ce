@@ -16,8 +16,7 @@ use Magento\SearchStorefrontElasticsearch\Api\Data\ConnectionConfigInterface as 
 
 /**
  * Elasticsearch config model
- * @api
- * @since 100.1.0
+ * Copy Magento\Elasticsearch\Model\Config removed dependency on store module and read config from deployment
  */
 class Config implements ClientOptionsInterface
 {

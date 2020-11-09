@@ -16,6 +16,7 @@ use Psr\Log\LoggerInterface;
 
 /**
  * Elasticsearch Search Adapter
+ * Copy of Magento\Elasticsearch\Elasticsearch5\SearchAdapter\Adapter
  */
 class Adapter implements AdapterInterface
 {

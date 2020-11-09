@@ -13,13 +13,14 @@ use Magento\SearchStorefrontAdvancedSearch\Model\Client\ClientInterface;
  * Elasticsearch client
  *
  * @deprecated 100.3.5 the Elasticsearch 5 doesn't supported due to EOL
+ * Copy of Magento\Elasticsearch\Elasticsearch5\Model\Client\Elasticsearch
  */
 class Elasticsearch implements ClientInterface
 {
     /**
      * Elasticsearch Client instances
      *
-     * @var \SearchStorefrontElasticsearch\Client[]
+     * @var \Elasticsearch\Client[]
      */
     private $client;
 
@@ -42,7 +43,7 @@ class Elasticsearch implements ClientInterface
      * Initialize Elasticsearch Client
      *
      * @param array $options
-     * @param \SearchStorefrontElasticsearch\Client|null $elasticsearchClient
+     * @param \Elasticsearch\Client|null $elasticsearchClient
      * @throws LocalizedException
      */
     public function __construct(
@@ -58,9 +59,9 @@ class Elasticsearch implements ClientInterface
             );
         }
 
-        if (!($elasticsearchClient instanceof \SearchStorefrontElasticsearch\Client)) {
+        if (!($elasticsearchClient instanceof \Elasticsearch\Client)) {
             $config = $this->buildConfig($options);
-            $elasticsearchClient = \SearchStorefrontElasticsearch\ClientBuilder::fromConfig($config, true);
+            $elasticsearchClient = \Elasticsearch\ClientBuilder::fromConfig($config, true);
         }
         $this->client[getmypid()] = $elasticsearchClient;
         $this->clientOptions = $options;
@@ -69,14 +70,14 @@ class Elasticsearch implements ClientInterface
     /**
      * Get Elasticsearch Client
      *
-     * @return \SearchStorefrontElasticsearch\Client
+     * @return \Elasticsearch\Client
      */
     private function getClient()
     {
         $pid = getmypid();
         if (!isset($this->client[$pid])) {
             $config = $this->buildConfig($this->clientOptions);
-            $this->client[$pid] = \SearchStorefrontElasticsearch\ClientBuilder::fromConfig($config, true);
+            $this->client[$pid] = \Elasticsearch\ClientBuilder::fromConfig($config, true);
         }
         return $this->client[$pid];
     }

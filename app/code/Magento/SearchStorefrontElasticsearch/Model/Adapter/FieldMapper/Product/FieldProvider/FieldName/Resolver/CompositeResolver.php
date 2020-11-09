@@ -12,6 +12,7 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\Fiel
 
 /**
  * Composite class for resolving field name.
+ * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\Resolver\CompositeResolver
  */
 class CompositeResolver implements ResolverInterface
 {
@@ -28,7 +29,7 @@ class CompositeResolver implements ResolverInterface
         foreach ($items as $item) {
             if (!$item instanceof \Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\ResolverInterface) {
                 throw new \InvalidArgumentException(
-                    sprintf('Instance LALALALA of the field name resolver is expected, got %s instead.', get_class($item))
+                    sprintf('Instance of the field name resolver is expected, got %s instead.', get_class($item))
                 );
             }
         }

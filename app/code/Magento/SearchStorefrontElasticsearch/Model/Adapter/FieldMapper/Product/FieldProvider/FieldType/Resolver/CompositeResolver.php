@@ -12,6 +12,7 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\Fiel
 
 /**
  * Composite resolver for resolving field type.
+ * Copy Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Resolver\CompositeResolver
  */
 class CompositeResolver implements ResolverInterface
 {

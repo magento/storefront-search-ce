@@ -9,8 +9,7 @@ use Magento\Framework\ObjectManagerInterface;
 
 /**
  * Response Factory
- * @api
- * @since 100.1.0
+ * Copy of Magento\Elasticsearch\SearchAdapter\ResponseFactory
  */
 class ResponseFactory
 {

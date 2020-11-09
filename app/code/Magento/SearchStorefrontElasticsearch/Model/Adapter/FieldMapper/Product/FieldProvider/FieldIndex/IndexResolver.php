@@ -13,6 +13,7 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\Attr
  * Field index resolver that provides index type for the attribute in mapping.
  * For example, we need to set ‘no’/false in the case when attribute must be present in index data,
  * but stay as not indexable.
+ * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\IndexResolver
  */
 class IndexResolver implements ResolverInterface
 {

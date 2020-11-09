@@ -14,6 +14,7 @@ use Magento\SearchStorefrontElasticsearch\SearchAdapter\Filter\Builder\Wildcard;
 
 /**
  * Class Builder to build Elasticsearch filter
+ * Copy of Magento\Elasticsearch\SearchAdapter\Filter\Builder
  */
 class Builder implements BuilderInterface
 {

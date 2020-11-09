@@ -6,8 +6,7 @@
 namespace Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config;
 
 /**
- * @api
- * @since 100.1.0
+ * Copy of Magento\Elasticsearch\Model\Adapter\Index\Config\EsConfigInterface
  */
 interface EsConfigInterface
 {

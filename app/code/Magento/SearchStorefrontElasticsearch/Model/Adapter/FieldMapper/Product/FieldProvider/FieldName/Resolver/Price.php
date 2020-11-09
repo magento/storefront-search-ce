@@ -14,6 +14,8 @@ use Magento\Store\Model\StoreManagerInterface as StoreManager;
 /**
  * Resolver field name for price attribute.
  * @SuppressWarnings(PHPMD.CookieAndSessionMisuse)
+ * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\Resolver\Price
+ * Removed dependency on customer module (customer session)
  */
 class Price implements ResolverInterface
 {

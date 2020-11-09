@@ -9,6 +9,7 @@ namespace Magento\SearchStorefrontElasticsearch\Model\Adapter;
 
 /**
  * Modifies fields mapping before save
+ * Copy of Magento\Elasticsearch\Model\Adapter\FieldsMappingPreprocessorInterface
  */
 interface FieldsMappingPreprocessorInterface
 {

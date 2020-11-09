@@ -9,6 +9,7 @@ namespace Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Produc
 
 /**
  * Provide fields for product.
+ * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\CompositeFieldProvider
  */
 class CompositeFieldProvider implements FieldProviderInterface
 {

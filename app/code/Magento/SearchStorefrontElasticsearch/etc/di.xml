@@ -331,14 +331,4 @@
             </argument>
         </arguments>
     </type>
-    <type name="Magento\SearchStorefrontSearch\Model\SearchEngine\Validator">
-        <arguments>
-            <argument name="excludedEngineList" xsi:type="array">
-                <item name="elasticsearch" xsi:type="string">Elasticsearch 2</item>
-            </argument>
-            <argument name="engineValidators" xsi:type="array">
-                <item name="storefrontElasticsearch5" xsi:type="object">Magento\SearchStorefrontElasticsearch\Setup\Validator</item>
-            </argument>
-        </arguments>
-    </type>
 </config>

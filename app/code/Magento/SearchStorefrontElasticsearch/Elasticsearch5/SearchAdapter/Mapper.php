@@ -18,6 +18,7 @@ use Magento\SearchStorefrontElasticsearch\SearchAdapter\Filter\Builder as Filter
  * Mapper class
  * @api
  * @since 100.2.2
+ * Copy of Magento\Elasticsearch\Elasticsearch5\SearchAdapter\Mapper
  */
 class Mapper
 {

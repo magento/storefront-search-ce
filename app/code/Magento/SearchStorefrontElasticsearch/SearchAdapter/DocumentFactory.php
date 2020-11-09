@@ -14,8 +14,7 @@ use Magento\Framework\Api\Search\DocumentInterface;
 
 /**
  * Document Factory to create Search Document instance
- * @api
- * @since 100.1.0
+ * Copy of Magento\Elasticsearch\SearchAdapter\DocumentFactory
  */
 class DocumentFactory
 {

@@ -8,9 +8,8 @@ declare(strict_types=1);
 namespace Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType;
 
 /**
- * @api
  * Field type converter from internal data types to elastic service.
- * @since 100.3.0
+ * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\ConverterInterface
  */
 interface ConverterInterface
 {

@@ -14,6 +14,7 @@ use Magento\Framework\Search\Dynamic\DataProviderInterface;
 
 /**
  * Elasticsearch aggregation builder
+ * Copy of Magento\Elasticsearch\SearchAdapter\Aggregation\Builder
  */
 class Builder
 {

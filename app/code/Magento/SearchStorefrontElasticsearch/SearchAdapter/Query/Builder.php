@@ -18,8 +18,7 @@ use Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\Query\Bui
 /**
  * Query builder for search adapter.
  *
- * @api
- * @since 100.1.0
+ * Copy of Magento\Elasticsearch\SearchAdapter\Query\Builder
  */
 class Builder extends Elasticsearch5Builder
 {

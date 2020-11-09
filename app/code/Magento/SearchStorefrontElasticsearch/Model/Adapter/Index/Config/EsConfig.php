@@ -10,6 +10,9 @@ use Magento\Framework\Config\CacheInterface;
 use Magento\Framework\Config\ReaderInterface;
 use Magento\Framework\Serialize\SerializerInterface;
 
+/**
+ * Copy of Magento\Elasticsearch\Model\Adapter\Index\Config\Converter\EsConfig
+ */
 class EsConfig extends Data implements EsConfigInterface
 {
     /**
