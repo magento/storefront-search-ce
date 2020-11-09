@@ -8,6 +8,9 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefrontStore\Model;
 
+/**
+ * Copied and adapted from Magento/Store
+ */
 class StoreManager implements \Magento\SearchStorefrontStore\Model\StoreManagerInterface
 {
     /**

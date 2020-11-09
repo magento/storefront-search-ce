@@ -4,14 +4,13 @@ namespace Magento\SearchStorefrontStore\Model;
 
 use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\Exception\NoSuchEntityException;
-use Magento\SearchStorefrontStore\Api\Data\StoreExtensionInterface;
 
 /**
- * Store model stub for search service
+ * Copied and adapted from Magento/Store
  */
 class Store extends \Magento\Framework\DataObject implements \Magento\SearchStorefrontStore\Model\StoreInterface, \Magento\Framework\App\ScopeInterface
 {
-    const DEFAULT_STORE_ID = 0;
+    public const DEFAULT_STORE_ID = 0;
 
     /**
      * @var ResourceConnection

@@ -6,7 +6,6 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Magento\SearchStorefrontStore\Api\GroupRepositoryInterface" type="Magento\SearchStorefrontStore\Model\GroupRepository"/>
     <type name="Magento\Framework\Module\Output\Config">
         <arguments>
             <argument name="scopeType" xsi:type="string">store</argument>

@@ -6,7 +6,7 @@
 namespace Magento\SearchStorefrontStore\Model;
 
 /**
- * Store interface
+ * Copied and adapted from Magento/Store
  */
 interface StoreInterface extends \Magento\Framework\Api\ExtensibleDataInterface
 {
