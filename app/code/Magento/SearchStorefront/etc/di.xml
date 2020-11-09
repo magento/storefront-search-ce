@@ -126,7 +126,7 @@
 
     <type name="Magento\Framework\App\Config\Initial\SchemaLocator">
         <arguments>
-            <argument name="moduleName" xsi:type="string">Magento_SearchStorefront</argument>
+            <argument name="moduleName" xsi:type="string">Magento_SearchStorefrontStore</argument>
         </arguments>
     </type>
     <type name="Magento\Framework\App\Config\Initial\Converter">
