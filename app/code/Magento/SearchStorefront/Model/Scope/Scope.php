@@ -2,10 +2,6 @@
 
 namespace Magento\SearchStorefront\Model\Scope;
 
-use Magento\Framework\App\ResourceConnection;
-use Magento\Framework\Exception\NoSuchEntityException;
-use Magento\SearchStorefrontStore\Api\Data\StoreExtensionInterface;
-
 /**
  * Scope model stub for search service
  */

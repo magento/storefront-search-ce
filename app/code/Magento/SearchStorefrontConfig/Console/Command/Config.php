@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,9 +11,7 @@ namespace Magento\SearchStorefrontConfig\Console\Command;
 use Magento\Framework\App\DeploymentConfig\Writer;
 use Magento\Framework\Exception\FileSystemException;
 use Magento\Framework\Stdlib\DateTime;
-use Magento\Setup\Model\ConfigGenerator;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -36,9 +35,6 @@ class Config extends Command
     const ELASTICSEARCH_ENGINE       = 'storefrontElasticsearch6';
     const ELASTICSEARCH_PORT         = '9200';
     const ELASTICSEARCH_INDEX_PREFIX = 'magento2';
-    /**
-     * Other settings
-     */
 
     /**
      * @var Writer
@@ -51,25 +47,17 @@ class Config extends Command
     private $dateTime;
 
     /**
-     * @var ConfigGenerator
-     */
-    private $configGenerator;
-
-    /**
      * Installer constructor.
      * @param Writer          $deploymentConfigWriter
      * @param DateTime        $dateTime
-     * @param ConfigGenerator $configGenerator
      */
     public function __construct(
         Writer $deploymentConfigWriter,
-        DateTime $dateTime,
-        ConfigGenerator $configGenerator
+        DateTime $dateTime
     ) {
         parent::__construct();
         $this->deploymentConfigWriter = $deploymentConfigWriter;
         $this->dateTime = $dateTime;
-        $this->configGenerator = $configGenerator;
     }
 
     /**
@@ -112,7 +100,6 @@ class Config extends Command
                 'crypt' => [
                     'key' => 'crypt_key'
                 ],
-//                'cache_types' => $this->getCacheTypes(),
                 'resource' => [
                     'default_setup' => [
                         'connection' => 'default'
@@ -168,29 +155,22 @@ class Config extends Command
                 ],
                 'install'     => [
                     'date' => $this->dateTime->formatDate(true)
-                ]
+                ],
+                'MAGE_MODE' => 'default'
             ],
             'app_config' => [
                 'modules' => [
                     'Magento_SearchStorefrontConfig' => 1,
-                    'Magento_Store' => 1,
-                    'Magento_Eav' => 1,
+                    'Magento_SearchStorefrontStore' => 1,
                     'Magento_Grpc' => 1,
                     'Magento_SearchStorefrontSearch' => 1,
                     'Magento_SearchStorefrontApi' => 1,
                     'Magento_SearchStorefrontElasticsearch' => 1,
                     'Magento_SearchStorefrontElasticsearch6' => 1,
-                    'Magento_SearchStorefrontAdvancedSearch' => 1,
                     'Magento_SearchStorefront' => 1,
                 ]
             ]
         ];
-
-        $config['app_env'] = array_replace_recursive(
-            $config['app_env'],
-            $this->configGenerator->createCryptConfig([])->getData(),
-            $this->configGenerator->createModeConfig()->getData()
-        );
 
         $this->deploymentConfigWriter->saveConfig($config);
     }
