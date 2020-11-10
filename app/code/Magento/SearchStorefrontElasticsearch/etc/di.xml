@@ -149,7 +149,7 @@
             <argument name="stopwordsDirectory" xsi:type="string">stopwords</argument>
         </arguments>
     </type>
-    <!-- @api -->
+
     <virtualType name="Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config\Reader" type="Magento\Framework\Config\Reader\Filesystem">
         <arguments>
             <argument name="converter" xsi:type="object">Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config\Converter</argument>

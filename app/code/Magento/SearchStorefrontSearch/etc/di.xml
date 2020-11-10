@@ -11,12 +11,9 @@
     <preference for="Magento\Framework\Search\EngineResolverInterface" type="Magento\SearchStorefrontSearch\Model\EngineResolver"/>
     <preference for="Magento\Framework\Search\SearchEngineInterface" type="Magento\SearchStorefrontSearch\Model\SearchEngine"/>
 
-    <!-- @api -->
-    <!-- synonyms returns empty array. @todo implement synonyms reader from storage another then DB -->
     <preference for="Magento\SearchStorefrontSearch\Model\SynonymAnalyzerInterface" type="Magento\SearchStorefrontSearch\Model\SynonymAnalyzer" />
     <preference for="Magento\Framework\Search\Adapter\Preprocessor\PreprocessorInterface" type="Magento\SearchStorefrontSearch\Adapter\Query\Preprocessor\Synonyms" />
 
-    <!-- @todo at the moment unused search_engine config. was used only for enable synonyms support -->
     <preference for="Magento\Framework\Search\SearchEngine\ConfigInterface" type="Magento\SearchStorefrontSearch\Model\SearchEngine\Config" />
     <type name="Magento\SearchStorefrontSearch\Model\SearchEngine\Config">
         <arguments>
