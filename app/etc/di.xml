@@ -18,7 +18,7 @@
     <preference for="Magento\Framework\App\RequestInterface" type="Magento\Framework\App\Request\Http" />
     <preference for="Magento\Framework\App\PlainTextRequestInterface" type="Magento\Framework\App\Request\Http" />
     <preference for="Magento\Framework\App\RequestContentInterface" type="Magento\Framework\App\Request\Http" />
-    <preference for="Magento\Framework\App\Request\PathInfoProcessorInterface" type="Magento\Framework\App\Request\DefaultPathInfoProcessor" />
+    <preference for="Magento\Framework\App\Request\PathInfoProcessorInterface" type="Magento\SearchStorefront\Framework\App\Request\DefaultPathInfoProcessor" />
     <preference for="Magento\Framework\App\ResponseInterface" type="Magento\Framework\App\Response\Http" />
     <preference for="Magento\Framework\App\RouterListInterface" type="Magento\Framework\App\RouterList" />
     <preference for="Magento\Framework\App\FrontControllerInterface" type="Magento\Framework\App\FrontController" />
