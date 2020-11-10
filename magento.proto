@@ -16,7 +16,7 @@ message ProductSearchRequest {
   // search query to perform full-text search
   string phrase = 1;
 
-  //scope to check
+  // store id
   string store = 2;
 
   // number of product ids to return in set
@@ -31,27 +31,29 @@ message ProductSearchRequest {
   // sort order of returned product by specified attribute in specified order
   repeated Sort sort = 6;
 
-  //include aggregation into response
+  // whether to include aggregations into response
   bool include_aggregations = 7;
 
-  //customer group id (for price bucket)
+  // customer group id (for price bucket)
   int32 customer_group_id = 8;
 }
 
+// Filter object. Only one filter type can be used per Filter (in, eq or range)
 message Filter {
-  // attribute code to filer
+  // attribute code
   string attribute = 1;
 
-  // an array of values to filter on
+  // an array of attribute values for 'IN' filter
   repeated string in = 2;
 
-  // a string to filter on
+  // an attribute value for 'EQ' filter
   string eq =  3;
 
-  // range to filter on
+  // 'range' filter
   SearchRange range = 4;
 }
 
+// Range
 message SearchRange {
   float from = 1;
 
@@ -78,20 +80,27 @@ message SearchResultPageInfo {
 }
 
 message Bucket {
+  // attribute code
   string attribute = 1;
 
+  // attribute Frontend label
   string label = 2;
 
+  // attribute options count
   int32 count = 3;
 
+  // bucket options for showing in Layered Navigation
   repeated BucketOption options = 5;
 }
 
 message BucketOption {
+  // option value
   string value = 1;
 
+  // option frontend label
   string label = 2;
 
+  // number of products with such option
   int32 count = 3;
 }
 
