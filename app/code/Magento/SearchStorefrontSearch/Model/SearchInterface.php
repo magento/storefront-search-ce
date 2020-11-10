@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\SearchStorefrontSearch\Api;
+namespace Magento\SearchStorefrontSearch\Model;
 
 use Magento\Framework\Api\Search\SearchInterface as FrameworkSearchInterface;
 

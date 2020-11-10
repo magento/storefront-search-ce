@@ -12,7 +12,7 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Search\EngineResolverInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Client\ClientOptionsInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Client\ClientResolver;
-use Magento\SearchStorefrontElasticsearch\Api\Data\ConnectionConfigInterface as ConnectionConfig;
+use Magento\SearchStorefrontElasticsearch\Model\ConnectionConfigInterface as ConnectionConfig;
 
 /**
  * Elasticsearch config model

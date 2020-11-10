@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace Magento\SearchStorefrontSearch\Api;
+namespace Magento\SearchStorefrontSearch\Model;
 
 interface SynonymAnalyzerInterface
 {

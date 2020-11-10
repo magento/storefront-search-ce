@@ -10,7 +10,7 @@ namespace Magento\SearchStorefront\Model\Search\Client;
 
 use Magento\Framework\Exception\ConfigurationMismatchException;
 
-class Config implements \Magento\SearchStorefrontElasticsearch\Api\Data\ConnectionConfigInterface
+class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionConfigInterface
 {
     const SEARCH_SERVICE_CONFIG_KEY = 'search-store-front';
 

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Magento\SearchStorefrontElasticsearch\Api\Data;
+namespace Magento\SearchStorefrontElasticsearch\Model;
 
 interface ConnectionConfigInterface
 {

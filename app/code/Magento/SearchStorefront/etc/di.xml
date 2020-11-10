@@ -26,7 +26,7 @@
     </type>
 
     <!-- Connection config for elasticsearch -->
-    <preference for="Magento\SearchStorefrontElasticsearch\Api\Data\ConnectionConfigInterface" type="Magento\SearchStorefront\Model\Search\Client\Config" />
+    <preference for="Magento\SearchStorefrontElasticsearch\Model\ConnectionConfigInterface" type="Magento\SearchStorefront\Model\Search\Client\Config" />
 
     <!-- Set path to active search engine -->
     <type name="Magento\SearchStorefrontSearch\Model\EngineResolver">
