@@ -99,6 +99,7 @@
 
     <preference for="Magento\Framework\Search\Dynamic\DataProviderInterface" type="Magento\SearchStorefront\SearchAdapter\Dynamic\DataProvider" />
 
+    <!-- @TODO maybe place back into elasstic? -->
     <type name="Magento\Framework\Search\Dynamic\DataProviderFactory">
         <arguments>
             <argument name="dataProviders" xsi:type="array">

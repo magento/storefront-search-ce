@@ -9,12 +9,11 @@ namespace Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\Fie
 
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeProvider;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\ResolverInterface;
-use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProviderInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface;
 
 /**
  * Class ProductFieldMapper provides field name by attribute code and retrieve all attribute types
- * Copy of Magento\Elasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\ProductFieldMapper
+ * Copy of Magento\Elasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\ProductFieldMapper removed usage of FieldProviderInterface as it's not used during search request
  */
 class ProductFieldMapper implements FieldMapperInterface
 {
@@ -29,23 +28,15 @@ class ProductFieldMapper implements FieldMapperInterface
     private $fieldNameResolver;
 
     /**
-     * @var FieldProviderInterface
-     */
-    private $fieldProvider;
-
-    /**
      * @param ResolverInterface $fieldNameResolver
      * @param AttributeProvider $attributeAdapterProvider
-     * @param FieldProviderInterface $fieldProvider
      */
     public function __construct(
         ResolverInterface $fieldNameResolver,
-        AttributeProvider $attributeAdapterProvider,
-        FieldProviderInterface $fieldProvider
+        AttributeProvider $attributeAdapterProvider
     ) {
         $this->fieldNameResolver = $fieldNameResolver;
         $this->attributeAdapterProvider = $attributeAdapterProvider;
-        $this->fieldProvider = $fieldProvider;
     }
 
     /**
@@ -69,6 +60,6 @@ class ProductFieldMapper implements FieldMapperInterface
      */
     public function getAllAttributesTypes($context = [])
     {
-        return $this->fieldProvider->getFields($context);
+        return [];
     }
 }

@@ -9,10 +9,7 @@
     <preference for="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface" type="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\FieldMapperResolver" />
     <preference for="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\ResolverInterface" type="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\Resolver\CompositeResolver" />
     <preference for="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\ResolverInterface" type="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Resolver\CompositeResolver" />
-    <preference for="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\ResolverInterface" type="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\IndexResolver" />
-    <preference for="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\ConverterInterface" type="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\Converter" />
     <preference for="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\ConverterInterface" type="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Converter" />
-    <preference for="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProviderInterface" type="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\CompositeFieldProvider" />
     <preference for="Magento\Framework\Search\Dynamic\DataProviderInterface" type="Magento\SearchStorefrontElasticsearch\SearchAdapter\Dynamic\DataProvider" />
 
     <type name="Magento\SearchStorefrontElasticsearch\Model\Config">
@@ -221,38 +218,7 @@
             </argument>
         </arguments>
     </type>
-<!--    <type name="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\CompositeFieldProvider">-->
-<!--        <arguments>-->
-<!--            <argument name="providers" xsi:type="array">-->
-<!--                <item name="static" xsi:type="object">\Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\StaticField</item>-->
-<!--                <item name="dynamic" xsi:type="object">\Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\DynamicField</item>-->
-<!--            </argument>-->
-<!--        </arguments>-->
-<!--    </type>-->
-    <virtualType name="storefrontElasticsearch5FieldProvider" type="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\CompositeFieldProvider">
-        <arguments>
-            <argument name="providers" xsi:type="array">
-                <item name="static" xsi:type="object">storefrontElasticsearch5StaticFieldProvider</item>
-                <item name="dynamic" xsi:type="object">storefrontElasticsearch5DynamicFieldProvider</item>
-            </argument>
-        </arguments>
-    </virtualType>
 
-    <virtualType name="storefrontElasticsearch5StaticFieldProvider" type="\Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\StaticField">
-        <arguments>
-            <argument name="fieldTypeConverter" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Converter</argument>
-            <argument name="indexTypeConverter" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\Converter</argument>
-            <argument name="fieldIndexResolver" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\IndexResolver</argument>
-            <argument name="fieldTypeResolver" xsi:type="object">\Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Resolver\CompositeResolver</argument>
-            <argument name="fieldNameResolver" xsi:type="object">storefrontElasticsearch5FieldNameResolver</argument>
-        </arguments>
-    </virtualType>
-    <virtualType name="storefrontElasticsearch5DynamicFieldProvider" type="\Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\DynamicField">
-        <arguments>
-            <argument name="fieldTypeConverter" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Converter</argument>
-            <argument name="indexTypeConverter" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\Converter</argument>
-        </arguments>
-    </virtualType>
     <type name="Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Resolver\KeywordType">
         <arguments>
             <argument name="fieldTypeConverter" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Converter</argument>
@@ -281,17 +247,10 @@
 
     <type name="Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\ProductFieldMapper">
         <arguments>
-            <argument name="fieldProvider" xsi:type="object">storefrontElasticsearch5FieldProvider</argument>
             <argument name="fieldNameResolver" xsi:type="object">storefrontElasticsearch5FieldNameResolver</argument>
         </arguments>
     </type>
-    <type name="Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\IndexResolver">
-        <arguments>
-            <argument name="converter" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldIndex\Converter</argument>
-            <argument name="fieldTypeConverter" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Converter</argument>
-            <argument name="fieldTypeResolver" xsi:type="object">\Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Resolver\CompositeResolver</argument>
-        </arguments>
-    </type>
+
     <type name="Magento\SearchStorefrontSearch\Model\Search\PageSizeProvider">
         <arguments>
             <argument name="pageSizeBySearchEngine" xsi:type="array">
@@ -314,13 +273,6 @@
             <argument name="preprocessors" xsi:type="array">
                 <item name="stopwordsPreprocessor" xsi:type="object">Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Preprocessor\Stopwords</item>
                 <item name="synonymsPreprocessor" xsi:type="object">Magento\SearchStorefrontSearch\Adapter\Query\Preprocessor\Synonyms</item>
-            </argument>
-        </arguments>
-    </type>
-    <type name="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\StaticField">
-        <arguments>
-            <argument name="excludedAttributes" xsi:type="array">
-                <item name="price" xsi:type="string">price</item>
             </argument>
         </arguments>
     </type>

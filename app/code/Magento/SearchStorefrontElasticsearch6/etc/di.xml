@@ -45,14 +45,6 @@
         </arguments>
     </type>
 
-<!--    <type name="Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\BatchDataMapper\CategoryFieldsProviderProxy">-->
-<!--        <arguments>-->
-<!--            <argument name="categoryFieldsProviders" xsi:type="array">-->
-<!--                <item name="storefrontElasticsearch6" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\BatchDataMapper\CategoryFieldsProvider</item>-->
-<!--            </argument>-->
-<!--        </arguments>-->
-<!--    </type>-->
-
     <type name="Magento\Framework\Search\Dynamic\IntervalFactory">
         <arguments>
             <argument name="intervals" xsi:type="array">
@@ -77,15 +69,6 @@
         </arguments>
     </type>
 
-    <type name="Magento\SearchStorefrontSearch\Model\SearchEngine\Validator">
-        <arguments>
-            <argument name="engineValidators" xsi:type="array">
-                <item name="storefrontElasticsearch6" xsi:type="object">Magento\SearchStorefrontElasticsearch\Setup\Validator</item>
-            </argument>
-        </arguments>
-    </type>
-
-    <!-- @tODO clean up field resolvers -->
     <type name="Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\ProductFieldMapperProxy">
         <arguments>
             <argument name="productFieldMappers" xsi:type="array">
@@ -110,7 +93,6 @@
     <virtualType name="Magento\SearchStorefrontElasticsearch6\Model\Adapter\FieldMapper\ProductFieldMapper"
                  type="Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\ProductFieldMapper">
         <arguments>
-            <argument name="fieldProvider" xsi:type="object">storefrontElasticsearch5FieldProvider</argument>
             <argument name="fieldNameResolver" xsi:type="object">storefrontElasticsearch6FieldNameResolver</argument>
         </arguments>
     </virtualType>
