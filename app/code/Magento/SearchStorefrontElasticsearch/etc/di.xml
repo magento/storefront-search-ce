@@ -163,14 +163,7 @@
             <argument name="cacheId" xsi:type="string">elasticsearch_index_config</argument>
         </arguments>
     </type>
-    <!-- @TODO suggestions support require additional work -->
-<!--    <type name="Magento\SearchStorefrontElasticsearch\Model\SuggestedQueries">-->
-<!--        <arguments>-->
-<!--            <argument name="data" xsi:type="array">-->
-<!--                <item name="storefrontElasticsearch5" xsi:type="string">Magento\SearchStorefrontElasticsearch\Model\DataProvider\Suggestions</item>-->
-<!--            </argument>-->
-<!--        </arguments>-->
-<!--    </type>-->
+
     <type name="Magento\SearchStorefrontElasticsearch\SearchAdapter\Dynamic\DataProvider">
         <arguments>
             <argument name="indexerId" xsi:type="string">catalogsearch_fulltext</argument>
