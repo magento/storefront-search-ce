@@ -3,9 +3,8 @@
     "description": "N/A",
     "require": {
         "php": "~7.3.0||~7.4.0",
-        "magento/module-advanced-search": "*",
-        "magento/module-search": "*",
-        "magento/module-store": "*",
+        "magento/module-search-storefront-search": "*",
+        "magento/module-search-storefront-store": "*",
         "magento/framework": "*",
         "elasticsearch/elasticsearch": "~7.7.0"
     },
