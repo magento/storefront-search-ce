@@ -77,4 +77,6 @@
             <argument name="configType" xsi:type="const">Magento\SearchStorefrontStore\App\Config\Type\Scopes::CONFIG_TYPE</argument>
         </arguments>
     </virtualType>
+    <preference for="Magento\SearchStorefrontStore\Model\StoreManagerInterface" type="Magento\SearchStorefrontStore\Model\StoreManager" />
+    <preference for="Magento\SearchStorefrontStore\Model\StoreInterface" type="Magento\SearchStorefrontStore\Model\Store" />
 </config>

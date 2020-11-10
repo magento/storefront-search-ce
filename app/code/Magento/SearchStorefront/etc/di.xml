@@ -48,13 +48,11 @@
 
     <preference for="Magento\Framework\App\ScopeResolver" type="Magento\SearchStorefront\Model\Scope\ScopeResolver" />
     <preference for="Magento\Framework\App\ScopeResolverInterface" type="Magento\SearchStorefront\Model\Scope\ScopeResolver" />
-    <preference for="Magento\SearchStorefrontStore\Model\StoreManagerInterface" type="Magento\SearchStorefrontStore\Model\StoreManager" />
-    <preference for="Magento\SearchStorefrontStore\Model\StoreInterface" type="Magento\SearchStorefrontStore\Model\Store" />
 
     <type name="Magento\Framework\EntityManager\MetadataPool">
         <arguments>
             <argument name="metadata" xsi:type="array">
-                <item name="Magento\SearchStorefront\Model\Catalog\Category" xsi:type="array">
+                <item name="catalog_category" xsi:type="array">
                     <item name="entityTableName" xsi:type="string">catalog_category_entity</item>
                     <item name="eavEntityType" xsi:type="string">catalog_category</item>
                     <item name="identifierField" xsi:type="string">entity_id</item>

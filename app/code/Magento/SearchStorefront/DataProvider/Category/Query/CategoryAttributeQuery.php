@@ -8,13 +8,14 @@ declare(strict_types=1);
 namespace Magento\SearchStorefront\DataProvider\Category\Query;
 
 use Magento\Framework\DB\Select;
-use Magento\SearchStorefront\Model\Catalog\Category;
 
 /**
  * Provide category attributes for specified category ids and attributes
  */
 class CategoryAttributeQuery
 {
+    const CATEGORY_ENTITY_TYPE = 'catalog_category';
+
     /**
      * @var \Magento\SearchStorefront\DataProvider\AttributeQueryFactory
      */
@@ -50,9 +51,7 @@ class CategoryAttributeQuery
         $categoryAttributes = \array_merge($categoryAttributes, self::$requiredAttributes);
 
         $attributeQuery = $this->attributeQueryFactory->create(
-            [
-            'entityType' => Category::class
-            ]
+            ['entityType' => self::CATEGORY_ENTITY_TYPE]
         );
 
         return $attributeQuery->getQuery($categoryIds, $categoryAttributes, $storeId);
