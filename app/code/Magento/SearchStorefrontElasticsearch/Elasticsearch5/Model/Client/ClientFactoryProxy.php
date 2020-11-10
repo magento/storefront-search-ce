@@ -5,8 +5,8 @@
  */
 namespace Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Client;
 
-use Magento\SearchStorefrontAdvancedSearch\Model\Client\ClientFactoryInterface;
-use Magento\SearchStorefrontAdvancedSearch\Model\Client\ClientResolver;
+use Magento\SearchStorefrontElasticsearch\Model\Client\ClientFactoryInterface;
+use Magento\SearchStorefrontElasticsearch\Model\Client\ClientResolver;
 
 /**
  * Proxy for client factories

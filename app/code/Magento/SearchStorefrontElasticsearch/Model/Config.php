@@ -10,8 +10,8 @@ namespace Magento\SearchStorefrontElasticsearch\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Search\EngineResolverInterface;
-use Magento\SearchStorefrontAdvancedSearch\Model\Client\ClientOptionsInterface;
-use Magento\SearchStorefrontAdvancedSearch\Model\Client\ClientResolver;
+use Magento\SearchStorefrontElasticsearch\Model\Client\ClientOptionsInterface;
+use Magento\SearchStorefrontElasticsearch\Model\Client\ClientResolver;
 use Magento\SearchStorefrontElasticsearch\Api\Data\ConnectionConfigInterface as ConnectionConfig;
 
 /**

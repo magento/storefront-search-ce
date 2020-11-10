@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefrontElasticsearch\Model\DataProvider;
 
-use Magento\SearchStorefrontAdvancedSearch\Model\SuggestedQueriesInterface;
+use Magento\SearchStorefrontElasticsearch\Model\SuggestedQueriesInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Config;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\ConnectionManager;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\SearchIndexNameResolver;

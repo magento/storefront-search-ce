@@ -37,7 +37,7 @@
     </type>
 
     <!-- Set path to active search engine for advanced search client resolver -->
-    <type name="Magento\SearchStorefrontAdvancedSearch\Model\Client\ClientResolver">
+    <type name="Magento\SearchStorefrontElasticsearch\Model\Client\ClientResolver">
         <arguments>
             <argument name="path" xsi:type="string">search_store_front/search/engine</argument>
             <argument name="scopeType" xsi:type="string">default</argument>

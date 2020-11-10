@@ -40,7 +40,7 @@
             </argument>
         </arguments>
     </type>
-    <type name="Magento\SearchStorefrontAdvancedSearch\Model\Client\ClientResolver">
+    <type name="Magento\SearchStorefrontElasticsearch\Model\Client\ClientResolver">
         <arguments>
             <argument name="clientFactories" xsi:type="array">
                 <item name="storefrontElasticsearch5" xsi:type="string">\Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Client\ElasticsearchFactory</item>
@@ -92,7 +92,7 @@
             <argument name="clientConfig" xsi:type="object">Magento\SearchStorefrontElasticsearch\Model\Config</argument>
         </arguments>
     </virtualType>
-    <virtualType name="Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Client\ElasticsearchFactory" type="Magento\SearchStorefrontAdvancedSearch\Model\Client\ClientFactory">
+    <virtualType name="Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Client\ElasticsearchFactory" type="Magento\SearchStorefrontElasticsearch\Model\Client\ClientFactory">
         <arguments>
             <argument name="clientClass" xsi:type="string">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Client\Elasticsearch</argument>
         </arguments>
@@ -164,7 +164,7 @@
         </arguments>
     </type>
     <!-- @TODO suggestions support require additional work -->
-<!--    <type name="Magento\SearchStorefrontAdvancedSearch\Model\SuggestedQueries">-->
+<!--    <type name="Magento\SearchStorefrontElasticsearch\Model\SuggestedQueries">-->
 <!--        <arguments>-->
 <!--            <argument name="data" xsi:type="array">-->
 <!--                <item name="storefrontElasticsearch5" xsi:type="string">Magento\SearchStorefrontElasticsearch\Model\DataProvider\Suggestions</item>-->

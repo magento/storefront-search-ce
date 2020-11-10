@@ -152,7 +152,7 @@ class ProtoMarshalCommand extends Command
         }
 
         $directoryWrite->writeFile(
-            $directoryWrite->getAbsolutePath() . 'search.proto',
+            $directoryWrite->getAbsolutePath() . 'magento.proto',
             $mainProtoTemplate,
             'w'
         );
@@ -208,7 +208,7 @@ class ProtoMarshalCommand extends Command
         $command = "$protocBinary $includesStr --php_out={$rootDirectory}" . DirectoryList::GENERATED . "/code/"
             . " --php-grpc_out={$rootDirectory}" . DirectoryList::GENERATED . "/code/"
             . " --grpc_out={$rootDirectory}" . DirectoryList::GENERATED . "/code/"
-            . " --descriptor_set_out={$rootDirectory}search.protoset"
+            . " --descriptor_set_out={$rootDirectory}magento.protoset"
             . " --plugin=protoc-gen-php-grpc=$phpGrpcBinary"
             . " --plugin=protoc-gen-grpc=$phpGrpcPlugin"
             . " --include_imports"

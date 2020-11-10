@@ -5,9 +5,9 @@
  */
 namespace Magento\SearchStorefrontElasticsearch\SearchAdapter;
 
-use Magento\SearchStorefrontAdvancedSearch\Model\Client\ClientOptionsInterface;
-use Magento\SearchStorefrontAdvancedSearch\Model\Client\ClientFactoryInterface;
-use Magento\SearchStorefrontAdvancedSearch\Model\Client\ClientInterface as Elasticsearch;
+use Magento\SearchStorefrontElasticsearch\Model\Client\ClientOptionsInterface;
+use Magento\SearchStorefrontElasticsearch\Model\Client\ClientFactoryInterface;
+use Magento\SearchStorefrontElasticsearch\Model\Client\ClientInterface as Elasticsearch;
 use Psr\Log\LoggerInterface;
 
 /**

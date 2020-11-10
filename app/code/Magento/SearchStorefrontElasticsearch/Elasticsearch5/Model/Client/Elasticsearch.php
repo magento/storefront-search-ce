@@ -7,7 +7,7 @@
 namespace Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Client;
 
 use Magento\Framework\Exception\LocalizedException;
-use Magento\SearchStorefrontAdvancedSearch\Model\Client\ClientInterface;
+use Magento\SearchStorefrontElasticsearch\Model\Client\ClientInterface;
 
 /**
  * Elasticsearch client

@@ -31,7 +31,7 @@
         </arguments>
     </type>
 
-    <virtualType name="Magento\SearchStorefrontElasticsearch6\Model\Client\ElasticsearchFactory" type="Magento\SearchStorefrontAdvancedSearch\Model\Client\ClientFactory">
+    <virtualType name="Magento\SearchStorefrontElasticsearch6\Model\Client\ElasticsearchFactory" type="Magento\SearchStorefrontElasticsearch\Model\Client\ClientFactory">
         <arguments>
             <argument name="clientClass" xsi:type="string">Magento\SearchStorefrontElasticsearch6\Model\Client\Elasticsearch</argument>
         </arguments>

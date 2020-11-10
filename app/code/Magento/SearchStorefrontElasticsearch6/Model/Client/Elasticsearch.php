@@ -6,7 +6,7 @@
 
 namespace Magento\SearchStorefrontElasticsearch6\Model\Client;
 
-use Magento\SearchStorefrontAdvancedSearch\Model\Client\ClientInterface;
+use Magento\SearchStorefrontElasticsearch\Model\Client\ClientInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldsMappingPreprocessorInterface;
 use Magento\Framework\Exception\LocalizedException;
 

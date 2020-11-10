@@ -6,7 +6,7 @@
 namespace Magento\SearchStorefrontElasticsearch\Model\DataProvider\Base;
 
 use Elasticsearch\Common\Exceptions\BadRequest400Exception;
-use Magento\SearchStorefrontAdvancedSearch\Model\SuggestedQueriesInterface;
+use Magento\SearchStorefrontElasticsearch\Model\SuggestedQueriesInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProviderInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Config;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\ConnectionManager;

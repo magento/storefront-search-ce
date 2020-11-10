@@ -5,7 +5,7 @@
  */
 namespace Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper;
 
-use Magento\SearchStorefrontAdvancedSearch\Model\Client\ClientResolver;
+use Magento\SearchStorefrontElasticsearch\Model\Client\ClientResolver;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface;
 
 /**
