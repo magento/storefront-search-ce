@@ -156,7 +156,7 @@ class Config extends Command
                 'install'     => [
                     'date' => $this->dateTime->formatDate(true)
                 ],
-                'MAGE_MODE' => 'default'
+                'MAGE_MODE' => 'developer'
             ],
             'app_config' => [
                 'modules' => [
@@ -167,7 +167,7 @@ class Config extends Command
                     'Magento_SearchStorefrontApi' => 1,
                     'Magento_SearchStorefrontElasticsearch' => 1,
                     'Magento_SearchStorefrontElasticsearch6' => 1,
-                    'Magento_SearchStorefront' => 1,
+                    'Magento_SearchStorefront' => 1
                 ]
             ]
         ];
