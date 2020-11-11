@@ -30,6 +30,10 @@ HTML;
 
 $bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $_SERVER);
 
+$app = $bootstrap->createApplication(\Magento\Grpc\App\Grpc::class);
+
+//$bootstrap->run($app);
+
 $om = $bootstrap->getObjectManager();
 
 /** @var ProductSearchRequestMapper $requestMapper */
@@ -40,6 +44,7 @@ $requestArray = [
     'store' => '1',
     'include_aggregations' => true,
     'customer_group_id' => 0,
+    'page_size' => 5,
     'filters' => [
         [
             'attribute' => 'color',
