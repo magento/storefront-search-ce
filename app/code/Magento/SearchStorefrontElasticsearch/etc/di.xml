@@ -62,18 +62,8 @@
             </argument>
         </arguments>
     </type>
-    <type name="Magento\Framework\Search\Dynamic\DataProviderFactory">
-        <arguments>
-            <argument name="dataProviders" xsi:type="array">
-                <item name="storefrontElasticsearch5" xsi:type="string">Magento\SearchStorefrontElasticsearch\SearchAdapter\Dynamic\DataProvider</item>
-            </argument>
-        </arguments>
-    </type>
     <type name="Magento\SearchStorefrontElasticsearch\SearchAdapter\Aggregation\Builder">
         <arguments>
-            <argument name="dataProviderContainer" xsi:type="array">
-                <item name="catalogsearch_fulltext" xsi:type="object">Magento\SearchStorefrontElasticsearch\SearchAdapter\Dynamic\DataProvider</item>
-            </argument>
             <argument name="aggregationContainer" xsi:type="array">
                 <item name="termBucket" xsi:type="object">Magento\SearchStorefrontElasticsearch\SearchAdapter\Aggregation\Builder\Term</item>
                 <item name="dynamicBucket" xsi:type="object">Magento\SearchStorefrontElasticsearch\SearchAdapter\Aggregation\Builder\Dynamic</item>
@@ -107,12 +97,6 @@
         <arguments>
             <argument name="reader" xsi:type="object">Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config\Reader</argument>
             <argument name="cacheId" xsi:type="string">elasticsearch_index_config</argument>
-        </arguments>
-    </type>
-
-    <type name="Magento\SearchStorefrontElasticsearch\SearchAdapter\Dynamic\DataProvider">
-        <arguments>
-            <argument name="indexerId" xsi:type="string">catalogsearch_fulltext</argument>
         </arguments>
     </type>
 
