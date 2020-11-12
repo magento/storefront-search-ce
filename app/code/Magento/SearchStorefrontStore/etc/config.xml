@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<!-- //TODO resolve empty config.xml stub -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_SearchStorefrontStore:etc/config.xsd">
+</config>
