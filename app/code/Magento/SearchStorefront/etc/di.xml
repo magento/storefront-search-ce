@@ -6,6 +6,10 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- server & api -->
+    <preference for="Magento\SearchStorefrontApi\Api\SearchInterface" type="Magento\SearchStorefrontApi\Api\InMemorySearch"/>
+    <preference for="Magento\SearchStorefrontApi\Api\SearchServerInterface" type="Magento\SearchStorefront\Model\SearchService"/>
+
     <!-- Logger -->
     <virtualType name="SearchStorefrontLogger" type="Magento\Framework\Logger\Monolog">
         <arguments>
@@ -15,7 +19,6 @@
             </argument>
         </arguments>
     </virtualType>
-
     <type name="Magento\SearchStorefrontSearch\Model\EngineResolver">
         <arguments>
             <argument name="logger" xsi:type="object">SearchStorefrontLogger</argument>
