@@ -55,13 +55,6 @@
             <argument name="connectionManager" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\ConnectionManager</argument>
         </arguments>
     </type>
-    <type name="Magento\Framework\Search\Dynamic\IntervalFactory">
-        <arguments>
-            <argument name="intervals" xsi:type="array">
-                <item name="storefrontElasticsearch5" xsi:type="string">Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\Aggregation\Interval</item>
-            </argument>
-        </arguments>
-    </type>
     <type name="Magento\SearchStorefrontElasticsearch\SearchAdapter\Aggregation\Builder">
         <arguments>
             <argument name="aggregationContainer" xsi:type="array">
