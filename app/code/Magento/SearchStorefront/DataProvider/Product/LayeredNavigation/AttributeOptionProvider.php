@@ -52,8 +52,7 @@ class AttributeOptionProvider
             return [];
         }
 
-        //TODO Replace default store Id
-        $storeId = $storeId ?: 0;
+        $storeId = $storeId ?: \Magento\SearchStorefrontStore\Model\Store::DEFAULT_STORE_ID;
         $connection = $this->resourceConnection->getConnection();
         $select = $connection->select()
             ->from(

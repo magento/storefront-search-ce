@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefrontElasticsearch7\Model\Client;
 
-use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldsMappingPreprocessorInterface;
 use Magento\Framework\Exception\LocalizedException;
 use \Magento\SearchStorefrontElasticsearch\Model\Client\ClientInterface;
 
@@ -34,22 +33,15 @@ class Elasticsearch implements ClientInterface
     private $pingResult;
 
     /**
-     * @var FieldsMappingPreprocessorInterface[]
-     */
-    private $fieldsMappingPreprocessors;
-
-    /**
      * Initialize Elasticsearch 7 Client
      *
      * @param array $options
      * @param \SearchStorefrontElasticsearch\Client|null $elasticsearchClient
-     * @param array $fieldsMappingPreprocessors
      * @throws LocalizedException
      */
     public function __construct(
         $options = [],
-        $elasticsearchClient = null,
-        $fieldsMappingPreprocessors = []
+        $elasticsearchClient = null
     ) {
         if (empty($options['hostname'])
             || ((!empty($options['enableAuth']) && ($options['enableAuth'] == 1))
@@ -64,7 +56,6 @@ class Elasticsearch implements ClientInterface
             $this->client[getmypid()] = $elasticsearchClient;
         }
         $this->clientOptions = $options;
-        $this->fieldsMappingPreprocessors = $fieldsMappingPreprocessors;
     }
 
     /**
@@ -152,131 +143,6 @@ class Elasticsearch implements ClientInterface
     }
 
     /**
-     * Performs bulk query over Elasticsearch 7  index
-     *
-     * @param array $query
-     * @return void
-     */
-    public function bulkQuery(array $query)
-    {
-        $this->getElasticsearchClient()->bulk($query);
-    }
-
-    /**
-     * Creates an Elasticsearch 7 index.
-     *
-     * @param string $index
-     * @param array $settings
-     * @return void
-     */
-    public function createIndex(string $index, array $settings)
-    {
-        $this->getElasticsearchClient()->indices()->create(
-            [
-                'index' => $index,
-                'body' => $settings,
-            ]
-        );
-    }
-
-    /**
-     * Add/update an Elasticsearch index settings.
-     *
-     * @param string $index
-     * @param array $settings
-     * @return void
-     */
-    public function putIndexSettings(string $index, array $settings): void
-    {
-        $this->getElasticsearchClient()->indices()->putSettings(
-            [
-                'index' => $index,
-                'body' => $settings,
-            ]
-        );
-    }
-
-    /**
-     * Delete an Elasticsearch 7 index.
-     *
-     * @param string $index
-     * @return void
-     */
-    public function deleteIndex(string $index)
-    {
-        $this->getElasticsearchClient()->indices()->delete(['index' => $index]);
-    }
-
-    /**
-     * Check if index is empty.
-     *
-     * @param string $index
-     * @return bool
-     */
-    public function isEmptyIndex(string $index): bool
-    {
-        $stats = $this->getElasticsearchClient()->indices()->stats(['index' => $index, 'metric' => 'docs']);
-        if ($stats['indices'][$index]['primaries']['docs']['count'] === 0) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * Updates alias.
-     *
-     * @param string $alias
-     * @param string $newIndex
-     * @param string $oldIndex
-     * @return void
-     */
-    public function updateAlias(string $alias, string $newIndex, string $oldIndex = '')
-    {
-        $params = [
-            'body' => [
-                'actions' => []
-            ]
-        ];
-        if ($oldIndex) {
-            $params['body']['actions'][] = ['remove' => ['alias' => $alias, 'index' => $oldIndex]];
-        }
-        if ($newIndex) {
-            $params['body']['actions'][] = ['add' => ['alias' => $alias, 'index' => $newIndex]];
-        }
-
-        $this->getElasticsearchClient()->indices()->updateAliases($params);
-    }
-
-    /**
-     * Checks whether Elasticsearch 7 index exists
-     *
-     * @param string $index
-     * @return bool
-     */
-    public function indexExists(string $index): bool
-    {
-        return $this->getElasticsearchClient()->indices()->exists(['index' => $index]);
-    }
-
-    /**
-     * Exists alias.
-     *
-     * @param string $alias
-     * @param string $index
-     * @return bool
-     */
-    public function existsAlias(string $alias, string $index = ''): bool
-    {
-        $params = ['name' => $alias];
-        if ($index) {
-            $params['index'] = $index;
-        }
-
-        return $this->getElasticsearchClient()->indices()->existsAlias($params);
-    }
-
-    /**
      * Get alias.
      *
      * @param string $alias
@@ -288,75 +154,6 @@ class Elasticsearch implements ClientInterface
     }
 
     /**
-     * Add mapping to Elasticsearch 7 index
-     *
-     * @param array $fields
-     * @param string $index
-     * @param string $entityType
-     * @return void
-     */
-    public function addFieldsMapping(array $fields, string $index, string $entityType)
-    {
-        $params = [
-            'index' => $index,
-            'type' => $entityType,
-            'include_type_name' => true,
-            'body' => [
-                $entityType => [
-                    'properties' => [],
-                    'dynamic_templates' => [
-                        [
-                            'price_mapping' => [
-                                'match' => 'price_*',
-                                'match_mapping_type' => 'string',
-                                'mapping' => [
-                                    'type' => 'double',
-                                    'store' => true,
-                                ],
-                            ],
-                        ],
-                        [
-                            'position_mapping' => [
-                                'match' => 'position_*',
-                                'match_mapping_type' => 'string',
-                                'mapping' => [
-                                    'type' => 'integer',
-                                    'index' => true,
-                                ],
-                            ],
-                        ],
-                        [
-                            'string_mapping' => [
-                                'match' => '*',
-                                'match_mapping_type' => 'string',
-                                'mapping' => [
-                                    'type' => 'text',
-                                    'index' => true,
-                                    'copy_to' => '_search',
-                                ],
-                            ],
-                        ],
-                        [
-                            'integer_mapping' => [
-                                'match_mapping_type' => 'long',
-                                'mapping' => [
-                                    'type' => 'integer',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ];
-
-        foreach ($this->applyFieldsMappingPreprocessors($fields) as $field => $fieldInfo) {
-            $params['body'][$entityType]['properties'][$field] = $fieldInfo;
-        }
-
-        $this->getElasticsearchClient()->indices()->putMapping($params);
-    }
-
-    /**
      * Execute search by $query
      *
      * @param array $query
@@ -365,34 +162,6 @@ class Elasticsearch implements ClientInterface
     public function query(array $query): array
     {
         return $this->getElasticsearchClient()->search($query);
-    }
-
-    /**
-     * Get mapping from Elasticsearch index.
-     *
-     * @param array $params
-     * @return array
-     */
-    public function getMapping(array $params): array
-    {
-        return $this->getElasticsearchClient()->indices()->getMapping($params);
-    }
-
-    /**
-     * Delete mapping in Elasticsearch 7 index
-     *
-     * @param string $index
-     * @param string $entityType
-     * @return void
-     */
-    public function deleteMapping(string $index, string $entityType)
-    {
-        $this->getElasticsearchClient()->indices()->deleteMapping(
-            [
-                'index' => $index,
-                'type' => $entityType,
-            ]
-        );
     }
 
     /**

@@ -16,9 +16,6 @@
         </arguments>
     </virtualType>
 
-    <preference for="Magento\SearchStorefrontApi\Api\SearchInterface" type="Magento\SearchStorefrontApi\Api\InMemorySearch"/>
-    <preference for="Magento\SearchStorefrontApi\Api\SearchServerInterface" type="Magento\SearchStorefront\Model\SearchService"/>
-
     <type name="Magento\SearchStorefrontSearch\Model\EngineResolver">
         <arguments>
             <argument name="logger" xsi:type="object">SearchStorefrontLogger</argument>
@@ -36,16 +33,9 @@
         </arguments>
     </type>
 
-    <!-- Set path to active search engine for advanced search client resolver -->
-    <type name="Magento\SearchStorefrontElasticsearch\Model\Client\ClientResolver">
-        <arguments>
-            <argument name="path" xsi:type="string">search_store_front/search/engine</argument>
-            <argument name="scopeType" xsi:type="string">default</argument>
-        </arguments>
-    </type>
-
     <preference for="Magento\Framework\Search\Request\Aggregation\StatusInterface" type="Magento\SearchStorefront\Model\Aggregation\Status" />
 
+    <!-- Scope -->
     <preference for="Magento\Framework\App\ScopeResolver" type="Magento\SearchStorefront\Model\Scope\ScopeResolver" />
     <preference for="Magento\Framework\App\ScopeResolverInterface" type="Magento\SearchStorefront\Model\Scope\ScopeResolver" />
 
@@ -97,16 +87,6 @@
 
     <preference for="Magento\Framework\Search\Dynamic\DataProviderInterface" type="Magento\SearchStorefront\SearchAdapter\Dynamic\DataProvider" />
 
-    <!-- @TODO maybe place back into elasstic? -->
-    <type name="Magento\Framework\Search\Dynamic\DataProviderFactory">
-        <arguments>
-            <argument name="dataProviders" xsi:type="array">
-                <item name="storefrontElasticsearch5" xsi:type="string">Magento\SearchStorefront\SearchAdapter\Dynamic\DataProvider</item>
-                <item name="storefrontElasticsearch6" xsi:type="string">Magento\SearchStorefront\SearchAdapter\Dynamic\DataProvider</item>
-            </argument>
-        </arguments>
-    </type>
-
     <type name="Magento\SearchStorefrontElasticsearch\SearchAdapter\Aggregation\Builder">
         <arguments>
             <argument name="dataProviderContainer" xsi:type="array">
@@ -121,13 +101,7 @@
         </arguments>
     </type>
 
-    <type name="Magento\Framework\Reflection\MethodsMap">
-        <arguments>
-            <argument name="cache" xsi:type="object">Magento\Framework\App\Cache\Type\Reflection</argument>
-        </arguments>
-    </type>
     <!-- scope resolvers replacements that are reading via direct sql -->
-
     <type name="Magento\Framework\Search\Request\Config\FilesystemReader">
         <plugin name="productAttributesDynamicFields"  type="Magento\SearchStorefront\Plugin\Search\Request\ConfigReader" />
     </type>
