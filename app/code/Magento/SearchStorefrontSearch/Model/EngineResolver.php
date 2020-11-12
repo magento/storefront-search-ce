@@ -5,7 +5,7 @@
  */
 namespace Magento\SearchStorefrontSearch\Model;
 
-use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\SearchStorefront\Model\Search\Client\Config;
 use Magento\Framework\Search\EngineResolverInterface;
 use Psr\Log\LoggerInterface;
 
@@ -15,27 +15,9 @@ use Psr\Log\LoggerInterface;
 class EngineResolver implements EngineResolverInterface
 {
     /**
-     * @var ScopeConfigInterface
+     * @var Config
     */
-    protected $scopeConfig;
-
-    /**
-     * Path to catalog search engine
-     * @var string
-    */
-    protected $path;
-
-    /**
-     * Scope type
-     * @var string
-    */
-    protected $scopeType;
-
-    /**
-     * Scope code
-     * @var null|string
-    */
-    protected $scopeCode;
+    protected $config;
 
     /**
      * Available engines
@@ -54,27 +36,18 @@ class EngineResolver implements EngineResolverInterface
     private $defaultEngine;
 
     /**
-     * @param ScopeConfigInterface $scopeConfig
+     * @param Config $config
      * @param array $engines
      * @param LoggerInterface $logger
-     * @param string $path
-     * @param string $scopeType
-     * @param string|null $scopeCode
      * @param string|null $defaultEngine
      */
     public function __construct(
-        ScopeConfigInterface $scopeConfig,
+        Config $config,
         array $engines,
         LoggerInterface $logger,
-        $path,
-        $scopeType,
-        $scopeCode = null,
         $defaultEngine = null
     ) {
-        $this->scopeConfig = $scopeConfig;
-        $this->path = $path;
-        $this->scopeType = $scopeType;
-        $this->scopeCode = $scopeCode;
+        $this->config = $config;
         $this->engines = $engines;
         $this->logger = $logger;
         $this->defaultEngine = $defaultEngine;
@@ -89,26 +62,22 @@ class EngineResolver implements EngineResolverInterface
     */
     public function getCurrentSearchEngine()
     {
-        $engine = $this->scopeConfig->getValue(
-            $this->path,
-            $this->scopeType,
-            $this->scopeCode
-        );
+        $engine = $this->config->getEngine();
 
         if (in_array($engine, $this->engines)) {
             return $engine;
-        } else {
-            //get default engine from default scope
-            if ($this->defaultEngine && in_array($this->defaultEngine, $this->engines)) {
-                $this->logger->error(
-                    $engine . ' search engine doesn\'t exist. Falling back to ' . $this->defaultEngine
-                );
-            } else {
-                $this->logger->error(
-                    'Default search engine is not configured, fallback is not possible'
-                );
-            }
-            return $this->defaultEngine;
         }
+
+        //get default engine from default scope
+        if ($this->defaultEngine && in_array($this->defaultEngine, $this->engines)) {
+            $this->logger->error(
+                $engine . ' search engine doesn\'t exist. Falling back to ' . $this->defaultEngine
+            );
+        } else {
+            $this->logger->error(
+                'Default search engine is not configured, fallback is not possible'
+            );
+        }
+        return $this->defaultEngine;
     }
 }

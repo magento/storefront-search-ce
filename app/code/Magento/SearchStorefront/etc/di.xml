@@ -28,7 +28,7 @@
     <!-- Set path to active search engine -->
     <type name="Magento\SearchStorefrontSearch\Model\EngineResolver">
         <arguments>
-            <argument name="path" xsi:type="string">search_store_front/search/engine</argument>
+            <argument name="path" xsi:type="string">search/engine</argument>
             <argument name="scopeType" xsi:type="string">default</argument>
         </arguments>
     </type>

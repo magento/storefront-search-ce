@@ -32,7 +32,7 @@ class Config extends Command
      * Configuration for Elasticsearch
      */
     const ELASTICSEARCH_HOST         = 'elastic';
-    const ELASTICSEARCH_ENGINE       = 'storefrontElasticsearch6';
+    const ELASTICSEARCH_ENGINE       = 'storefrontElasticsearch7';
     const ELASTICSEARCH_PORT         = '9200';
     const ELASTICSEARCH_INDEX_PREFIX = 'magento2';
 

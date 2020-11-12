@@ -50,8 +50,8 @@ class ClientResolver
      */
     public function __construct(
         ObjectManagerInterface $objectManager,
-        array $clientFactories,
-        array $clientOptions,
+        array $clientFactories = [],
+        array $clientOptions = [],
         EngineResolverInterface $engineResolver
     ) {
         $this->objectManager = $objectManager;

@@ -10,15 +10,6 @@
     <preference for="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\ResolverInterface" type="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\Resolver\CompositeResolver" />
     <preference for="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\ResolverInterface" type="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Resolver\CompositeResolver" />
     <preference for="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\ConverterInterface" type="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Converter" />
-    <preference for="Magento\Framework\Search\Dynamic\DataProviderInterface" type="Magento\SearchStorefrontElasticsearch\SearchAdapter\Dynamic\DataProvider" />
-
-    <type name="Magento\SearchStorefrontElasticsearch\Model\Config">
-        <arguments>
-            <argument name="engineList" xsi:type="array">
-                <item name="storefrontElasticsearch5" xsi:type="string">storefrontElasticsearch5</item>
-            </argument>
-        </arguments>
-    </type>
 
     <type name="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\FieldMapperResolver">
         <arguments>
@@ -30,40 +21,40 @@
 
     <preference for="Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config\EsConfigInterface" type="Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config\EsConfig" />
 
-    <type name="Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\ProductFieldMapperProxy">
-        <arguments>
-            <argument name="productFieldMappers" xsi:type="array">
-                <item name="storefrontElasticsearch5" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\ProductFieldMapper</item>
-            </argument>
-        </arguments>
-    </type>
-    <type name="Magento\SearchStorefrontElasticsearch\Model\Client\ClientResolver">
-        <arguments>
-            <argument name="clientFactories" xsi:type="array">
-                <item name="storefrontElasticsearch5" xsi:type="string">\Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Client\ElasticsearchFactory</item>
-            </argument>
-            <argument name="clientOptions" xsi:type="array">
-                <item name="storefrontElasticsearch5" xsi:type="string">Magento\SearchStorefrontElasticsearch\Model\Config</item>
-            </argument>
-        </arguments>
-    </type>
+<!--    <type name="Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\ProductFieldMapperProxy">-->
+<!--        <arguments>-->
+<!--            <argument name="productFieldMappers" xsi:type="array">-->
+<!--                <item name="storefrontElasticsearch5" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\ProductFieldMapper</item>-->
+<!--            </argument>-->
+<!--        </arguments>-->
+<!--    </type>-->
+<!--    <type name="Magento\SearchStorefrontElasticsearch\Model\Client\ClientResolver">-->
+<!--        <arguments>-->
+<!--            <argument name="clientFactories" xsi:type="array">-->
+<!--                <item name="storefrontElasticsearch5" xsi:type="string">\Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Client\ElasticsearchFactory</item>-->
+<!--            </argument>-->
+<!--            <argument name="clientOptions" xsi:type="array">-->
+<!--                <item name="storefrontElasticsearch5" xsi:type="string">Magento\SearchStorefrontElasticsearch\Model\Config</item>-->
+<!--            </argument>-->
+<!--        </arguments>-->
+<!--    </type>-->
 
-    <type name="Magento\SearchStorefrontSearch\Model\AdapterFactory">
-        <arguments>
-            <argument name="adapters" xsi:type="array">
-                <item name="storefrontElasticsearch5" xsi:type="string">Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\Adapter</item>
-            </argument>
-        </arguments>
-    </type>
+<!--    <type name="Magento\SearchStorefrontSearch\Model\AdapterFactory">-->
+<!--        <arguments>-->
+<!--            <argument name="adapters" xsi:type="array">-->
+<!--                <item name="storefrontElasticsearch5" xsi:type="string">Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\Adapter</item>-->
+<!--            </argument>-->
+<!--        </arguments>-->
+<!--    </type>-->
 
-    <type name="Magento\SearchStorefrontSearch\Model\EngineResolver">
-        <arguments>
-            <argument name="engines" xsi:type="array">
-                <item name="storefrontElasticsearch5" xsi:type="string">storefrontElasticsearch5</item>
-            </argument>
-            <argument name="defaultEngine" xsi:type="string">storefrontElasticsearch5</argument>
-        </arguments>
-    </type>
+<!--    <type name="Magento\SearchStorefrontSearch\Model\EngineResolver">-->
+<!--        <arguments>-->
+<!--            <argument name="engines" xsi:type="array">-->
+<!--                <item name="storefrontElasticsearch5" xsi:type="string">storefrontElasticsearch5</item>-->
+<!--            </argument>-->
+<!--            <argument name="defaultEngine" xsi:type="string">storefrontElasticsearch5</argument>-->
+<!--        </arguments>-->
+<!--    </type>-->
 
     <virtualType name="Magento\SearchStorefrontElasticsearch\SearchAdapter\ProductEntityMetadata" type="Magento\Framework\Search\EntityMetadata">
         <arguments>
@@ -94,13 +85,13 @@
             <argument name="clientClass" xsi:type="string">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Client\Elasticsearch</argument>
         </arguments>
     </virtualType>
-    <type name="Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Client\ClientFactoryProxy">
-        <arguments>
-            <argument name="clientFactories" xsi:type="array">
-                <item name="storefrontElasticsearch5" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Client\ElasticsearchFactory</item>
-            </argument>
-        </arguments>
-    </type>
+<!--    <type name="Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Client\ClientFactoryProxy">-->
+<!--        <arguments>-->
+<!--            <argument name="clientFactories" xsi:type="array">-->
+<!--                <item name="storefrontElasticsearch5" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Client\ElasticsearchFactory</item>-->
+<!--            </argument>-->
+<!--        </arguments>-->
+<!--    </type>-->
     <type name="Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\Adapter">
         <arguments>
             <argument name="connectionManager" xsi:type="object">Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\ConnectionManager</argument>
