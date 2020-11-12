@@ -149,9 +149,7 @@ class Config extends Command
                         ]
                     ],
                     'engine' => self::ELASTICSEARCH_ENGINE,
-                    'minimum_should_match' => 1,
-                    'index_prefix' => self::ELASTICSEARCH_INDEX_PREFIX,
-                    'source_current_version' => 1
+                    'index_prefix' => self::ELASTICSEARCH_INDEX_PREFIX
                 ],
                 'install'     => [
                     'date' => $this->dateTime->formatDate(true)
