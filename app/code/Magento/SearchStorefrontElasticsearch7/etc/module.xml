@@ -9,7 +9,6 @@
     <module name="Magento_SearchStorefrontElasticsearch7">
         <sequence>
             <module name="Magento_SearchStorefrontElasticsearch"/>
-            <module name="Magento_SearchStorefrontElasticsearch6"/>
         </sequence>
     </module>
 </config>
