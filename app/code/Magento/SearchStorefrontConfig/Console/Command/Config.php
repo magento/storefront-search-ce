@@ -164,7 +164,8 @@ class Config extends Command
                     'Magento_SearchStorefrontSearch' => 1,
                     'Magento_SearchStorefrontApi' => 1,
                     'Magento_SearchStorefrontElasticsearch' => 1,
-                    'Magento_SearchStorefrontElasticsearch6' => 1,
+                    'Magento_SearchStorefrontElasticsearch7' => 1,
+                    'Magento_SearchStorefrontStub' => 1,
                     'Magento_SearchStorefront' => 1
                 ]
             ]

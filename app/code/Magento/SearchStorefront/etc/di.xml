@@ -115,16 +115,4 @@
             </argument>
         </arguments>
     </type>
-
-    <!-- configure elasticsearch overrides to avoid circular dependencies-->
-    <type name="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeProvider">
-        <arguments>
-            <argument name="collectionFactory" xsi:type="string">Magento\SearchStorefrontStub\Model\Eav\Attribute\CollectionFactory</argument>
-        </arguments>
-    </type>
-    <type name="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeAdapter">
-        <arguments>
-            <argument name="eavModelClass" xsi:type="string">Magento\SearchStorefrontStub\Model\Eav\Attribute</argument>
-        </arguments>
-    </type>
 </config>

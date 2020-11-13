@@ -88,11 +88,4 @@
             <argument name="configSource" xsi:type="object">Magento\SearchStorefrontConfig\App\Config\Source\EnvironmentConfigSource</argument>
         </arguments>
     </type>
-    <type name="Magento\SearchStorefrontConfig\App\Config\Placeholder\PlaceholderFactory">
-        <arguments>
-            <argument name="types" xsi:type="array">
-                <item name="environment" xsi:type="string">Magento\SearchStorefrontConfig\App\Config\Placeholder\Environment</item>
-            </argument>
-        </arguments>
-    </type>
 </config>

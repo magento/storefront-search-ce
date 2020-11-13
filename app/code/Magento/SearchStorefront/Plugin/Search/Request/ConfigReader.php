@@ -9,6 +9,7 @@ use Magento\SearchStorefront\Model\Search\RequestGenerator;
 use Magento\SearchStorefront\Model\Search\RequestGenerator\GeneratorResolver;
 use Magento\Framework\Search\Request\FilterInterface;
 use Magento\Framework\Search\Request\QueryInterface;
+use Magento\SearchStorefrontStub\Model\Eav\Attribute;
 use Magento\SearchStorefrontStub\Model\Eav\Attribute\Product\CollectionFactory;
 use Magento\SearchStorefrontStub\Model\Eav\Attribute\Product\Collection;
 
