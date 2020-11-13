@@ -106,7 +106,7 @@ class Config extends Command
                     ]
                 ],
                 'system'      => [
-                    'stores' => [
+                    'default' => [
                         'catalog' => [
                             'layered_navigation' => [
                                 'price_range_calculation' => 'auto',
