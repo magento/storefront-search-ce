@@ -11,6 +11,7 @@ use Magento\Framework\DB\Select;
 
 /**
  * Provide category attributes for specified category ids and attributes
+ * Copied from Magento\CatalogGraphQl
  */
 class CategoryAttributeQuery
 {

@@ -12,6 +12,8 @@ use Magento\Framework\DB\Select;
 use Magento\Framework\EntityManager\MetadataPool;
 
 /**
+ * Copied from Magento\CatalogGraphQl
+ *
  * Generic for build Select object to fetch eav attributes for provided entity type
  */
 class AttributeQuery

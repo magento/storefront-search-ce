@@ -10,6 +10,8 @@ namespace Magento\SearchStorefront\DataProvider\Product\LayeredNavigation;
 use Magento\Framework\App\ResourceConnection;
 
 /**
+ *  * Copied from Magento\CatalogGraphQl
+ *
  * Fetch product attribute option data including attribute info
  * Return data in format:
  * [

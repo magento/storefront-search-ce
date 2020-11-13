@@ -11,6 +11,8 @@ use Magento\Framework\GraphQl\Config\Element\Type;
 use Magento\Framework\GraphQl\Config\Element\InterfaceType;
 
 /**
+ * Copied from Magento\CatalogGraphQl
+ *
  * Map for category attributes.
  */
 class CategoryAttributesMapper

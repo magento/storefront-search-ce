@@ -9,6 +9,7 @@ namespace Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\Format
 
 /**
  * Format Layered Navigation Items
+ * Copied from Magento\CatalogGraphQl
  */
 class LayerFormatter
 {

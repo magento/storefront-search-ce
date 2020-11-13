@@ -14,6 +14,7 @@ use Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\Formatter\La
 
 /**
  * @inheritdoc
+ * Copied from Magento\CatalogGraphQl
  */
 class Price implements LayerBuilderInterface
 {

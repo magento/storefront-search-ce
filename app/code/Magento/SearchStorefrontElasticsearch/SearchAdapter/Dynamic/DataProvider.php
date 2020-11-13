@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace Magento\SearchStorefront\SearchAdapter\Dynamic;
+namespace Magento\SearchStorefrontElasticsearch\SearchAdapter\Dynamic;
 
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\QueryAwareInterface;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\QueryContainer;

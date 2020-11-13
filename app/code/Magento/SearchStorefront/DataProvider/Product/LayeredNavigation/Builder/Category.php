@@ -19,6 +19,7 @@ use Magento\SearchStorefrontStore\Model\Store;
 
 /**
  * @inheritdoc
+ * Copied from Magento\CatalogGraphQl
  */
 class Category implements LayerBuilderInterface
 {

@@ -11,6 +11,7 @@ use Magento\Framework\Api\Search\AggregationInterface;
 
 /**
  * @inheritdoc
+ * Copied from Magento\CatalogGraphQl
  */
 class LayerBuilder implements LayerBuilderInterface
 {

@@ -14,10 +14,9 @@ use Magento\SearchStorefrontStub\Model\Eav\Attribute\Product\CollectionFactory;
 use Magento\SearchStorefrontStub\Model\Eav\Attribute\Product\Collection;
 
 /**
- * Add search request configuration to config for give ability filter and search products during GraphQL request
- * Add 2 request name with and without aggregation correspondingly:
- * - graphql_product_search_with_aggregation
- * - graphql_product_search
+ * Copied from Magento\CatalogGraphQl
+ *
+ * Add search request configuration to config for give ability filter and search products
  */
 class ConfigReader
 {

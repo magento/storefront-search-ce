@@ -10,6 +10,8 @@ namespace Magento\SearchStorefront\DataProvider\Product\LayeredNavigation;
 use Magento\Framework\Api\Search\AggregationInterface;
 
 /**
+ * Copied from Magento\CatalogGraphQl
+ *
  * Build layer data from AggregationInterface
  * Return data in the following format:
  *
