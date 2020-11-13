@@ -17,4 +17,5 @@
             <argument name="collectionFactory" xsi:type="string">Magento\SearchStorefrontStub\Model\Eav\Attribute\CollectionFactory</argument>
         </arguments>
     </type>
+    <preference for="Magento\Framework\Search\Request\Aggregation\StatusInterface" type="Magento\SearchStorefrontStub\Model\Aggregation\Status" />
 </config>

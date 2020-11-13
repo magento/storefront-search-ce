@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace Magento\SearchStorefront\Model\Filter\Price;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\App\ResourceConnection;
 use Magento\SearchStorefrontStore\Model\ScopeInterface;
 use Magento\SearchStorefrontStore\Model\StoreManagerInterface;
 
@@ -31,16 +32,23 @@ class Range
     private $scopeConfig;
 
     /**
+     * @var ResourceConnection
+     */
+    private $resourceConnection;
+
+    /**
      * @param StoreManagerInterface $storeManager
      * @param CategoryRepositoryInterface $categoryRepository
      * @param ScopeConfigInterface $scopeConfig
      */
     public function __construct(
         StoreManagerInterface $storeManager,
-        ScopeConfigInterface $scopeConfig
+        ScopeConfigInterface $scopeConfig,
+        ResourceConnection $resourceConnection
     ) {
         $this->storeManager = $storeManager;
         $this->scopeConfig = $scopeConfig;
+        $this->resourceConnection = $resourceConnection;
     }
 
     /**
@@ -49,11 +57,7 @@ class Range
      */
     public function getPriceRange()
     {
-        //TODO implement!
-        return 10;
-        $rootCategoryId = $this->storeManager->getStore()->getRootCategoryId();
-        $category = $this->categoryRepository->get($rootCategoryId);
-        return $category->getFilterPriceRange() ?? $this->getConfigRangeStep($this->storeManager->getStore()->getId());
+        return $this->getFilterPriceRange() ?? $this->getConfigRangeStep($this->storeManager->getStore()->getId());
     }
 
     /**
@@ -67,5 +71,41 @@ class Range
             ScopeInterface::SCOPE_STORE,
             $storeId
         );
+    }
+
+    /**
+     *
+     * Direct sql for category's filter_price_range attribute value
+     *
+     * @return float|bool
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    private function getFilterPriceRange()
+    {
+        $store = $this->storeManager->getStore();
+        $connection = $this->resourceConnection->getConnection();
+        $attributeSelect = $connection->select()
+            ->from(['a' => $this->resourceConnection->getTableName('eav_attribute')],
+                   [
+                       'id' => 'a.attribute_id',
+                       'type' => 'a.backend_type'
+                   ])
+            ->where('a.attribute_code=?', 'filter_price_range');
+
+        $attribute = $connection->fetchRow($attributeSelect);
+
+        $table = $this->resourceConnection->getTableName('catalog_category_entity_'.$attribute['type']);
+        $categorySelect = $connection->select()
+            ->from(['c' => $table],
+                    [
+                        'value' => 'c.value'
+                    ])
+            ->where('c.row_id=?', $store->getRootCategoryId())
+            ->where('c.attribute_id=?', $attribute['id'])
+            ->where('c.store_id=?', $store->getId());
+
+        $filter = $connection->fetchRow($categorySelect);
+
+        return $filter['value'] ?? $filter;
     }
 }

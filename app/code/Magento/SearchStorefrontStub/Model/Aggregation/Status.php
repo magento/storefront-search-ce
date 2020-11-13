@@ -1,6 +1,6 @@
 <?php
 
-namespace Magento\SearchStorefront\Model\Aggregation;
+namespace Magento\SearchStorefrontStub\Model\Aggregation;
 
 use Magento\Framework\Search\Request\Aggregation\StatusInterface;
 

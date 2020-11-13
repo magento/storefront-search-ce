@@ -36,8 +36,6 @@
         </arguments>
     </type>
 
-    <preference for="Magento\Framework\Search\Request\Aggregation\StatusInterface" type="Magento\SearchStorefront\Model\Aggregation\Status" />
-
     <!-- Scope -->
     <preference for="Magento\Framework\App\ScopeResolverInterface" type="Magento\SearchStorefrontStore\Model\Scope\ScopeResolver" />
 
