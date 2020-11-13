@@ -32,21 +32,18 @@ class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInte
 
     /**
      * @var \Magento\SearchStorefrontElasticsearch\Model\Config
-     * @deprecated 100.2.0 as this class shouldn't be responsible for query building
      * and should only modify existing query
      */
     protected $clientConfig;
 
     /**
      * @var \Magento\SearchStorefrontElasticsearch\SearchAdapter\SearchIndexNameResolver
-     * @deprecated 100.2.0 as this class shouldn't be responsible for query building
      * and should only modify existing query
      */
     protected $searchIndexNameResolver;
 
     /**
      * @var string
-     * @deprecated 100.2.0 as this class shouldn't be responsible for query building
      * and should only modify existing query
      */
     protected $indexerId;

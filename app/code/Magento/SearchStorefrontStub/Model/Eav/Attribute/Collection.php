@@ -1,6 +1,6 @@
 <?php
 
-namespace Magento\SearchStorefront\Model\Eav\Attribute;
+namespace Magento\SearchStorefrontStub\Model\Eav\Attribute;
 
 use Magento\Framework\DB\Select;
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
@@ -17,8 +17,8 @@ class Collection extends AbstractCollection
     protected function _construct()
     {
         $this->_init(
-            \Magento\SearchStorefront\Model\Eav\Attribute::class,
-            \Magento\SearchStorefront\Model\Eav\Attribute\ResourceModel\Attribute::class
+            \Magento\SearchStorefrontStub\Model\Eav\Attribute::class,
+            \Magento\SearchStorefrontStub\Model\Eav\Attribute\ResourceModel\Attribute::class
         );
     }
 

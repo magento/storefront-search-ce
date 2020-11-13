@@ -9,7 +9,7 @@
     <!-- GRPC server init minimum -->
     <preference for="Psr\Log\LoggerInterface" type="Magento\Framework\Logger\Monolog" />
     <preference for="Magento\Framework\App\RequestInterface" type="Magento\Framework\App\Request\Http" />
-    <preference for="Magento\Framework\App\Request\PathInfoProcessorInterface" type="Magento\SearchStorefront\Framework\App\Request\DefaultPathInfoProcessor" />
+    <preference for="Magento\Framework\App\Request\PathInfoProcessorInterface" type="Magento\SearchStorefrontStub\Framework\App\Request\DefaultPathInfoProcessor" />
     <preference for="Magento\Framework\App\ResponseInterface" type="Magento\Framework\App\Response\Http" />
     <preference for="Magento\Framework\App\CacheInterface" type="Magento\Framework\App\Cache\Proxy" />
     <preference for="Magento\Framework\App\Cache\StateInterface" type="Magento\Framework\App\Cache\State" />

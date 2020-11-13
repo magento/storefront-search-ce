@@ -5,7 +5,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\SearchStorefront\Framework\App\Request;
+namespace Magento\SearchStorefrontStub\Framework\App\Request;
 
 class DefaultPathInfoProcessor implements \Magento\Framework\App\Request\PathInfoProcessorInterface
 {

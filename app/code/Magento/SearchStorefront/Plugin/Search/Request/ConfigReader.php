@@ -7,11 +7,10 @@ namespace Magento\SearchStorefront\Plugin\Search\Request;
 
 use Magento\SearchStorefront\Model\Search\RequestGenerator;
 use Magento\SearchStorefront\Model\Search\RequestGenerator\GeneratorResolver;
-use Magento\SearchStorefront\Model\Eav\Attribute;
 use Magento\Framework\Search\Request\FilterInterface;
 use Magento\Framework\Search\Request\QueryInterface;
-use Magento\SearchStorefront\Model\Eav\Attribute\Product\CollectionFactory;
-use Magento\SearchStorefront\Model\Eav\Attribute\Product\Collection;
+use Magento\SearchStorefrontStub\Model\Eav\Attribute\Product\CollectionFactory;
+use Magento\SearchStorefrontStub\Model\Eav\Attribute\Product\Collection;
 
 /**
  * Add search request configuration to config for give ability filter and search products during GraphQL request

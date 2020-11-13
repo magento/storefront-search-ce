@@ -32,9 +32,7 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
             ]
         ],
         'engine' => 'storefrontElasticsearch7',
-        'minimum_should_match' =>  1,
         'index_prefix' => 'magento2',
-        'source_current_version' => 1
     ];
 
     /**

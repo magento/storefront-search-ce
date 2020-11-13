@@ -1,6 +1,6 @@
 <?php
 
-namespace Magento\SearchStorefront\Model\Eav\Attribute\ResourceModel;
+namespace Magento\SearchStorefrontStub\Model\Eav\Attribute\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 

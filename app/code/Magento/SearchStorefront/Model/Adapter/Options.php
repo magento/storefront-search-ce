@@ -38,7 +38,6 @@ class Options implements OptionsInterface
      */
     public function get()
     {
-        //TODO resolve issue with manual and advanced algorithm
         return [
             'interval_division_limit' => (int)$this->scopeConfig->getValue(
                 self::XML_PATH_INTERVAL_DIVISION_LIMIT,

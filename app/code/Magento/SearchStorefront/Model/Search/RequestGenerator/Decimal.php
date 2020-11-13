@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefront\Model\Search\RequestGenerator;
 
-use Magento\SearchStorefront\Model\Eav\Attribute;
+use Magento\SearchStorefrontStub\Model\Eav\Attribute;
 use Magento\Framework\Search\Request\BucketInterface;
 use Magento\Framework\Search\Request\FilterInterface;
 

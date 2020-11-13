@@ -4,13 +4,13 @@
  * See COPYING.txt for license details.
  */
 
-namespace Magento\SearchStorefront\Model\Scope\Resolver;
+namespace Magento\SearchStorefrontStore\Model\Scope\Resolver;
 
 use Magento\Framework\Exception\NoSuchEntityException;
 
-class Store implements \Magento\Framework\App\ScopeResolverInterface
+class Website implements \Magento\Framework\App\ScopeResolverInterface
 {
-    const STORE_TABLE = 'store';
+    const WEBSITE_TABLE = 'store_website';
 
     /**
      * @var \Magento\Framework\App\ResourceConnection
@@ -18,17 +18,17 @@ class Store implements \Magento\Framework\App\ScopeResolverInterface
     private $resourceConnection;
 
     /**
-     * @var \Magento\SearchStorefront\Model\Scope\ScopeFactory
+     * @var \Magento\SearchStorefrontStore\Model\StoreFactory
      */
     private $scopeFactory;
 
     /**
      * @param \Magento\Framework\App\ResourceConnection $resourceConnection
-     * @param \Magento\SearchStorefront\Model\Scope\ScopeFactory $scopeFactory
+     * @param \Magento\SearchStorefrontStore\Model\StoreFactory $scopeFactory
      */
     public function __construct(
         \Magento\Framework\App\ResourceConnection $resourceConnection,
-        \Magento\SearchStorefront\Model\Scope\ScopeFactory $scopeFactory
+        \Magento\SearchStorefrontStore\Model\StoreFactory $scopeFactory
     ) {
         $this->resourceConnection = $resourceConnection;
         $this->scopeFactory = $scopeFactory;
@@ -36,10 +36,11 @@ class Store implements \Magento\Framework\App\ScopeResolverInterface
 
     /**
      * {@inheritdoc}
+     * @throws \Magento\Framework\Exception\State\InitException
      */
     public function getScope($scopeId = null)
     {
-        $scopeData = $this->loadData($scopeId);
+        $scopeData = $this->loadData($scopeId, false);
         return $this->populate($scopeData);
     }
 
@@ -69,24 +70,16 @@ class Store implements \Magento\Framework\App\ScopeResolverInterface
     {
         $connection = $this->resourceConnection->getConnection();
         $select = $connection->select()
-            ->from(['stores' => $connection->getTableName(self::STORE_TABLE)]);
+            ->from($connection->getTableName(self::WEBSITE_TABLE));
 
         if ($loadAll) {
             return $connection->fetchAll($select);
         }
 
         if ($scopeId) {
-            $select->where('store_id = ?', $scopeId);
+            $select->where('website_id = ?', $scopeId);
         } else {
-            $select->join(
-                ['store_group' => $this->resourceConnection->getTableName(Group::GROUP_TABLE)],
-                'stores.store_id = store_group.default_store_id',
-                []
-            )->join(
-                ['websites' => $this->resourceConnection->getTableName(Website::WEBSITE_TABLE)],
-                'websites.default_group_id = store_group.group_id',
-                ['websites_code' => 'code']
-            )->where('websites.is_default = 1');
+            $select->where('is_default = 1');
         }
 
         return $connection->fetchRow($select);
@@ -98,15 +91,15 @@ class Store implements \Magento\Framework\App\ScopeResolverInterface
     private function populate(array $data = [])
     {
         if (empty($data)) {
-            throw new NoSuchEntityException(__('Cannot find requested store"'));
+            throw new NoSuchEntityException(__('Cannot find requested website'));
         }
 
         /** @var \Magento\Framework\App\ScopeInterface $object */
         $object = $this->scopeFactory->create();
-        $object->setData('id', $data['store_id']);
+        $object->setData('id', $data['website_id']);
         $object->setData('code', $data['code']);
         $object->setData('name', $data['name']);
-        $object->setData('scope_type', 'store');
+        $object->setData('scope_type', 'website');
 
         return $object;
     }

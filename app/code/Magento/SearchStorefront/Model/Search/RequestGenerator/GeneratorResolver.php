@@ -7,7 +7,6 @@
 namespace Magento\SearchStorefront\Model\Search\RequestGenerator;
 
 /**
- * @deprecated 101.0.0
  * @see \Magento\ElasticSearch
  */
 class GeneratorResolver

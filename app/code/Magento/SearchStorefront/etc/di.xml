@@ -39,8 +39,7 @@
     <preference for="Magento\Framework\Search\Request\Aggregation\StatusInterface" type="Magento\SearchStorefront\Model\Aggregation\Status" />
 
     <!-- Scope -->
-    <preference for="Magento\Framework\App\ScopeResolver" type="Magento\SearchStorefront\Model\Scope\ScopeResolver" />
-    <preference for="Magento\Framework\App\ScopeResolverInterface" type="Magento\SearchStorefront\Model\Scope\ScopeResolver" />
+    <preference for="Magento\Framework\App\ScopeResolverInterface" type="Magento\SearchStorefrontStore\Model\Scope\ScopeResolver" />
 
     <type name="Magento\Framework\EntityManager\MetadataPool">
         <arguments>
@@ -120,12 +119,12 @@
     <!-- configure elasticsearch overrides to avoid circular dependencies-->
     <type name="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeProvider">
         <arguments>
-            <argument name="collectionFactory" xsi:type="string">Magento\SearchStorefront\Model\Eav\Attribute\CollectionFactory</argument>
+            <argument name="collectionFactory" xsi:type="string">Magento\SearchStorefrontStub\Model\Eav\Attribute\CollectionFactory</argument>
         </arguments>
     </type>
     <type name="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeAdapter">
         <arguments>
-            <argument name="eavModelClass" xsi:type="string">Magento\SearchStorefront\Model\Eav\Attribute</argument>
+            <argument name="eavModelClass" xsi:type="string">Magento\SearchStorefrontStub\Model\Eav\Attribute</argument>
         </arguments>
     </type>
 </config>

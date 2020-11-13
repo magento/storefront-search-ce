@@ -1,8 +1,8 @@
 <?php
 
-namespace Magento\SearchStorefront\Model\Eav\Attribute\Product;
+namespace Magento\SearchStorefrontStub\Model\Eav\Attribute\Product;
 
-class Collection extends \Magento\SearchStorefront\Model\Eav\Attribute\Collection
+class Collection extends \Magento\SearchStorefrontStub\Model\Eav\Attribute\Collection
 {
     protected $entityTypeId = 4;
 

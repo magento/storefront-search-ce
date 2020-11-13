@@ -1,6 +1,6 @@
 <?php
 
-namespace Magento\SearchStorefront\Model\Scope;
+namespace Magento\SearchStorefrontStore\Model\Scope;
 
 class ScopeResolver implements \Magento\Framework\App\ScopeResolverInterface
 {
