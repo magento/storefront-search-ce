@@ -83,9 +83,4 @@
             <argument name="preProcessor" xsi:type="object">Magento\Framework\App\Config\PreProcessorComposite</argument>
         </arguments>
     </type>
-        <type name="Magento\Framework\App\Config\MetadataConfigTypeProcessor">
-        <arguments>
-            <argument name="configSource" xsi:type="object">Magento\SearchStorefrontConfig\App\Config\Source\EnvironmentConfigSource</argument>
-        </arguments>
-    </type>
 </config>

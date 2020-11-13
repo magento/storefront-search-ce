@@ -32,14 +32,12 @@ class Reader
      * @param \Magento\Framework\App\Config\ConfigSourceInterface $source
      * @param \Magento\SearchStorefrontConfig\App\Config\Processor\Fallback $fallback
      * @param \Magento\Framework\App\Config\Spi\PreProcessorInterface $preProcessor
-     * @param \Magento\Framework\App\Config\Spi\PostProcessorInterface $postProcessor
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function __construct(
         \Magento\Framework\App\Config\ConfigSourceInterface $source,
         \Magento\SearchStorefrontConfig\App\Config\Processor\Fallback $fallback,
-        \Magento\Framework\App\Config\Spi\PreProcessorInterface $preProcessor,
-        \Magento\Framework\App\Config\Spi\PostProcessorInterface $postProcessor
+        \Magento\Framework\App\Config\Spi\PreProcessorInterface $preProcessor
     ) {
         $this->source = $source;
         $this->fallback = $fallback;
