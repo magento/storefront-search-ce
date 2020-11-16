@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefront\Model\Search\RequestGenerator;
 
-use Magento\SearchStorefrontStub\Model\Eav\Attribute;
 use Magento\Framework\Search\Request\BucketInterface;
 use Magento\Framework\Search\Request\FilterInterface;
 
@@ -19,7 +18,7 @@ class Decimal implements GeneratorInterface
     /**
      * @inheritdoc
      */
-    public function getFilterData(Attribute $attribute, $filterName)
+    public function getFilterData($attribute, $filterName)
     {
         return [
             'type' => FilterInterface::TYPE_RANGE,
@@ -33,7 +32,7 @@ class Decimal implements GeneratorInterface
     /**
      * @inheritdoc
      */
-    public function getAggregationData(Attribute $attribute, $bucketName)
+    public function getAggregationData($attribute, $bucketName)
     {
         return [
             'type' => BucketInterface::TYPE_DYNAMIC,

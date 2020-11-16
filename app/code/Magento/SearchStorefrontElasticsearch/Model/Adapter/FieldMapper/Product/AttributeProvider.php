@@ -7,8 +7,9 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product;
 
+use Magento\Framework\App\ResourceConnection;
+use Magento\Framework\DataObject;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeAdapter\DummyAttribute;
-use Psr\Log\LoggerInterface;
 
 /**
  * Provide attribute adapter.
@@ -25,11 +26,6 @@ class AttributeProvider
     private $objectManager;
 
     /**
-     * @var CollectionFactory
-     */
-    private $collectionFactory;
-
-    /**
      * Instance name to create
      *
      * @var string
@@ -42,27 +38,24 @@ class AttributeProvider
     private $cachedPool = [];
 
     /**
-     * @var LoggerInterface
+     * @var ResourceConnection
      */
-    private $logger;
+    private $resourceConnection;
 
     /**
      * Factory constructor
      *
      * @param \Magento\Framework\ObjectManagerInterface $objectManager
-     * @param LoggerInterface $logger
-     * @param string $collectionFactory
-     * @param string $instanceName
+     * @param ResourceConnection                        $resourceConnection
+     * @param string                                    $instanceName
      */
     public function __construct(
         \Magento\Framework\ObjectManagerInterface $objectManager,
-        LoggerInterface $logger,
-        string $collectionFactory = '',
+        ResourceConnection $resourceConnection,
         $instanceName = AttributeAdapter::class
     ) {
         $this->objectManager = $objectManager;
-        $this->logger = $logger;
-        $this->collectionFactory = $collectionFactory;
+        $this->resourceConnection = $resourceConnection;
         $this->instanceName = $instanceName;
     }
 
@@ -72,16 +65,7 @@ class AttributeProvider
     public function getByAttributeCode(string $attributeCode): AttributeAdapter
     {
         if (!isset($this->cachedPool[$attributeCode])) {
-            if (empty($this->collectionFactory)) {
-                throw new \InvalidArgumentException('Attribute collection class name not provided');
-            }
-
-            $collectionFactory = $this->objectManager->create($this->collectionFactory);
-            $collection = $collectionFactory->create();
-            $collection->addFieldToFilter('attribute_code', $attributeCode);
-            $collection->setEntityTypeFilter('catalog_product')->load();
-            $attribute = $collection->getFirstItem();
-            $attribute = $attribute->getData('attribute_code') ? $attribute : null;
+            $attribute = $this->getAttributeByCode($attributeCode);
 
             if (null === $attribute) {
                 $attribute = $this->objectManager->create(DummyAttribute::class);
@@ -94,5 +78,43 @@ class AttributeProvider
         }
 
         return $this->cachedPool[$attributeCode];
+    }
+
+    /**
+     * Replace for Attribute EAV stubs with direct SQL query
+     *
+     * @param $attributeCode
+     * @return mixed|null
+     */
+    private function getAttributeByCode($attributeCode)
+    {
+        $connection = $this->resourceConnection->getConnection();
+        $attrSelect = $connection->select()
+            ->from(['a' => $this->resourceConnection->getTableName('eav_attribute')],
+                [
+                    'a.attribute_id',
+                    'a.attribute_code',
+                    'a.backend_type'
+                ])
+            ->joinLeft(
+                ['c' => $this->resourceConnection->getTableName('catalog_eav_attribute')],
+                'a.attribute_id = c.attribute_id',
+                [
+                    'c.is_visible',
+//                    'c.is_searchable',
+                    'c.is_filterable',
+                    'c.used_for_sort_by'
+                ]
+            )
+            ->where('a.attribute_code=?', $attributeCode);
+        $row = $connection->fetchRow($attrSelect);
+        $attribute = null;
+        if ($row) {
+            $attribute = $this->objectManager->create(DataObject::class);
+            foreach ($row as $index => $value) {
+                $attribute->setData($index,$value);
+            }
+        }
+        return $attribute;
     }
 }

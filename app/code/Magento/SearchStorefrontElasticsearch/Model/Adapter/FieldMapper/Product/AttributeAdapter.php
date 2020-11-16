@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product;
 
-use Magento\Framework\Api\CustomAttributesDataInterface;
+use Magento\Framework\DataObject;
 
 /**
  * Product attribute adapter for elasticsearch context.
@@ -17,7 +17,7 @@ use Magento\Framework\Api\CustomAttributesDataInterface;
 class AttributeAdapter
 {
     /**
-     * @var CustomAttributesDataInterface
+     * @var DataObject
      */
     private $attribute;
 
@@ -32,12 +32,12 @@ class AttributeAdapter
     private $eavModelClass;
 
     /**
-     * @param CustomAttributesDataInterface $attribute
+     * @param DataObject $attribute
      * @param string $attributeCode
      * @param string $eavModelClass
      */
     public function __construct(
-        CustomAttributesDataInterface $attribute,
+        DataObject $attribute,
         string $attributeCode,
         string $eavModelClass = ''
     ) {

@@ -5,13 +5,13 @@
  */
 namespace Magento\SearchStorefront\Plugin\Search\Request;
 
+use \Magento\Framework\ObjectManagerInterface;
+use Magento\Framework\App\ResourceConnection;
+use Magento\Framework\DataObject;
 use Magento\SearchStorefront\Model\Search\RequestGenerator;
 use Magento\SearchStorefront\Model\Search\RequestGenerator\GeneratorResolver;
 use Magento\Framework\Search\Request\FilterInterface;
 use Magento\Framework\Search\Request\QueryInterface;
-use Magento\SearchStorefrontStub\Model\Eav\Attribute;
-use Magento\SearchStorefrontStub\Model\Eav\Attribute\Product\CollectionFactory;
-use Magento\SearchStorefrontStub\Model\Eav\Attribute\Product\Collection;
 
 /**
  * Copied from Magento\CatalogGraphQl
@@ -42,24 +42,33 @@ class ConfigReader
      * @var array
      */
     private $exactMatchAttributes = [];
-    /**
-     * @var CollectionFactory
-     */
-    private $productAttributeCollectionFactory;
 
     /**
-     * @param GeneratorResolver $generatorResolver
-     * @param CollectionFactory $productAttributeCollectionFactory
-     * @param array $exactMatchAttributes
+     * @var ResourceConnection
+     */
+    private $resourceConnection;
+
+    /**
+     * @var ObjectManagerInterface
+     */
+    private $objectManager;
+
+    /**
+     * @param GeneratorResolver  $generatorResolver
+     * @param ResourceConnection $resourceConnection
+     * @param ObjectManagerInterface      $objectManager
+     * @param array              $exactMatchAttributes
      */
     public function __construct(
         GeneratorResolver $generatorResolver,
-        CollectionFactory $productAttributeCollectionFactory,
+        ResourceConnection $resourceConnection,
+        ObjectManagerInterface $objectManager,
         array $exactMatchAttributes = []
     ) {
         $this->generatorResolver = $generatorResolver;
         $this->exactMatchAttributes = array_merge($this->exactMatchAttributes, $exactMatchAttributes);
-        $this->productAttributeCollectionFactory = $productAttributeCollectionFactory;
+        $this->resourceConnection = $resourceConnection;
+        $this->objectManager = $objectManager;
     }
 
     /**
@@ -97,15 +106,9 @@ class ConfigReader
     private function getSearchableAttributes(): array
     {
         $attributes = [];
-        /** @var Collection $productAttributes */
-        $productAttributes = $this->productAttributeCollectionFactory->create();
-        $productAttributes->addFieldToFilter(
-            ['is_searchable', 'is_visible_in_advanced_search', 'is_filterable', 'is_filterable_in_search'],
-            [1, 1, [1, 2], 1]
-        );
+        $productAttributes = $this->getAttributes();
 
-        /** @var Attribute $attribute */
-        foreach ($productAttributes->getItems() as $attribute) {
+        foreach ($productAttributes as $attribute) {
             $attributes[$attribute->getAttributeCode()] = $attribute;
         }
 
@@ -170,11 +173,11 @@ class ConfigReader
     /**
      * Add attribute with specified boost to "search" query used in full text search
      *
-     * @param Attribute $attribute
+     * @param DataObject $attribute
      * @param array $request
      * @return void
      */
-    private function addSearchAttributeToFullTextSearch(Attribute $attribute, &$request): void
+    private function addSearchAttributeToFullTextSearch($attribute, &$request): void
     {
         // Match search by custom price attribute isn't supported
         if ($attribute->getFrontendInput() !== 'price') {
@@ -189,10 +192,10 @@ class ConfigReader
      * Return array representation of range filter
      *
      * @param string $filterName
-     * @param Attribute $attribute
+     * @param DataObject $attribute
      * @return array
      */
-    private function generateRangeFilter(string $filterName, Attribute $attribute)
+    private function generateRangeFilter(string $filterName, $attribute)
     {
         return [
             'field' => $attribute->getAttributeCode(),
@@ -207,10 +210,10 @@ class ConfigReader
      * Return array representation of term filter
      *
      * @param string $filterName
-     * @param Attribute $attribute
+     * @param DataObject $attribute
      * @return array
      */
-    private function generateTermFilter(string $filterName, Attribute $attribute)
+    private function generateTermFilter(string $filterName, $attribute)
     {
         return [
             'type' => FilterInterface::TYPE_TERM,
@@ -244,10 +247,10 @@ class ConfigReader
      * Return array representation of match query
      *
      * @param string $queryName
-     * @param Attribute $attribute
+     * @param DataObject $attribute
      * @return array
      */
-    private function generateMatchQuery(string $queryName, Attribute $attribute)
+    private function generateMatchQuery(string $queryName, $attribute)
     {
         return [
             'name' => $queryName,
@@ -265,10 +268,10 @@ class ConfigReader
     /**
      * Check if attribute's filter should use exact match
      *
-     * @param Attribute $attribute
+     * @param DataObject $attribute
      * @return bool
      */
-    private function isExactMatchAttribute(Attribute $attribute)
+    private function isExactMatchAttribute($attribute)
     {
         if (in_array($attribute->getFrontendInput(), ['select', 'multiselect'])) {
             return true;
@@ -278,5 +281,53 @@ class ConfigReader
         }
 
         return false;
+    }
+
+    /**
+     * replace Attribute collection stub with direct SQL query
+     *
+     * @return array
+     */
+    private function getAttributes()
+    {
+        $connection = $this->resourceConnection->getConnection();
+        $cond = [
+            $connection->quoteInto('c.is_searchable IN (?)',[1]),
+            $connection->quoteInto('c.is_visible_in_advanced_search IN (?)', [1]),
+            $connection->quoteInto('c.is_filterable IN (?)', [1,2]),
+            $connection->quoteInto('c.is_filterable_in_search IN (?)', [1])
+        ];
+        $attrSelect = $connection->select()
+            ->from(['a' => $this->resourceConnection->getTableName('eav_attribute')],
+                   [
+                       'a.attribute_id',
+                       'a.attribute_code',
+                       'a.backend_type',
+                       'a.frontend_input'
+                   ])
+            ->joinLeft(
+                ['c' => $this->resourceConnection->getTableName('catalog_eav_attribute')],
+                'a.attribute_id = c.attribute_id',
+                [
+                    'c.is_searchable',
+                    'c.is_visible_in_advanced_search',
+                    'c.is_filterable',
+                    'c.is_filterable_in_search'
+                ]
+            )
+            ->where(implode(' OR ', $cond))
+            ->where('a.entity_type_id=?', 4);
+        $rows = $connection->fetchAssoc($attrSelect);
+        $attributes = [];
+        if ($rows) {
+            foreach ($rows as $data) {
+                $attribute = $this->objectManager->create(DataObject::class);
+                foreach ($data as $index => $value) {
+                    $attribute->setData($index,$value);
+                }
+                $attributes[] = $attribute;
+            }
+        }
+        return $attributes;
     }
 }
