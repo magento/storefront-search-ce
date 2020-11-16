@@ -43,6 +43,13 @@
     <preference for="Magento\Framework\Console\CommandListInterface" type="Magento\Framework\Console\CommandList"/>
     <preference for="Magento\Framework\Serialize\SerializerInterface" type="Magento\Framework\Serialize\Serializer\Json" />
     <preference for="Magento\Framework\Interception\ConfigLoaderInterface" type="Magento\Framework\Interception\PluginListGenerator" />
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="storefront-search-installer" xsi:type="object">Magento\SearchStorefrontConfig\Console\Command\Config</item>
+            </argument>
+        </arguments>
+    </type>
     <type name="Magento\Framework\Logger\Handler\Base">
         <arguments>
             <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
