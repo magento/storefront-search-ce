@@ -10,10 +10,5 @@
  */
 return [
     'app/code/*/*/cli_commands.php',
-    'app/code/*/*/registration.php',
-    'app/design/*/*/*/registration.php',
-    'app/i18n/*/*/registration.php',
-    'lib/internal/*/*/registration.php',
-    'lib/internal/*/*/*/registration.php',
-    'setup/src/*/*/registration.php'
+    'app/code/*/*/registration.php'
 ];
