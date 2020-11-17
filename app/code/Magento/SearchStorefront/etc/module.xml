@@ -9,8 +9,12 @@
     <module name="Magento_SearchStorefront">
         <sequence>
             <module name="Magento_SearchStorefrontApi"/>
-            <module name="Magento_SearchStorefrontElasticsearch6"/>
-            <module name="Magento_SearchStorefrontAdvancedSearch"/>
+            <module name="Magento_SearchStorefrontElasticsearch"/>
+            <module name="Magento_SearchStorefrontElasticsearch7"/>
+            <module name="Magento_SearchStorefrontConfig"/>
+            <module name="Magento_SearchStorefrontSearch"/>
+            <module name="Magento_SearchStorefrontStore"/>
+            <module name="Magento_SearchStorefrontStub"/>
         </sequence>
     </module>
 </config>
