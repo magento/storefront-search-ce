@@ -1,6 +1,6 @@
 {
     "name": "magento/module-search-storefront-store",
-    "description": "N/A",
+    "description": "Module for replacing magento/module-store functionality",
     "config": {
         "sort-packages": true
     },

@@ -1,6 +1,6 @@
 {
     "name": "magento/module-search-storefront-config",
-    "description": "N/A",
+    "description": "Config for module-search-storefront",
     "config": {
         "sort-packages": true
     },

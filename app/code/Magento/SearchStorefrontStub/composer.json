@@ -1,6 +1,6 @@
 {
     "name": "magento/module-search-storefront-stub",
-    "description": "N/A",
+    "description": "Module for providing stubs to required dependencies",
     "config": {
         "sort-packages": true
     },
