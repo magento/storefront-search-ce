@@ -14,11 +14,6 @@ namespace Magento\SearchStorefrontStore\Model;
 class StoreManager implements \Magento\SearchStorefrontStore\Model\StoreManagerInterface
 {
     /**
-     * @var StoreFactory
-     */
-    private $storeFactory;
-
-    /**
      * @var Store
      */
     private $currentStore;

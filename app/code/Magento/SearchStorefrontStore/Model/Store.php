@@ -4,11 +4,12 @@ namespace Magento\SearchStorefrontStore\Model;
 
 use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\App\ScopeInterface;
 
 /**
- * Copied and adapted from Magento/Store
+ * Copied and adapted from Magento\Store
  */
-class Store extends \Magento\Framework\DataObject implements \Magento\SearchStorefrontStore\Model\StoreInterface, \Magento\Framework\App\ScopeInterface
+class Store extends \Magento\Framework\DataObject implements StoreInterface, ScopeInterface
 {
     public const DEFAULT_STORE_ID = 0;
 
@@ -29,44 +30,72 @@ class Store extends \Magento\Framework\DataObject implements \Magento\SearchStor
         $this->resourceConnection = $resourceConnection;
     }
 
+    /**
+     * @return int
+     */
     public function getId()
     {
         return (int)$this->getData('id');
     }
 
+    /**
+     * @param $id
+     * @return $this
+     */
     public function setId($id)
     {
         $this->setData('id', (int)$id);
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getCode()
     {
         return (string)$this->getData('code');
     }
 
+    /**
+     * @param $code
+     * @return $this
+     */
     public function setCode($code)
     {
         $this->setData('code', (string)$code);
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return (string)$this->getData('name');
     }
 
+    /**
+     * @param $name
+     * @return $this
+     */
     public function setName($name)
     {
         $this->setData('name', (string)$name);
         return $this;
     }
 
+    /**
+     * @return int
+     */
     public function getWebsiteId()
     {
         return (int)$this->getData('website_id');
     }
 
+    /**
+     * @param $websiteId
+     * @return $this
+     */
     public function setWebsiteId($websiteId)
     {
         $this->setData('website_id', (int)$websiteId);

@@ -129,10 +129,9 @@ class Config implements ClientOptionsInterface
      * Retrieve information from Elasticsearch search engine configuration
      *
      * @param string $field
-     * @param int $storeId
      * @return string|int
      */
-    public function getElasticsearchConfigData($field, $storeId = null) // @TODO scope based config??
+    public function getElasticsearchConfigData($field) // @TODO scope based config??
     {
         $config = $this->config->getConfig();
         return $config[$field] ?? '';

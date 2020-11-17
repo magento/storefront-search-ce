@@ -52,11 +52,6 @@ class AttributeQuery
     ];
 
     /**
-     * @var int[]
-     */
-    private $entityTypeIdMap;
-
-    /**
      * @param string $entityType
      * @param ResourceConnection $resourceConnection
      * @param MetadataPool $metadataPool

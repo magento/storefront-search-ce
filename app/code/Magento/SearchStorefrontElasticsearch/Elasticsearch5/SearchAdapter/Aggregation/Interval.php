@@ -128,7 +128,7 @@ class Interval implements IntervalInterface
             $to = ['lt' => $data - self::DELTA];
         }
 
-        $requestQuery = $this->prepareBaseRequestQuery($from, $to);
+        $requestQuery = $this->prepareBaseRequestQuery($from ?? [], $to ?? []);
         $requestQuery = array_merge_recursive(
             $requestQuery,
             ['size' => 0]
