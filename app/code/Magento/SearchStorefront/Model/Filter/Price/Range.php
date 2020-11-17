@@ -22,11 +22,6 @@ class Range
     private $storeManager;
 
     /**
-     * @var CategoryRepositoryInterface
-     */
-    private $categoryRepository;
-
-    /**
      * @var ScopeConfigInterface
      */
     private $scopeConfig;

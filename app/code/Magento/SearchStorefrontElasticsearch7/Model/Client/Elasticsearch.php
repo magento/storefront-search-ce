@@ -163,18 +163,4 @@ class Elasticsearch implements ClientInterface
     {
         return $this->getElasticsearchClient()->search($query);
     }
-
-    /**
-     * Apply fields mapping preprocessors
-     *
-     * @param array $properties
-     * @return array
-     */
-    private function applyFieldsMappingPreprocessors(array $properties): array
-    {
-        foreach ($this->fieldsMappingPreprocessors as $preprocessor) {
-            $properties = $preprocessor->process($properties);
-        }
-        return $properties;
-    }
 }

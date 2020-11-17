@@ -73,19 +73,6 @@ class Config extends Command
     }
 
     /**
-     * Prepare cache list
-     *
-     * @return array
-     */
-    private function getCacheTypes(): array
-    {
-        return [
-            'config'          => 1,
-            'compiled_config' => 1
-        ];
-    }
-
-    /**
      * @inheritDoc
      *
      * @param InputInterface $input
