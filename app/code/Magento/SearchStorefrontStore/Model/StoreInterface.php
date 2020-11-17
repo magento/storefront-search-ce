@@ -8,7 +8,7 @@ namespace Magento\SearchStorefrontStore\Model;
 /**
  * Copied and adapted from Magento/Store
  */
-interface StoreInterface extends \Magento\Framework\Api\ExtensibleDataInterface
+interface StoreInterface
 {
     /**
      * @return int
