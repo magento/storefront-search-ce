@@ -19,11 +19,6 @@
             </argument>
         </arguments>
     </virtualType>
-    <type name="Magento\SearchStorefrontSearch\Model\EngineResolver">
-        <arguments>
-            <argument name="logger" xsi:type="object">SearchStorefrontLogger</argument>
-        </arguments>
-    </type>
 
     <!-- Connection config for elasticsearch -->
     <preference for="Magento\SearchStorefrontElasticsearch\Model\ConnectionConfigInterface" type="Magento\SearchStorefront\Model\Search\Client\Config" />
@@ -33,6 +28,7 @@
         <arguments>
             <argument name="path" xsi:type="string">search/engine</argument>
             <argument name="scopeType" xsi:type="string">default</argument>
+            <argument name="logger" xsi:type="object">SearchStorefrontLogger</argument>
         </arguments>
     </type>
 
