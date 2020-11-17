@@ -1,6 +1,6 @@
 {
     "name": "magento/module-search-storefront-search",
-    "description": "N/A",
+    "description": "Copied and adapted magento/module-search",
     "config": {
         "sort-packages": true
     },
