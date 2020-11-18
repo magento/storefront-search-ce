@@ -6,4 +6,4 @@
 
 use \Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Magento_Grpc', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Magento_SearchStorefrontGrpc', __DIR__);

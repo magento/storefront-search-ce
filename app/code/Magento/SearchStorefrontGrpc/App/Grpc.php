@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace Magento\Grpc\App;
+namespace Magento\SearchStorefrontGrpc\App;
 
 use Magento\Framework\App;
 use Magento\Framework\App\State;

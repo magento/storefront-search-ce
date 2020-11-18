@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace Magento\Grpc\Console\Command;
+namespace Magento\SearchStorefrontGrpc\Console\Command;
 
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\Filesystem;

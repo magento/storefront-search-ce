@@ -147,7 +147,7 @@ class Config extends Command
                 'modules' => [
                     'Magento_SearchStorefrontConfig' => 1,
                     'Magento_SearchStorefrontStore' => 1,
-                    'Magento_Grpc' => 1,
+                    'Magento_SearchStorefrontGrpc' => 1,
                     'Magento_SearchStorefrontSearch' => 1,
                     'Magento_SearchStorefrontApi' => 1,
                     'Magento_SearchStorefrontElasticsearch' => 1,

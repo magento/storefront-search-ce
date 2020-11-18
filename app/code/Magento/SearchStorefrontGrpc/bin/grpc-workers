@@ -10,13 +10,13 @@ SCRIPT_ABSOLUTE_PATH=${SCRIPT_ABSOLUTE_DIR}/grpc-server
 if [ -L "$SCRIPT_ABSOLUTE_PATH" ]; then #Symlink in vendor/bin from vendor/magento/module-grpc/bin/grpc-server
   cd ${SCRIPT_ABSOLUTE_PATH}/../../../
   MAGENTO_ROOT=$(pwd)
-  cd ${SCRIPT_ABSOLUTE_DIR}/../magento/module-grpc/etc/
+  cd ${SCRIPT_ABSOLUTE_DIR}/../magento/module-search-storefront-grpc/etc/
   CONFIG_PATH="$(pwd)/.rr.yaml"
 else #Direct launch from vendor/magento/module-grpc or copied file from Magento/Grpc
-  if [ -d ${SCRIPT_ABSOLUTE_DIR}/../../app/code/Magento/Grpc ]; then
+  if [ -d ${SCRIPT_ABSOLUTE_DIR}/../../app/code/Magento/SearchStorefrontGrpc ]; then
     cd ${SCRIPT_ABSOLUTE_DIR}/../../
     MAGENTO_ROOT=$(pwd)
-    cd ${MAGENTO_ROOT}/app/code/Magento/Grpc/etc
+    cd ${MAGENTO_ROOT}/app/code/Magento/SearchStorefrontGrpc/etc
   else
     cd ${SCRIPT_ABSOLUTE_PATH}/../../../../../
     MAGENTO_ROOT=$(pwd)
@@ -25,4 +25,4 @@ else #Direct launch from vendor/magento/module-grpc or copied file from Magento/
   CONFIG_PATH="$(pwd)/.rr.yaml"
 fi
 
-rr-grpc serve -w $MAGENTO_ROOT -c $CONFIG_PATH -v -d
+rr-grpc grpc:workers -w $MAGENTO_ROOT -c $CONFIG_PATH

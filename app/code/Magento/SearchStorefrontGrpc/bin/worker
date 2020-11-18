@@ -42,19 +42,19 @@ $absolutePathResolver = function(string $cwd, string $directory): string
 
 $absoluteDirectory = $absolutePathResolver(getcwd(), $directoryName);
 $appRoot = dirname(dirname(dirname(dirname($absoluteDirectory))));
-if (!\file_exists($appRoot . DIRECTORY_SEPARATOR . 'app' .DIRECTORY_SEPARATOR . 'bootstrap.php')) {
+if (!\file_exists($appRoot . DIRECTORY_SEPARATOR . 'app' .DIRECTORY_SEPARATOR . 'storefront_search_bootstrap.php')) {
     $appRoot = dirname(dirname($absoluteDirectory));
 }
 
 try {
-    require $appRoot . DIRECTORY_SEPARATOR . 'app' .DIRECTORY_SEPARATOR . 'bootstrap.php';
+    require $appRoot . DIRECTORY_SEPARATOR . 'app' .DIRECTORY_SEPARATOR . 'storefront_search_bootstrap.php';
 } catch (\Exception $e) {
     echo 'Autoload error: ' . $e->getMessage();
     exit(1);
 }
 
 $bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $_SERVER);
-/** @var \Magento\Grpc\App\Grpc $app */
-$app = $bootstrap->createApplication(\Magento\Grpc\App\Grpc::class);
+/** @var \Magento\SearchStorefrontGrpc\App\Grpc $app */
+$app = $bootstrap->createApplication(\Magento\SearchStorefrontGrpc\App\Grpc::class);
 
 $bootstrap->run($app);

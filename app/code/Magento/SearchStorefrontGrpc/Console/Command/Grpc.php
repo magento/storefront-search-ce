@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace Magento\Grpc\Console\Command;
+namespace Magento\SearchStorefrontGrpc\Console\Command;
 
 use Composer\Config as ComposerConfig;
 use Magento\Framework\App\Filesystem\DirectoryList;
@@ -58,7 +58,7 @@ class Grpc extends Command
     /**
      * @var string
      */
-    private $moduleName = 'Magento_Grpc';
+    private $moduleName = 'Magento_SearchStorefrontGrpc';
 
     /**
      * @var ComposerConfig

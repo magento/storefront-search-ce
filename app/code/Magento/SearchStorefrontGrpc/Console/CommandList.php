@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace Magento\Grpc\Console;
+namespace Magento\SearchStorefrontGrpc\Console;
 
 use Magento\Framework\ObjectManagerInterface;
 
@@ -39,7 +39,7 @@ class CommandList implements \Magento\Framework\Console\CommandListInterface
     private function getCommandsClasses(): array
     {
         return [
-            \Magento\Grpc\Console\Command\ProtoMarshalCommand::class
+            \Magento\SearchStorefrontGrpc\Console\Command\ProtoMarshalCommand::class
         ];
     }
 

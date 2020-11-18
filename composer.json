@@ -60,7 +60,7 @@
             ]
         },
         "files": [
-            "app/etc/NonComposerComponentRegistration.php"
+            "app/etc/storefront_search/NonComposerComponentRegistration.php"
         ],
         "config": {
             "preferred-install": "dist",
