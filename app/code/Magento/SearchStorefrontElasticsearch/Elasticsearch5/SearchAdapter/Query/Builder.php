@@ -12,7 +12,7 @@ use Magento\Framework\Search\RequestInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Config;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\SearchIndexNameResolver;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Builder\Aggregation as AggregationBuilder;
-use Magento\Framework\App\ScopeResolverInterface;
+use Magento\SearchStorefrontStub\Framework\Model\ScopeResolverInterface;
 
 /**
  * Query builder for search adapter.

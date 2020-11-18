@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Magento\SearchStorefrontElasticsearch\Model\Client;
 
 use Magento\Framework\ObjectManagerInterface;
-use Magento\Framework\Search\EngineResolverInterface;
+use Magento\SearchStorefrontStub\Framework\Model\EngineResolverInterface;
 
 /**
  * Copied from Magento_AdvancedSearch

@@ -95,7 +95,7 @@ class Range
                     [
                         'value' => 'c.value'
                     ])
-            ->where('c.row_id=?', $store->getRootCategoryId())
+            ->where('c.entity_id=?', $store->getRootCategoryId()) //TODO: is it a staging entity and should be used "row_id"?
             ->where('c.attribute_id=?', $attribute['id'])
             ->where('c.store_id=?', $store->getId());
 

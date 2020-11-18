@@ -71,7 +71,7 @@ class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInte
      * @param \Magento\SearchStorefrontElasticsearch\Model\Config $clientConfig
      * @param \Magento\SearchStorefrontElasticsearch\SearchAdapter\SearchIndexNameResolver $searchIndexNameResolver
      * @param string $indexerId
-     * @param \Magento\Framework\App\ScopeResolverInterface $scopeResolver
+     * @param \Magento\SearchStorefrontStub\Framework\Model\ScopeResolverInterface $scopeResolver
      * @param QueryContainer|null $queryContainer
      *
      * @SuppressWarnings(PHPMD.ExcessiveParameterList)
@@ -84,7 +84,7 @@ class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInte
         \Magento\SearchStorefrontElasticsearch\Model\Config $clientConfig,
         \Magento\SearchStorefrontElasticsearch\SearchAdapter\SearchIndexNameResolver $searchIndexNameResolver,
         $indexerId,
-        \Magento\Framework\App\ScopeResolverInterface $scopeResolver,
+        \Magento\SearchStorefrontStub\Framework\Model\ScopeResolverInterface $scopeResolver,
         QueryContainer $queryContainer = null
     ) {
         $this->connectionManager = $connectionManager;

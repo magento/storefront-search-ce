@@ -32,9 +32,6 @@
         </arguments>
     </type>
 
-    <!-- Scope -->
-    <preference for="Magento\Framework\App\ScopeResolverInterface" type="Magento\SearchStorefrontStore\Model\Scope\ScopeResolver" />
-
     <type name="Magento\Framework\EntityManager\MetadataPool">
         <arguments>
             <argument name="metadata" xsi:type="array">

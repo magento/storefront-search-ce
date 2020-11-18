@@ -5,7 +5,7 @@
  */
 namespace Magento\SearchStorefrontSearch\Model;
 
-use Magento\Framework\Search\EngineResolverInterface;
+use Magento\SearchStorefrontStub\Framework\Model\EngineResolverInterface;
 
 class AdapterFactory
 {

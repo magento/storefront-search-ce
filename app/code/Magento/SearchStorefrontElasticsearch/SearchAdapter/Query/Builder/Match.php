@@ -12,7 +12,6 @@ use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\ValueTransformerPo
 use Magento\Framework\Search\Request\Query\BoolExpression;
 use Magento\Framework\Search\Request\QueryInterface as RequestQueryInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface;
-use Magento\Framework\Search\Adapter\Preprocessor\PreprocessorInterface;
 
 /**
  * Builder for match query.

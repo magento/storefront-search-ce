@@ -6,7 +6,7 @@
 namespace Magento\SearchStorefrontSearch\Model;
 
 use Magento\SearchStorefront\Model\Search\Client\Config;
-use Magento\Framework\Search\EngineResolverInterface;
+use Magento\SearchStorefrontStub\Framework\Model\EngineResolverInterface;
 use Psr\Log\LoggerInterface;
 
 /**

@@ -8,16 +8,13 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Magento\SearchStorefrontSearch\Model\SearchInterface" type="Magento\SearchStorefrontSearch\Model\Search"/>
-    <preference for="Magento\Framework\Search\EngineResolverInterface" type="Magento\SearchStorefrontSearch\Model\EngineResolver"/>
-    <preference for="Magento\Framework\Search\SearchEngineInterface" type="Magento\SearchStorefrontSearch\Model\SearchEngine"/>
 
-    <preference for="Magento\SearchStorefrontSearch\Model\SynonymAnalyzerInterface" type="Magento\SearchStorefrontSearch\Model\SynonymAnalyzer" />
-    <preference for="Magento\Framework\Search\Adapter\Preprocessor\PreprocessorInterface" type="Magento\SearchStorefrontSearch\Adapter\Query\Preprocessor\Synonyms" />
-
-    <preference for="Magento\Framework\Search\SearchEngine\ConfigInterface" type="Magento\SearchStorefrontSearch\Model\SearchEngine\Config" />
-    <type name="Magento\SearchStorefrontSearch\Model\SearchEngine\Config">
+    <type name="Magento\SearchStorefrontSearch\Model\Search">
         <arguments>
-            <argument name="dataStorage" xsi:type="object">Magento\SearchStorefrontSearch\Model\SearchEngine\Config\Data</argument>
+            <argument name="searchEngine" xsi:type="object">Magento\SearchStorefrontSearch\Model\SearchEngine</argument>
         </arguments>
     </type>
+
+
+    <preference for="Magento\SearchStorefrontSearch\Model\SynonymAnalyzerInterface" type="Magento\SearchStorefrontSearch\Model\SynonymAnalyzer" />
 </config>

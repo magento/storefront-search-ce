@@ -5,7 +5,7 @@
  */
 namespace Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Preprocessor;
 
-use Magento\Framework\App\ScopeResolverInterface;
+use Magento\SearchStorefrontStub\Framework\Model\ScopeResolverInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config\EsConfigInterface;
 use Magento\Framework\App\Cache\Type\Config;
 use Magento\Framework\App\ObjectManager;
