@@ -12,7 +12,7 @@ use Magento\Framework\Search\RequestInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Config;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\SearchIndexNameResolver;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Builder\Aggregation as AggregationBuilder;
-use Magento\SearchStorefrontStub\Framework\Model\ScopeResolverInterface;
+use Magento\SearchStorefrontStore\Model\Scope\ScopeResolver;
 
 /**
  * Query builder for search adapter.
@@ -37,7 +37,7 @@ class Builder
     protected $aggregationBuilder;
 
     /**
-     * @var ScopeResolverInterface
+     * @var ScopeResolver
      */
     protected $scopeResolver;
 
@@ -50,14 +50,14 @@ class Builder
      * @param Config $clientConfig
      * @param SearchIndexNameResolver $searchIndexNameResolver
      * @param AggregationBuilder $aggregationBuilder
-     * @param ScopeResolverInterface $scopeResolver
+     * @param ScopeResolver $scopeResolver
      * @param Sort|null $sortBuilder
      */
     public function __construct(
         Config $clientConfig,
         SearchIndexNameResolver $searchIndexNameResolver,
         AggregationBuilder $aggregationBuilder,
-        ScopeResolverInterface $scopeResolver,
+        ScopeResolver $scopeResolver,
         ?Sort $sortBuilder = null
     ) {
         $this->clientConfig = $clientConfig;

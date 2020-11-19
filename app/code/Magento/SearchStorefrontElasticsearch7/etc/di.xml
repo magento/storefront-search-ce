@@ -45,14 +45,6 @@
         </arguments>
     </type>
 
-    <type name="Magento\Framework\Search\Dynamic\IntervalFactory">
-        <arguments>
-            <argument name="intervals" xsi:type="array">
-                <item name="storefrontElasticsearch7" xsi:type="string">Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\Aggregation\Interval</item>
-            </argument>
-        </arguments>
-    </type>
-
     <virtualType name="Magento\SearchStorefrontElasticsearch7\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\Resolver\CompositeResolver" type="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\Resolver\CompositeResolver">
         <arguments>
             <argument name="items" xsi:type="array">

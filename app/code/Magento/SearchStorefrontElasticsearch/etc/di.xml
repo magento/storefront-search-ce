@@ -20,7 +20,7 @@
     </type>
 
     <preference for="Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config\EsConfigInterface" type="Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config\EsConfig" />
-    <preference for="Magento\Framework\Search\Dynamic\DataProviderInterface" type="Magento\SearchStorefrontElasticsearch\SearchAdapter\Dynamic\sDataProvider" />
+<!--    <preference for="Magento\Framework\Search\Dynamic\DataProviderInterface" type="Magento\SearchStorefrontElasticsearch\SearchAdapter\Dynamic\DataProvider" />-->
 
     <type name="Magento\SearchStorefrontElasticsearch\SearchAdapter\Aggregation\Builder">
         <arguments>
@@ -37,8 +37,17 @@
     <type name="Magento\SearchStorefrontElasticsearch\SearchAdapter\Dynamic\DataProvider">
         <arguments>
             <argument name="indexerId" xsi:type="string">catalogsearch_fulltext</argument>
+            <argument name="intervalFactory" xsi:type="object">Stub\IntervalFactory</argument>
         </arguments>
     </type>
+    <virtualType name="Stub\IntervalFactory" type="Magento\Framework\Search\Dynamic\IntervalFactory">
+        <arguments>
+            <argument name="engineResolver" xsi:type="object">Magento\SearchStorefrontSearch\Model\EngineResolver</argument>
+            <argument name="intervals" xsi:type="array">
+                <item name="storefrontElasticsearch7" xsi:type="string">Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\Aggregation\Interval</item>
+            </argument>
+        </arguments>
+    </virtualType>
 
     <virtualType name="Magento\SearchStorefrontElasticsearch\SearchAdapter\ProductEntityMetadata" type="Magento\Framework\Search\EntityMetadata">
         <arguments>

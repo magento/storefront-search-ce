@@ -13,14 +13,21 @@
             </argument>
         </arguments>
     </type>
-    <!-- configure config reader -->
-    <type name="Magento\Framework\App\Config">
+
+    <type name="Magento\SearchStorefront\DataProvider\Product\SearchCriteria\Builder\RequestTypeApplier">
         <arguments>
-            <argument name="types" xsi:type="array">
-                <item name="system" xsi:type="object">Magento\SearchStorefrontConfig\App\Config\Type\System</item>
-            </argument>
+            <argument name="scopeConfig" xsi:type="object">Magento\SearchStorefrontConfig\App\ScopeConfig</argument>
         </arguments>
     </type>
+
+    <!-- configure config reader -->
+<!--    <type name="Magento\Framework\App\Config">-->
+<!--        <arguments>-->
+<!--            <argument name="types" xsi:type="array">-->
+<!--                <item name="system" xsi:type="object">Magento\SearchStorefrontConfig\App\Config\Type\System</item>-->
+<!--            </argument>-->
+<!--        </arguments>-->
+<!--    </type>-->
 
     <virtualType name="fileLockConfig" type="Magento\Framework\Lock\Backend\FileLock">
         <arguments>

@@ -7,7 +7,7 @@
 
 namespace Magento\SearchStorefront\Model\Adapter;
 
-use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\SearchStorefrontStub\Framework\Model\ScopeConfigInterface;
 use Magento\Framework\Search\Adapter\OptionsInterface;
 use Magento\SearchStorefrontStore\Model\ScopeInterface;
 

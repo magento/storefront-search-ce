@@ -9,6 +9,7 @@ namespace Magento\SearchStorefrontElasticsearch\SearchAdapter\Dynamic;
 
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\QueryAwareInterface;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\QueryContainer;
+use Magento\SearchStorefrontStore\Model\Scope\ScopeResolver;
 
 /**
  * Elastic search data provider
@@ -71,7 +72,7 @@ class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInte
      * @param \Magento\SearchStorefrontElasticsearch\Model\Config $clientConfig
      * @param \Magento\SearchStorefrontElasticsearch\SearchAdapter\SearchIndexNameResolver $searchIndexNameResolver
      * @param string $indexerId
-     * @param \Magento\SearchStorefrontStub\Framework\Model\ScopeResolverInterface $scopeResolver
+     * @param ScopeResolver $scopeResolver
      * @param QueryContainer|null $queryContainer
      *
      * @SuppressWarnings(PHPMD.ExcessiveParameterList)
@@ -84,7 +85,7 @@ class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInte
         \Magento\SearchStorefrontElasticsearch\Model\Config $clientConfig,
         \Magento\SearchStorefrontElasticsearch\SearchAdapter\SearchIndexNameResolver $searchIndexNameResolver,
         $indexerId,
-        \Magento\SearchStorefrontStub\Framework\Model\ScopeResolverInterface $scopeResolver,
+        ScopeResolver $scopeResolver,
         QueryContainer $queryContainer = null
     ) {
         $this->connectionManager = $connectionManager;

@@ -32,7 +32,12 @@
         </arguments>
     </type>
 
-    <type name="Magento\Framework\EntityManager\MetadataPool">
+    <type name="Magento\SearchStorefront\DataProvider\AttributeQuery">
+        <arguments>
+            <argument name="metadataPool" xsi:type="object">Stub\MetadataPool</argument>
+        </arguments>
+    </type>
+    <virtualType name="Stub\MetadataPool" type="Magento\Framework\EntityManager\MetadataPool">
         <arguments>
             <argument name="metadata" xsi:type="array">
                 <item name="catalog_category" xsi:type="array">
@@ -45,9 +50,9 @@
                 </item>
             </argument>
         </arguments>
-    </type>
+    </virtualType>
 
-    <preference for="Magento\Framework\Search\Adapter\OptionsInterface" type="Magento\SearchStorefront\Model\Adapter\Options"/>
+<!--    <preference for="Magento\Framework\Search\Adapter\OptionsInterface" type="Magento\SearchStorefront\Model\Adapter\Options"/>-->
 
     <preference for="Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\LayerBuilderInterface"
             type="Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\LayerBuilder"/>
@@ -79,6 +84,7 @@
             type="Magento\SearchStorefront\DataProvider\Product\SearchCriteria\Builder"/>
 
     <!-- scope resolvers replacements that are reading via direct sql -->
+    <!-- TODO remove this comment if CI will be successful -->
     <type name="Magento\Framework\Search\Request\Config\FilesystemReader">
         <plugin name="productAttributesDynamicFields"  type="Magento\SearchStorefront\Plugin\Search\Request\ConfigReader" />
     </type>

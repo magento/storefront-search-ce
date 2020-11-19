@@ -5,7 +5,7 @@
  */
 namespace Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Preprocessor;
 
-use Magento\SearchStorefrontStub\Framework\Model\ScopeResolverInterface;
+use Magento\SearchStorefrontStore\Model\Scope\ScopeResolver;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config\EsConfigInterface;
 use Magento\Framework\App\Cache\Type\Config;
 use Magento\Framework\App\ObjectManager;
@@ -73,14 +73,14 @@ class Stopwords implements PreprocessorInterface
      */
     private $serializer;
     /**
-     * @var ScopeResolverInterface
+     * @var ScopeResolver
      */
     private $scopeResolver;
 
     /**
      * Initialize dependencies.
      *
-     * @param ScopeResolverInterface $scopeResolver
+     * @param ScopeResolver $scopeResolver
      * @param Resolver $localeResolver
      * @param ReadFactory $readFactory
      * @param Config $configCache
@@ -91,7 +91,7 @@ class Stopwords implements PreprocessorInterface
      * @param SerializerInterface|null $serializer
      */
     public function __construct(
-        ScopeResolverInterface $scopeResolver,
+        ScopeResolver $scopeResolver,
         Resolver $localeResolver,
         ReadFactory $readFactory,
         Config $configCache,

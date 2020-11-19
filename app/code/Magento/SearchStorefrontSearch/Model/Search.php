@@ -6,7 +6,6 @@
 namespace Magento\SearchStorefrontSearch\Model;
 
 use Magento\Framework\Search\Search as FrameworkSearch;
-use Magento\SearchStorefrontSearch\Model\SearchInterface;
 
 /**
  * Search extended implementation for WebApi
