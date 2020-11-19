@@ -1,7 +1,7 @@
 # Overview
-This repository provides Read/Write API through gRPC for Search domain area
+Provides Read API through gRPC to serve Catalog Search related requests
 
-NOTE: existing implementation is a "transition" phase which utilize Magento Monolith Elasticsearch index ad a data source among with DB tables to retrieve necessary data to build search response. 
+NOTE: existing implementation is a "transition" phase which utilizes Magento Monolith fulltextsearch index among with DB connection (to retrieve necessary data to build search response, e.g. attributes names for build layered navigation)
 
 ### Install
 Current repository temporary adapted for monolith installation. To be able install search service as standalone application do the next steps:  
@@ -12,12 +12,8 @@ Current repository temporary adapted for monolith installation. To be able insta
 1. Run `bin/command storefront:search:init` to configure connection
 
 ## GRPC up (local php)
-1. Run bin/magento storefront:grpc:init \\\Magento\\\SearchStorefrontApi\\\Api\\\SearchProxyServer
+1. Run bin/command storefront:grpc:init \\\Magento\\\SearchStorefrontApi\\\Api\\\SearchProxyServer
 2. ./vendor/grpc-server
-
-## GRPC-UI
-1. install grpcui
-2. grpcui -plaintext -proto search.proto -port 8080 -bind 0.0.0.0 -import-path path_to_your_magento_project_root localhost:9001
 
 ### Contributing
 Contributions are welcomed! Read the [Contributing Guide](./CONTRIBUTING.md) for more information.

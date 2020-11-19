@@ -9,7 +9,6 @@
     <!-- GRPC server init minimum -->
     <preference for="Psr\Log\LoggerInterface" type="Magento\Framework\Logger\Monolog" />
     <preference for="Magento\Framework\App\RequestInterface" type="Magento\Framework\App\Request\Http" />
-    <preference for="Magento\Framework\App\Request\PathInfoProcessorInterface" type="Magento\SearchStorefrontStub\Framework\App\Request\DefaultPathInfoProcessor" />
     <preference for="Magento\Framework\App\ResponseInterface" type="Magento\Framework\App\Response\Http" />
     <preference for="Magento\Framework\App\CacheInterface" type="Magento\Framework\App\Cache\Proxy" />
     <preference for="Magento\Framework\App\Cache\StateInterface" type="Magento\Framework\App\Cache\State" />
@@ -255,10 +254,17 @@
     <type name="Magento\Framework\Search\Dynamic\Algorithm\Repository">
         <arguments>
             <argument name="algorithms" xsi:type="array">
-                <item name="auto" xsi:type="string">Magento\Framework\Search\Dynamic\Algorithm\Auto</item>
+                <item name="auto" xsi:type="string">Stub\Search\Algorithm\Auto</item>
+                <!-- TODO: implement stubs for manual and improved algorithm -->
                 <item name="manual" xsi:type="string">Magento\Framework\Search\Dynamic\Algorithm\Manual</item>
                 <item name="improved" xsi:type="string">Magento\Framework\Search\Dynamic\Algorithm\Improved</item>
             </argument>
         </arguments>
     </type>
+
+    <virtualType type="Magento\Framework\Search\Dynamic\Algorithm\Auto" name="Stub\Search\Algorithm\Auto">
+        <arguments>
+            <argument name="options" xsi:type="object">Magento\SearchStorefrontStub\Model\Search\Options</argument>
+        </arguments>
+    </virtualType>
 </config>

@@ -21,27 +21,6 @@ class RequestTypeApplier extends FilterApplier
     const XML_PATH_RANGE_CALCULATION = 'catalog/layered_navigation/price_range_calculation';
 
     /**
-     * @var \Magento\Framework\App\Config\ScopeConfigInterface
-     */
-    private $scopeConfig;
-
-    /**
-     * RequestNameApplier constructor.
-     *
-     * @param \Magento\Framework\Api\FilterBuilder $filterBuilder
-     * @param \Magento\Framework\Api\Search\FilterGroupBuilder $filterGroupBuilder
-     * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
-     */
-    public function __construct(
-        \Magento\Framework\Api\FilterBuilder $filterBuilder,
-        \Magento\Framework\Api\Search\FilterGroupBuilder $filterGroupBuilder,
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
-    ) {
-        parent::__construct($filterBuilder, $filterGroupBuilder);
-        $this->scopeConfig = $scopeConfig;
-    }
-
-    /**
      * Apply search request name to search criteria.
      *
      * @param ProductSearchRequestInterface $request
@@ -73,12 +52,8 @@ class RequestTypeApplier extends FilterApplier
      */
     private function preparePriceAggregation(SearchCriteriaInterface $searchCriteria, int $store): SearchCriteriaInterface
     {
-        // config need to be set in deployment configuration files
-        $priceRangeCalculation = $this->scopeConfig->getValue(
-            self::XML_PATH_RANGE_CALCULATION,
-            \Magento\SearchStorefrontStore\Model\ScopeInterface::SCOPE_STORE,
-            $store
-        );
+        // TODO: get config after resolving https://github.com/magento/catalog-storefront/issues/427
+        $priceRangeCalculation = 'auto';
 
         if ($priceRangeCalculation) {
             $searchCriteria = $this->addFilter(
