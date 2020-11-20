@@ -58,6 +58,7 @@
         </arguments>
     </virtualType>
 
-
     <preference for="Magento\SearchStorefrontStub\Framework\Model\EngineResolverInterface" type="Magento\SearchStorefrontSearch\Model\EngineResolver"/>
+
+    <preference for="Magento\Framework\App\Request\PathInfoProcessorInterface" type="Magento\SearchStorefrontStub\Framework\App\Request\DefaultPathInfoProcessor" />
 </config>
