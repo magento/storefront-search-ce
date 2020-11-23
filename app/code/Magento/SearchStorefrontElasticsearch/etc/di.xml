@@ -20,7 +20,6 @@
     </type>
 
     <preference for="Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config\EsConfigInterface" type="Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config\EsConfig" />
-<!--    <preference for="Magento\Framework\Search\Dynamic\DataProviderInterface" type="Magento\SearchStorefrontElasticsearch\SearchAdapter\Dynamic\DataProvider" />-->
 
     <type name="Magento\SearchStorefrontElasticsearch\SearchAdapter\Aggregation\Builder">
         <arguments>

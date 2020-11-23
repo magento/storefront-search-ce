@@ -1,11 +1,9 @@
 <?php
-
 /**
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
 declare(strict_types = 1);
-
 namespace Magento\SearchStorefrontConfig\Console\Command;
 
 use Magento\Framework\Exception\FileSystemException;
@@ -18,7 +16,7 @@ use Magento\SearchStorefrontConfig\Model\Installer;
 use Magento\Framework\Console\Cli;
 
 /**
- * Command for grpc server and grpc_services_map initialization
+ * Command for search service minimum config set up
  *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
@@ -29,14 +27,6 @@ class Config extends Command
      * @var string
      */
     private const COMMAND_NAME = 'storefront:search:init';
-
-    /**
-     * Configuration for Elasticsearch
-     */
-    const ELASTICSEARCH_HOST         = 'elastic';
-    const ELASTICSEARCH_ENGINE       = 'storefrontElasticsearch7';
-    const ELASTICSEARCH_PORT         = '9200';
-    const ELASTICSEARCH_INDEX_PREFIX = 'magento2';
 
     /**
      * @var Installer
