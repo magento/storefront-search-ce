@@ -8,12 +8,14 @@ declare(strict_types = 1);
 
 namespace Magento\SearchStorefrontConfig\Console\Command;
 
-use Magento\Framework\App\DeploymentConfig\Writer;
 use Magento\Framework\Exception\FileSystemException;
-use Magento\Framework\Stdlib\DateTime;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Magento\SearchStorefrontConfig\Model\Installer;
+use Magento\Framework\Console\Cli;
 
 /**
  * Command for grpc server and grpc_services_map initialization
@@ -37,27 +39,19 @@ class Config extends Command
     const ELASTICSEARCH_INDEX_PREFIX = 'magento2';
 
     /**
-     * @var Writer
+     * @var Installer
      */
-    private $deploymentConfigWriter;
-
-    /**
-     * @var DateTime
-     */
-    private $dateTime;
+    private $installer;
 
     /**
      * Installer constructor.
-     * @param Writer          $deploymentConfigWriter
-     * @param DateTime        $dateTime
+     * @param Installer $installer
      */
     public function __construct(
-        Writer $deploymentConfigWriter,
-        DateTime $dateTime
+        Installer $installer
     ) {
         parent::__construct();
-        $this->deploymentConfigWriter = $deploymentConfigWriter;
-        $this->dateTime = $dateTime;
+        $this->installer = $installer;
     }
 
     /**
@@ -65,9 +59,10 @@ class Config extends Command
      */
     protected function configure()
     {
-        $this->setName(self::COMMAND_NAME)->setDescription(
-            'Adds minimum required config data to env.php'
-        );
+        $this->setName(self::COMMAND_NAME)
+            ->setDescription(
+            'Adds minimum required config data to env.php')
+            ->setDefinition($this->getOptionsList());
 
         parent::configure();
     }
@@ -80,84 +75,83 @@ class Config extends Command
      * @return int
      * @throws FileSystemException
      */
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $config = [
-            'app_env' => [
-                'crypt' => [
-                    'key' => 'crypt_key'
-                ],
-                'resource' => [
-                    'default_setup' => [
-                        'connection' => 'default'
-                    ]
-                ],
-                'system'      => [
-                    'default' => [
-                        'catalog' => [
-                            'layered_navigation' => [
-                                'price_range_calculation' => 'auto',
-                                'interval_division_limit' => 1,
-                                'price_range_step' => 100,
-                                'price_range_max_intervals' => 10,
-                                'one_price_interval' => 1
-                            ]
-                        ]
-                    ]
-                ],
-                'db' => [
-                    'connection' => [
-                        'default' => [
-                            'host' => 'db',
-                            'dbname' => 'magento',
-                            'username' => 'root',
-                            'password' => '',
-                            'model' => 'mysql4',
-                            'engine' => 'innodb',
-                            'initStatements' => 'SET NAMES utf8;',
-                            'active' => '1',
-                            'driver_options' => [
-                                1014 => false
-                            ]
-                        ]
-                    ],
-                    'table_prefix' => ''
-                ],
-                'search-store-front' => [
-                    'connections' => [
-                        'default' => [
-                            'protocol' => 'http',
-                            'hostname' => self::ELASTICSEARCH_HOST,
-                            'port' => self::ELASTICSEARCH_PORT,
-                            'enable_auth' => '',
-                            'username' => '',
-                            'password' => '',
-                            'timeout' => 30
-                        ]
-                    ],
-                    'engine' => self::ELASTICSEARCH_ENGINE,
-                    'index_prefix' => self::ELASTICSEARCH_INDEX_PREFIX
-                ],
-                'install'     => [
-                    'date' => $this->dateTime->formatDate(true)
-                ],
-                'MAGE_MODE' => 'developer'
-            ],
-            'app_config' => [
-                'modules' => [
-                    'Magento_SearchStorefrontConfig' => 1,
-                    'Magento_SearchStorefrontStore' => 1,
-                    'Magento_SearchStorefrontGrpc' => 1,
-                    'Magento_SearchStorefrontSearch' => 1,
-                    'Magento_SearchStorefrontApi' => 1,
-                    'Magento_SearchStorefrontElasticsearch' => 1,
-                    'Magento_SearchStorefrontElasticsearch7' => 1,
-                    'Magento_SearchStorefrontStub' => 1,
-                    'Magento_SearchStorefront' => 1
-                ]
-            ]
-        ];
+        try {
+            $this->installer->install(
+                $input->getArguments(), $input->getOptions());
+        } catch (\Throwable $exception) {
+            $output->writeln('Installation failed: ' . $exception->getMessage());
+            return Cli::RETURN_FAILURE;
+        }
+        $output->writeln('Installation complete');
 
-        $this->deploymentConfigWriter->saveConfig($config);
+        return Cli::RETURN_SUCCESS;
+    }
+
+    private function getOptionsList()
+    {
+        return [
+            new InputArgument(
+                Installer::DB_HOST,
+                InputArgument::REQUIRED,
+                'Database hostname'
+            ),
+            new InputArgument(
+                Installer::DB_NAME,
+                InputArgument::REQUIRED,
+                'Database name',
+            ),
+            new InputArgument(
+                Installer::DB_USER,
+                InputArgument::REQUIRED,
+                'Database user'
+            ),
+            new InputArgument(
+                Installer::DB_PASSWORD,
+                InputArgument::REQUIRED,
+                'Database password'
+            ),
+            new InputOption(
+                Installer::DB_TABLE_PREFIX,
+                null,
+                InputOption::VALUE_OPTIONAL,
+                'Database table prefix',
+                ''
+            ),
+            new InputArgument(
+                Installer::ES_ENGINE,
+                InputArgument::REQUIRED,
+                'Elasticsearch engine'
+            ),
+            new InputArgument(
+                Installer::ES_HOSTNAME,
+                InputArgument::REQUIRED,
+                'Elasticsearch hostname'
+            ),
+            new InputOption(
+                Installer::ES_PORT,
+                null,
+                InputOption::VALUE_OPTIONAL,
+                'Elasticsearch port',
+                '9200'
+            ),
+            new InputOption(
+                Installer::ES_USERNAME,
+                null,
+                InputOption::VALUE_OPTIONAL,
+                'Elasticsearch port'
+            ),new InputOption(
+                Installer::ES_PASSWORD,
+                null,
+                InputOption::VALUE_OPTIONAL,
+                'Elasticsearch port'
+            ),
+            new InputArgument(
+                Installer::ES_INDEX_PREFIX,
+                InputArgument::REQUIRED,
+                'Elasticsearch index prefix'
+            )
+        ];
     }
 }

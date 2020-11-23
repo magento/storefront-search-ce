@@ -18,7 +18,6 @@ class RequestTypeApplier extends FilterApplier
     const REQUEST_WITH_AGGREGATION = 'search_service_request';
     const REQUEST_WITHOUT_AGGREGATION = 'search_service_request_without_aggregation';
     const PRICE_AGGREGATION_ALGORITHM_FIELD = 'price_dynamic_algorithm';
-    const XML_PATH_RANGE_CALCULATION = 'catalog/layered_navigation/price_range_calculation';
 
     /**
      * Apply search request name to search criteria.
@@ -53,7 +52,7 @@ class RequestTypeApplier extends FilterApplier
     private function preparePriceAggregation(SearchCriteriaInterface $searchCriteria, int $store): SearchCriteriaInterface
     {
         // TODO: get config after resolving https://github.com/magento/catalog-storefront/issues/427
-        $priceRangeCalculation = 'auto';
+        $priceRangeCalculation = 'manual';
 
         if ($priceRangeCalculation) {
             $searchCriteria = $this->addFilter(
