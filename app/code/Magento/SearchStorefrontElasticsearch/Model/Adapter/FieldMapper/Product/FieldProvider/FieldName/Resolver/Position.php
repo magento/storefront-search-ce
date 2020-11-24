@@ -23,20 +23,12 @@ class Position implements ResolverInterface
     private $storeManager;
 
     /**
-     * @var Registry
-     */
-    private $coreRegistry;
-
-    /**
      * @param StoreManager $storeManager
-     * @param Registry $coreRegistry
      */
     public function __construct(
-        StoreManager $storeManager,
-        Registry $coreRegistry
+        StoreManager $storeManager
     ) {
         $this->storeManager = $storeManager;
-        $this->coreRegistry = $coreRegistry;
     }
 
     /**
@@ -45,29 +37,9 @@ class Position implements ResolverInterface
     public function getFieldName(AttributeAdapter $attribute, $context = []): ?string
     {
         if ($attribute->getAttributeCode() === 'position') {
-            return 'position_category_' . $this->resolveCategoryId($context);
+            return 'position_category_' . $this->storeManager->getStore()->getRootCategoryId();
         }
 
         return null;
-    }
-
-    /**
-     * Category id should be passed in context. Retrieving it from store - only on phase 1 of search service.
-     *
-     * @param $context
-     * @return int
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     */
-    private function resolveCategoryId($context)
-    {
-        if (isset($context['categoryId'])) {
-            $id = $context['categoryId'];
-        } else {
-            $id = $this->coreRegistry->registry('current_category')
-                ? $this->coreRegistry->registry('current_category')->getId()
-                : $this->storeManager->getStore()->getRootCategoryId();
-        }
-
-        return $id;
     }
 }

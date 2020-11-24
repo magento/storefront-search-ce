@@ -6,7 +6,9 @@
     },
     "require": {
         "php": "~7.3.0||~7.4.0",
-        "magento/framework": "*"
+        "magento/framework": "*",
+        "module/magento-search-storefront-stub": "*",
+        "module/magento-search-storefront": "*"
     },
     "type": "magento2-module",
     "license": [

@@ -6,5 +6,11 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Magento_SearchStorefrontStub" />
+    <module name="Magento_SearchStorefrontStub">
+        <sequence>
+            <module name="Magento_SearchStorefrontSearch" />
+            <module name="Magento_SearchStorefrontElasticsearch" />
+            <module name="Magento_SearchStorefront" />
+        </sequence>
+    </module>
 </config>

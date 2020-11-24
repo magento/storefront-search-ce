@@ -11,7 +11,7 @@ use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\App\ScopeInterface;
 
 /**
- * Copied and adapted from Magento\Store
+ * Copied and adapted from Magento\Store class
  */
 class Store extends \Magento\Framework\DataObject implements StoreInterface, ScopeInterface
 {

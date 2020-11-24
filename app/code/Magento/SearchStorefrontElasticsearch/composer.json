@@ -4,7 +4,11 @@
     "require": {
         "php": "~7.3.0||~7.4.0",
         "magento/framework": "*",
-        "elasticsearch/elasticsearch": "~7.7.0"
+        "elasticsearch/elasticsearch": "~7.7.0",
+        "magento/module-search-storefront-store": "*",
+        "magento/module-search-storefront-stub": "*",
+        "magento/module-search-storefront": "*",
+        "magento/module-search-storefront-search": "*"
     },
     "type": "magento2-module",
     "license": [

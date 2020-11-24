@@ -11,7 +11,7 @@ class ScopeResolver implements \Magento\Framework\App\ScopeResolverInterface
     /**
      * @var \Magento\SearchStorefrontStore\Model\StoreManagerInterface
      */
-    protected $_storeManager;
+    private $_storeManager;
 
     /**
      * @param \Magento\SearchStorefrontStore\Model\StoreManagerInterface $storeManager

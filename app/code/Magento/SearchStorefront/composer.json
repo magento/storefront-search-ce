@@ -6,7 +6,11 @@
     },
     "require": {
         "php": "~7.3.0||~7.4.0",
-        "magento/framework": "*"
+        "magento/framework": "*",
+        "magento/module-search-storefront-store": "*",
+        "magento/module-search-storefront-api": "*",
+        "magento/module-search-storefront-elasticsearch": "*"
+
     },
     "type": "magento2-module",
     "license": [
