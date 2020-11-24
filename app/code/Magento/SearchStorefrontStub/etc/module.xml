@@ -10,7 +10,6 @@
         <sequence>
             <module name="Magento_SearchStorefrontSearch" />
             <module name="Magento_SearchStorefrontElasticsearch" />
-            <module name="Magento_SearchStorefront" />
         </sequence>
     </module>
 </config>

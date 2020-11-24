@@ -9,7 +9,9 @@
         "magento/framework": "*",
         "magento/module-search-storefront-store": "*",
         "magento/module-search-storefront-api": "*",
-        "magento/module-search-storefront-elasticsearch": "*"
+        "magento/module-search-storefront-elasticsearch": "*",
+        "magento/module-search-storefront-search": "*",
+        "magento/module-search-storefront-stub": "*"
 
     },
     "type": "magento2-module",
