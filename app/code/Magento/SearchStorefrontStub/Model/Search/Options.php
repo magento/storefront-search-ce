@@ -5,9 +5,7 @@
  */
 namespace Magento\SearchStorefrontStub\Model\Search;
 
-use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Search\Adapter\OptionsInterface;
-use Magento\Store\Model\ScopeInterface;
 
 /**
  * Copied from \Magento\CatalogSearch\Model\Adapter\Options

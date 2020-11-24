@@ -89,7 +89,7 @@
     <!-- scope resolvers replacements that are reading via direct sql -->
     <!-- TODO remove this comment if CI will be successful -->
     <type name="Magento\Framework\Search\Request\Config\FilesystemReader">
-        <plugin name="productAttributesDynamicFields"  type="Magento\SearchStorefront\Plugin\Search\Request\ConfigReader" />
+        <plugin name="productAttributesDynamicFieldsForSearchService"  type="Magento\SearchStorefront\Plugin\Search\Request\ConfigReader" />
     </type>
     <type name="Magento\SearchStorefront\Model\Search\RequestGenerator\GeneratorResolver">
         <arguments>

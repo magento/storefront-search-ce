@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\SearchStorefrontStub\Model\Aggregation;
 
 use Magento\Framework\Search\Request\Aggregation\StatusInterface;
