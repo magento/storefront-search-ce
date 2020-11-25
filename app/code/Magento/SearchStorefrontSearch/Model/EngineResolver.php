@@ -5,7 +5,7 @@
  */
 namespace Magento\SearchStorefrontSearch\Model;
 
-use Magento\SearchStorefront\Model\Search\Client\Config;
+use Magento\SearchStorefrontElasticsearch\Model\ConnectionConfigInterface;
 use Magento\SearchStorefrontStub\Framework\Model\EngineResolverInterface;
 use Psr\Log\LoggerInterface;
 
@@ -15,7 +15,7 @@ use Psr\Log\LoggerInterface;
 class EngineResolver implements EngineResolverInterface
 {
     /**
-     * @var Config
+     * @var ConnectionConfigInterface
     */
     protected $config;
 
@@ -36,13 +36,13 @@ class EngineResolver implements EngineResolverInterface
     private $defaultEngine;
 
     /**
-     * @param Config $config
+     * @param ConnectionConfigInterface $config
      * @param array $engines
      * @param LoggerInterface $logger
      * @param string|null $defaultEngine
      */
     public function __construct(
-        Config $config,
+        ConnectionConfigInterface $config,
         array $engines,
         LoggerInterface $logger,
         $defaultEngine = null

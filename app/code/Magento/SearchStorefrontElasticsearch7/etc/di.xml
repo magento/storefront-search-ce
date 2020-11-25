@@ -65,4 +65,6 @@
         </arguments>
     </virtualType>
 
+    <!-- Connection config for elasticsearch -->
+    <preference for="Magento\SearchStorefrontElasticsearch\Model\ConnectionConfigInterface" type="Magento\SearchStorefrontElasticsearch7\Model\Search\Client\Config" />
 </config>

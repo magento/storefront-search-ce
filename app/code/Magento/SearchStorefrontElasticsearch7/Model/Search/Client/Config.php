@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Magento\SearchStorefront\Model\Search\Client;
+namespace Magento\SearchStorefrontElasticsearch7\Model\Search\Client;
 
 use Magento\Framework\Exception\ConfigurationMismatchException;
 
