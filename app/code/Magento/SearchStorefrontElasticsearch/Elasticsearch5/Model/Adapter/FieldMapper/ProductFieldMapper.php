@@ -13,7 +13,8 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface;
 
 /**
  * Class ProductFieldMapper provides field name by attribute code and retrieve all attribute types
- * Copy of Magento\Elasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\ProductFieldMapper removed usage of FieldProviderInterface as it's not used during search request
+ * Copy of Magento\Elasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\ProductFieldMapper
+ * removed usage of FieldProviderInterface as it's not used during search request
  */
 class ProductFieldMapper implements FieldMapperInterface
 {

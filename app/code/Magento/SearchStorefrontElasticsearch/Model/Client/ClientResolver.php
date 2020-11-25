@@ -50,9 +50,9 @@ class ClientResolver
      */
     public function __construct(
         ObjectManagerInterface $objectManager,
+        EngineResolverInterface $engineResolver,
         array $clientFactories = [],
-        array $clientOptions = [],
-        EngineResolverInterface $engineResolver
+        array $clientOptions = []
     ) {
         $this->objectManager = $objectManager;
         $this->clientFactoryPool = $clientFactories;
@@ -90,7 +90,8 @@ class ClientResolver
         $factory = $this->objectManager->create($factoryClass);
         if (!($factory instanceof ClientFactoryInterface)) {
             throw new \InvalidArgumentException(
-                'Client factory must implement \Magento\SearchStorefrontElasticsearch\Model\Client\ClientFactoryInterface'
+                'Client factory must implement 
+                \Magento\SearchStorefrontElasticsearch\Model\Client\ClientFactoryInterface'
             );
         }
 
@@ -98,7 +99,8 @@ class ClientResolver
         $clientOptions = $this->objectManager->create($optionsClass);
         if (!($clientOptions instanceof ClientOptionsInterface)) {
             throw new \InvalidArgumentException(
-                'Client options must implement \Magento\SearchStorefrontElasticsearch\Model\Client\ClientInterface'
+                'Client options must implement 
+                \Magento\SearchStorefrontElasticsearch\Model\Client\ClientInterface'
             );
         }
 

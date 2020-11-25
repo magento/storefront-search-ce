@@ -135,6 +135,10 @@ class SearchService implements SearchServerInterface
         return $this->mapper->build();
     }
 
+    /**
+     * @param array $items
+     * @return array
+     */
     private function getItems($items)
     {
         $productIds = [];

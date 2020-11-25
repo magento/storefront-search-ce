@@ -10,7 +10,7 @@ use Magento\Framework\Search\RequestInterface;
 use Magento\Framework\Search\SearchEngineInterface;
 
 /**
- * Search Engine
+ * Search Engine model
  */
 class SearchEngine implements SearchEngineInterface
 {

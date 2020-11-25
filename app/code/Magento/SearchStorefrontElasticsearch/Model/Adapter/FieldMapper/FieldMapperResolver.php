@@ -89,7 +89,8 @@ class FieldMapperResolver implements FieldMapperInterface
             $this->fieldMapperEntity[$entityType] = $this->objectManager->create($fieldMapperClass);
             if (!($this->fieldMapperEntity[$entityType] instanceof FieldMapperInterface)) {
                 throw new \InvalidArgumentException(
-                    'Field mapper must implement \Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface'
+                    'Field mapper must implement 
+                    \Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface'
                 );
             }
         }

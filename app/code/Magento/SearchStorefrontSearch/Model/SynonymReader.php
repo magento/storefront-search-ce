@@ -20,20 +20,6 @@ namespace Magento\SearchStorefrontSearch\Model;
 class SynonymReader extends \Magento\Framework\DataObject
 {
     /**
-     * Event prefix
-     *
-     * @var string
-    */
-    protected $_eventPrefix = 'search_synonyms';
-
-    /**
-     * Event object key name
-     *
-     * @var string
-    */
-    protected $_eventObject = 'search_synonyms';
-
-    /**
      * Load synonyms by user query phrase in context of current store view
      *
      * @param string $phrase
@@ -42,7 +28,8 @@ class SynonymReader extends \Magento\Framework\DataObject
     */
     public function loadByPhrase($phrase)
     {
-        // @TODO synonyms reader need to be implemented to read data from another storage then DB (eg create indexer to index synonyms to elastic)
+        // @TODO synonyms reader need to be implemented
+        // (eg create indexer to index synonyms to elastic)
         return $this;
     }
 }

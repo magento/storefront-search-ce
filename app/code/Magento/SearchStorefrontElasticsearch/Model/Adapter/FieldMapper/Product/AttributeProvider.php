@@ -83,7 +83,7 @@ class AttributeProvider
     /**
      * Replace for Attribute EAV stubs with direct SQL query
      *
-     * @param $attributeCode
+     * @param string $attributeCode
      * @return mixed|null
      */
     private function getAttributeByCode($attributeCode)

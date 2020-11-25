@@ -16,21 +16,6 @@ use Magento\Framework\Serialize\SerializerInterface;
 class EsConfig extends Data implements EsConfigInterface
 {
     /**
-     * @param ReaderInterface $reader
-     * @param CacheInterface $cache
-     * @param string $cacheId
-     * @param SerializerInterface|null $serializer
-     */
-    public function __construct(
-        ReaderInterface $reader,
-        CacheInterface $cache,
-        $cacheId,
-        SerializerInterface $serializer = null
-    ) {
-        parent::__construct($reader, $cache, $cacheId, $serializer);
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function getStemmerInfo()

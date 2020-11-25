@@ -43,7 +43,7 @@ class Store extends \Magento\Framework\DataObject implements StoreInterface, Sco
     }
 
     /**
-     * @param $id
+     * @param string|int $id
      * @return $this
      */
     public function setId($id)
@@ -61,7 +61,7 @@ class Store extends \Magento\Framework\DataObject implements StoreInterface, Sco
     }
 
     /**
-     * @param $code
+     * @param string $code
      * @return $this
      */
     public function setCode($code)
@@ -79,7 +79,7 @@ class Store extends \Magento\Framework\DataObject implements StoreInterface, Sco
     }
 
     /**
-     * @param $name
+     * @param string $name
      * @return $this
      */
     public function setName($name)
@@ -97,7 +97,7 @@ class Store extends \Magento\Framework\DataObject implements StoreInterface, Sco
     }
 
     /**
-     * @param $websiteId
+     * @param string|int $websiteId
      * @return $this
      */
     public function setWebsiteId($websiteId)
@@ -134,7 +134,7 @@ class Store extends \Magento\Framework\DataObject implements StoreInterface, Sco
 
     /**
      * Set root category id
-     * @param $rootCategoryId
+     * @param string|int $rootCategoryId
      * @return Store
      */
     public function setRootCategoryId($rootCategoryId)
@@ -153,6 +153,11 @@ class Store extends \Magento\Framework\DataObject implements StoreInterface, Sco
         return $this;
     }
 
+    /**
+     * Return customer group id that was set during request
+     *
+     * @return int
+     */
     public function getCustomerGroupId()
     {
         return (int)$this->getData('customer_group_id');

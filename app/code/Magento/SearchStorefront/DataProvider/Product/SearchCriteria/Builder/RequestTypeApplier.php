@@ -46,13 +46,12 @@ class RequestTypeApplier extends FilterApplier
      * Prepare price aggregation algorithm
      *
      * @param SearchCriteriaInterface $searchCriteria
-     * @param int $store
      * @return SearchCriteriaInterface
      */
-    private function preparePriceAggregation(SearchCriteriaInterface $searchCriteria, int $store): SearchCriteriaInterface
+    private function preparePriceAggregation(SearchCriteriaInterface $searchCriteria): SearchCriteriaInterface
     {
         // TODO: get config after resolving https://github.com/magento/catalog-storefront/issues/427
-        $priceRangeCalculation = 'manual';
+        $priceRangeCalculation = 'auto';
 
         if ($priceRangeCalculation) {
             $searchCriteria = $this->addFilter(

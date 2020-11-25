@@ -82,6 +82,11 @@ class Config extends Command
         return Cli::RETURN_SUCCESS;
     }
 
+    /**
+     * Provides options for command config
+     *
+     * @return array
+     */
     private function getOptionsList()
     {
         return [

@@ -8,7 +8,8 @@ namespace Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Builder;
 use Magento\Framework\Search\Request\Query\BoolExpression;
 use Magento\Framework\Search\Request\QueryInterface as RequestQueryInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeProvider;
-use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\ResolverInterface as TypeResolver;
+use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\ResolverInterface
+    as TypeResolver;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Config;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\ValueTransformerPool;

@@ -221,7 +221,10 @@ class Interval implements IntervalInterface
     private function prepareBaseRequestQuery($from = null, $to = null): array
     {
         $requestQuery = [
-            'index' => $this->searchIndexNameResolver->getIndexName($this->storeId, $this->searchIndexNameResolver::INDEXER_ID),
+            'index' => $this->searchIndexNameResolver->getIndexName(
+                $this->storeId,
+                $this->searchIndexNameResolver::INDEXER_ID
+            ),
             'type' => $this->clientConfig->getEntityType(),
             'body' => [
                 'stored_fields' => [
