@@ -22,7 +22,6 @@ class CategoryName implements ResolverInterface
      */
     private $storeManager;
 
-
     /**
      * @param StoreManager $storeManager
      */

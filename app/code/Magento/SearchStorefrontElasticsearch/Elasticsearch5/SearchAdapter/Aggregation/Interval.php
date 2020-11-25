@@ -8,9 +8,9 @@ declare(strict_types=1);
 namespace Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\Aggregation;
 
 use Magento\Framework\Search\Dynamic\IntervalInterface;
-use Magento\SearchStorefrontElasticsearch\SearchAdapter\ConnectionManager;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Config;
+use Magento\SearchStorefrontElasticsearch\SearchAdapter\ConnectionManager;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\SearchIndexNameResolver;
 
 /**

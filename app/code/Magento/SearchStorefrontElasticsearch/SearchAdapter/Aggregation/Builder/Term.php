@@ -5,8 +5,8 @@
  */
 namespace Magento\SearchStorefrontElasticsearch\SearchAdapter\Aggregation\Builder;
 
-use Magento\Framework\Search\Request\BucketInterface as RequestBucketInterface;
 use Magento\Framework\Search\Dynamic\DataProviderInterface;
+use Magento\Framework\Search\Request\BucketInterface as RequestBucketInterface;
 
 /**
  * Builder for term buckets.

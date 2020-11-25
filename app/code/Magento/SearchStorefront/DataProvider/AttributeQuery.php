@@ -10,6 +10,7 @@ namespace Magento\SearchStorefront\DataProvider;
 use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\DB\Select;
 use Magento\Framework\EntityManager\MetadataPool;
+use Magento\SearchStorefrontStore\Model\Store;
 
 /**
  * Copied from Magento\CatalogGraphQl
@@ -157,7 +158,7 @@ class AttributeQuery
         $eavAttributeIdsSelect = $connection->select()
             ->from(['a' => $attributeMetadataTable], ['attribute_id', 'backend_type', 'attribute_code'])
             ->where('a.attribute_code IN (?)', $eavAttributeCodes)
-            ->where('a.entity_type_id = ?', $this->getEntityTypeId());
+            ->where('a.entity_type_id = ?', 3);
 
         return $connection->fetchAssoc($eavAttributeIdsSelect);
     }
@@ -201,7 +202,7 @@ class AttributeQuery
                     ['eav' => $this->resourceConnection->getTableName($attributeTable)],
                     \sprintf('e.%1$s = eav.%1$s', $linkField) .
                     $connection->quoteInto(' AND eav.attribute_id IN (?)', \array_keys($eavAttributesMetaData)) .
-                    $connection->quoteInto(' AND eav.store_id = ?', \Magento\SearchStorefrontStore\Model\Store::DEFAULT_STORE_ID),
+                    $connection->quoteInto(' AND eav.store_id = ?', Store::DEFAULT_STORE_ID),
                     []
                 )
                 ->joinLeft(
@@ -321,17 +322,5 @@ class AttributeQuery
         $attributes = \array_diff($attributes, $unusedAttributeList);
 
         return \array_unique(\array_merge($attributes, ...$newAttributes));
-    }
-
-    /**
-     * Retrieve entity type id
-     *
-     * @return int
-     * @throws \Exception
-     */
-    private function getEntityTypeId(): int
-    {
-        //TODO get entity from table
-        return 3;
     }
 }

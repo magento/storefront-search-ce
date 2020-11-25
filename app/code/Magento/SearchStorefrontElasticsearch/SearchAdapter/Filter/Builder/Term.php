@@ -7,12 +7,12 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefrontElasticsearch\SearchAdapter\Filter\Builder;
 
-use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeProvider;
 use Magento\Framework\Search\Request\Filter\Term as TermFilterRequest;
 use Magento\Framework\Search\Request\FilterInterface as RequestFilterInterface;
-use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface;
+use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeProvider;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\ConverterInterface
     as FieldTypeConverterInterface;
+use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface;
 
 /**
  * Term filter builder

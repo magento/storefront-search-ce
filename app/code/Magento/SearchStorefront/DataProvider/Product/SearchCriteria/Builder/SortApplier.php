@@ -12,7 +12,7 @@ use Magento\Framework\Api\SortOrder;
 use Magento\SearchStorefrontApi\Api\Data\ProductSearchRequestInterface;
 
 /**
- * Class SortApplier
+ * Applies sort conditions to request
  */
 class SortApplier implements ApplierInterface
 {

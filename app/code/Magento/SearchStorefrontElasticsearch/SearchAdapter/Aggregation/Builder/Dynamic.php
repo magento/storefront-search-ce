@@ -5,8 +5,8 @@
  */
 namespace Magento\SearchStorefrontElasticsearch\SearchAdapter\Aggregation\Builder;
 
-use Magento\Framework\Search\Dynamic\DataProviderInterface;
 use Magento\Framework\Search\Dynamic\Algorithm\Repository;
+use Magento\Framework\Search\Dynamic\DataProviderInterface;
 use Magento\Framework\Search\Dynamic\EntityStorage;
 use Magento\Framework\Search\Dynamic\EntityStorageFactory;
 use Magento\Framework\Search\Request\Aggregation\DynamicBucket;

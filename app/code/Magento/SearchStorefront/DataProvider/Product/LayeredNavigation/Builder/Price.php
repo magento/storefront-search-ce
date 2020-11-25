@@ -7,10 +7,10 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\Builder;
 
-use Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\LayerBuilderInterface;
 use Magento\Framework\Api\Search\AggregationInterface;
 use Magento\Framework\Api\Search\BucketInterface;
 use Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\Formatter\LayerFormatter;
+use Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\LayerBuilderInterface;
 
 /**
  * @inheritdoc

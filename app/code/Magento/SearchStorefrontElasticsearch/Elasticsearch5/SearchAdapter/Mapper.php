@@ -5,14 +5,14 @@
  */
 namespace Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter;
 
-use Magento\Framework\Search\RequestInterface;
-use Magento\Framework\Search\Request\QueryInterface as RequestQueryInterface;
 use Magento\Framework\Search\Request\Query\BoolExpression as BoolQuery;
 use Magento\Framework\Search\Request\Query\Filter as FilterQuery;
 use Magento\Framework\Search\Request\Query\Match as MatchQuery;
+use Magento\Framework\Search\Request\QueryInterface as RequestQueryInterface;
+use Magento\Framework\Search\RequestInterface;
 use Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\Query\Builder as QueryBuilder;
-use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Builder\Match as MatchQueryBuilder;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\Filter\Builder as FilterBuilder;
+use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Builder\Match as MatchQueryBuilder;
 
 /**
  * Mapper class

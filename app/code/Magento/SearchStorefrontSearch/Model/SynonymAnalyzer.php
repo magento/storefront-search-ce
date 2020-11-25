@@ -7,8 +7,6 @@
 declare(strict_types=1);
 namespace Magento\SearchStorefrontSearch\Model;
 
-use Magento\SearchStorefrontSearch\Model\SynonymAnalyzerInterface;
-
 /**
  * SynonymAnalyzer responsible for search of synonyms matching a word or a phrase.
  */

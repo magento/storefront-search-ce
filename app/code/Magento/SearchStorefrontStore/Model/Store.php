@@ -7,8 +7,8 @@
 namespace Magento\SearchStorefrontStore\Model;
 
 use Magento\Framework\App\ResourceConnection;
-use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\App\ScopeInterface;
+use Magento\Framework\Exception\NoSuchEntityException;
 
 /**
  * Copied and adapted from Magento\Store class

@@ -7,10 +7,10 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefrontElasticsearch\SearchAdapter\Aggregation;
 
+use Magento\Framework\Search\Dynamic\DataProviderInterface;
+use Magento\Framework\Search\RequestInterface;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\Aggregation\Builder\BucketBuilderInterface;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\QueryContainer;
-use Magento\Framework\Search\RequestInterface;
-use Magento\Framework\Search\Dynamic\DataProviderInterface;
 
 /**
  * Elasticsearch aggregation builder

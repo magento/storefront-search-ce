@@ -12,7 +12,7 @@ use Magento\Framework\Exception\LocalizedException;
 use Magento\SearchStorefrontApi\Api\Data\ProductSearchRequestInterface;
 
 /**
- * Class FilterApplier
+ * Applies eq and in conditions from search criteria
  */
 class FilterApplier implements ApplierInterface
 {
@@ -46,7 +46,7 @@ class FilterApplier implements ApplierInterface
     /**
      * Convert search request filters to search criteria filters.
      *
-     * @param $request
+     * @param ProductSearchRequestInterface $request
      * @param SearchCriteriaInterface $searchCriteria
      * @return SearchCriteriaInterface
      * @throws LocalizedException
@@ -90,7 +90,7 @@ class FilterApplier implements ApplierInterface
      *
      * @param SearchCriteriaInterface $searchCriteria
      * @param string $field
-     * @param $value
+     * @param string|int $value
      * @param string|null $condition
      * @return SearchCriteriaInterface
      */
@@ -121,8 +121,8 @@ class FilterApplier implements ApplierInterface
     /**
      * Apply range filter to search criteria.
      *
-     * @param $attributeCode
-     * @param $attributeValue
+     * @param string $attributeCode
+     * @param string|int $attributeValue
      */
     private function addRangeAttributeToSearch($attributeCode, $attributeValue): void
     {

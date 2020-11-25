@@ -11,7 +11,7 @@ use Magento\Framework\Api\Search\SearchCriteriaInterface;
 use Magento\SearchStorefrontApi\Api\Data\ProductSearchRequestInterface;
 
 /**
- * Class RequestTypeApplier
+ * Applies search request name and price bucket calculation algorithm
  */
 class RequestTypeApplier extends FilterApplier
 {

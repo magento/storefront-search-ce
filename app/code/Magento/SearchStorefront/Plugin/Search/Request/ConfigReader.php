@@ -5,13 +5,13 @@
  */
 namespace Magento\SearchStorefront\Plugin\Search\Request;
 
-use \Magento\Framework\ObjectManagerInterface;
 use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\DataObject;
-use Magento\SearchStorefront\Model\Search\RequestGenerator;
-use Magento\SearchStorefront\Model\Search\RequestGenerator\GeneratorResolver;
+use Magento\Framework\ObjectManagerInterface;
 use Magento\Framework\Search\Request\FilterInterface;
 use Magento\Framework\Search\Request\QueryInterface;
+use Magento\SearchStorefront\Model\Search\RequestGenerator;
+use Magento\SearchStorefront\Model\Search\RequestGenerator\GeneratorResolver;
 
 /**
  * Copied from Magento\CatalogGraphQl
@@ -292,19 +292,21 @@ class ConfigReader
     {
         $connection = $this->resourceConnection->getConnection();
         $cond = [
-            $connection->quoteInto('c.is_searchable IN (?)',[1]),
+            $connection->quoteInto('c.is_searchable IN (?)', [1]),
             $connection->quoteInto('c.is_visible_in_advanced_search IN (?)', [1]),
             $connection->quoteInto('c.is_filterable IN (?)', [1,2]),
             $connection->quoteInto('c.is_filterable_in_search IN (?)', [1])
         ];
         $attrSelect = $connection->select()
-            ->from(['a' => $this->resourceConnection->getTableName('eav_attribute')],
-                   [
+            ->from(
+                ['a' => $this->resourceConnection->getTableName('eav_attribute')],
+                [
                        'a.attribute_id',
                        'a.attribute_code',
                        'a.backend_type',
                        'a.frontend_input'
-                   ])
+                   ]
+            )
             ->joinLeft(
                 ['c' => $this->resourceConnection->getTableName('catalog_eav_attribute')],
                 'a.attribute_id = c.attribute_id',
@@ -323,7 +325,7 @@ class ConfigReader
             foreach ($rows as $data) {
                 $attribute = $this->objectManager->create(DataObject::class);
                 foreach ($data as $index => $value) {
-                    $attribute->setData($index,$value);
+                    $attribute->setData($index, $value);
                 }
                 $attributes[] = $attribute;
             }

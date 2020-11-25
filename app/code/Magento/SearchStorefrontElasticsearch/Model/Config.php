@@ -9,10 +9,10 @@ declare(strict_types=1);
 namespace Magento\SearchStorefrontElasticsearch\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\SearchStorefrontStub\Framework\Model\EngineResolverInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Client\ClientOptionsInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Client\ClientResolver;
 use Magento\SearchStorefrontElasticsearch\Model\ConnectionConfigInterface as ConnectionConfig;
+use Magento\SearchStorefrontStub\Framework\Model\EngineResolverInterface;
 
 /**
  * Elasticsearch config model
@@ -109,7 +109,7 @@ class Config implements ClientOptionsInterface
             'enableAuth' => $this->config->getEnableAuth(),
             'username' => $this->config->getUsername(),
             'password' => $this->config->getPassword(),
-            'timeout' => $this->config->getTimeout() ? : self::ELASTICSEARCH_DEFAULT_TIMEOUT,
+            'timeout' => $this->config->getTimeout() ?: self::ELASTICSEARCH_DEFAULT_TIMEOUT,
             'engine' => $this->config->getEngine()
         ];
 

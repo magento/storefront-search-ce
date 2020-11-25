@@ -6,10 +6,10 @@
 
 namespace Magento\SearchStorefrontElasticsearch\SearchAdapter\Aggregation;
 
-use Magento\SearchStorefrontElasticsearch\SearchAdapter\QueryAwareInterface;
-use Magento\SearchStorefrontElasticsearch\SearchAdapter\QueryContainer;
 use Magento\Framework\ObjectManagerInterface;
 use Magento\Framework\Search\Dynamic\DataProviderInterface;
+use Magento\SearchStorefrontElasticsearch\SearchAdapter\QueryAwareInterface;
+use Magento\SearchStorefrontElasticsearch\SearchAdapter\QueryContainer;
 
 /**
  * It's a factory which allows to override instance of DataProviderInterface

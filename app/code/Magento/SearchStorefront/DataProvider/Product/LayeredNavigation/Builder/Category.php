@@ -7,14 +7,14 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\Builder;
 
-use Magento\SearchStorefront\DataProvider\CategoryAttributesMapper;
-use Magento\SearchStorefront\DataProvider\Category\Query\CategoryAttributeQuery;
-use Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\LayerBuilderInterface;
 use Magento\Framework\Api\Search\AggregationInterface;
 use Magento\Framework\Api\Search\AggregationValueInterface;
 use Magento\Framework\Api\Search\BucketInterface;
 use Magento\Framework\App\ResourceConnection;
+use Magento\SearchStorefront\DataProvider\Category\Query\CategoryAttributeQuery;
+use Magento\SearchStorefront\DataProvider\CategoryAttributesMapper;
 use Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\Formatter\LayerFormatter;
+use Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\LayerBuilderInterface;
 use Magento\SearchStorefrontStore\Model\Store;
 
 /**
@@ -62,6 +62,13 @@ class Category implements LayerBuilderInterface
      */
     private $store;
 
+    /**
+     * @param CategoryAttributeQuery   $categoryAttributeQuery
+     * @param CategoryAttributesMapper $attributesMapper
+     * @param ResourceConnection       $resourceConnection
+     * @param LayerFormatter           $layerFormatter
+     * @param Store                    $store
+     */
     public function __construct(
         CategoryAttributeQuery $categoryAttributeQuery,
         CategoryAttributesMapper $attributesMapper,
@@ -119,7 +126,7 @@ class Category implements LayerBuilderInterface
         foreach ($bucket->getValues() as $value) {
             $categoryId = $value->getValue();
             if (!\in_array($categoryId, $categoryIds, true)) {
-                continue ;
+                continue;
             }
             $result['options'][] = $this->layerFormatter->buildItem(
                 $categoryLabels[$categoryId] ?? $categoryId,

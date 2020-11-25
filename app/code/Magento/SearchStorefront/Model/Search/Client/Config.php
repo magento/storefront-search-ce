@@ -78,7 +78,8 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
             $options = $this->config['connections']['default'];
 
             if (empty($options['hostname']) || ((!empty($options['enable_auth'])
-                        && ($options['enable_auth'] == 1)) && (empty($options['username']) || empty($options['password'])))
+                        && ($options['enable_auth'] == 1))
+                    && (empty($options['username']) || empty($options['password'])))
             ) {
                 throw new ConfigurationMismatchException(
                     __('The search failed because of a search engine misconfiguration.')
@@ -90,6 +91,8 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
     }
 
     /**
+     * get server hostname from config
+     *
      * @return string
      * @throws ConfigurationMismatchException
      */
@@ -99,6 +102,8 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
     }
 
     /**
+     * get server port from config
+     *
      * @return string
      * @throws ConfigurationMismatchException
      */
@@ -108,6 +113,8 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
     }
 
     /**
+     * get index prefix from config
+     *
      * @return string
      * @throws ConfigurationMismatchException
      */
@@ -117,6 +124,8 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
     }
 
     /**
+     * get enable auth from config
+     *
      * @return int
      * @throws ConfigurationMismatchException
      */
@@ -126,6 +135,8 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
     }
 
     /**
+     * get username from config
+     *
      * @return string
      * @throws ConfigurationMismatchException
      */
@@ -135,6 +146,8 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
     }
 
     /**
+     * get password from config
+     *
      * @return string
      * @throws ConfigurationMismatchException
      */
@@ -144,6 +157,8 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
     }
 
     /**
+     * get timeout from config
+     *
      * @return int
      * @throws ConfigurationMismatchException
      */
@@ -153,6 +168,8 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
     }
 
     /**
+     * get engine name from config
+     *
      * @return string
      * @throws ConfigurationMismatchException
      */
@@ -162,6 +179,8 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
     }
 
     /**
+     * get minimum should match from config
+     *
      * @return string
      * @throws ConfigurationMismatchException
      */

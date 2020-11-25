@@ -5,13 +5,13 @@
  */
 namespace Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Builder;
 
-use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeProvider;
-use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\ResolverInterface as TypeResolver;
-use Magento\SearchStorefrontElasticsearch\Model\Config;
-use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\ValueTransformerPool;
 use Magento\Framework\Search\Request\Query\BoolExpression;
 use Magento\Framework\Search\Request\QueryInterface as RequestQueryInterface;
+use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeProvider;
+use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\ResolverInterface as TypeResolver;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface;
+use Magento\SearchStorefrontElasticsearch\Model\Config;
+use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\ValueTransformerPool;
 
 /**
  * Builder for match query.
@@ -74,7 +74,6 @@ class Match implements QueryInterface
      */
     public function build(array $selectQuery, RequestQueryInterface $requestQuery, $conditionType)
     {
-
         $queryValue = $this->prepareQuery($requestQuery->getValue(), $conditionType);
         $queries = $this->buildQueries($requestQuery->getMatches(), $queryValue);
         $requestQueryBoost = $requestQuery->getBoost() ?: 1;

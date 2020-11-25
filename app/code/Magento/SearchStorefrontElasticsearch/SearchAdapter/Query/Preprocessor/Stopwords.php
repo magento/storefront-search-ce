@@ -5,8 +5,6 @@
  */
 namespace Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Preprocessor;
 
-use Magento\SearchStorefrontStore\Model\Scope\ScopeResolver;
-use Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config\EsConfigInterface;
 use Magento\Framework\App\Cache\Type\Config;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Filesystem\Directory\ReadFactory;
@@ -15,6 +13,8 @@ use Magento\Framework\Module\Dir;
 use Magento\Framework\Module\Dir\Reader;
 use Magento\Framework\Search\Adapter\Preprocessor\PreprocessorInterface;
 use Magento\Framework\Serialize\SerializerInterface;
+use Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config\EsConfigInterface;
+use Magento\SearchStorefrontStore\Model\Scope\ScopeResolver;
 
 /**
  * Elasticsearch stopwords preprocessor

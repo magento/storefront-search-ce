@@ -6,14 +6,14 @@
 declare(strict_types = 1);
 namespace Magento\SearchStorefrontConfig\Console\Command;
 
+use Magento\Framework\Console\Cli;
 use Magento\Framework\Exception\FileSystemException;
+use Magento\SearchStorefrontConfig\Model\Installer;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use Magento\SearchStorefrontConfig\Model\Installer;
-use Magento\Framework\Console\Cli;
+use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Command for search service minimum config set up
@@ -51,7 +51,8 @@ class Config extends Command
     {
         $this->setName(self::COMMAND_NAME)
             ->setDescription(
-            'Adds minimum required config data to env.php')
+                'Adds minimum required config data to env.php'
+            )
             ->setDefinition($this->getOptionsList());
 
         parent::configure();
@@ -69,7 +70,9 @@ class Config extends Command
     {
         try {
             $this->installer->install(
-                $input->getArguments(), $input->getOptions());
+                $input->getArguments(),
+                $input->getOptions()
+            );
         } catch (\Throwable $exception) {
             $output->writeln('Installation failed: ' . $exception->getMessage());
             return Cli::RETURN_FAILURE;

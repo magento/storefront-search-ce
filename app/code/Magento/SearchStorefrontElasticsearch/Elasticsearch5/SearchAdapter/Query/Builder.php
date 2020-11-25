@@ -6,12 +6,12 @@
 
 namespace Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\Query;
 
-use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Builder\Sort;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Search\RequestInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Config;
-use Magento\SearchStorefrontElasticsearch\SearchAdapter\SearchIndexNameResolver;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Builder\Aggregation as AggregationBuilder;
+use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Builder\Sort;
+use Magento\SearchStorefrontElasticsearch\SearchAdapter\SearchIndexNameResolver;
 use Magento\SearchStorefrontStore\Model\Scope\ScopeResolver;
 
 /**

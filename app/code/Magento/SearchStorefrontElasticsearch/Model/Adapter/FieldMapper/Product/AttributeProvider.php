@@ -90,12 +90,14 @@ class AttributeProvider
     {
         $connection = $this->resourceConnection->getConnection();
         $attrSelect = $connection->select()
-            ->from(['a' => $this->resourceConnection->getTableName('eav_attribute')],
+            ->from(
+                ['a' => $this->resourceConnection->getTableName('eav_attribute')],
                 [
                     'a.attribute_id',
                     'a.attribute_code',
                     'a.backend_type'
-                ])
+                ]
+            )
             ->joinLeft(
                 ['c' => $this->resourceConnection->getTableName('catalog_eav_attribute')],
                 'a.attribute_id = c.attribute_id',
@@ -112,7 +114,7 @@ class AttributeProvider
         if ($row) {
             $attribute = $this->objectManager->create(DataObject::class);
             foreach ($row as $index => $value) {
-                $attribute->setData($index,$value);
+                $attribute->setData($index, $value);
             }
         }
         return $attribute;

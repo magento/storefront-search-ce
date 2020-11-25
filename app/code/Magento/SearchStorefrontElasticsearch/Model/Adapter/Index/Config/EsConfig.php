@@ -5,8 +5,8 @@
  */
 namespace Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config;
 
-use Magento\Framework\Config\Data;
 use Magento\Framework\Config\CacheInterface;
+use Magento\Framework\Config\Data;
 use Magento\Framework\Config\ReaderInterface;
 use Magento\Framework\Serialize\SerializerInterface;
 

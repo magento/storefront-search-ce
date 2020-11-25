@@ -12,7 +12,7 @@ use Magento\Framework\Exception\LocalizedException;
 use Magento\SearchStorefrontApi\Api\Data\ProductSearchRequestInterface;
 
 /**
- * Class ApplierPool
+ * Stores all available appliers for search criteria
  */
 class ApplierPool implements ApplierInterface
 {

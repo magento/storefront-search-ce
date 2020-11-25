@@ -7,8 +7,8 @@ declare(strict_types=1);
 
 namespace Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\ValueTransformer;
 
-use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\ValueTransformerInterface;
 use Magento\Framework\Search\Adapter\Preprocessor\PreprocessorInterface;
+use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\ValueTransformerInterface;
 
 /**
  * Value transformer for fields with text types.

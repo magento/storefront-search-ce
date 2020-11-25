@@ -5,12 +5,12 @@
  */
 namespace Magento\SearchStorefrontElasticsearch\SearchAdapter;
 
-use Magento\Framework\Search\EntityMetadata;
 use Magento\Framework\Api\AttributeInterface;
 use Magento\Framework\Api\AttributeValue;
 use Magento\Framework\Api\CustomAttributesDataInterface;
 use Magento\Framework\Api\Search\Document;
 use Magento\Framework\Api\Search\DocumentInterface;
+use Magento\Framework\Search\EntityMetadata;
 
 /**
  * Document Factory to create Search Document instance

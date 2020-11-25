@@ -6,11 +6,11 @@
 
 namespace Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Builder;
 
+use Magento\Framework\Search\RequestInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeProvider;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\ResolverInterface
     as FieldNameResolver;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface;
-use Magento\Framework\Search\RequestInterface;
 
 /**
  * Sort builder.

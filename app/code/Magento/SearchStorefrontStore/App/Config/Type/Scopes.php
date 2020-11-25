@@ -5,8 +5,8 @@
  */
 namespace Magento\SearchStorefrontStore\App\Config\Type;
 
-use Magento\Framework\App\Config\ConfigTypeInterface;
 use Magento\Framework\App\Config\ConfigSourceInterface;
+use Magento\Framework\App\Config\ConfigTypeInterface;
 use Magento\Framework\DataObject;
 use Magento\SearchStorefrontStore\Model\ScopeInterface;
 

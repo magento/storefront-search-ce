@@ -11,7 +11,7 @@ use Magento\Framework\Api\Search\SearchCriteriaInterface;
 use Magento\SearchStorefrontApi\Api\Data\ProductSearchRequestInterface;
 
 /**
- * Class PhraseApplier
+ * Applies search phrase to request
  */
 class PhraseApplier extends FilterApplier
 {
