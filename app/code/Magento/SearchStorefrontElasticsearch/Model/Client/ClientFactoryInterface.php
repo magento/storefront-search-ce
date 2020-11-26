@@ -13,7 +13,7 @@ interface ClientFactoryInterface
     /**
      * Return search client
      *
-     * @param array $options
+     * @param  array $options
      * @return ClientInterface
      */
     public function create(array $options = []);

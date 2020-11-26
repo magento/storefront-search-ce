@@ -22,8 +22,8 @@ interface SynonymAnalyzerInterface
      *   4 => [ 0 => "queen", 1 => "monarch" ]
      * ]
      *
-     * @param string $phrase
+     * @param  string $phrase
      * @return array
-    */
+     */
     public function getSynonymsForPhrase($phrase);
 }

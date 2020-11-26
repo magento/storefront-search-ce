@@ -52,8 +52,8 @@ class Attribute implements LayerBuilderInterface
 
     /**
      * @param AttributeOptionProvider $attributeOptionProvider
-     * @param LayerFormatter $layerFormatter
-     * @param array $bucketNameFilter
+     * @param LayerFormatter          $layerFormatter
+     * @param array                   $bucketNameFilter
      */
     public function __construct(
         AttributeOptionProvider $attributeOptionProvider,
@@ -68,7 +68,7 @@ class Attribute implements LayerBuilderInterface
     /**
      * @inheritdoc
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-     * @throws \Zend_Db_Statement_Exception
+     * @throws                                        \Zend_Db_Statement_Exception
      */
     public function build(AggregationInterface $aggregation, ?int $storeId): array
     {
@@ -103,7 +103,7 @@ class Attribute implements LayerBuilderInterface
     /**
      * Get attribute buckets excluding specified bucket names
      *
-     * @param AggregationInterface $aggregation
+     * @param  AggregationInterface $aggregation
      * @return \Generator|BucketInterface[]
      */
     private function getAttributeBuckets(AggregationInterface $aggregation)
@@ -122,7 +122,7 @@ class Attribute implements LayerBuilderInterface
     /**
      * Check that bucket contains data
      *
-     * @param BucketInterface|null $bucket
+     * @param  BucketInterface|null $bucket
      * @return bool
      */
     private function isBucketEmpty(?BucketInterface $bucket): bool
@@ -133,8 +133,8 @@ class Attribute implements LayerBuilderInterface
     /**
      * Get list of attributes with options
      *
-     * @param AggregationInterface $aggregation
-     * @param int|null $storeId
+     * @param  AggregationInterface $aggregation
+     * @param  int|null             $storeId
      * @return array
      * @throws \Zend_Db_Statement_Exception
      */

@@ -24,8 +24,8 @@ class Builder implements BuilderInterface
     private $filters;
 
     /**
-     * @param Range $range
-     * @param Term $term
+     * @param Range    $range
+     * @param Term     $term
      * @param Wildcard $wildcard
      */
     public function __construct(
@@ -51,8 +51,8 @@ class Builder implements BuilderInterface
     /**
      * Processes filter object
      *
-     * @param RequestFilterInterface $filter
-     * @param string $conditionType
+     * @param  RequestFilterInterface $filter
+     * @param  string                 $conditionType
      * @return array
      */
     private function processFilter(RequestFilterInterface $filter, $conditionType)
@@ -76,8 +76,8 @@ class Builder implements BuilderInterface
     /**
      * Processes filter
      *
-     * @param RequestFilterInterface|BoolExpression $filter
-     * @param bool $isNegation
+     * @param  RequestFilterInterface|BoolExpression $filter
+     * @param  bool                                  $isNegation
      * @return array
      */
     protected function processBoolFilter(RequestFilterInterface $filter, $isNegation)
@@ -106,8 +106,8 @@ class Builder implements BuilderInterface
     /**
      * Build filters
      *
-     * @param RequestFilterInterface[] $filters
-     * @param string $conditionType
+     * @param  RequestFilterInterface[] $filters
+     * @param  string                   $conditionType
      * @return string
      */
     private function buildFilters(array $filters, $conditionType)
@@ -130,7 +130,7 @@ class Builder implements BuilderInterface
     /**
      * Returns is condition type navigation
      *
-     * @param string $conditionType
+     * @param  string $conditionType
      * @return bool
      */
     private function isNegation($conditionType)
@@ -141,8 +141,8 @@ class Builder implements BuilderInterface
     /**
      * Maps condition type
      *
-     * @param string $conditionType
-     * @param bool $isNegation
+     * @param  string $conditionType
+     * @param  bool   $isNegation
      * @return string
      */
     private function mapConditionType($conditionType, $isNegation)

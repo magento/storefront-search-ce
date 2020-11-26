@@ -15,7 +15,8 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\Fiel
  */
 class Converter implements ConverterInterface
 {
-    /**#@+
+    /**
+     * #@+
      * Text flags for Elasticsearch field types
      */
     private const ES_DATA_TYPE_TEXT = 'text';
@@ -23,7 +24,9 @@ class Converter implements ConverterInterface
     private const ES_DATA_TYPE_DOUBLE = 'double';
     private const ES_DATA_TYPE_INT = 'integer';
     private const ES_DATA_TYPE_DATE = 'date';
-    /**#@-*/
+    /**
+     * #@-
+     */
 
     /**
      * Mapping between internal data types and elastic service.
@@ -41,7 +44,7 @@ class Converter implements ConverterInterface
     /**
      * Get service field type for elasticsearch 5.
      *
-     * @param string $internalType
+     * @param  string $internalType
      * @return string
      * @throws \DomainException
      */

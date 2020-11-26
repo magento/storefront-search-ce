@@ -35,8 +35,8 @@ class ApplierPool implements ApplierInterface
     /**
      * Process search request with defined appliers.
      *
-     * @param ProductSearchRequestInterface $request
-     * @param SearchCriteriaInterface $searchCriteria
+     * @param  ProductSearchRequestInterface $request
+     * @param  SearchCriteriaInterface       $searchCriteria
      * @return SearchCriteriaInterface
      * @throws LocalizedException
      */

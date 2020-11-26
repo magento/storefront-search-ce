@@ -24,6 +24,7 @@ class Config extends Command
 {
     /**
      * Command name
+     *
      * @var string
      */
     private const COMMAND_NAME = 'storefront:search:init';
@@ -35,6 +36,7 @@ class Config extends Command
 
     /**
      * Installer constructor.
+     *
      * @param Installer $installer
      */
     public function __construct(
@@ -61,8 +63,8 @@ class Config extends Command
     /**
      * @inheritDoc
      *
-     * @param InputInterface $input
-     * @param OutputInterface $output
+     * @param  InputInterface  $input
+     * @param  OutputInterface $output
      * @return int
      * @throws FileSystemException
      */

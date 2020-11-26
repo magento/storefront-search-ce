@@ -79,7 +79,7 @@ class Price implements LayerBuilderInterface
     /**
      * Check that bucket contains data
      *
-     * @param BucketInterface|null $bucket
+     * @param  BucketInterface|null $bucket
      * @return bool
      */
     private function isBucketEmpty(?BucketInterface $bucket): bool

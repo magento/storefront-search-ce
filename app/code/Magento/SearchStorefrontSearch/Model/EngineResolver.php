@@ -16,11 +16,12 @@ class EngineResolver implements EngineResolverInterface
 {
     /**
      * @var ConnectionConfigInterface
-    */
+     */
     protected $config;
 
     /**
      * Available engines
+     *
      * @var array
      */
     private $engines = [];
@@ -37,9 +38,9 @@ class EngineResolver implements EngineResolverInterface
 
     /**
      * @param ConnectionConfigInterface $config
-     * @param array $engines
-     * @param LoggerInterface $logger
-     * @param string|null $defaultEngine
+     * @param array                     $engines
+     * @param LoggerInterface           $logger
+     * @param string|null               $defaultEngine
      */
     public function __construct(
         ConnectionConfigInterface $config,
@@ -59,7 +60,7 @@ class EngineResolver implements EngineResolverInterface
      * It returns string identifier of Search Engine that is currently chosen in configuration
      *
      * @return string
-    */
+     */
     public function getCurrentSearchEngine()
     {
         $engine = $this->config->getEngine();

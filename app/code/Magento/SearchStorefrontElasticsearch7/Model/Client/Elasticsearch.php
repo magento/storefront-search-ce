@@ -35,8 +35,8 @@ class Elasticsearch implements ClientInterface
     /**
      * Initialize Elasticsearch 7 Client
      *
-     * @param array $options
-     * @param \SearchStorefrontElasticsearch\Client|null $elasticsearchClient
+     * @param  array                                      $options
+     * @param  \SearchStorefrontElasticsearch\Client|null $elasticsearchClient
      * @throws LocalizedException
      */
     public function __construct(
@@ -45,7 +45,7 @@ class Elasticsearch implements ClientInterface
     ) {
         if (empty($options['hostname'])
             || ((!empty($options['enableAuth']) && ($options['enableAuth'] == 1))
-                && (empty($options['username']) || empty($options['password'])))
+            && (empty($options['username']) || empty($options['password'])))
         ) {
             throw new LocalizedException(
                 __('The search failed because of a search engine misconfiguration.')
@@ -61,7 +61,7 @@ class Elasticsearch implements ClientInterface
     /**
      * Execute suggest query for Elasticsearch 7
      *
-     * @param array $query
+     * @param  array $query
      * @return array
      */
     public function suggest(array $query): array
@@ -112,7 +112,7 @@ class Elasticsearch implements ClientInterface
     /**
      * Build config for Elasticsearch 7
      *
-     * @param array $options
+     * @param  array $options
      * @return array
      */
     private function buildESConfig(array $options = []): array
@@ -145,7 +145,7 @@ class Elasticsearch implements ClientInterface
     /**
      * Get alias.
      *
-     * @param string $alias
+     * @param  string $alias
      * @return array
      */
     public function getAlias(string $alias): array
@@ -156,7 +156,7 @@ class Elasticsearch implements ClientInterface
     /**
      * Execute search by $query
      *
-     * @param array $query
+     * @param  array $query
      * @return array
      */
     public function query(array $query): array

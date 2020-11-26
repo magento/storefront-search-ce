@@ -15,10 +15,10 @@ use Magento\Framework\Search\Request\Dimension;
 interface BucketBuilderInterface
 {
     /**
-     * @param RequestBucketInterface $bucket
-     * @param Dimension[] $dimensions
-     * @param array $queryResult
-     * @param DataProviderInterface $dataProvider
+     * @param  RequestBucketInterface $bucket
+     * @param  Dimension[]            $dimensions
+     * @param  array                  $queryResult
+     * @param  DataProviderInterface  $dataProvider
      * @return array
      */
     public function build(

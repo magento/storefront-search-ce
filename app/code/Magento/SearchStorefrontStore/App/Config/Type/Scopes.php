@@ -81,7 +81,7 @@ class Scopes implements ConfigTypeInterface
      * Replace scope id with scope code.
      * E.g. path 'websites/admin' will be converted to 'websites/0'
      *
-     * @param array $patchChunks
+     * @param  array $patchChunks
      * @return string
      */
     private function convertIdPathToCodePath(array $patchChunks)

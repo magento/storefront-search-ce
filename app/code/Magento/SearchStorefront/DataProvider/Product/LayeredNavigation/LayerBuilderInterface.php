@@ -34,8 +34,8 @@ interface LayerBuilderInterface
     /**
      * Build layer data
      *
-     * @param AggregationInterface $aggregation
-     * @param int|null $storeId
+     * @param  AggregationInterface $aggregation
+     * @param  int|null             $storeId
      * @return array [[{layer data}], ...]
      */
     public function build(AggregationInterface $aggregation, ?int $storeId): array;

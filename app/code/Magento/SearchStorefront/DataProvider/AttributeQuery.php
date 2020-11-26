@@ -53,10 +53,10 @@ class AttributeQuery
     ];
 
     /**
-     * @param string $entityType
+     * @param string             $entityType
      * @param ResourceConnection $resourceConnection
-     * @param MetadataPool $metadataPool
-     * @param array $linkedAttributes
+     * @param MetadataPool       $metadataPool
+     * @param array              $linkedAttributes
      */
     public function __construct(
         string $entityType,
@@ -75,20 +75,24 @@ class AttributeQuery
      *
      * If eav entities were not found, then data is fetching from $entityTableName.
      *
-     * @param array $entityIds
-     * @param array $attributes
-     * @param int $storeId
+     * @param  array $entityIds
+     * @param  array $attributes
+     * @param  int   $storeId
      * @return Select
      * @throws \Zend_Db_Select_Exception
      * @throws \Exception
      */
     public function getQuery(array $entityIds, array $attributes, int $storeId): Select
     {
-        /** @var \Magento\Framework\EntityManager\EntityMetadataInterface $metadata */
+        /**
+ * @var \Magento\Framework\EntityManager\EntityMetadataInterface $metadata 
+*/
         $metadata = $this->metadataPool->getMetadata($this->entityType);
         $entityTableName = $metadata->getEntityTable();
 
-        /** @var \Magento\Framework\DB\Adapter\AdapterInterface $connection */
+        /**
+ * @var \Magento\Framework\DB\Adapter\AdapterInterface $connection 
+*/
         $connection = $this->resourceConnection->getConnection();
         $entityTableAttributes = \array_keys($connection->describeTable($entityTableName));
 
@@ -123,10 +127,10 @@ class AttributeQuery
     /**
      * Form and return query to get entity $entityTableAttributes for given $entityIds
      *
-     * @param \Magento\Framework\DB\Adapter\AdapterInterface $connection
-     * @param array $entityTableAttributes
-     * @param array $entityIds
-     * @param string $entityTableName
+     * @param  \Magento\Framework\DB\Adapter\AdapterInterface $connection
+     * @param  array                                          $entityTableAttributes
+     * @param  array                                          $entityIds
+     * @param  string                                         $entityTableName
      * @return Select
      */
     private function getAttributesFromEntityTable(
@@ -145,9 +149,9 @@ class AttributeQuery
     /**
      * Return ids of eav attributes by $eavAttributeCodes.
      *
-     * @param \Magento\Framework\DB\Adapter\AdapterInterface $connection
-     * @param string $attributeMetadataTable
-     * @param array $eavAttributeCodes
+     * @param  \Magento\Framework\DB\Adapter\AdapterInterface $connection
+     * @param  string                                         $attributeMetadataTable
+     * @param  array                                          $eavAttributeCodes
      * @return array
      */
     private function getAttributesMetaData(
@@ -166,13 +170,13 @@ class AttributeQuery
     /**
      * Form and return query to get eav entity $attributes for given $entityIds.
      *
-     * @param \Magento\Framework\DB\Adapter\AdapterInterface $connection
-     * @param \Magento\Framework\EntityManager\EntityMetadataInterface $metadata
-     * @param array $entityTableAttributes
-     * @param array $entityIds
-     * @param array $eavAttributesMetaData
-     * @param string $entityTableName
-     * @param int $storeId
+     * @param  \Magento\Framework\DB\Adapter\AdapterInterface           $connection
+     * @param  \Magento\Framework\EntityManager\EntityMetadataInterface $metadata
+     * @param  array                                                    $entityTableAttributes
+     * @param  array                                                    $entityIds
+     * @param  array                                                    $eavAttributesMetaData
+     * @param  string                                                   $entityTableName
+     * @param  int                                                      $storeId
      * @return Select
      * @throws \Zend_Db_Select_Exception
      */
@@ -239,7 +243,7 @@ class AttributeQuery
      * END
      * ```
      *
-     * @param array $eavAttributes
+     * @param  array $eavAttributes
      * @return \Zend_Db_Expr
      */
     private function buildAttributeCodeExpression(array $eavAttributes): \Zend_Db_Expr
@@ -274,8 +278,8 @@ class AttributeQuery
      * ];
      * ```
      *
-     * @param string $entityTable
-     * @param array $eavAttributesMetaData
+     * @param  string $entityTable
+     * @param  array  $eavAttributesMetaData
      * @return array
      */
     private function getAttributeCodeTables($entityTable, $eavAttributesMetaData): array
@@ -303,8 +307,8 @@ class AttributeQuery
      * Remove attributes from entity table and attributes from exclude list
      * Add linked attributes to output
      *
-     * @param array $attributes
-     * @param array $entityTableAttributes
+     * @param  array $attributes
+     * @param  array $entityTableAttributes
      * @return array
      */
     private function getEavAttributeCodes($attributes, $entityTableAttributes): array

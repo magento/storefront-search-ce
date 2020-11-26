@@ -65,15 +65,15 @@ class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInte
     private $range;
 
     /**
-     * @param \Magento\SearchStorefrontElasticsearch\SearchAdapter\ConnectionManager $connectionManager
-     * @param \Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface $fieldMapper
-     * @param \Magento\SearchStorefront\Model\Filter\Price\Range $range
-     * @param \Magento\Framework\Search\Dynamic\IntervalFactory $intervalFactory
-     * @param \Magento\SearchStorefrontElasticsearch\Model\Config $clientConfig
+     * @param \Magento\SearchStorefrontElasticsearch\SearchAdapter\ConnectionManager       $connectionManager
+     * @param \Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface    $fieldMapper
+     * @param \Magento\SearchStorefront\Model\Filter\Price\Range                           $range
+     * @param \Magento\Framework\Search\Dynamic\IntervalFactory                            $intervalFactory
+     * @param \Magento\SearchStorefrontElasticsearch\Model\Config                          $clientConfig
      * @param \Magento\SearchStorefrontElasticsearch\SearchAdapter\SearchIndexNameResolver $searchIndexNameResolver
-     * @param string $indexerId
-     * @param ScopeResolver $scopeResolver
-     * @param QueryContainer|null $queryContainer
+     * @param string                                                                       $indexerId
+     * @param ScopeResolver                                                                $scopeResolver
+     * @param QueryContainer|null                                                          $queryContainer
      *
      * @SuppressWarnings(PHPMD.ExcessiveParameterList)
      */
@@ -236,8 +236,8 @@ class DataProvider implements \Magento\Framework\Search\Dynamic\DataProviderInte
      * but for now it's a question of backward compatibility as this class may be used somewhere else
      * by extension developers and we can't guarantee that they'll pass a query into constructor.
      *
-     * @param \Magento\Framework\Search\Dynamic\EntityStorage $entityStorage
-     * @param array $dimensions
+     * @param  \Magento\Framework\Search\Dynamic\EntityStorage $entityStorage
+     * @param  array                                           $dimensions
      * @return array
      */
     private function getBasicSearchQuery(

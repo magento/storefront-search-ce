@@ -85,8 +85,8 @@ class Category implements LayerBuilderInterface
 
     /**
      * @inheritdoc
-     * @throws \Magento\Framework\Exception\LocalizedException
-     * @throws \Zend_Db_Select_Exception
+     * @throws     \Magento\Framework\Exception\LocalizedException
+     * @throws     \Zend_Db_Select_Exception
      */
     public function build(AggregationInterface $aggregation, ?int $storeId): array
     {
@@ -141,7 +141,7 @@ class Category implements LayerBuilderInterface
     /**
      * Check that bucket contains data
      *
-     * @param BucketInterface|null $bucket
+     * @param  BucketInterface|null $bucket
      * @return bool
      */
     private function isBucketEmpty(?BucketInterface $bucket): bool

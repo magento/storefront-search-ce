@@ -37,7 +37,7 @@ class ValueTransformerPool
     /**
      * Get value transformer related to field type.
      *
-     * @param string $fieldType
+     * @param  string $fieldType
      * @return ValueTransformerInterface
      */
     public function get(string $fieldType): ValueTransformerInterface

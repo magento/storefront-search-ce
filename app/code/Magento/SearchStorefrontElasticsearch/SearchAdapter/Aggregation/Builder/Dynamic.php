@@ -28,7 +28,7 @@ class Dynamic implements BucketBuilderInterface
     private $entityStorageFactory;
 
     /**
-     * @param Repository $algorithmRepository
+     * @param Repository           $algorithmRepository
      * @param EntityStorageFactory $entityStorageFactory
      */
     public function __construct(Repository $algorithmRepository, EntityStorageFactory $entityStorageFactory)
@@ -46,7 +46,9 @@ class Dynamic implements BucketBuilderInterface
         array $queryResult,
         DataProviderInterface $dataProvider
     ) {
-        /** @var DynamicBucket $bucket */
+        /**
+ * @var DynamicBucket $bucket 
+*/
         $algorithm = $this->algorithmRepository->get($bucket->getMethod(), ['dataProvider' => $dataProvider]);
         $data = $algorithm->getItems($bucket, $dimensions, $this->getEntityStorage($queryResult));
         return $this->prepareData($data);
@@ -55,7 +57,7 @@ class Dynamic implements BucketBuilderInterface
     /**
      * Extract Document ids
      *
-     * @param array $queryResult
+     * @param  array $queryResult
      * @return EntityStorage
      */
     private function getEntityStorage(array $queryResult)
@@ -71,7 +73,7 @@ class Dynamic implements BucketBuilderInterface
     /**
      * Prepare result data
      *
-     * @param array $data
+     * @param  array $data
      * @return array
      */
     private function prepareData($data)

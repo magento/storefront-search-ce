@@ -26,7 +26,8 @@ class ClientFactoryProxy implements ClientFactoryInterface
 
     /**
      * CategoryFieldsProviderProxy constructor.
-     * @param ClientResolver $clientResolver
+     *
+     * @param ClientResolver           $clientResolver
      * @param ClientFactoryInterface[] $clientFactories
      */
     public function __construct(

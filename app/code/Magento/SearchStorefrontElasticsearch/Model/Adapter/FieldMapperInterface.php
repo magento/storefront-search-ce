@@ -10,19 +10,22 @@ namespace Magento\SearchStorefrontElasticsearch\Model\Adapter;
  */
 interface FieldMapperInterface
 {
-    /**#@+
+    /**
+* #@+
      * Text flags for field mapping context
      */
     const TYPE_QUERY = 'text';
     const TYPE_SORT = 'sort';
     const TYPE_FILTER = 'default';
-    /**#@-*/
+    /**
+     * #@-
+     */
 
     /**
      * Get field name
      *
-     * @param string $attributeCode
-     * @param array $context
+     * @param  string $attributeCode
+     * @param  array  $context
      * @return string
      */
     public function getFieldName($attributeCode, $context = []);
@@ -30,7 +33,7 @@ interface FieldMapperInterface
     /**
      * Get all entity attribute types
      *
-     * @param array $context
+     * @param  array $context
      * @return array
      */
     public function getAllAttributesTypes($context = []);

@@ -19,8 +19,8 @@ class SpecialAttribute implements ResolverInterface
     /**
      * Get field name for special list of attributes.
      *
-     * @param AttributeAdapter $attribute
-     * @param array $context
+     * @param  AttributeAdapter $attribute
+     * @param  array            $context
      * @return string
      */
     public function getFieldName(AttributeAdapter $attribute, $context = []): ?string

@@ -18,7 +18,9 @@ class SortApplier implements ApplierInterface
 {
     const DEFAULT_SORT_FIELD = 'relevance';
 
-    /** @var \Magento\Framework\Api\SortOrderBuilder */
+    /**
+     * @var \Magento\Framework\Api\SortOrderBuilder 
+     */
     private $sortOrderBuilder;
 
     /**
@@ -33,8 +35,8 @@ class SortApplier implements ApplierInterface
     /**
      * Apply sorting to search criteria.
      *
-     * @param ProductSearchRequestInterface $request
-     * @param SearchCriteriaInterface $searchCriteria
+     * @param  ProductSearchRequestInterface $request
+     * @param  SearchCriteriaInterface       $searchCriteria
      * @return SearchCriteriaInterface
      */
     public function apply(
@@ -58,7 +60,7 @@ class SortApplier implements ApplierInterface
     /**
      * If request has no sort orders - add default one.
      *
-     * @param array $sortOrders
+     * @param  array $sortOrders
      * @return mixed
      */
     private function addDefaultSortOrder(array $sortOrders = []) : array

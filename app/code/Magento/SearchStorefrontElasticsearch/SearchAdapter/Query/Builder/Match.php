@@ -51,10 +51,10 @@ class Match implements QueryInterface
 
     /**
      * @param FieldMapperInterface $fieldMapper
-     * @param AttributeProvider $attributeProvider
-     * @param TypeResolver $fieldTypeResolver
+     * @param AttributeProvider    $attributeProvider
+     * @param TypeResolver         $fieldTypeResolver
      * @param ValueTransformerPool $valueTransformerPool
-     * @param Config $config
+     * @param Config               $config
      */
     public function __construct(
         FieldMapperInterface $fieldMapper,
@@ -98,8 +98,8 @@ class Match implements QueryInterface
     /**
      * Prepare query.
      *
-     * @param string $queryValue
-     * @param string $conditionType
+     * @param  string $queryValue
+     * @param  string $conditionType
      * @return array
      */
     protected function prepareQuery($queryValue, $conditionType)
@@ -122,8 +122,8 @@ class Match implements QueryInterface
      * The search query boost is an optional in the search query and therefore it will be set to 1 by default
      * if none passed with a match query.
      *
-     * @param array $matches
-     * @param array $queryValue
+     * @param  array $matches
+     * @param  array $queryValue
      * @return array
      */
     protected function buildQueries(array $matches, array $queryValue)

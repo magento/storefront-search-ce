@@ -16,7 +16,7 @@ interface ValueTransformerInterface
     /**
      * Transform value according to field type.
      *
-     * @param string $value
+     * @param  string $value
      * @return mixed
      */
     public function transform(string $value);

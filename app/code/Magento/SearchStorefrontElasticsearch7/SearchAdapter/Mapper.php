@@ -22,6 +22,7 @@ class Mapper
 
     /**
      * Mapper constructor.
+     *
      * @param \Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\Mapper $mapper
      */
     public function __construct(\Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\Mapper $mapper)
@@ -32,7 +33,7 @@ class Mapper
     /**
      * Build adapter dependent query
      *
-     * @param RequestInterface $request
+     * @param  RequestInterface $request
      * @return array
      */
     public function buildQuery(RequestInterface $request) : array

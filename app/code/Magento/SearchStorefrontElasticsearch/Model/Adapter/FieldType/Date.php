@@ -32,8 +32,8 @@ class Date
     /**
      * Construct
      *
-     * @param DateTime $dateTime
-     * @param TimezoneInterface $localeDate
+     * @param DateTime             $dateTime
+     * @param TimezoneInterface    $localeDate
      * @param ScopeConfigInterface $scopeConfig
      */
     public function __construct(
@@ -50,9 +50,9 @@ class Date
      * Retrieve date value in elasticsearch format (ISO 8601)
      * Example: 1995-12-31T23:59:59
      *
-     * @param int $storeId
-     * @param string|null $date
-     * @return string|null
+     * @param                                         int         $storeId
+     * @param                                         string|null $date
+     * @return                                        string|null
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function formatDate($storeId, $date = null)

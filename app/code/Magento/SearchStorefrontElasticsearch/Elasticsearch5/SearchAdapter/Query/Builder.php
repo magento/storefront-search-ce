@@ -47,11 +47,11 @@ class Builder
     private $sortBuilder;
 
     /**
-     * @param Config $clientConfig
+     * @param Config                  $clientConfig
      * @param SearchIndexNameResolver $searchIndexNameResolver
-     * @param AggregationBuilder $aggregationBuilder
-     * @param ScopeResolver $scopeResolver
-     * @param Sort|null $sortBuilder
+     * @param AggregationBuilder      $aggregationBuilder
+     * @param ScopeResolver           $scopeResolver
+     * @param Sort|null               $sortBuilder
      */
     public function __construct(
         Config $clientConfig,
@@ -70,7 +70,7 @@ class Builder
     /**
      * Set initial settings for query
      *
-     * @param RequestInterface $request
+     * @param  RequestInterface $request
      * @return array
      */
     public function initQuery(RequestInterface $request)
@@ -95,8 +95,8 @@ class Builder
     /**
      * Add aggregations settings to query
      *
-     * @param RequestInterface $request
-     * @param array $searchQuery
+     * @param  RequestInterface $request
+     * @param  array            $searchQuery
      * @return array
      */
     public function initAggregations(

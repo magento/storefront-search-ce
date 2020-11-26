@@ -34,8 +34,8 @@ class CategoryName implements ResolverInterface
     /**
      * Get field name.
      *
-     * @param AttributeAdapter $attribute
-     * @param array $context
+     * @param  AttributeAdapter $attribute
+     * @param  array            $context
      * @return string
      */
     public function getFieldName(AttributeAdapter $attribute, $context = []): ?string

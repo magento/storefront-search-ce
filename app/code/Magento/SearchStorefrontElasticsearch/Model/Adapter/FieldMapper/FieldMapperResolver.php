@@ -36,7 +36,7 @@ class FieldMapperResolver implements FieldMapperInterface
 
     /**
      * @param ObjectManagerInterface $objectManager
-     * @param string[] $fieldMappers
+     * @param string[]               $fieldMappers
      */
     public function __construct(
         ObjectManagerInterface $objectManager,
@@ -67,7 +67,7 @@ class FieldMapperResolver implements FieldMapperInterface
     /**
      * Get instance of current field mapper
      *
-     * @param string $entityType
+     * @param  string $entityType
      * @return FieldMapperInterface
      * @throws \Exception
      */

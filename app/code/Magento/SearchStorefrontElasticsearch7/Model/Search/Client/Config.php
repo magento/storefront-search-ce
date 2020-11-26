@@ -78,8 +78,8 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
             $options = $this->config['connections']['default'];
 
             if (empty($options['hostname']) || ((!empty($options['enable_auth'])
-                        && ($options['enable_auth'] == 1))
-                    && (empty($options['username']) || empty($options['password'])))
+                && ($options['enable_auth'] == 1))
+                && (empty($options['username']) || empty($options['password'])))
             ) {
                 throw new ConfigurationMismatchException(
                     __('The search failed because of a search engine misconfiguration.')

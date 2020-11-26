@@ -24,7 +24,7 @@ class Builder implements SearchCriteriaBuilderInterface
 
     /**
      * @param \Magento\Framework\Api\Search\SearchCriteriaInterfaceFactory $searchCriteriaFactory
-     * @param Builder\ApplierPool $applierPool
+     * @param Builder\ApplierPool                                          $applierPool
      */
     public function __construct(
         \Magento\Framework\Api\Search\SearchCriteriaInterfaceFactory $searchCriteriaFactory,
@@ -37,7 +37,7 @@ class Builder implements SearchCriteriaBuilderInterface
     /**
      * Build search criteria from search service request.
      *
-     * @param ProductSearchRequestInterface $request
+     * @param  ProductSearchRequestInterface $request
      * @return SearchCriteriaInterface
      */
     public function build(ProductSearchRequestInterface $request) : SearchCriteriaInterface

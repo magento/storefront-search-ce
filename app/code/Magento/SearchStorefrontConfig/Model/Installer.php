@@ -46,8 +46,9 @@ class Installer
 
     /**
      * Installer constructor.
-     * @param Writer $deploymentConfigWriter
-     * @param DateTime $dateTime
+     *
+     * @param Writer           $deploymentConfigWriter
+     * @param DateTime         $dateTime
      * @param ModulesCollector $modulesCollector
      */
     public function __construct(
@@ -63,7 +64,8 @@ class Installer
     /**
      * Create env.php file configuration
      *
-     * @param array $parameters
+     * @param  array $required
+     * @param  array $optional
      * @throws \Magento\Framework\Exception\FileSystemException
      */
     public function install(array $required, array $optional): void

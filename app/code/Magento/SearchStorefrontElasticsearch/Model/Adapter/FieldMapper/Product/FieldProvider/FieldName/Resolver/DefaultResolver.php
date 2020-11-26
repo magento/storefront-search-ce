@@ -32,7 +32,7 @@ class DefaultResolver implements ResolverInterface
     private $fieldTypeConverter;
 
     /**
-     * @param FieldTypeResolver $fieldTypeResolver
+     * @param FieldTypeResolver           $fieldTypeResolver
      * @param FieldTypeConverterInterface $fieldTypeConverter
      */
     public function __construct(
@@ -46,8 +46,8 @@ class DefaultResolver implements ResolverInterface
     /**
      * Get field name.
      *
-     * @param AttributeAdapter $attribute
-     * @param array $context
+     * @param  AttributeAdapter $attribute
+     * @param  array            $context
      * @return string
      */
     public function getFieldName(AttributeAdapter $attribute, $context = []): ?string
@@ -77,7 +77,7 @@ class DefaultResolver implements ResolverInterface
     /**
      * Check if service field type for field set as 'string'
      *
-     * @param string $serviceFieldType
+     * @param  string $serviceFieldType
      * @return bool
      */
     private function isStringServiceFieldType(string $serviceFieldType): bool
@@ -90,9 +90,9 @@ class DefaultResolver implements ResolverInterface
     /**
      * Get field name for query type fields.
      *
-     * @param string $frontendInput
-     * @param string $fieldType
-     * @param string $attributeCode
+     * @param  string $frontendInput
+     * @param  string $fieldType
+     * @param  string $attributeCode
      * @return string
      */
     private function getQueryTypeFieldName($frontendInput, $fieldType, $attributeCode)
@@ -108,9 +108,9 @@ class DefaultResolver implements ResolverInterface
     /**
      * Prepare field name for complex fields.
      *
-     * @param string $frontendInput
-     * @param string $fieldType
-     * @param string $attributeCode
+     * @param  string $frontendInput
+     * @param  string $fieldType
+     * @param  string $attributeCode
      * @return string
      */
     private function getRefinedFieldName($frontendInput, $fieldType, $attributeCode)
@@ -118,15 +118,15 @@ class DefaultResolver implements ResolverInterface
         $stringTypeKey = $this->fieldTypeConverter->convert(FieldTypeConverterInterface::INTERNAL_DATA_TYPE_STRING);
         $keywordTypeKey = $this->fieldTypeConverter->convert(FieldTypeConverterInterface::INTERNAL_DATA_TYPE_KEYWORD);
         switch ($frontendInput) {
-            case 'select':
-            case 'multiselect':
-                return in_array($fieldType, [$stringTypeKey, $keywordTypeKey, 'integer'], true)
+        case 'select':
+        case 'multiselect':
+            return in_array($fieldType, [$stringTypeKey, $keywordTypeKey, 'integer'], true)
                     ? $attributeCode . '_value'
                     : $attributeCode;
-            case 'boolean':
-                return $fieldType === 'integer' ? $attributeCode . '_value' : $attributeCode;
-            default:
-                return $attributeCode;
+        case 'boolean':
+            return $fieldType === 'integer' ? $attributeCode . '_value' : $attributeCode;
+        default:
+            return $attributeCode;
         }
     }
 }

@@ -33,7 +33,7 @@ class DefaultResolver implements ResolverInterface
     /**
      * Get default field type.
      *
-     * @param AttributeAdapter $attribute
+     * @param  AttributeAdapter $attribute
      * @return string
      */
     public function getFieldType(AttributeAdapter $attribute): ?string

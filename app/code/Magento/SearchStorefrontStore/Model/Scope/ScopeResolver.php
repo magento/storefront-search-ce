@@ -39,6 +39,7 @@ class ScopeResolver implements \Magento\Framework\App\ScopeResolverInterface
 
     /**
      * {@inheritdoc}
+     *
      * @throws \Magento\Framework\Exception\State\InitException
      */
     public function getScopes()

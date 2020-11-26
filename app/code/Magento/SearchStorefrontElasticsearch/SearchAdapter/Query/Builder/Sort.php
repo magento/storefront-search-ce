@@ -55,8 +55,8 @@ class Sort
     /**
      * @param AttributeProvider $attributeAdapterProvider
      * @param FieldNameResolver $fieldNameResolver
-     * @param array $skippedFields
-     * @param array $map
+     * @param array             $skippedFields
+     * @param array             $map
      */
     public function __construct(
         AttributeProvider $attributeAdapterProvider,
@@ -73,7 +73,7 @@ class Sort
     /**
      * Prepare sort.
      *
-     * @param RequestInterface $request
+     * @param  RequestInterface $request
      * @return array
      */
     public function getSort(RequestInterface $request)

@@ -34,7 +34,7 @@ class RuntimeConfigSource implements ConfigSourceInterface
     private $connection;
 
     /**
-     * @param DeploymentConfig $deploymentConfig
+     * @param DeploymentConfig   $deploymentConfig
      * @param ResourceConnection $resourceConnection
      */
     public function __construct(
@@ -50,8 +50,8 @@ class RuntimeConfigSource implements ConfigSourceInterface
      *
      * Ignore $path argument due to config source must return all config data
      *
-     * @param string $path
-     * @return array
+     * @param                                         string $path
+     * @return                                        array
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function get($path = '')
@@ -89,8 +89,8 @@ class RuntimeConfigSource implements ConfigSourceInterface
     /**
      * Get entities from specified table in format [entityKeyField => [entity data], ...]
      *
-     * @param string $table
-     * @param string $keyField
+     * @param  string $table
+     * @param  string $keyField
      * @return array
      */
     private function getEntities($table, $keyField)

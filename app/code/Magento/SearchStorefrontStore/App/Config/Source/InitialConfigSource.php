@@ -38,9 +38,9 @@ class InitialConfigSource implements ConfigSourceInterface
     private $configType;
 
     /**
-     * @param Reader $reader The file reader
+     * @param Reader           $reader           The file reader
      * @param DeploymentConfig $deploymentConfig The deployment config reader
-     * @param string $configType The config type
+     * @param string           $configType       The config type
      */
     public function __construct(
         Reader $reader,
@@ -57,8 +57,8 @@ class InitialConfigSource implements ConfigSourceInterface
      *
      * Ignore $path argument due to config source must return all config data
      *
-     * @param string $path
-     * @return array
+     * @param                                         string $path
+     * @return                                        array
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function get($path = '')

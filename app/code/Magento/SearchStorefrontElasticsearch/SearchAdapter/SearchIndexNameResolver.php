@@ -33,8 +33,8 @@ class SearchIndexNameResolver
     /**
      * Returns the index (alias) name
      *
-     * @param int $storeId
-     * @param string $indexerId
+     * @param  int    $storeId
+     * @param  string $indexerId
      * @return string
      */
     public function getIndexName($storeId, $indexerId)
@@ -46,7 +46,7 @@ class SearchIndexNameResolver
     /**
      * Get index name by indexer ID
      *
-     * @param string $indexerId
+     * @param  string $indexerId
      * @return string
      */
     private function getIndexMapping($indexerId)

@@ -65,13 +65,13 @@ class SearchService implements SearchServerInterface
     private $mapper;
 
     /**
-     * @param StoreInterface                  $store
-     * @param StoreManagerInterface           $storeManager
-     * @param SearchCriteriaBuilderInterface  $searchCriteriaBuilder
-     * @param SearchInterface                 $search
-     * @param LayerBuilderInterface           $layerBuilder
-     * @param ProductsSearchResultMapper $mapper
-     * @param LoggerInterface                 $logger
+     * @param                                          StoreInterface                 $store
+     * @param                                          StoreManagerInterface          $storeManager
+     * @param                                          SearchCriteriaBuilderInterface $searchCriteriaBuilder
+     * @param                                          SearchInterface                $search
+     * @param                                          LayerBuilderInterface          $layerBuilder
+     * @param                                          ProductsSearchResultMapper     $mapper
+     * @param                                          LoggerInterface                $logger
      * @SuppressWarnings(PHPMD.ExcessiveParameterList)
      */
     public function __construct(
@@ -95,7 +95,7 @@ class SearchService implements SearchServerInterface
     /**
      * Get requested products
      *
-     * @param ProductSearchRequestInterface $request
+     * @param  ProductSearchRequestInterface $request
      * @return ProductsSearchResultInterface
      */
     public function searchProducts(
@@ -121,7 +121,8 @@ class SearchService implements SearchServerInterface
         $searchCriteria = $this->searchCriteriaBuilder->build($request);
         $raw = $this->search->search($searchCriteria);
 
-        $this->mapper->setData([
+        $this->mapper->setData(
+            [
             'total_count' => $raw->getTotalCount(),
             'items' => $this->getItems($raw->getItems()),
             'facets' => $this->layerBuilder->build($raw->getAggregations(), 1),
@@ -130,13 +131,16 @@ class SearchService implements SearchServerInterface
                 'current_page' => $raw->getSearchCriteria()->getCurrentPage() + 1,
                 'total_pages' => (int) ceil($raw->getTotalCount() / $raw->getSearchCriteria()->getPageSize())
             ]
-        ]);
+            ]
+        );
 
         return $this->mapper->build();
     }
 
     /**
-     * @param array $items
+     * Provides Products id's
+     *
+     * @param  array $items
      * @return array
      */
     private function getItems($items)

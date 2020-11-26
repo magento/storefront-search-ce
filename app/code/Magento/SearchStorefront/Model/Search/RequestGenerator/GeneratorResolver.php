@@ -22,7 +22,7 @@ class GeneratorResolver
     private $defaultGenerator;
 
     /**
-     * @param GeneratorInterface $defaultGenerator
+     * @param GeneratorInterface   $defaultGenerator
      * @param GeneratorInterface[] $generators
      */
     public function __construct(GeneratorInterface $defaultGenerator, array $generators)
@@ -32,7 +32,9 @@ class GeneratorResolver
     }
 
     /**
-     * @param string $type
+     * Provides request generator
+     *
+     * @param  string $type
      * @return GeneratorInterface
      * @throws \InvalidArgumentException
      */

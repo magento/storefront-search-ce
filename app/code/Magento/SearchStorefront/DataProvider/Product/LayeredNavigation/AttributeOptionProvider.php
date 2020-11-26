@@ -42,9 +42,9 @@ class AttributeOptionProvider
     /**
      * Get option data. Return list of attributes with option data
      *
-     * @param array $optionIds
-     * @param int|null $storeId
-     * @param array $attributeCodes
+     * @param  array    $optionIds
+     * @param  int|null $storeId
+     * @param  array    $attributeCodes
      * @return array
      * @throws \Zend_Db_Statement_Exception
      */
@@ -106,7 +106,7 @@ class AttributeOptionProvider
     /**
      * Format result
      *
-     * @param \Magento\Framework\DB\Select $select
+     * @param  \Magento\Framework\DB\Select $select
      * @return array
      * @throws \Zend_Db_Statement_Exception
      */

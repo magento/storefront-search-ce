@@ -19,8 +19,8 @@ interface BuilderInterface
     const FILTER_QUERY_CONDITION_MUST_NOT = 'must_not';
 
     /**
-     * @param RequestFilterInterface $filter
-     * @param string $conditionType
+     * @param  RequestFilterInterface $filter
+     * @param  string                 $conditionType
      * @return string
      */
     public function build(RequestFilterInterface $filter, $conditionType);

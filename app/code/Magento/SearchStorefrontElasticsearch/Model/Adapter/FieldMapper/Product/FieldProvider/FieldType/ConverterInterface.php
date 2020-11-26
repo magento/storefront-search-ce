@@ -13,7 +13,8 @@ namespace Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Produc
  */
 interface ConverterInterface
 {
-    /**#@+
+    /**
+     * #@+
      * Text flags for internal field types
      */
     public const INTERNAL_DATA_TYPE_STRING = 'string';
@@ -21,12 +22,14 @@ interface ConverterInterface
     public const INTERNAL_DATA_TYPE_INT = 'integer';
     public const INTERNAL_DATA_TYPE_DATE = 'date';
     public const INTERNAL_DATA_TYPE_KEYWORD = 'keyword';
-    /**#@-*/
+    /**
+     * #@-
+     */
 
     /**
      * Get service field type.
      *
-     * @param string $internalType
+     * @param  string $internalType
      * @return string
      */
     public function convert(string $internalType): string;

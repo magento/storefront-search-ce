@@ -74,12 +74,12 @@ class Adapter implements AdapterInterface
     private $logger;
 
     /**
-     * @param ConnectionManager $connectionManager
-     * @param Mapper $mapper
-     * @param ResponseFactory $responseFactory
-     * @param AggregationBuilder $aggregationBuilder
+     * @param ConnectionManager     $connectionManager
+     * @param Mapper                $mapper
+     * @param ResponseFactory       $responseFactory
+     * @param AggregationBuilder    $aggregationBuilder
      * @param QueryContainerFactory $queryContainerFactory
-     * @param LoggerInterface $logger
+     * @param LoggerInterface       $logger
      */
     public function __construct(
         ConnectionManager $connectionManager,
@@ -100,7 +100,7 @@ class Adapter implements AdapterInterface
     /**
      * Search query
      *
-     * @param RequestInterface $request
+     * @param  RequestInterface $request
      * @return QueryResponse
      */
     public function query(RequestInterface $request) : QueryResponse

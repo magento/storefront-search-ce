@@ -22,7 +22,7 @@ class Website implements \Magento\Framework\App\ScopeResolverInterface
     private $scopeFactory;
 
     /**
-     * @param \Magento\Framework\App\ResourceConnection $resourceConnection
+     * @param \Magento\Framework\App\ResourceConnection         $resourceConnection
      * @param \Magento\SearchStorefrontStore\Model\StoreFactory $scopeFactory
      */
     public function __construct(
@@ -35,6 +35,7 @@ class Website implements \Magento\Framework\App\ScopeResolverInterface
 
     /**
      * {@inheritdoc}
+     *
      * @throws \Magento\Framework\Exception\State\InitException
      */
     public function getScope($scopeId = null)
@@ -61,8 +62,8 @@ class Website implements \Magento\Framework\App\ScopeResolverInterface
     }
 
     /**
-     * @param null $scopeId
-     * @param bool $loadAll
+     * @param  null $scopeId
+     * @param  bool $loadAll
      * @return array|mixed
      */
     public function loadData($scopeId = null, $loadAll = false)
@@ -93,7 +94,9 @@ class Website implements \Magento\Framework\App\ScopeResolverInterface
             throw new NoSuchEntityException(__('Cannot find requested website'));
         }
 
-        /** @var \Magento\Framework\App\ScopeInterface $object */
+        /**
+ * @var \Magento\Framework\App\ScopeInterface $object 
+*/
         $object = $this->scopeFactory->create();
         $object->setData('id', $data['website_id']);
         $object->setData('code', $data['code']);

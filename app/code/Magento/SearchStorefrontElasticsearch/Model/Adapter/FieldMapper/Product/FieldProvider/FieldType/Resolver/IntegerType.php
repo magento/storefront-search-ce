@@ -33,7 +33,7 @@ class IntegerType implements ResolverInterface
     /**
      * Get integer field type.
      *
-     * @param AttributeAdapter $attribute
+     * @param  AttributeAdapter $attribute
      * @return string
      */
     public function getFieldType(AttributeAdapter $attribute): ?string

@@ -29,7 +29,7 @@ class Range implements FilterInterface
     }
 
     /**
-     * @param RequestFilterInterface|RangeFilterRequest $filter
+     * @param  RequestFilterInterface|RangeFilterRequest $filter
      * @return array
      */
     public function buildFilter(RequestFilterInterface $filter)

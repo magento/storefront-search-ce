@@ -21,8 +21,8 @@ class PageApplier implements ApplierInterface
     /**
      * Apply page size and current page to search criteria.
      *
-     * @param ProductSearchRequestInterface $request
-     * @param SearchCriteriaInterface $searchCriteria
+     * @param  ProductSearchRequestInterface $request
+     * @param  SearchCriteriaInterface       $searchCriteria
      * @return SearchCriteriaInterface
      */
     public function apply(

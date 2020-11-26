@@ -39,9 +39,9 @@ class Builder
     private $query;
 
     /**
-     * @param  DataProviderInterface[] $dataProviderContainer
-     * @param  BucketBuilderInterface[] $aggregationContainer
-     * @param DataProviderFactory $dataProviderFactory
+     * @param DataProviderInterface[]  $dataProviderContainer
+     * @param BucketBuilderInterface[] $aggregationContainer
+     * @param DataProviderFactory      $dataProviderFactory
      */
     public function __construct(
         array $dataProviderContainer,
@@ -69,11 +69,11 @@ class Builder
      * This method iterates through buckets and builds all aggregations one by one, passing buckets and relative
      * data into bucket aggregation builders which are responsible for aggregation calculation.
      *
-     * @param RequestInterface $request
-     * @param array $queryResult
+     * @param  RequestInterface $request
+     * @param  array            $queryResult
      * @return array
      * @throws \LogicException thrown by DataProviderFactory for validation issues
-     * @see \Magento\SearchStorefrontElasticsearch\SearchAdapter\Aggregation\DataProviderFactory
+     * @see    \Magento\SearchStorefrontElasticsearch\SearchAdapter\Aggregation\DataProviderFactory
      */
     public function build(RequestInterface $request, array $queryResult)
     {
@@ -102,7 +102,7 @@ class Builder
     /**
      * Sets the QueryContainer instance to the internal property in order to use it in build process
      *
-     * @param QueryContainer $query
+     * @param  QueryContainer $query
      * @return $this
      */
     public function setQuery(QueryContainer $query)

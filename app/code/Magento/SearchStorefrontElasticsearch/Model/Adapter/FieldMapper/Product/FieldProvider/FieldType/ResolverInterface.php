@@ -18,7 +18,7 @@ interface ResolverInterface
     /**
      * Get field type.
      *
-     * @param AttributeAdapter $attribute
+     * @param  AttributeAdapter $attribute
      * @return string
      */
     public function getFieldType(AttributeAdapter $attribute): ?string;

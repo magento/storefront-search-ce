@@ -26,7 +26,8 @@ class ProductFieldMapperProxy implements FieldMapperInterface
 
     /**
      * CategoryFieldsProviderProxy constructor.
-     * @param ClientResolver $clientResolver
+     *
+     * @param ClientResolver         $clientResolver
      * @param FieldMapperInterface[] $productFieldMappers
      */
     public function __construct(
@@ -48,8 +49,8 @@ class ProductFieldMapperProxy implements FieldMapperInterface
     /**
      * Get field name
      *
-     * @param string $attributeCode
-     * @param array $context
+     * @param  string $attributeCode
+     * @param  array  $context
      * @return string
      */
     public function getFieldName($attributeCode, $context = [])
@@ -60,7 +61,7 @@ class ProductFieldMapperProxy implements FieldMapperInterface
     /**
      * Get all entity attribute types
      *
-     * @param array $context
+     * @param  array $context
      * @return array
      */
     public function getAllAttributesTypes($context = [])

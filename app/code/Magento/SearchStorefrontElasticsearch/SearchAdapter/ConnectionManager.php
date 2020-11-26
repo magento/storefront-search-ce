@@ -24,23 +24,23 @@ class ConnectionManager
 
     /**
      * @var LoggerInterface
-    */
+     */
     protected $logger;
 
     /**
      * @var ClientFactoryInterface
-    */
+     */
     protected $clientFactory;
 
     /**
      * @var ClientOptionsInterface
-    */
+     */
     protected $clientConfig;
 
     /**
      * @param ClientFactoryInterface $clientFactory
      * @param ClientOptionsInterface $clientConfig
-     * @param LoggerInterface $logger
+     * @param LoggerInterface        $logger
      */
     public function __construct(
         ClientFactoryInterface $clientFactory,
@@ -55,10 +55,10 @@ class ConnectionManager
     /**
      * Get shared connection
      *
-     * @param array $options
+     * @param  array $options
      * @throws \RuntimeException
      * @return Elasticsearch
-    */
+     */
     public function getConnection($options = [])
     {
         if (!$this->client) {
@@ -71,7 +71,7 @@ class ConnectionManager
     /**
      * Connect to Elasticsearch client with default options
      *
-     * @param array $options
+     * @param  array $options
      * @throws \RuntimeException
      * @return void
      */

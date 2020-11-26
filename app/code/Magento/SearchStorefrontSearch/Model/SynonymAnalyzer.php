@@ -40,7 +40,8 @@ class SynonymAnalyzer implements SynonymAnalyzerInterface
      *   3 => [ 0 => "british", 1 => "english" ],
      *   4 => [ 0 => "queen", 1 => "monarch" ]
      * ]
-     * @param string $phrase
+     *
+     * @param  string $phrase
      * @return array
      * @throws \Magento\Framework\Exception\LocalizedException
      */
@@ -83,8 +84,8 @@ class SynonymAnalyzer implements SynonymAnalyzerInterface
      * If matches, the particular array index is returned.
      * Otherwise null will be returned.
      *
-     * @param string $pattern
-     * @param array $synonymGroupsToExamine
+     * @param  string $pattern
+     * @param  array  $synonymGroupsToExamine
      * @return int|null
      */
     private function findInArray(string $pattern, array $synonymGroupsToExamine)
@@ -127,7 +128,7 @@ class SynonymAnalyzer implements SynonymAnalyzerInterface
      *
      * Take into account that returned pattern expects that data will be represented as comma-separated value.
      *
-     * @param array $words
+     * @param  array $words
      * @return string
      */
     private function getSearchPattern(array $words): string
@@ -149,7 +150,7 @@ class SynonymAnalyzer implements SynonymAnalyzerInterface
      *
      * Returns an array of synonyms which are represented as comma-separated value for each item in the list
      *
-     * @param string $phrase
+     * @param  string $phrase
      * @return string[]
      * @throws \Magento\Framework\Exception\LocalizedException
      */
@@ -157,7 +158,9 @@ class SynonymAnalyzer implements SynonymAnalyzerInterface
     {
         $result = [];
 
-        /** @var array $synonymGroups */
+        /**
+ * @var array $synonymGroups 
+*/
         $synonymGroups = $this->synReaderModel->loadByPhrase($phrase)->getData();
 
         foreach ($synonymGroups as $row) {

@@ -53,7 +53,7 @@ class TextTransformer implements ValueTransformerInterface
     /**
      * Escape a value for special query characters such as ':', '(', ')', '*', '?', etc.
      *
-     * @param string $value
+     * @param  string $value
      * @return string
      */
     private function escape(string $value): string

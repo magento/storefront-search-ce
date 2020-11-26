@@ -27,6 +27,7 @@ class SchemaLocator implements SchemaLocatorInterface
 
     /**
      * Path to corresponding XSD file with validation rules for separate config files
+     *
      * @var string
      */
     protected $perFileSchema = null;

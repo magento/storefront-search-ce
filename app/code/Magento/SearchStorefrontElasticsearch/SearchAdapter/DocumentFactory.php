@@ -34,12 +34,14 @@ class DocumentFactory
     /**
      * Create Search Document instance
      *
-     * @param array $rawDocument
+     * @param  array $rawDocument
      * @return Document
      */
     public function create($rawDocument)
     {
-        /** @var AttributeValue[] $fields */
+        /**
+ * @var AttributeValue[] $fields 
+*/
         $attributes = [];
         $documentId = null;
         $entityId = $this->entityMetadata->getEntityId();

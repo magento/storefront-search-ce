@@ -20,7 +20,9 @@ use Magento\SearchStorefront\Model\Search\RequestGenerator\GeneratorResolver;
  */
 class ConfigReader
 {
-    /** Bucket name suffix */
+    /**
+     * Bucket name suffix
+     */
     private const BUCKET_SUFFIX = '_bucket';
 
     /**
@@ -54,10 +56,10 @@ class ConfigReader
     private $objectManager;
 
     /**
-     * @param GeneratorResolver  $generatorResolver
-     * @param ResourceConnection $resourceConnection
-     * @param ObjectManagerInterface      $objectManager
-     * @param array              $exactMatchAttributes
+     * @param GeneratorResolver      $generatorResolver
+     * @param ResourceConnection     $resourceConnection
+     * @param ObjectManagerInterface $objectManager
+     * @param array                  $exactMatchAttributes
      */
     public function __construct(
         GeneratorResolver $generatorResolver,
@@ -74,9 +76,9 @@ class ConfigReader
     /**
      * Merge reader's value with generated
      *
-     * @param \Magento\Framework\Config\ReaderInterface $subject
-     * @param array $result
-     * @return array
+     * @param                                         \Magento\Framework\Config\ReaderInterface $subject
+     * @param                                         array                                     $result
+     * @return                                        array
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function afterRead(
@@ -118,7 +120,7 @@ class ConfigReader
     /**
      * Generate search request for search products via GraphQL
      *
-     * @return array
+     * @return                                       array
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      */
     private function generateRequest()
@@ -137,25 +139,25 @@ class ConfigReader
             ];
 
             switch ($attribute->getBackendType()) {
-                case 'static':
-                case 'text':
-                case 'varchar':
-                    if ($this->isExactMatchAttribute($attribute)) {
-                        $request['queries'][$queryName] = $this->generateFilterQuery($queryName, $filterName);
-                        $request['filters'][$filterName] = $this->generateTermFilter($filterName, $attribute);
-                    } else {
-                        $request['queries'][$queryName] = $this->generateMatchQuery($queryName, $attribute);
-                    }
-                    break;
-                case 'decimal':
-                case 'datetime':
-                case 'date':
-                    $request['queries'][$queryName] = $this->generateFilterQuery($queryName, $filterName);
-                    $request['filters'][$filterName] = $this->generateRangeFilter($filterName, $attribute);
-                    break;
-                default:
+            case 'static':
+            case 'text':
+            case 'varchar':
+                if ($this->isExactMatchAttribute($attribute)) {
                     $request['queries'][$queryName] = $this->generateFilterQuery($queryName, $filterName);
                     $request['filters'][$filterName] = $this->generateTermFilter($filterName, $attribute);
+                } else {
+                    $request['queries'][$queryName] = $this->generateMatchQuery($queryName, $attribute);
+                }
+                break;
+            case 'decimal':
+            case 'datetime':
+            case 'date':
+                $request['queries'][$queryName] = $this->generateFilterQuery($queryName, $filterName);
+                $request['filters'][$filterName] = $this->generateRangeFilter($filterName, $attribute);
+                break;
+            default:
+                $request['queries'][$queryName] = $this->generateFilterQuery($queryName, $filterName);
+                $request['filters'][$filterName] = $this->generateTermFilter($filterName, $attribute);
             }
             $generator = $this->generatorResolver->getGeneratorForType($attribute->getBackendType());
 
@@ -173,8 +175,8 @@ class ConfigReader
     /**
      * Add attribute with specified boost to "search" query used in full text search
      *
-     * @param DataObject $attribute
-     * @param array $request
+     * @param  DataObject $attribute
+     * @param  array      $request
      * @return void
      */
     private function addSearchAttributeToFullTextSearch($attribute, &$request): void
@@ -191,8 +193,8 @@ class ConfigReader
     /**
      * Return array representation of range filter
      *
-     * @param string $filterName
-     * @param DataObject $attribute
+     * @param  string     $filterName
+     * @param  DataObject $attribute
      * @return array
      */
     private function generateRangeFilter(string $filterName, $attribute)
@@ -209,8 +211,8 @@ class ConfigReader
     /**
      * Return array representation of term filter
      *
-     * @param string $filterName
-     * @param DataObject $attribute
+     * @param  string     $filterName
+     * @param  DataObject $attribute
      * @return array
      */
     private function generateTermFilter(string $filterName, $attribute)
@@ -226,8 +228,8 @@ class ConfigReader
     /**
      * Return array representation of query based on filter
      *
-     * @param string $queryName
-     * @param string $filterName
+     * @param  string $queryName
+     * @param  string $filterName
      * @return array
      */
     private function generateFilterQuery(string $queryName, string $filterName)
@@ -246,8 +248,8 @@ class ConfigReader
     /**
      * Return array representation of match query
      *
-     * @param string $queryName
-     * @param DataObject $attribute
+     * @param  string     $queryName
+     * @param  DataObject $attribute
      * @return array
      */
     private function generateMatchQuery(string $queryName, $attribute)
@@ -268,7 +270,7 @@ class ConfigReader
     /**
      * Check if attribute's filter should use exact match
      *
-     * @param DataObject $attribute
+     * @param  DataObject $attribute
      * @return bool
      */
     private function isExactMatchAttribute($attribute)
@@ -284,7 +286,7 @@ class ConfigReader
     }
 
     /**
-     * replace Attribute collection stub with direct SQL query
+     * Replace Attribute collection stub with direct SQL query
      *
      * @return array
      */

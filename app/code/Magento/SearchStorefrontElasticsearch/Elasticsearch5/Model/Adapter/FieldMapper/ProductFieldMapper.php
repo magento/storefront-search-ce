@@ -43,8 +43,8 @@ class ProductFieldMapper implements FieldMapperInterface
     /**
      * Get field name.
      *
-     * @param string $attributeCode
-     * @param array $context
+     * @param  string $attributeCode
+     * @param  array  $context
      * @return string
      */
     public function getFieldName($attributeCode, $context = [])
@@ -56,7 +56,7 @@ class ProductFieldMapper implements FieldMapperInterface
     /**
      * Get all attributes types.
      *
-     * @param array $context
+     * @param  array $context
      * @return array
      */
     public function getAllAttributesTypes($context = [])

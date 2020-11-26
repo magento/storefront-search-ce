@@ -28,7 +28,7 @@ class Range
     }
 
     /**
-     * get price range for calculation algorithm
+     * Get price range for calculation algorithm
      *
      * @return float
      * @throws \Magento\Framework\Exception\NoSuchEntityException

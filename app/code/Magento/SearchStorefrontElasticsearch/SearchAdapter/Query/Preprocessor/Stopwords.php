@@ -80,14 +80,14 @@ class Stopwords implements PreprocessorInterface
     /**
      * Initialize dependencies.
      *
-     * @param ScopeResolver $scopeResolver
-     * @param Resolver $localeResolver
-     * @param ReadFactory $readFactory
-     * @param Config $configCache
-     * @param EsConfigInterface $esConfig
-     * @param Reader $moduleDirReader
-     * @param string $stopwordsModule
-     * @param string $stopwordsDirectory
+     * @param ScopeResolver            $scopeResolver
+     * @param Resolver                 $localeResolver
+     * @param ReadFactory              $readFactory
+     * @param Config                   $configCache
+     * @param EsConfigInterface        $esConfig
+     * @param Reader                   $moduleDirReader
+     * @param string                   $stopwordsModule
+     * @param string                   $stopwordsDirectory
      * @param SerializerInterface|null $serializer
      */
     public function __construct(
@@ -136,7 +136,8 @@ class Stopwords implements PreprocessorInterface
         $source = $this->readFactory->create($fileDir);
         $fileStats = $source->stat($filename);
         if (((time() - $fileStats['mtime']) > self::STOPWORDS_FILE_MODIFICATION_TIME_GAP)
-            && ($cachedValue = $this->configCache->load(self::CACHE_ID))) {
+            && ($cachedValue = $this->configCache->load(self::CACHE_ID))
+        ) {
             $stopwords = $this->serializer->unserialize($cachedValue);
         } else {
             $fileContent = $source->readFile($filename);

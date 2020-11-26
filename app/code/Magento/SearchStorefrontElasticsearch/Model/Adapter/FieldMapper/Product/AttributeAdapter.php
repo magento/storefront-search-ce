@@ -33,8 +33,8 @@ class AttributeAdapter
 
     /**
      * @param DataObject $attribute
-     * @param string $attributeCode
-     * @param string $eavModelClass
+     * @param string     $attributeCode
+     * @param string     $eavModelClass
      */
     public function __construct(
         DataObject $attribute,

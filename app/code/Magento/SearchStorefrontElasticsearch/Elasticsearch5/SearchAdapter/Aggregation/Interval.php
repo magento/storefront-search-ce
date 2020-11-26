@@ -61,13 +61,13 @@ class Interval implements IntervalInterface
     private $searchIndexNameResolver;
 
     /**
-     * @param ConnectionManager $connectionManager
-     * @param FieldMapperInterface $fieldMapper
-     * @param Config $clientConfig
+     * @param ConnectionManager       $connectionManager
+     * @param FieldMapperInterface    $fieldMapper
+     * @param Config                  $clientConfig
      * @param SearchIndexNameResolver $searchIndexNameResolver
-     * @param string $fieldName
-     * @param string $storeId
-     * @param array $entityIds
+     * @param string                  $fieldName
+     * @param string                  $storeId
+     * @param array                   $entityIds
      */
     public function __construct(
         ConnectionManager $connectionManager,
@@ -195,7 +195,7 @@ class Interval implements IntervalInterface
     /**
      * Conver array values to float type.
      *
-     * @param array $hits
+     * @param array  $hits
      * @param string $fieldName
      *
      * @return float[]
@@ -213,8 +213,8 @@ class Interval implements IntervalInterface
     /**
      * Prepare base query for search.
      *
-     * @param array|null $from
-     * @param array|null $to
+     * @param  array|null $from
+     * @param  array|null $to
      * @return array
      * removed soft dependency on Fulltext::INDEXER_ID
      */

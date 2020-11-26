@@ -13,9 +13,9 @@ class SearchClient extends \Grpc\BaseStub
 {
 
     /**
-     * @param string $hostname hostname
-     * @param array $opts channel options
-     * @param \Grpc\Channel $channel (optional) re-use channel object
+     * @param string        $hostname hostname
+     * @param array         $opts     channel options
+     * @param \Grpc\Channel $channel  (optional) re-use channel object
      */
     public function __construct($hostname, $opts, $channel = null)
     {
@@ -24,15 +24,14 @@ class SearchClient extends \Grpc\BaseStub
 
     /**
      * @param \Magento\SearchStorefrontApi\Proto\ProductSearchRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
+     * @param array                                                   $metadata metadata
+     * @param array                                                   $options  call options
      */
     public function searchProducts(
         \Magento\SearchStorefrontApi\Proto\ProductSearchRequest $argument,
         $metadata = [],
         $options = []
-    )
-    {
+    ) {
         return $this->_simpleRequest(
             '/magento.searchStorefrontApi.proto.Search/searchProducts',
             $argument,

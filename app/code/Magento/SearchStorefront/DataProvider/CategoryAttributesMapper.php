@@ -17,7 +17,7 @@ class CategoryAttributesMapper
     /**
      * Returns attribute values for given attribute codes.
      *
-     * @param array $fetchResult
+     * @param  array $fetchResult
      * @return array
      */
     public function getAttributesValues(array $fetchResult): array

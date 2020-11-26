@@ -39,8 +39,8 @@ class Aggregation
     /**
      * Build aggregation query for request
      *
-     * @param RequestInterface $request
-     * @param array $searchQuery
+     * @param  RequestInterface $request
+     * @param  array            $searchQuery
      * @return array
      */
     public function build(
@@ -57,8 +57,8 @@ class Aggregation
     /**
      * Build aggregation query for bucket
      *
-     * @param array $searchQuery
-     * @param BucketInterface $bucket
+     * @param  array           $searchQuery
+     * @param  BucketInterface $bucket
      * @return array
      */
     protected function buildBucket(
@@ -67,21 +67,21 @@ class Aggregation
     ) {
         $field = $this->fieldMapper->getFieldName($bucket->getField());
         switch ($bucket->getType()) {
-            case BucketInterface::TYPE_TERM:
-                $searchQuery['body']['aggregations'][$bucket->getName()]= [
-                    'terms' => [
-                        'field' => $field,
-                        'size' => self::$maxTermBacketSize,
-                    ],
-                ];
-                break;
-            case BucketInterface::TYPE_DYNAMIC:
-                $searchQuery['body']['aggregations'][$bucket->getName()]= [
-                    'extended_stats' => [
-                        'field' => $field,
-                    ],
-                ];
-                break;
+        case BucketInterface::TYPE_TERM:
+            $searchQuery['body']['aggregations'][$bucket->getName()]= [
+                'terms' => [
+                    'field' => $field,
+                    'size' => self::$maxTermBacketSize,
+                ],
+            ];
+            break;
+        case BucketInterface::TYPE_DYNAMIC:
+            $searchQuery['body']['aggregations'][$bucket->getName()]= [
+                'extended_stats' => [
+                    'field' => $field,
+                ],
+            ];
+            break;
         }
         return $searchQuery;
     }

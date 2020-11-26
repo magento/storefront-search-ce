@@ -22,6 +22,7 @@ class DefaultResolver implements ResolverInterface
 
     /**
      * DefaultResolver constructor.
+     *
      * @param ResolverInterface $baseResolver
      */
     public function __construct(ResolverInterface $baseResolver)
@@ -32,8 +33,8 @@ class DefaultResolver implements ResolverInterface
     /**
      * Get field name.
      *
-     * @param AttributeAdapter $attribute
-     * @param array $context
+     * @param  AttributeAdapter $attribute
+     * @param  array            $context
      * @return string|null
      */
     public function getFieldName(AttributeAdapter $attribute, $context = []): ?string

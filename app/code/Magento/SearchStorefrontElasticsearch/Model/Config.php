@@ -73,12 +73,12 @@ class Config implements ClientOptionsInterface
     private $config;
 
     /**
-     * @param ScopeConfigInterface $scopeConfig
-     * @param ClientResolver $clientResolver
+     * @param ScopeConfigInterface    $scopeConfig
+     * @param ClientResolver          $clientResolver
      * @param EngineResolverInterface $engineResolver
-     * @param ConnectionConfig $config
-     * @param string|null $prefix
-     * @param array $engineList
+     * @param ConnectionConfig        $config
+     * @param string|null             $prefix
+     * @param array                   $engineList
      */
     public function __construct(
         ScopeConfigInterface $scopeConfig,
@@ -98,7 +98,6 @@ class Config implements ClientOptionsInterface
 
     /**
      * @inheritdoc
-     *
      */
     public function prepareClientOptions($options = [])
     {
@@ -128,7 +127,7 @@ class Config implements ClientOptionsInterface
     /**
      * Retrieve information from Elasticsearch search engine configuration
      *
-     * @param string $field
+     * @param  string $field
      * @return string|int
      */
     public function getElasticsearchConfigData($field) // @TODO scope based config??

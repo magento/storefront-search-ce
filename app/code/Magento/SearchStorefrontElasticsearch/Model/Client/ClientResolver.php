@@ -43,9 +43,9 @@ class ClientResolver
     private $engineResolver;
 
     /**
-     * @param ObjectManagerInterface $objectManager
-     * @param array $clientFactories
-     * @param array $clientOptions
+     * @param ObjectManagerInterface  $objectManager
+     * @param array                   $clientFactories
+     * @param array                   $clientOptions
      * @param EngineResolverInterface $engineResolver
      */
     public function __construct(
@@ -73,8 +73,8 @@ class ClientResolver
     /**
      * Create client instance
      *
-     * @param string $engine
-     * @param array $data
+     * @param  string $engine
+     * @param  array  $data
      * @return ClientInterface
      */
     public function create($engine = '', array $data = [])

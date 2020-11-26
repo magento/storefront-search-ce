@@ -33,7 +33,7 @@ class FloatType implements ResolverInterface
     /**
      * Get float field type.
      *
-     * @param AttributeAdapter $attribute
+     * @param  AttributeAdapter $attribute
      * @return string
      */
     public function getFieldType(AttributeAdapter $attribute): ?string

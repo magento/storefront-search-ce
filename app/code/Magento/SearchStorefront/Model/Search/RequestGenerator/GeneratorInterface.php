@@ -16,8 +16,8 @@ interface GeneratorInterface
     /**
      * Get filter data for specific attribute.
      *
-     * @param DataObject $attribute
-     * @param string $filterName
+     * @param  DataObject $attribute
+     * @param  string     $filterName
      * @return array
      */
     public function getFilterData($attribute, $filterName);
@@ -25,8 +25,8 @@ interface GeneratorInterface
     /**
      * Get aggregation data for specific attribute.
      *
-     * @param DataObject $attribute
-     * @param string $bucketName
+     * @param  DataObject $attribute
+     * @param  string     $bucketName
      * @return array
      */
     public function getAggregationData($attribute, $bucketName);

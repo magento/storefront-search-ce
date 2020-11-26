@@ -31,14 +31,16 @@ class AggregationFactory
     /**
      * Create Aggregation instance
      *
-     * @param array $rawAggregation
+     * @param  array $rawAggregation
      * @return \Magento\Framework\Search\Response\Aggregation
-    */
+     */
     public function create(array $rawAggregation)
     {
         $buckets = [];
         foreach ($rawAggregation as $rawBucketName => $rawBucket) {
-            /** @var \Magento\Framework\Search\Response\Bucket[] $buckets */
+            /**
+ * @var \Magento\Framework\Search\Response\Bucket[] $buckets 
+*/
             $buckets[$rawBucketName] = $this->objectManager->create(
                 \Magento\Framework\Search\Response\Bucket::class,
                 [
@@ -56,7 +58,7 @@ class AggregationFactory
     /**
      * Prepare values list
      *
-     * @param array $values
+     * @param  array $values
      * @return \Magento\Framework\Search\Response\Aggregation\Value[]
      */
     private function prepareValues(array $values)

@@ -8,6 +8,7 @@ namespace Magento\SearchStorefrontElasticsearch\SearchAdapter;
 
 /**
  * The purpose of this class to be a container for the array with ElasticSearch query.
+ *
  * @codeCoverageIgnore
  * Copy of Magento\Elasticsearch\SearchAdapter\QueryContainer
  */

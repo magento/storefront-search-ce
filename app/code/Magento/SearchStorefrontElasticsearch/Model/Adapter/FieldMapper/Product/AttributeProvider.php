@@ -83,7 +83,7 @@ class AttributeProvider
     /**
      * Replace for Attribute EAV stubs with direct SQL query
      *
-     * @param string $attributeCode
+     * @param  string $attributeCode
      * @return mixed|null
      */
     private function getAttributeByCode($attributeCode)
@@ -103,7 +103,7 @@ class AttributeProvider
                 'a.attribute_id = c.attribute_id',
                 [
                     'c.is_visible',
-//                    'c.is_searchable',
+                //                    'c.is_searchable',
                     'c.is_filterable',
                     'c.used_for_sort_by'
                 ]

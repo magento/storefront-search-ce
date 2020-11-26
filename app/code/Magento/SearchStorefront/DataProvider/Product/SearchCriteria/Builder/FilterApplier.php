@@ -32,7 +32,7 @@ class FilterApplier implements ApplierInterface
     /**
      * FilterApplier constructor.
      *
-     * @param \Magento\Framework\Api\FilterBuilder $filterBuilder
+     * @param \Magento\Framework\Api\FilterBuilder             $filterBuilder
      * @param \Magento\Framework\Api\Search\FilterGroupBuilder $filterGroupBuilder
      */
     public function __construct(
@@ -46,8 +46,8 @@ class FilterApplier implements ApplierInterface
     /**
      * Convert search request filters to search criteria filters.
      *
-     * @param ProductSearchRequestInterface $request
-     * @param SearchCriteriaInterface $searchCriteria
+     * @param  ProductSearchRequestInterface $request
+     * @param  SearchCriteriaInterface       $searchCriteria
      * @return SearchCriteriaInterface
      * @throws LocalizedException
      */
@@ -88,10 +88,10 @@ class FilterApplier implements ApplierInterface
     /**
      * Create and add filter group to search criteria.
      *
-     * @param SearchCriteriaInterface $searchCriteria
-     * @param string $field
-     * @param string|int $value
-     * @param string|null $condition
+     * @param  SearchCriteriaInterface $searchCriteria
+     * @param  string                  $field
+     * @param  string|int              $value
+     * @param  string|null             $condition
      * @return SearchCriteriaInterface
      */
     public function addFilter(
@@ -121,7 +121,7 @@ class FilterApplier implements ApplierInterface
     /**
      * Apply range filter to search criteria.
      *
-     * @param string $attributeCode
+     * @param string     $attributeCode
      * @param string|int $attributeValue
      */
     private function addRangeAttributeToSearch($attributeCode, $attributeValue): void

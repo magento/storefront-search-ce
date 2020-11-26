@@ -19,8 +19,8 @@ class NotEavAttribute implements ResolverInterface
     /**
      * Get field name for not EAV attributes.
      *
-     * @param AttributeAdapter $attribute
-     * @param array $context
+     * @param  AttributeAdapter $attribute
+     * @param  array            $context
      * @return string
      */
     public function getFieldName(AttributeAdapter $attribute, $context = []): ?string

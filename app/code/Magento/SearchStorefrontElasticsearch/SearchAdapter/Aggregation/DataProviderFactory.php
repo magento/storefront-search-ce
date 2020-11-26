@@ -48,8 +48,8 @@ class DataProviderFactory
      * and therefore get_class will return a name of the original class
      * which will be recreated with its default configuration.
      *
-     * @param DataProviderInterface $dataProvider
-     * @param QueryContainer $query
+     * @param  DataProviderInterface $dataProvider
+     * @param  QueryContainer        $query
      * @return DataProviderInterface
      * @throws \LogicException when the query is missing but it required according to the QueryAwareInterface
      */

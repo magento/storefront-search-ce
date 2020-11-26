@@ -37,9 +37,9 @@ class Mapper
     protected $filterBuilder;
 
     /**
-     * @param QueryBuilder $queryBuilder
+     * @param QueryBuilder      $queryBuilder
      * @param MatchQueryBuilder $matchQueryBuilder
-     * @param FilterBuilder $filterBuilder
+     * @param FilterBuilder     $filterBuilder
      */
     public function __construct(
         QueryBuilder $queryBuilder,
@@ -54,7 +54,7 @@ class Mapper
     /**
      * Build adapter dependent query
      *
-     * @param RequestInterface $request
+     * @param  RequestInterface $request
      * @return array
      */
     public function buildQuery(RequestInterface $request)
@@ -80,9 +80,9 @@ class Mapper
     /**
      * Process query
      *
-     * @param RequestQueryInterface $requestQuery
-     * @param array $selectQuery
-     * @param string $conditionType
+     * @param  RequestQueryInterface $requestQuery
+     * @param  array                 $selectQuery
+     * @param  string                $conditionType
      * @return array
      * @throws \InvalidArgumentException
      */
@@ -92,24 +92,30 @@ class Mapper
         $conditionType
     ) {
         switch ($requestQuery->getType()) {
-            case RequestQueryInterface::TYPE_MATCH:
-                /** @var MatchQuery $requestQuery */
-                $selectQuery = $this->matchQueryBuilder->build(
-                    $selectQuery,
-                    $requestQuery,
-                    $conditionType
-                );
-                break;
-            case RequestQueryInterface::TYPE_BOOL:
-                /** @var BoolQuery $requestQuery */
-                $selectQuery = $this->processBoolQuery($requestQuery, $selectQuery);
-                break;
-            case RequestQueryInterface::TYPE_FILTER:
-                /** @var FilterQuery $requestQuery */
-                $selectQuery = $this->processFilterQuery($requestQuery, $selectQuery, $conditionType);
-                break;
-            default:
-                throw new \InvalidArgumentException(sprintf('Unknown query type \'%s\'', $requestQuery->getType()));
+        case RequestQueryInterface::TYPE_MATCH:
+            /**
+ * @var MatchQuery $requestQuery 
+*/
+            $selectQuery = $this->matchQueryBuilder->build(
+                $selectQuery,
+                $requestQuery,
+                $conditionType
+            );
+            break;
+        case RequestQueryInterface::TYPE_BOOL:
+            /**
+ * @var BoolQuery $requestQuery 
+*/
+            $selectQuery = $this->processBoolQuery($requestQuery, $selectQuery);
+            break;
+        case RequestQueryInterface::TYPE_FILTER:
+            /**
+ * @var FilterQuery $requestQuery 
+*/
+            $selectQuery = $this->processFilterQuery($requestQuery, $selectQuery, $conditionType);
+            break;
+        default:
+            throw new \InvalidArgumentException(sprintf('Unknown query type \'%s\'', $requestQuery->getType()));
         }
 
         return $selectQuery;
@@ -118,8 +124,8 @@ class Mapper
     /**
      * Process bool query
      *
-     * @param BoolQuery $query
-     * @param array $selectQuery
+     * @param  BoolQuery $query
+     * @param  array     $selectQuery
      * @return array
      */
     protected function processBoolQuery(
@@ -150,9 +156,9 @@ class Mapper
     /**
      * Process bool query condition (must, should, must_not)
      *
-     * @param RequestQueryInterface[] $subQueryList
-     * @param array $selectQuery
-     * @param string $conditionType
+     * @param  RequestQueryInterface[] $subQueryList
+     * @param  array                   $selectQuery
+     * @param  string                  $conditionType
      * @return array
      */
     protected function processBoolQueryCondition(
@@ -170,9 +176,9 @@ class Mapper
     /**
      * Process filter query
      *
-     * @param FilterQuery $query
-     * @param array $selectQuery
-     * @param string $conditionType
+     * @param  FilterQuery $query
+     * @param  array       $selectQuery
+     * @param  string      $conditionType
      * @return array
      */
     private function processFilterQuery(
@@ -181,20 +187,20 @@ class Mapper
         $conditionType
     ) {
         switch ($query->getReferenceType()) {
-            case FilterQuery::REFERENCE_QUERY:
-                $selectQuery = $this->processQuery($query->getReference(), $selectQuery, $conditionType);
-                break;
-            case FilterQuery::REFERENCE_FILTER:
-                $conditionType = $conditionType === BoolQuery::QUERY_CONDITION_NOT ?
-                    MatchQueryBuilder::QUERY_CONDITION_MUST_NOT : $conditionType;
-                $filterQuery = $this->filterBuilder->build($query->getReference(), $conditionType);
-                foreach ($filterQuery['bool'] as $condition => $filter) {
-                    $selectQuery['bool'][$condition]= array_merge(
-                        isset($selectQuery['bool'][$condition]) ? $selectQuery['bool'][$condition] : [],
-                        $filter
-                    );
-                }
-                break;
+        case FilterQuery::REFERENCE_QUERY:
+            $selectQuery = $this->processQuery($query->getReference(), $selectQuery, $conditionType);
+            break;
+        case FilterQuery::REFERENCE_FILTER:
+            $conditionType = $conditionType === BoolQuery::QUERY_CONDITION_NOT ?
+                MatchQueryBuilder::QUERY_CONDITION_MUST_NOT : $conditionType;
+            $filterQuery = $this->filterBuilder->build($query->getReference(), $conditionType);
+            foreach ($filterQuery['bool'] as $condition => $filter) {
+                $selectQuery['bool'][$condition]= array_merge(
+                    isset($selectQuery['bool'][$condition]) ? $selectQuery['bool'][$condition] : [],
+                    $filter
+                );
+            }
+            break;
         }
 
         return $selectQuery;

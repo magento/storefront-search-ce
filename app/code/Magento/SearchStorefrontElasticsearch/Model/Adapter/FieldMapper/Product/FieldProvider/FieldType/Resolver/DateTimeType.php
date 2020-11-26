@@ -33,7 +33,7 @@ class DateTimeType implements ResolverInterface
     /**
      * Get datetime field type.
      *
-     * @param AttributeAdapter $attribute
+     * @param  AttributeAdapter $attribute
      * @return string
      */
     public function getFieldType(AttributeAdapter $attribute): ?string

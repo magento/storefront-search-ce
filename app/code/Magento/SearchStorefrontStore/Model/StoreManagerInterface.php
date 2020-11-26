@@ -25,7 +25,7 @@ interface StoreManagerInterface
     /**
      * Retrieve application store object
      *
-     * @param null|string|bool|int|\Magento\SearchStorefrontStore\Model\StoreInterface $storeId
+     * @param  null|string|bool|int|\Magento\SearchStorefrontStore\Model\StoreInterface $storeId
      * @return \Magento\SearchStorefrontStore\Model\StoreInterface
      * @throws NoSuchEntityException If given store doesn't exist.
      */
@@ -34,7 +34,7 @@ interface StoreManagerInterface
     /**
      * Set current default store
      *
-     * @param string|int|\Magento\SearchStorefrontStore\Model\StoreInterface $store
+     * @param  string|int|\Magento\SearchStorefrontStore\Model\StoreInterface $store
      * @return void
      */
     public function setCurrentStore($store);

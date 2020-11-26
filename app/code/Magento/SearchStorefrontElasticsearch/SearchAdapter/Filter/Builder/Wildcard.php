@@ -28,7 +28,7 @@ class Wildcard implements FilterInterface
     }
 
     /**
-     * @param RequestFilterInterface|WildcardFilterRequest $filter
+     * @param  RequestFilterInterface|WildcardFilterRequest $filter
      * @return array
      */
     public function buildFilter(RequestFilterInterface $filter)

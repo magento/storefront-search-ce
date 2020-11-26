@@ -36,9 +36,9 @@ class Debug extends \Magento\Framework\Logger\Handler\Debug
     private $deploymentConfig;
 
     /**
-     * @param DriverInterface $filesystem
-     * @param DeploymentConfig $deploymentConfig
-     * @param string $filePath
+     * @param  DriverInterface  $filesystem
+     * @param  DeploymentConfig $deploymentConfig
+     * @param  string           $filePath
      * @throws \Exception
      */
     public function __construct(
@@ -82,7 +82,7 @@ class Debug extends \Magento\Framework\Logger\Handler\Debug
     /**
      * Writes extended debug info
      *
-     * @param array $record The record metadata
+     * @param  array $record The record metadata
      * @return void
      */
     public function write(array $record)

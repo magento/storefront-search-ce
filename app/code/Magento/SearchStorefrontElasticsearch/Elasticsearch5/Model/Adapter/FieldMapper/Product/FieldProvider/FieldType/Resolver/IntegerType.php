@@ -29,7 +29,7 @@ class IntegerType implements ResolverInterface
 
     /**
      * @param ConverterInterface $fieldTypeConverter
-     * @param array $integerTypeAttributes
+     * @param array              $integerTypeAttributes
      */
     public function __construct(ConverterInterface $fieldTypeConverter, $integerTypeAttributes = ['category_ids'])
     {
@@ -40,7 +40,7 @@ class IntegerType implements ResolverInterface
     /**
      * Get integer field type.
      *
-     * @param AttributeAdapter $attribute
+     * @param  AttributeAdapter $attribute
      * @return string
      */
     public function getFieldType(AttributeAdapter $attribute): ?string

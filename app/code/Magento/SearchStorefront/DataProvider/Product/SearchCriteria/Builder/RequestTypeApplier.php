@@ -22,8 +22,8 @@ class RequestTypeApplier extends FilterApplier
     /**
      * Apply search request name to search criteria.
      *
-     * @param ProductSearchRequestInterface $request
-     * @param SearchCriteriaInterface $searchCriteria
+     * @param  ProductSearchRequestInterface $request
+     * @param  SearchCriteriaInterface       $searchCriteria
      * @return SearchCriteriaInterface
      */
     public function apply(
@@ -31,7 +31,7 @@ class RequestTypeApplier extends FilterApplier
         SearchCriteriaInterface $searchCriteria
     ) : SearchCriteriaInterface {
         if ($request->getIncludeAggregations()) {
-            $this->preparePriceAggregation($searchCriteria, (int)$request->getStore());
+            $this->preparePriceAggregation($searchCriteria);
             $requestName = self::REQUEST_WITH_AGGREGATION;
         } else {
             $requestName = self::REQUEST_WITHOUT_AGGREGATION;
@@ -45,7 +45,7 @@ class RequestTypeApplier extends FilterApplier
     /**
      * Prepare price aggregation algorithm
      *
-     * @param SearchCriteriaInterface $searchCriteria
+     * @param  SearchCriteriaInterface $searchCriteria
      * @return SearchCriteriaInterface
      */
     private function preparePriceAggregation(SearchCriteriaInterface $searchCriteria): SearchCriteriaInterface

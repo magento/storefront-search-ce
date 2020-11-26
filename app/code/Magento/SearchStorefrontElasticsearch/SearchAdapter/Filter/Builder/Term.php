@@ -38,8 +38,8 @@ class Term implements FilterInterface
 
     /**
      * @param FieldMapperInterface $fieldMapper
-     * @param AttributeProvider $attributeAdapterProvider
-     * @param array $integerTypeAttributes
+     * @param AttributeProvider    $attributeAdapterProvider
+     * @param array                $integerTypeAttributes
      */
     public function __construct(
         FieldMapperInterface $fieldMapper,
@@ -54,7 +54,7 @@ class Term implements FilterInterface
     /**
      * Build term filter request
      *
-     * @param RequestFilterInterface|TermFilterRequest $filter
+     * @param  RequestFilterInterface|TermFilterRequest $filter
      * @return array
      */
     public function buildFilter(RequestFilterInterface $filter)

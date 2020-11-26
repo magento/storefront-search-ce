@@ -11,6 +11,7 @@ use Magento\Framework\Api\CustomAttributesDataInterface;
 
 /**
  * Dummy class for Not EAV attribute.
+ *
  * @SuppressWarnings(PHPMD)
  * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\AttributeAdapter\DummyAttribute
  * Added extend of \Magento\Framework\DataObject to avoid invocation of unexisted methods
@@ -20,7 +21,7 @@ class DummyAttribute extends \Magento\Framework\DataObject implements CustomAttr
     /**
      * Get an attribute value.
      *
-     * @param string $attributeCode
+     * @param  string $attributeCode
      * @return \Magento\Framework\Api\AttributeInterface|null
      */
     public function getCustomAttribute($attributeCode)
@@ -31,8 +32,8 @@ class DummyAttribute extends \Magento\Framework\DataObject implements CustomAttr
     /**
      * Set an attribute value for a given attribute code
      *
-     * @param string $attributeCode
-     * @param mixed $attributeValue
+     * @param  string $attributeCode
+     * @param  mixed  $attributeValue
      * @return $this
      */
     public function setCustomAttribute($attributeCode, $attributeValue)
@@ -53,7 +54,7 @@ class DummyAttribute extends \Magento\Framework\DataObject implements CustomAttr
     /**
      * Set array of custom attributes
      *
-     * @param \Magento\Framework\Api\AttributeInterface[] $attributes
+     * @param  \Magento\Framework\Api\AttributeInterface[] $attributes
      * @return $this
      * @throws \LogicException
      */

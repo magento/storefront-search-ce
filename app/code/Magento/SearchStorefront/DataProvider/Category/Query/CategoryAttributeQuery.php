@@ -41,9 +41,9 @@ class CategoryAttributeQuery
     /**
      * Form and return query to get eav attributes for given categories
      *
-     * @param array $categoryIds
-     * @param array $categoryAttributes
-     * @param int $storeId
+     * @param  array $categoryIds
+     * @param  array $categoryAttributes
+     * @param  int   $storeId
      * @return Select
      * @throws \Zend_Db_Select_Exception
      */

@@ -17,8 +17,8 @@ class DefaultPathInfoProcessor implements \Magento\Framework\App\Request\PathInf
     /**
      * Do not process pathinfo
      *
-     * @param \Magento\Framework\App\RequestInterface $request
-     * @param string $pathInfo
+     * @param  \Magento\Framework\App\RequestInterface $request
+     * @param  string                                  $pathInfo
      * @return string
      */
     public function process(\Magento\Framework\App\RequestInterface $request, $pathInfo)

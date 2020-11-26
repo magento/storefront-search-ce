@@ -26,7 +26,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @param ObjectManagerInterface $objectManager
-     * @param string $clientClass
+     * @param string                 $clientClass
      */
     public function __construct(ObjectManagerInterface $objectManager, $clientClass)
     {
@@ -37,7 +37,7 @@ class ClientFactory implements ClientFactoryInterface
     /**
      * Return search client
      *
-     * @param array $options
+     * @param  array $options
      * @return ClientInterface
      */
     public function create(array $options = [])
