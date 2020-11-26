@@ -15,6 +15,25 @@
         </arguments>
     </type>
 
-
     <preference for="Magento\SearchStorefrontSearch\Model\SynonymAnalyzerInterface" type="Magento\SearchStorefrontSearch\Model\SynonymAnalyzer" />
+
+    <preference for="Magento\SearchStorefrontStub\Framework\Model\EngineResolverInterface" type="Magento\SearchStorefrontSearch\Model\EngineResolver"/>
+
+    <!-- Set aggregations to be built in the search request  -->
+    <type name="Magento\SearchStorefrontSearch\Model\Search">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">Stub\SearchRequestBuilder</argument>
+        </arguments>
+    </type>
+    <virtualType name="Stub\SearchRequestBuilder" type="Magento\Framework\Search\Request\Builder">
+        <arguments>
+            <argument name="cleaner" xsi:type="object">Stub\SearchRequestCleaner</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Stub\SearchRequestCleaner" type="Magento\Framework\Search\Request\Cleaner">
+        <arguments>
+            <argument name="aggregationStatus" xsi:type="object">Magento\SearchStorefrontStub\Model\Aggregation\Status</argument>
+        </arguments>
+    </virtualType>
+
 </config>

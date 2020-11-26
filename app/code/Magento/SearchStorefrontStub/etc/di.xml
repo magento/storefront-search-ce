@@ -6,31 +6,5 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <!-- configure elasticsearch overrides to avoid circular dependencies-->
-    <type name="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeAdapter">
-        <arguments>
-            <argument name="eavModelClass" xsi:type="string">Magento\Framework\DataObject</argument>
-        </arguments>
-    </type>
-
-    <!-- Set aggregations to be built in the search request  -->
-    <type name="Magento\SearchStorefrontSearch\Model\Search">
-        <arguments>
-            <argument name="requestBuilder" xsi:type="object">Stub\SearchRequestBuilder</argument>
-        </arguments>
-    </type>
-    <virtualType name="Stub\SearchRequestBuilder" type="Magento\Framework\Search\Request\Builder">
-        <arguments>
-            <argument name="cleaner" xsi:type="object">Stub\SearchRequestCleaner</argument>
-        </arguments>
-    </virtualType>
-    <virtualType name="Stub\SearchRequestCleaner" type="Magento\Framework\Search\Request\Cleaner">
-        <arguments>
-            <argument name="aggregationStatus" xsi:type="object">Magento\SearchStorefrontStub\Model\Aggregation\Status</argument>
-        </arguments>
-    </virtualType>
-
-    <preference for="Magento\SearchStorefrontStub\Framework\Model\EngineResolverInterface" type="Magento\SearchStorefrontSearch\Model\EngineResolver"/>
-
     <preference for="Magento\Framework\App\Request\PathInfoProcessorInterface" type="Magento\SearchStorefrontStub\Framework\App\Request\DefaultPathInfoProcessor" />
 </config>

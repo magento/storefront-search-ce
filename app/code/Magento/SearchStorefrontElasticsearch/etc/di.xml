@@ -214,4 +214,10 @@
             </argument>
         </arguments>
     </type>
+    <!-- configure elasticsearch overrides to avoid circular dependencies-->
+    <type name="Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\AttributeAdapter">
+        <arguments>
+            <argument name="eavModelClass" xsi:type="string">Magento\Framework\DataObject</argument>
+        </arguments>
+    </type>
 </config>
