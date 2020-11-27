@@ -39,6 +39,8 @@ class ClientFactoryProxy implements ClientFactoryInterface
     }
 
     /**
+     * Get Elasticsearch client factory
+     *
      * @return ClientFactoryInterface
      */
     private function getClientFactory()

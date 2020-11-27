@@ -24,7 +24,7 @@ class ScopeResolver implements \Magento\Framework\App\ScopeResolverInterface
     /**
      * Get scope object
      *
-     * @param null $scopeId
+     * @param  int|string|null $scopeId
      * @return \Magento\Framework\App\ScopeInterface|\Magento\SearchStorefrontStore\Model\StoreInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      * @throws \Magento\Framework\Exception\State\InitException

@@ -36,7 +36,6 @@ class Store extends \Magento\Framework\DataObject implements StoreInterface, Sco
 
     /**
      * @inheritDoc
-     * @return int
      */
     public function getId()
     {
@@ -45,6 +44,7 @@ class Store extends \Magento\Framework\DataObject implements StoreInterface, Sco
 
     /**
      * Set store Id
+     *
      * @param  string|int $id
      * @return $this
      */
@@ -56,7 +56,6 @@ class Store extends \Magento\Framework\DataObject implements StoreInterface, Sco
 
     /**
      * @inheritDoc
-     * @return string
      */
     public function getCode()
     {
@@ -77,7 +76,6 @@ class Store extends \Magento\Framework\DataObject implements StoreInterface, Sco
 
     /**
      * @inheritDoc
-     * @return string
      */
     public function getName()
     {
@@ -98,7 +96,6 @@ class Store extends \Magento\Framework\DataObject implements StoreInterface, Sco
 
     /**
      * @inheritdoc
-     * @return int
      */
     public function getWebsiteId()
     {

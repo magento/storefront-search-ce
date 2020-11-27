@@ -9,7 +9,7 @@ use Magento\Framework\Exception\NoSuchEntityException;
 
 class Website implements \Magento\Framework\App\ScopeResolverInterface
 {
-    private const WEBSITE_TABLE = 'store_website';
+    public const WEBSITE_TABLE = 'store_website';
 
     /**
      * @var \Magento\Framework\App\ResourceConnection
@@ -65,7 +65,7 @@ class Website implements \Magento\Framework\App\ScopeResolverInterface
     /**
      * Load data from DB
      *
-     * @param  null $scopeId
+     * @param  int|string|null $scopeId
      * @param  bool $loadAll
      * @return array|mixed
      */

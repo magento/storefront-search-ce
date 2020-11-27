@@ -9,7 +9,7 @@ use Magento\Framework\Exception\NoSuchEntityException;
 
 class Store implements \Magento\Framework\App\ScopeResolverInterface
 {
-    const STORE_TABLE = 'store';
+    public const STORE_TABLE = 'store';
 
     /**
      * @var \Magento\Framework\App\ResourceConnection
@@ -55,7 +55,7 @@ class Store implements \Magento\Framework\App\ScopeResolverInterface
     /**
      * Load store data from DB
      *
-     * @param  null $scopeId
+     * @param  int|string|null $scopeId
      * @param  bool $loadAll
      * @return array|mixed
      */
@@ -87,6 +87,8 @@ class Store implements \Magento\Framework\App\ScopeResolverInterface
     }
 
     /**
+     * Fills model with data
+     *
      * @param array $data
      * @return \Magento\SearchStorefrontStore\Model\Store
      * @throws NoSuchEntityException
