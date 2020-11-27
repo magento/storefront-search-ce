@@ -29,6 +29,8 @@ class Range implements FilterInterface
     }
 
     /**
+     * Build request filter
+     *
      * @param  RequestFilterInterface|RangeFilterRequest $filter
      * @return array
      */

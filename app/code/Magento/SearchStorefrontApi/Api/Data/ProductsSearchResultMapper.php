@@ -85,30 +85,30 @@ final class ProductsSearchResultMapper
     private function setByKey(ProductsSearchResult $dto, string $key, $value): void
     {
         switch ($key) {
-        case "total_count":
-            $dto->setTotalCount((int) $value);
-            break;
-        case "items":
-            $dto->setItems((array) $value);
-            break;
-        case "facets":
-            $convertedArray = [];
-            foreach ($value as $element) {
-                $convertedArray[] = $this->objectManager
+            case "total_count":
+                $dto->setTotalCount((int) $value);
+                break;
+            case "items":
+                $dto->setItems((array) $value);
+                break;
+            case "facets":
+                $convertedArray = [];
+                foreach ($value as $element) {
+                    $convertedArray[] = $this->objectManager
                     ->create(\Magento\SearchStorefrontApi\Api\Data\BucketMapper::class)
                     ->setData($element)
                     ->build();
-            }
-            $dto->setFacets($convertedArray);
-            break;
-        case "page_info":
-            $dto->setPageInfo(
-                $this->objectManager
+                }
+                $dto->setFacets($convertedArray);
+                break;
+            case "page_info":
+                $dto->setPageInfo(
+                    $this->objectManager
                     ->create(\Magento\SearchStorefrontApi\Api\Data\SearchResultPageInfoMapper::class)
                     ->setData($value)
                     ->build()
-            );
-            break;
+                );
+                break;
         }
     }
 }

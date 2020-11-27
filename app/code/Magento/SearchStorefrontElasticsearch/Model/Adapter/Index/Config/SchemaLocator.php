@@ -43,7 +43,7 @@ class SchemaLocator implements SchemaLocatorInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getSchema()
     {
@@ -51,7 +51,7 @@ class SchemaLocator implements SchemaLocatorInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getPerFileSchema()
     {

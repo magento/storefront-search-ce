@@ -69,7 +69,7 @@ class Search implements SearchInterface
         // convert data from \Magento\SearchStorefrontApi\Api\Data\ProductSearchRequest
         // to \Magento\SearchStorefrontApi\Proto\ProductSearchRequest
         /**
- * @var \Magento\SearchStorefrontApi\Api\Data\ProductSearchRequest $value 
+ * @var \Magento\SearchStorefrontApi\Api\Data\ProductSearchRequest $value
 **/
         $p = function () use ($value) {
             $r = new \Magento\SearchStorefrontApi\Proto\ProductSearchRequest();
@@ -82,7 +82,7 @@ class Search implements SearchInterface
                 // convert data from \Magento\SearchStorefrontApi\Api\Data\Filter
                 // to \Magento\SearchStorefrontApi\Proto\Filter
                 /**
- * @var \Magento\SearchStorefrontApi\Api\Data\Filter $item5 
+ * @var \Magento\SearchStorefrontApi\Api\Data\Filter $item5
 **/
                 $p = function () use ($item5) {
                     $r = new \Magento\SearchStorefrontApi\Proto\Filter();
@@ -98,7 +98,7 @@ class Search implements SearchInterface
                         // convert data from \Magento\SearchStorefrontApi\Api\Data\SearchRange
                         // to \Magento\SearchStorefrontApi\Proto\SearchRange
                         /**
- * @var \Magento\SearchStorefrontApi\Api\Data\SearchRange $prop9 
+ * @var \Magento\SearchStorefrontApi\Api\Data\SearchRange $prop9
 **/
                         $p = function () use ($prop9) {
                             $r = new \Magento\SearchStorefrontApi\Proto\SearchRange();
@@ -120,7 +120,7 @@ class Search implements SearchInterface
                 // convert data from \Magento\SearchStorefrontApi\Api\Data\Sort
                 // to \Magento\SearchStorefrontApi\Proto\Sort
                 /**
- * @var \Magento\SearchStorefrontApi\Api\Data\Sort $item6 
+ * @var \Magento\SearchStorefrontApi\Api\Data\Sort $item6
 **/
                 $p = function () use ($item6) {
                     $r = new \Magento\SearchStorefrontApi\Proto\Sort();
@@ -153,7 +153,7 @@ class Search implements SearchInterface
         // convert data from \Magento\SearchStorefrontApi\Proto\ProductsSearchResult
         // to \Magento\SearchStorefrontApi\Api\Data\ProductsSearchResult
         /**
- * @var \Magento\SearchStorefrontApi\Proto\ProductsSearchResult $value 
+ * @var \Magento\SearchStorefrontApi\Proto\ProductsSearchResult $value
 **/
         $p = function () use ($value) {
             $r = new \Magento\SearchStorefrontApi\Api\Data\ProductsSearchResult();
@@ -168,7 +168,7 @@ class Search implements SearchInterface
                 // convert data from \Magento\SearchStorefrontApi\Proto\Bucket
                 // to \Magento\SearchStorefrontApi\Api\Data\Bucket
                 /**
- * @var \Magento\SearchStorefrontApi\Proto\Bucket $item3 
+ * @var \Magento\SearchStorefrontApi\Proto\Bucket $item3
 **/
                 $p = function () use ($item3) {
                     $r = new \Magento\SearchStorefrontApi\Api\Data\Bucket();
@@ -180,7 +180,7 @@ class Search implements SearchInterface
                         // convert data from \Magento\SearchStorefrontApi\Proto\BucketOption
                         // to \Magento\SearchStorefrontApi\Api\Data\BucketOption
                         /**
- * @var \Magento\SearchStorefrontApi\Proto\BucketOption $item7 
+ * @var \Magento\SearchStorefrontApi\Proto\BucketOption $item7
 **/
                         $p = function () use ($item7) {
                             $r = new \Magento\SearchStorefrontApi\Api\Data\BucketOption();
@@ -204,7 +204,7 @@ class Search implements SearchInterface
                 // convert data from \Magento\SearchStorefrontApi\Proto\SearchResultPageInfo
                 // to \Magento\SearchStorefrontApi\Api\Data\SearchResultPageInfo
                 /**
- * @var \Magento\SearchStorefrontApi\Proto\SearchResultPageInfo $prop4 
+ * @var \Magento\SearchStorefrontApi\Proto\SearchResultPageInfo $prop4
 **/
                 $p = function () use ($prop4) {
                     $r = new \Magento\SearchStorefrontApi\Api\Data\SearchResultPageInfo();

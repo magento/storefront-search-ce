@@ -50,7 +50,7 @@ final class ProductsSearchResultArrayMapper
         $result["total_count"] = $dto->getTotalCount();
         $result["items"] = $dto->getItems();
         /**
- * Convert complex Array field 
+ * Convert complex Array field
 **/
         $fieldArray = [];
         foreach ($dto->getFacets() as $fieldArrayDto) {

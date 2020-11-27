@@ -19,7 +19,7 @@ class SortApplier implements ApplierInterface
     const DEFAULT_SORT_FIELD = 'relevance';
 
     /**
-     * @var \Magento\Framework\Api\SortOrderBuilder 
+     * @var \Magento\Framework\Api\SortOrderBuilder
      */
     private $sortOrderBuilder;
 

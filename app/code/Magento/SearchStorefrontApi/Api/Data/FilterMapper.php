@@ -85,23 +85,23 @@ final class FilterMapper
     private function setByKey(Filter $dto, string $key, $value): void
     {
         switch ($key) {
-        case "attribute":
-            $dto->setAttribute((string) $value);
-            break;
-        case "in":
-            $dto->setIn((array) $value);
-            break;
-        case "eq":
-            $dto->setEq((string) $value);
-            break;
-        case "range":
-            $dto->setRange(
-                $this->objectManager
+            case "attribute":
+                $dto->setAttribute((string) $value);
+                break;
+            case "in":
+                $dto->setIn((array) $value);
+                break;
+            case "eq":
+                $dto->setEq((string) $value);
+                break;
+            case "range":
+                $dto->setRange(
+                    $this->objectManager
                     ->create(\Magento\SearchStorefrontApi\Api\Data\SearchRangeMapper::class)
                     ->setData($value)
                     ->build()
-            );
-            break;
+                );
+                break;
         }
     }
 }

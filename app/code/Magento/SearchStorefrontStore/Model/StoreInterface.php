@@ -11,16 +11,22 @@ namespace Magento\SearchStorefrontStore\Model;
 interface StoreInterface
 {
     /**
+     * Get store id
+     *
      * @return int
      */
     public function getId();
 
     /**
+     * Get store code
+     *
      * @return string
      */
     public function getCode();
 
     /**
+     * Get website id
+     *
      * @return int
      */
     public function getWebsiteId();

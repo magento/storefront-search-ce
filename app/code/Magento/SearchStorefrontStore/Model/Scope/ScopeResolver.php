@@ -22,7 +22,12 @@ class ScopeResolver implements \Magento\Framework\App\ScopeResolverInterface
     }
 
     /**
-     * @param \Magento\SearchStorefrontStore\Model\StoreManagerInterface $storeManager
+     * Get scope object
+     *
+     * @param null $scopeId
+     * @return \Magento\Framework\App\ScopeInterface|\Magento\SearchStorefrontStore\Model\StoreInterface
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @throws \Magento\Framework\Exception\State\InitException
      */
     public function getScope($scopeId = null)
     {
@@ -38,9 +43,7 @@ class ScopeResolver implements \Magento\Framework\App\ScopeResolverInterface
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @throws \Magento\Framework\Exception\State\InitException
+     * @inheritdoc
      */
     public function getScopes()
     {

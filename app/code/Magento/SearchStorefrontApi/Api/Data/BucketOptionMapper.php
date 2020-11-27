@@ -85,15 +85,15 @@ final class BucketOptionMapper
     private function setByKey(BucketOption $dto, string $key, $value): void
     {
         switch ($key) {
-        case "value":
-            $dto->setValue((string) $value);
-            break;
-        case "label":
-            $dto->setLabel((string) $value);
-            break;
-        case "count":
-            $dto->setCount((int) $value);
-            break;
+            case "value":
+                $dto->setValue((string) $value);
+                break;
+            case "label":
+                $dto->setLabel((string) $value);
+                break;
+            case "count":
+                $dto->setCount((int) $value);
+                break;
         }
     }
 }

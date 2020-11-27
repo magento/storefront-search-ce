@@ -44,9 +44,9 @@ class ClientResolver
 
     /**
      * @param ObjectManagerInterface  $objectManager
+     * @param EngineResolverInterface $engineResolver
      * @param array                   $clientFactories
      * @param array                   $clientOptions
-     * @param EngineResolverInterface $engineResolver
      */
     public function __construct(
         ObjectManagerInterface $objectManager,
@@ -55,9 +55,9 @@ class ClientResolver
         array $clientOptions = []
     ) {
         $this->objectManager = $objectManager;
+        $this->engineResolver = $engineResolver;
         $this->clientFactoryPool = $clientFactories;
         $this->clientOptionsPool = $clientOptions;
-        $this->engineResolver = $engineResolver;
     }
 
     /**

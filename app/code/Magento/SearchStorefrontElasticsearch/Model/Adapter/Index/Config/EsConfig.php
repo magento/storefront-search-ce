@@ -16,7 +16,7 @@ use Magento\Framework\Serialize\SerializerInterface;
 class EsConfig extends Data implements EsConfigInterface
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getStemmerInfo()
     {
@@ -24,7 +24,7 @@ class EsConfig extends Data implements EsConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getStopwordsInfo()
     {

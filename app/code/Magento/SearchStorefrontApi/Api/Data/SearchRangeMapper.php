@@ -85,12 +85,12 @@ final class SearchRangeMapper
     private function setByKey(SearchRange $dto, string $key, $value): void
     {
         switch ($key) {
-        case "from":
-            $dto->setFrom((float) $value);
-            break;
-        case "to":
-            $dto->setTo((float) $value);
-            break;
+            case "from":
+                $dto->setFrom((float) $value);
+                break;
+            case "to":
+                $dto->setTo((float) $value);
+                break;
         }
     }
 }

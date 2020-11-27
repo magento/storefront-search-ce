@@ -118,15 +118,15 @@ class DefaultResolver implements ResolverInterface
         $stringTypeKey = $this->fieldTypeConverter->convert(FieldTypeConverterInterface::INTERNAL_DATA_TYPE_STRING);
         $keywordTypeKey = $this->fieldTypeConverter->convert(FieldTypeConverterInterface::INTERNAL_DATA_TYPE_KEYWORD);
         switch ($frontendInput) {
-        case 'select':
-        case 'multiselect':
-            return in_array($fieldType, [$stringTypeKey, $keywordTypeKey, 'integer'], true)
+            case 'select':
+            case 'multiselect':
+                return in_array($fieldType, [$stringTypeKey, $keywordTypeKey, 'integer'], true)
                     ? $attributeCode . '_value'
                     : $attributeCode;
-        case 'boolean':
-            return $fieldType === 'integer' ? $attributeCode . '_value' : $attributeCode;
-        default:
-            return $attributeCode;
+            case 'boolean':
+                return $fieldType === 'integer' ? $attributeCode . '_value' : $attributeCode;
+            default:
+                return $attributeCode;
         }
     }
 }

@@ -28,6 +28,8 @@ class Wildcard implements FilterInterface
     }
 
     /**
+     * Build request filter
+     *
      * @param  RequestFilterInterface|WildcardFilterRequest $filter
      * @return array
      */

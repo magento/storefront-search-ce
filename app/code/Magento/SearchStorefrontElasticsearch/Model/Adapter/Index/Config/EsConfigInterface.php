@@ -11,11 +11,15 @@ namespace Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config;
 interface EsConfigInterface
 {
     /**
+     * Get stemmer info from config
+     *
      * @return array
      */
     public function getStemmerInfo();
 
     /**
+     * Get stopwords info from config
+     *
      * @return array
      */
     public function getStopwordsInfo();

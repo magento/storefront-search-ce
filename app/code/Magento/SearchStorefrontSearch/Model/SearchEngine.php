@@ -35,7 +35,7 @@ class SearchEngine implements SearchEngineInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function search(RequestInterface $request)
     {

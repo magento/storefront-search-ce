@@ -46,9 +46,6 @@ class Dynamic implements BucketBuilderInterface
         array $queryResult,
         DataProviderInterface $dataProvider
     ) {
-        /**
- * @var DynamicBucket $bucket 
-*/
         $algorithm = $this->algorithmRepository->get($bucket->getMethod(), ['dataProvider' => $dataProvider]);
         $data = $algorithm->getItems($bucket, $dimensions, $this->getEntityStorage($queryResult));
         return $this->prepareData($data);

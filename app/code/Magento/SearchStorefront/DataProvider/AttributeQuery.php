@@ -85,14 +85,11 @@ class AttributeQuery
     public function getQuery(array $entityIds, array $attributes, int $storeId): Select
     {
         /**
- * @var \Magento\Framework\EntityManager\EntityMetadataInterface $metadata 
-*/
+         * @var \Magento\Framework\EntityManager\EntityMetadataInterface $metadata
+         */
         $metadata = $this->metadataPool->getMetadata($this->entityType);
         $entityTableName = $metadata->getEntityTable();
 
-        /**
- * @var \Magento\Framework\DB\Adapter\AdapterInterface $connection 
-*/
         $connection = $this->resourceConnection->getConnection();
         $entityTableAttributes = \array_keys($connection->describeTable($entityTableName));
 

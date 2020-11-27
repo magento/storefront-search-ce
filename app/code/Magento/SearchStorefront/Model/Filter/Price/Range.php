@@ -11,7 +11,7 @@ use Magento\SearchStorefrontStub\Model\Search\Options;
 
 class Range
 {
-    const PATH_RANGE_STEP = 'range_step';
+    public const PATH_RANGE_STEP = 'range_step';
 
     /**
      * @var Options
@@ -31,7 +31,6 @@ class Range
      * Get price range for calculation algorithm
      *
      * @return float
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getPriceRange()
     {

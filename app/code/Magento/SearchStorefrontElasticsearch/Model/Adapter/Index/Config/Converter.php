@@ -13,7 +13,7 @@ use Magento\Framework\Config\ConverterInterface;
 class Converter implements ConverterInterface
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function convert($source)
     {

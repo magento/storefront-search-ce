@@ -11,7 +11,7 @@ use Magento\Framework\Search\Request\Aggregation\StatusInterface;
 class Status implements StatusInterface
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function isEnabled()
     {

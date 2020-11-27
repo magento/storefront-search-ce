@@ -139,25 +139,25 @@ class ConfigReader
             ];
 
             switch ($attribute->getBackendType()) {
-            case 'static':
-            case 'text':
-            case 'varchar':
-                if ($this->isExactMatchAttribute($attribute)) {
+                case 'static':
+                case 'text':
+                case 'varchar':
+                    if ($this->isExactMatchAttribute($attribute)) {
+                        $request['queries'][$queryName] = $this->generateFilterQuery($queryName, $filterName);
+                        $request['filters'][$filterName] = $this->generateTermFilter($filterName, $attribute);
+                    } else {
+                        $request['queries'][$queryName] = $this->generateMatchQuery($queryName, $attribute);
+                    }
+                    break;
+                case 'decimal':
+                case 'datetime':
+                case 'date':
+                    $request['queries'][$queryName] = $this->generateFilterQuery($queryName, $filterName);
+                    $request['filters'][$filterName] = $this->generateRangeFilter($filterName, $attribute);
+                    break;
+                default:
                     $request['queries'][$queryName] = $this->generateFilterQuery($queryName, $filterName);
                     $request['filters'][$filterName] = $this->generateTermFilter($filterName, $attribute);
-                } else {
-                    $request['queries'][$queryName] = $this->generateMatchQuery($queryName, $attribute);
-                }
-                break;
-            case 'decimal':
-            case 'datetime':
-            case 'date':
-                $request['queries'][$queryName] = $this->generateFilterQuery($queryName, $filterName);
-                $request['filters'][$filterName] = $this->generateRangeFilter($filterName, $attribute);
-                break;
-            default:
-                $request['queries'][$queryName] = $this->generateFilterQuery($queryName, $filterName);
-                $request['filters'][$filterName] = $this->generateTermFilter($filterName, $attribute);
             }
             $generator = $this->generatorResolver->getGeneratorForType($attribute->getBackendType());
 

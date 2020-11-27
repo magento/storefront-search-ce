@@ -85,44 +85,44 @@ final class ProductSearchRequestMapper
     private function setByKey(ProductSearchRequest $dto, string $key, $value): void
     {
         switch ($key) {
-        case "phrase":
-            $dto->setPhrase((string) $value);
-            break;
-        case "store":
-            $dto->setStore((string) $value);
-            break;
-        case "page_size":
-            $dto->setPageSize((int) $value);
-            break;
-        case "current_page":
-            $dto->setCurrentPage((int) $value);
-            break;
-        case "filters":
-            $convertedArray = [];
-            foreach ($value as $element) {
-                $convertedArray[] = $this->objectManager
+            case "phrase":
+                $dto->setPhrase((string) $value);
+                break;
+            case "store":
+                $dto->setStore((string) $value);
+                break;
+            case "page_size":
+                $dto->setPageSize((int) $value);
+                break;
+            case "current_page":
+                $dto->setCurrentPage((int) $value);
+                break;
+            case "filters":
+                $convertedArray = [];
+                foreach ($value as $element) {
+                    $convertedArray[] = $this->objectManager
                     ->create(\Magento\SearchStorefrontApi\Api\Data\FilterMapper::class)
                     ->setData($element)
                     ->build();
-            }
-            $dto->setFilters($convertedArray);
-            break;
-        case "sort":
-            $convertedArray = [];
-            foreach ($value as $element) {
-                $convertedArray[] = $this->objectManager
+                }
+                $dto->setFilters($convertedArray);
+                break;
+            case "sort":
+                $convertedArray = [];
+                foreach ($value as $element) {
+                    $convertedArray[] = $this->objectManager
                     ->create(\Magento\SearchStorefrontApi\Api\Data\SortMapper::class)
                     ->setData($element)
                     ->build();
-            }
-            $dto->setSort($convertedArray);
-            break;
-        case "include_aggregations":
-            $dto->setIncludeAggregations((bool) $value);
-            break;
-        case "customer_group_id":
-            $dto->setCustomerGroupId((int) $value);
-            break;
+                }
+                $dto->setSort($convertedArray);
+                break;
+            case "include_aggregations":
+                $dto->setIncludeAggregations((bool) $value);
+                break;
+            case "customer_group_id":
+                $dto->setCustomerGroupId((int) $value);
+                break;
         }
     }
 }

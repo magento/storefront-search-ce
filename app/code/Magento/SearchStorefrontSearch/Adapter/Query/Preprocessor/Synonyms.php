@@ -26,7 +26,7 @@ class Synonyms implements PreprocessorInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function process($query)
     {

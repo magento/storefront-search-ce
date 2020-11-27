@@ -15,6 +15,8 @@ use Magento\Framework\Search\Request\Dimension;
 interface BucketBuilderInterface
 {
     /**
+     * Provides bucket build functionality
+     *
      * @param  RequestBucketInterface $bucket
      * @param  Dimension[]            $dimensions
      * @param  array                  $queryResult

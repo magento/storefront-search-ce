@@ -9,7 +9,7 @@ use Magento\Framework\Exception\NoSuchEntityException;
 
 class Website implements \Magento\Framework\App\ScopeResolverInterface
 {
-    const WEBSITE_TABLE = 'store_website';
+    private const WEBSITE_TABLE = 'store_website';
 
     /**
      * @var \Magento\Framework\App\ResourceConnection
@@ -34,7 +34,7 @@ class Website implements \Magento\Framework\App\ScopeResolverInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @throws \Magento\Framework\Exception\State\InitException
      */
@@ -48,6 +48,7 @@ class Website implements \Magento\Framework\App\ScopeResolverInterface
      * Retrieve a list of available stores
      *
      * @return \Magento\SearchStorefrontStore\Model\Store[]
+     * @throws NoSuchEntityException
      */
     public function getScopes()
     {
@@ -62,6 +63,8 @@ class Website implements \Magento\Framework\App\ScopeResolverInterface
     }
 
     /**
+     * Load data from DB
+     *
      * @param  null $scopeId
      * @param  bool $loadAll
      * @return array|mixed
@@ -86,7 +89,11 @@ class Website implements \Magento\Framework\App\ScopeResolverInterface
     }
 
     /**
+     * Fill model with data
+     *
      * @param array $data
+     * @return \Magento\Framework\App\ScopeInterface
+     * @throws NoSuchEntityException
      */
     private function populate(array $data = [])
     {
@@ -94,9 +101,6 @@ class Website implements \Magento\Framework\App\ScopeResolverInterface
             throw new NoSuchEntityException(__('Cannot find requested website'));
         }
 
-        /**
- * @var \Magento\Framework\App\ScopeInterface $object 
-*/
         $object = $this->scopeFactory->create();
         $object->setData('id', $data['website_id']);
         $object->setData('code', $data['code']);

@@ -13,6 +13,8 @@ use Magento\Framework\Search\Request\FilterInterface as RequestFilterInterface;
 interface FilterInterface
 {
     /**
+     * Adds filter functionality
+     *
      * @param  RequestFilterInterface $filter
      * @return array
      */

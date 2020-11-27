@@ -157,10 +157,6 @@ class SynonymAnalyzer implements SynonymAnalyzerInterface
     private function getSynonymGroupsByPhrase(string $phrase): array
     {
         $result = [];
-
-        /**
- * @var array $synonymGroups 
-*/
         $synonymGroups = $this->synReaderModel->loadByPhrase($phrase)->getData();
 
         foreach ($synonymGroups as $row) {

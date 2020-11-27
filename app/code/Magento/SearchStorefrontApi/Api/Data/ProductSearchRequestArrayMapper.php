@@ -52,7 +52,7 @@ final class ProductSearchRequestArrayMapper
         $result["page_size"] = $dto->getPageSize();
         $result["current_page"] = $dto->getCurrentPage();
         /**
- * Convert complex Array field 
+ * Convert complex Array field
 **/
         $fieldArray = [];
         foreach ($dto->getFilters() as $fieldArrayDto) {
@@ -61,7 +61,7 @@ final class ProductSearchRequestArrayMapper
         }
         $result["filters"] = $fieldArray;
         /**
- * Convert complex Array field 
+ * Convert complex Array field
 **/
         $fieldArray = [];
         foreach ($dto->getSort() as $fieldArrayDto) {

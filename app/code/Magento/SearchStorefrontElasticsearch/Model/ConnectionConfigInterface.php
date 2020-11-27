@@ -74,6 +74,8 @@ interface ConnectionConfigInterface
     public function getMinimumShouldMatch() : string;
 
     /**
+     * Get elasticsearch config
+     *
      * @return array
      */
     public function getConfig() : array;

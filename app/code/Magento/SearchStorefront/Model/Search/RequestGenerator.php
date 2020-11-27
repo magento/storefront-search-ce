@@ -13,12 +13,12 @@ namespace Magento\SearchStorefront\Model\Search;
 class RequestGenerator
 {
     /**
- * Filter name suffix 
-*/
+     * Filter name suffix
+     */
     const FILTER_SUFFIX = '_filter';
 
     /**
- * Bucket name suffix 
-*/
+     * Bucket name suffix
+     */
     const BUCKET_SUFFIX = '_bucket';
 }

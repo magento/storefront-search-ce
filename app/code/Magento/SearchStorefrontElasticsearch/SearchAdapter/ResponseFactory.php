@@ -59,16 +59,10 @@ class ResponseFactory
     {
         $documents = [];
         foreach ($response['documents'] as $rawDocument) {
-            /**
- * @var \Magento\Framework\Api\Search\Document[] $documents 
-*/
             $documents[] = $this->documentFactory->create(
                 $rawDocument
             );
         }
-        /**
- * @var \Magento\Framework\Search\Response\Aggregation $aggregations 
-*/
         $aggregations = $this->aggregationFactory->create($response['aggregations']);
         return $this->objectManager->create(
             \Magento\Framework\Search\Response\QueryResponse::class,

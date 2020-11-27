@@ -13,6 +13,8 @@ use Magento\Framework\Search\Request\QueryInterface as RequestQueryInterface;
 interface QueryInterface
 {
     /**
+     * Build search query
+     *
      * @param  array                 $selectQuery
      * @param  RequestQueryInterface $requestQuery
      * @param  string                $conditionType

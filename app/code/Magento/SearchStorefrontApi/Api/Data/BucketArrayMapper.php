@@ -51,7 +51,7 @@ final class BucketArrayMapper
         $result["label"] = $dto->getLabel();
         $result["count"] = $dto->getCount();
         /**
- * Convert complex Array field 
+ * Convert complex Array field
 **/
         $fieldArray = [];
         foreach ($dto->getOptions() as $fieldArrayDto) {

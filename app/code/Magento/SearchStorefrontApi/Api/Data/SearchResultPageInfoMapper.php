@@ -85,15 +85,15 @@ final class SearchResultPageInfoMapper
     private function setByKey(SearchResultPageInfo $dto, string $key, $value): void
     {
         switch ($key) {
-        case "current_page":
-            $dto->setCurrentPage((int) $value);
-            break;
-        case "page_size":
-            $dto->setPageSize((int) $value);
-            break;
-        case "total_pages":
-            $dto->setTotalPages((int) $value);
-            break;
+            case "current_page":
+                $dto->setCurrentPage((int) $value);
+                break;
+            case "page_size":
+                $dto->setPageSize((int) $value);
+                break;
+            case "total_pages":
+                $dto->setTotalPages((int) $value);
+                break;
         }
     }
 }

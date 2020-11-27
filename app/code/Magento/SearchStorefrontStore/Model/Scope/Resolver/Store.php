@@ -34,7 +34,7 @@ class Store implements \Magento\Framework\App\ScopeResolverInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getScope($scopeId = null)
     {
@@ -53,6 +53,8 @@ class Store implements \Magento\Framework\App\ScopeResolverInterface
     }
 
     /**
+     * Load store data from DB
+     *
      * @param  null $scopeId
      * @param  bool $loadAll
      * @return array|mixed
@@ -86,6 +88,8 @@ class Store implements \Magento\Framework\App\ScopeResolverInterface
 
     /**
      * @param array $data
+     * @return \Magento\SearchStorefrontStore\Model\Store
+     * @throws NoSuchEntityException
      */
     private function populate(array $data = [])
     {
@@ -93,9 +97,6 @@ class Store implements \Magento\Framework\App\ScopeResolverInterface
             throw new NoSuchEntityException(__('Cannot find requested store"'));
         }
 
-        /**
- * @var \Magento\Framework\App\ScopeInterface $object 
-*/
         $object = $this->scopeFactory->create();
         $object->setData('id', $data['store_id']);
         $object->setData('code', $data['code']);

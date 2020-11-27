@@ -92,30 +92,21 @@ class Mapper
         $conditionType
     ) {
         switch ($requestQuery->getType()) {
-        case RequestQueryInterface::TYPE_MATCH:
-            /**
- * @var MatchQuery $requestQuery 
-*/
-            $selectQuery = $this->matchQueryBuilder->build(
-                $selectQuery,
-                $requestQuery,
-                $conditionType
-            );
-            break;
-        case RequestQueryInterface::TYPE_BOOL:
-            /**
- * @var BoolQuery $requestQuery 
-*/
-            $selectQuery = $this->processBoolQuery($requestQuery, $selectQuery);
-            break;
-        case RequestQueryInterface::TYPE_FILTER:
-            /**
- * @var FilterQuery $requestQuery 
-*/
-            $selectQuery = $this->processFilterQuery($requestQuery, $selectQuery, $conditionType);
-            break;
-        default:
-            throw new \InvalidArgumentException(sprintf('Unknown query type \'%s\'', $requestQuery->getType()));
+            case RequestQueryInterface::TYPE_MATCH:
+                $selectQuery = $this->matchQueryBuilder->build(
+                    $selectQuery,
+                    $requestQuery,
+                    $conditionType
+                );
+                break;
+            case RequestQueryInterface::TYPE_BOOL:
+                $selectQuery = $this->processBoolQuery($requestQuery, $selectQuery);
+                break;
+            case RequestQueryInterface::TYPE_FILTER:
+                $selectQuery = $this->processFilterQuery($requestQuery, $selectQuery, $conditionType);
+                break;
+            default:
+                throw new \InvalidArgumentException(sprintf('Unknown query type \'%s\'', $requestQuery->getType()));
         }
 
         return $selectQuery;
@@ -187,20 +178,20 @@ class Mapper
         $conditionType
     ) {
         switch ($query->getReferenceType()) {
-        case FilterQuery::REFERENCE_QUERY:
-            $selectQuery = $this->processQuery($query->getReference(), $selectQuery, $conditionType);
-            break;
-        case FilterQuery::REFERENCE_FILTER:
-            $conditionType = $conditionType === BoolQuery::QUERY_CONDITION_NOT ?
+            case FilterQuery::REFERENCE_QUERY:
+                $selectQuery = $this->processQuery($query->getReference(), $selectQuery, $conditionType);
+                break;
+            case FilterQuery::REFERENCE_FILTER:
+                $conditionType = $conditionType === BoolQuery::QUERY_CONDITION_NOT ?
                 MatchQueryBuilder::QUERY_CONDITION_MUST_NOT : $conditionType;
-            $filterQuery = $this->filterBuilder->build($query->getReference(), $conditionType);
-            foreach ($filterQuery['bool'] as $condition => $filter) {
-                $selectQuery['bool'][$condition]= array_merge(
-                    isset($selectQuery['bool'][$condition]) ? $selectQuery['bool'][$condition] : [],
-                    $filter
-                );
-            }
-            break;
+                $filterQuery = $this->filterBuilder->build($query->getReference(), $conditionType);
+                foreach ($filterQuery['bool'] as $condition => $filter) {
+                    $selectQuery['bool'][$condition]= array_merge(
+                        isset($selectQuery['bool'][$condition]) ? $selectQuery['bool'][$condition] : [],
+                        $filter
+                    );
+                }
+                break;
         }
 
         return $selectQuery;

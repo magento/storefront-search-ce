@@ -39,9 +39,6 @@ class DocumentFactory
      */
     public function create($rawDocument)
     {
-        /**
- * @var AttributeValue[] $fields 
-*/
         $attributes = [];
         $documentId = null;
         $entityId = $this->entityMetadata->getEntityId();

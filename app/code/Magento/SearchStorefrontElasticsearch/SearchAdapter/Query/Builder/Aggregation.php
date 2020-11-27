@@ -67,21 +67,21 @@ class Aggregation
     ) {
         $field = $this->fieldMapper->getFieldName($bucket->getField());
         switch ($bucket->getType()) {
-        case BucketInterface::TYPE_TERM:
-            $searchQuery['body']['aggregations'][$bucket->getName()]= [
+            case BucketInterface::TYPE_TERM:
+                $searchQuery['body']['aggregations'][$bucket->getName()]= [
                 'terms' => [
                     'field' => $field,
                     'size' => self::$maxTermBacketSize,
                 ],
-            ];
-            break;
-        case BucketInterface::TYPE_DYNAMIC:
-            $searchQuery['body']['aggregations'][$bucket->getName()]= [
+                ];
+                break;
+            case BucketInterface::TYPE_DYNAMIC:
+                $searchQuery['body']['aggregations'][$bucket->getName()]= [
                 'extended_stats' => [
                     'field' => $field,
                 ],
-            ];
-            break;
+                ];
+                break;
         }
         return $searchQuery;
     }

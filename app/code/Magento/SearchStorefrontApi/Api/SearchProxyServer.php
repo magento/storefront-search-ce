@@ -72,7 +72,7 @@ class SearchProxyServer implements \Magento\SearchStorefrontApi\Proto\SearchInte
         // convert data from \Magento\SearchStorefrontApi\Proto\ProductSearchRequest
         // to \Magento\SearchStorefrontApi\Api\Data\ProductSearchRequest
         /**
- * @var \Magento\SearchStorefrontApi\Proto\ProductSearchRequest $value 
+ * @var \Magento\SearchStorefrontApi\Proto\ProductSearchRequest $value
 **/
         $p = function () use ($value) {
             $r = new \Magento\SearchStorefrontApi\Api\Data\ProductSearchRequest();
@@ -85,7 +85,7 @@ class SearchProxyServer implements \Magento\SearchStorefrontApi\Proto\SearchInte
                 // convert data from \Magento\SearchStorefrontApi\Proto\Filter
                 // to \Magento\SearchStorefrontApi\Api\Data\Filter
                 /**
- * @var \Magento\SearchStorefrontApi\Proto\Filter $item5 
+ * @var \Magento\SearchStorefrontApi\Proto\Filter $item5
 **/
                 $p = function () use ($item5) {
                     $r = new \Magento\SearchStorefrontApi\Api\Data\Filter();
@@ -101,7 +101,7 @@ class SearchProxyServer implements \Magento\SearchStorefrontApi\Proto\SearchInte
                         // convert data from \Magento\SearchStorefrontApi\Proto\SearchRange
                         // to \Magento\SearchStorefrontApi\Api\Data\SearchRange
                         /**
- * @var \Magento\SearchStorefrontApi\Proto\SearchRange $prop9 
+ * @var \Magento\SearchStorefrontApi\Proto\SearchRange $prop9
 **/
                         $p = function () use ($prop9) {
                             $r = new \Magento\SearchStorefrontApi\Api\Data\SearchRange();
@@ -123,7 +123,7 @@ class SearchProxyServer implements \Magento\SearchStorefrontApi\Proto\SearchInte
                 // convert data from \Magento\SearchStorefrontApi\Proto\Sort
                 // to \Magento\SearchStorefrontApi\Api\Data\Sort
                 /**
- * @var \Magento\SearchStorefrontApi\Proto\Sort $item6 
+ * @var \Magento\SearchStorefrontApi\Proto\Sort $item6
 **/
                 $p = function () use ($item6) {
                     $r = new \Magento\SearchStorefrontApi\Api\Data\Sort();
@@ -156,7 +156,7 @@ class SearchProxyServer implements \Magento\SearchStorefrontApi\Proto\SearchInte
         // convert data from \Magento\SearchStorefrontApi\Api\Data\ProductsSearchResult
         // to \Magento\SearchStorefrontApi\Proto\ProductsSearchResult
         /**
- * @var \Magento\SearchStorefrontApi\Api\Data\ProductsSearchResult $value 
+ * @var \Magento\SearchStorefrontApi\Api\Data\ProductsSearchResult $value
 **/
         $p = function () use ($value) {
             $r = new \Magento\SearchStorefrontApi\Proto\ProductsSearchResult();
@@ -171,7 +171,7 @@ class SearchProxyServer implements \Magento\SearchStorefrontApi\Proto\SearchInte
                 // convert data from \Magento\SearchStorefrontApi\Api\Data\Bucket
                 // to \Magento\SearchStorefrontApi\Proto\Bucket
                 /**
- * @var \Magento\SearchStorefrontApi\Api\Data\Bucket $item3 
+ * @var \Magento\SearchStorefrontApi\Api\Data\Bucket $item3
 **/
                 $p = function () use ($item3) {
                     $r = new \Magento\SearchStorefrontApi\Proto\Bucket();
@@ -183,7 +183,7 @@ class SearchProxyServer implements \Magento\SearchStorefrontApi\Proto\SearchInte
                         // convert data from \Magento\SearchStorefrontApi\Api\Data\BucketOption
                         // to \Magento\SearchStorefrontApi\Proto\BucketOption
                         /**
- * @var \Magento\SearchStorefrontApi\Api\Data\BucketOption $item7 
+ * @var \Magento\SearchStorefrontApi\Api\Data\BucketOption $item7
 **/
                         $p = function () use ($item7) {
                             $r = new \Magento\SearchStorefrontApi\Proto\BucketOption();
@@ -207,7 +207,7 @@ class SearchProxyServer implements \Magento\SearchStorefrontApi\Proto\SearchInte
                 // convert data from \Magento\SearchStorefrontApi\Api\Data\SearchResultPageInfo
                 // to \Magento\SearchStorefrontApi\Proto\SearchResultPageInfo
                 /**
- * @var \Magento\SearchStorefrontApi\Api\Data\SearchResultPageInfo $prop4 
+ * @var \Magento\SearchStorefrontApi\Api\Data\SearchResultPageInfo $prop4
 **/
                 $p = function () use ($prop4) {
                     $r = new \Magento\SearchStorefrontApi\Proto\SearchResultPageInfo();

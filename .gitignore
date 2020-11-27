@@ -6,15 +6,8 @@
 /.vscode
 atlassian*
 /nbproject
-/robots.txt
-/pub/robots.txt
-/sitemap
-/sitemap.xml
-/pub/sitemap
-/pub/sitemap.xml
 /.idea
 /.gitattributes
-/app/config_sandbox
 /app/etc/config.php
 /app/etc/env.php
 
@@ -25,3 +18,6 @@ atlassian*
 /generated/*
 !/generated/.htaccess
 .DS_Store
+
+composer.json
+composer.lock

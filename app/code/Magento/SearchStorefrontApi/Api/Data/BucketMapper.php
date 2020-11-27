@@ -85,25 +85,25 @@ final class BucketMapper
     private function setByKey(Bucket $dto, string $key, $value): void
     {
         switch ($key) {
-        case "attribute":
-            $dto->setAttribute((string) $value);
-            break;
-        case "label":
-            $dto->setLabel((string) $value);
-            break;
-        case "count":
-            $dto->setCount((int) $value);
-            break;
-        case "options":
-            $convertedArray = [];
-            foreach ($value as $element) {
-                $convertedArray[] = $this->objectManager
+            case "attribute":
+                $dto->setAttribute((string) $value);
+                break;
+            case "label":
+                $dto->setLabel((string) $value);
+                break;
+            case "count":
+                $dto->setCount((int) $value);
+                break;
+            case "options":
+                $convertedArray = [];
+                foreach ($value as $element) {
+                    $convertedArray[] = $this->objectManager
                     ->create(\Magento\SearchStorefrontApi\Api\Data\BucketOptionMapper::class)
                     ->setData($element)
                     ->build();
-            }
-            $dto->setOptions($convertedArray);
-            break;
+                }
+                $dto->setOptions($convertedArray);
+                break;
         }
     }
 }

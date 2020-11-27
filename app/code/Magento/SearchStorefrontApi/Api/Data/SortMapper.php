@@ -85,12 +85,12 @@ final class SortMapper
     private function setByKey(Sort $dto, string $key, $value): void
     {
         switch ($key) {
-        case "attribute":
-            $dto->setAttribute((string) $value);
-            break;
-        case "direction":
-            $dto->setDirection((string) $value);
-            break;
+            case "attribute":
+                $dto->setAttribute((string) $value);
+                break;
+            case "direction":
+                $dto->setDirection((string) $value);
+                break;
         }
     }
 }
