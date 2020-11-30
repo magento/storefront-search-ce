@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+/* @SuppressWarnings(PHPCS.Magento2.Files.LineLength.MaxExceeded) */
 declare(strict_types=1);
 
 namespace Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType;
