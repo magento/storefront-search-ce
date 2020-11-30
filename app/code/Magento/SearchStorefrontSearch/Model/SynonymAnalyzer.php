@@ -9,6 +9,8 @@ namespace Magento\SearchStorefrontSearch\Model;
 
 /**
  * SynonymAnalyzer responsible for search of synonyms matching a word or a phrase.
+ *
+ * Copied from Magento/Search
  */
 class SynonymAnalyzer implements SynonymAnalyzerInterface
 {
