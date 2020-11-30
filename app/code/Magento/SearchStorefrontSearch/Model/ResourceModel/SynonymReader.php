@@ -12,6 +12,8 @@ use Magento\SearchStorefrontStore\Model\StoreManager;
 
 /**
  * Synonym Reader resource model
+ *
+ * Copied and adapted Magento\Search\Model\ResourceModel\SynonymReader
  */
 class SynonymReader
 {
