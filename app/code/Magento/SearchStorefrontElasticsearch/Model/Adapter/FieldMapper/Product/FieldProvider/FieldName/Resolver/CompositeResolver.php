@@ -27,7 +27,7 @@ class CompositeResolver implements ResolverInterface
     public function __construct(array $items)
     {
         foreach ($items as $item) {
-            if (!$item instanceof \Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\ResolverInterface) {
+            if (!$item instanceof ResolverInterface) {
                 throw new \InvalidArgumentException(
                     sprintf('Instance of the field name resolver is expected, got %s instead.', get_class($item))
                 );
