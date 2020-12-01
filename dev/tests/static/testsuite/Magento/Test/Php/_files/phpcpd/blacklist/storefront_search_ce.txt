@@ -5,4 +5,4 @@ app/code/Magento/SearchStorefrontElasticsearch7
 app/code/Magento/SearchStorefrontElasticsearch
 app/code/Magento/SearchStorefrontSearch
 app/code/Magento/SearchStorefront
-app/storefront_search_autoload
+app/storefront_search_autoload.php

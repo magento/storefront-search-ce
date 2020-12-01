@@ -4,6 +4,7 @@
  * See COPYING.txt for license details.
  */
 return [
-    '/app\/code\/Magento\/SearchStorefrontApi\*\.php/',
-    '/app\/etc\/vendor_path.php'
+    '/app\/code\/Magento\/SearchStorefrontApi\/Proto\.php$/',
+    '/app\/code\/Magento\/SearchStorefrontApi\/Metadata\.php$/',
+    '/app\/etc\/vendor_path.php$/'
 ];
