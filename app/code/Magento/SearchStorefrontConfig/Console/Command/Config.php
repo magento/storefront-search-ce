@@ -146,12 +146,15 @@ class Config extends Command
                 Installer::ES_USERNAME,
                 null,
                 InputOption::VALUE_OPTIONAL,
-                'Elasticsearch port'
-            ),new InputOption(
+                'Elasticsearch user name',
+                ''
+            ),
+            new InputOption(
                 Installer::ES_PASSWORD,
                 null,
                 InputOption::VALUE_OPTIONAL,
-                'Elasticsearch port'
+                'Elasticsearch user password',
+                ''
             ),
             new InputOption(
                 Installer::ES_INDEX_PREFIX,

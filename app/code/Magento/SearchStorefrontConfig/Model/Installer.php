@@ -85,10 +85,10 @@ class Installer
                 'db' => [
                     'connection' => [
                         'default' => [
-                            'host' => $required[self::DB_HOST],
-                            'dbname' => $required[self::DB_NAME],
-                            'username' => $required[self::DB_USER],
-                            'password' => $required[self::DB_PASSWORD],
+                            'host' => $optional[self::DB_HOST],
+                            'dbname' => $optional[self::DB_NAME],
+                            'username' => $optional[self::DB_USER],
+                            'password' => $optional[self::DB_PASSWORD],
                             'model' => 'mysql4',
                             'engine' => 'innodb',
                             'initStatements' => 'SET NAMES utf8;',
@@ -105,14 +105,14 @@ class Installer
                         //Connection config to monolith ES
                         'magento' => [
                             'protocol' => 'http',
-                            'hostname' => $required[self::ES_HOSTNAME],
+                            'hostname' => $optional[self::ES_HOSTNAME],
                             'port' => $optional[self::ES_PORT],
-                            'enable_auth' => $optional[self::ES_USERNAME] !== null,
+                            'enable_auth' => $optional[self::ES_USERNAME] !== '',
                             'username' => $optional[self::ES_USERNAME],
                             'password' => $optional[self::ES_PASSWORD],
                             'timeout' => 30,
-                            'engine' => $required[self::ES_ENGINE],
-                            'index_prefix' => $required[self::ES_INDEX_PREFIX]
+                            'engine' => $optional[self::ES_ENGINE],
+                            'index_prefix' => $optional[self::ES_INDEX_PREFIX]
                         ],
                         //TODO Connection config to local ES
                         'local' => []
