@@ -184,7 +184,7 @@ class Config extends Command
             throw new LocalizedException(
                 __(
                     'Please provide next options: '.PHP_EOL.'%1',
-                   implode($forgottenOptions, ','.PHP_EOL)
+                   implode(',' . PHP_EOL, $forgottenOptions)
                 )
             );
         }
