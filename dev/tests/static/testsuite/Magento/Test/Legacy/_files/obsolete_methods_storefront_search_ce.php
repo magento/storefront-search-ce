@@ -9,5 +9,9 @@
 // @codingStandardsIgnoreFile
 
 return [
-    ['getFacets', 'Magento/SearchStorefrontApi/Api/Data/ProductsSearchResultInterface']
+    [
+        'getFacets',
+        'Magento/SearchStorefrontApi/Api/Data/ProductsSearchResultInterface',
+        'Magento/SearchStorefrontApi/Api/Data/ProductsSearchResultInterface::getFacets()'
+    ]
 ];
