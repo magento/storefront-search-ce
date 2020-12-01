@@ -117,7 +117,7 @@ Default Storage configuration:
         ],
         'table_prefix' => ''
     ],
-    'search-store-front' => [
+    'storefront-search' => [
         'connections' => [
             'default' => [
                 'protocol' => 'http',

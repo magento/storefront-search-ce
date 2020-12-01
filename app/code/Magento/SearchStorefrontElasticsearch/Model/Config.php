@@ -21,24 +21,19 @@ use Magento\SearchStorefrontStub\Framework\Model\EngineResolverInterface;
 class Config implements ClientOptionsInterface
 {
     /**
-     * Search engine name
-     */
-    const ENGINE_NAME = 'elasticsearch';
-
-    /**
      * Elasticsearch Entity type
      */
-    const ELASTICSEARCH_TYPE_DOCUMENT = 'document';
+    public const ELASTICSEARCH_TYPE_DOCUMENT = 'document';
 
     /**
      * Elasticsearch default Entity type
      */
-    const ELASTICSEARCH_TYPE_DEFAULT = 'product';
+    public const ELASTICSEARCH_TYPE_DEFAULT = 'product';
 
     /**
      * Default Elasticsearch server timeout
      */
-    const ELASTICSEARCH_DEFAULT_TIMEOUT = 15;
+    public const ELASTICSEARCH_DEFAULT_TIMEOUT = 15;
 
     /**
      * @var ScopeConfigInterface
@@ -74,25 +69,13 @@ class Config implements ClientOptionsInterface
 
     /**
      * @param ScopeConfigInterface    $scopeConfig
-     * @param ClientResolver          $clientResolver
-     * @param EngineResolverInterface $engineResolver
      * @param ConnectionConfig        $config
-     * @param string|null             $prefix
-     * @param array                   $engineList
      */
     public function __construct(
         ScopeConfigInterface $scopeConfig,
-        ClientResolver $clientResolver,
-        EngineResolverInterface $engineResolver,
-        ConnectionConfig $config,
-        $prefix = null,
-        $engineList = []
+        ConnectionConfig $config
     ) {
         $this->scopeConfig = $scopeConfig;
-        $this->clientResolver = $clientResolver;
-        $this->engineResolver = $engineResolver;
-        $this->prefix = $prefix ?: $this->clientResolver->getCurrentEngine();
-        $this->engineList = $engineList;
         $this->config = $config;
     }
 

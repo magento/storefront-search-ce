@@ -13,21 +13,21 @@ class Installer
     /**
      * Configuration for Search Service DB connection
      */
-    const DB_HOST = 'db-host';
-    const DB_NAME = 'db-name';
-    const DB_USER = 'db-user';
-    const DB_PASSWORD = 'db-password';
-    const DB_TABLE_PREFIX = 'db-table-prefix';
+    const DB_HOST = 'magento-db-host';
+    const DB_NAME = 'magento-db-name';
+    const DB_USER = 'magento-db-user';
+    const DB_PASSWORD = 'magento-db-password';
+    const DB_TABLE_PREFIX = 'magento-db-table-prefix';
 
     /**
      * Configuration for Search Service ElasticSearch
      */
-    const ES_ENGINE = 'es-engine';
-    const ES_HOSTNAME = 'es-hostname';
-    const ES_PORT = 'es-port';
-    const ES_INDEX_PREFIX = 'es-index-prefix';
-    const ES_USERNAME = 'es-username';
-    const ES_PASSWORD = 'es-password';
+    const ES_ENGINE = 'magento-es-engine';
+    const ES_HOSTNAME = 'magento-es-hostname';
+    const ES_PORT = 'magento-es-port';
+    const ES_INDEX_PREFIX = 'magento-es-index-prefix';
+    const ES_USERNAME = 'magento-es-username';
+    const ES_PASSWORD = 'magento-es-password';
 
     /**
      * @var Writer
@@ -67,6 +67,8 @@ class Installer
      * @param  array $required
      * @param  array $optional
      * @throws \Magento\Framework\Exception\FileSystemException
+     *
+     * @deprecated Later we will use another approach
      */
     public function install(array $required, array $optional): void
     {
@@ -98,20 +100,23 @@ class Installer
                     ],
                     'table_prefix' => $optional[self::DB_TABLE_PREFIX]
                 ],
-                'search-store-front' => [
+                'storefront-search' => [
                     'connections' => [
-                        'default' => [
+                        //Connection config to monolith ES
+                        'magento' => [
                             'protocol' => 'http',
                             'hostname' => $required[self::ES_HOSTNAME],
                             'port' => $optional[self::ES_PORT],
                             'enable_auth' => $optional[self::ES_USERNAME] !== null,
                             'username' => $optional[self::ES_USERNAME],
                             'password' => $optional[self::ES_PASSWORD],
-                            'timeout' => 30
-                        ]
-                    ],
-                    'engine' => $required[self::ES_ENGINE],
-                    'index_prefix' => $required[self::ES_INDEX_PREFIX]
+                            'timeout' => 30,
+                            'engine' => $required[self::ES_ENGINE],
+                            'index_prefix' => $required[self::ES_INDEX_PREFIX]
+                        ],
+                        //TODO Connection config to local ES
+                        'local' => []
+                    ]
                 ],
                 'MAGE_MODE' => 'developer'
             ],

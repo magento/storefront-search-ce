@@ -136,11 +136,9 @@ class AttributeQuery
         array $entityIds,
         string $entityTableName
     ): Select {
-        $select = $connection->select()
+        return $connection->select()
             ->from(['e' => $entityTableName], $entityTableAttributes)
             ->where('e.entity_id IN (?)', $entityIds);
-
-        return $select;
     }
 
     /**

@@ -43,7 +43,7 @@
         <arguments>
             <argument name="engineResolver" xsi:type="object">Magento\SearchStorefrontSearch\Model\EngineResolver</argument>
             <argument name="intervals" xsi:type="array">
-                <item name="storefrontElasticsearch7" xsi:type="string">Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\Aggregation\Interval</item>
+                <item name="elasticsearch7" xsi:type="string">Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\Aggregation\Interval</item>
             </argument>
         </arguments>
     </virtualType>

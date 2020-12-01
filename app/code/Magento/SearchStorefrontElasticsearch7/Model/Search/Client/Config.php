@@ -12,7 +12,7 @@ use Magento\Framework\Exception\ConfigurationMismatchException;
 
 class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionConfigInterface
 {
-    const SEARCH_SERVICE_CONFIG_KEY = 'search-store-front';
+    const SEARCH_SERVICE_CONFIG_KEY = 'storefront-search';
 
     /**
      * Default Application config.
@@ -21,18 +21,22 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
      */
     private static $DEFAULT_CONFIG = [
         'connections' => [
-            'default' => [
+            'magento' => [
                 'protocol' => 'http',
                 'hostname' => 'localhost',
                 'enable_auth' => 0,
                 'port' => '9200',
                 'username' => '',
                 'password' => '',
-                'timeout' => 60
+                'timeout' => 60,
+                'engine' => 'elasticsearch7',
+                'index_prefix' => 'magento2',
+                'minimum_should_match' => 1
+            ],
+            'local' => [
+
             ]
-        ],
-        'engine' => 'storefrontElasticsearch7',
-        'index_prefix' => 'magento2',
+        ]
     ];
 
     /**
@@ -75,7 +79,7 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
                 ? array_replace_recursive(self::$DEFAULT_CONFIG, $configData[self::SEARCH_SERVICE_CONFIG_KEY])
                 : self::$DEFAULT_CONFIG;
 
-            $options = $this->config['connections']['default'];
+            $options = $this->config['connections']['magento'];
 
             if (empty($options['hostname']) || ((!empty($options['enable_auth'])
                 && ($options['enable_auth'] == 1))
@@ -98,7 +102,7 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
      */
     public function getServerHostname(): string
     {
-        return (string) $this->getConfig()['connections']['default']['hostname'];
+        return (string) $this->getConfig()['connections']['magento']['hostname'];
     }
 
     /**
@@ -109,7 +113,7 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
      */
     public function getServerPort(): string
     {
-        return (string) $this->getConfig()['connections']['default']['port'];
+        return (string) $this->getConfig()['connections']['magento']['port'];
     }
 
     /**
@@ -120,7 +124,7 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
      */
     public function getIndexPrefix(): string
     {
-        return (string) $this->getConfig()['index_prefix'];
+        return (string) $this->getConfig()['connections']['magento']['index_prefix'];
     }
 
     /**
@@ -131,7 +135,7 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
      */
     public function getEnableAuth(): int
     {
-        return (int) $this->getConfig()['connections']['default']['enable_auth'];
+        return (int) $this->getConfig()['connections']['magento']['enable_auth'];
     }
 
     /**
@@ -142,7 +146,7 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
      */
     public function getUsername(): string
     {
-        return (string) $this->getConfig()['connections']['default']['username'];
+        return (string) $this->getConfig()['connections']['magento']['username'];
     }
 
     /**
@@ -153,7 +157,7 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
      */
     public function getPassword(): string
     {
-        return (string) $this->getConfig()['connections']['default']['password'];
+        return (string) $this->getConfig()['connections']['magento']['password'];
     }
 
     /**
@@ -164,7 +168,7 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
      */
     public function getTimeout(): int
     {
-        return (int) $this->getConfig()['connections']['default']['timeout'];
+        return (int) $this->getConfig()['connections']['magento']['timeout'];
     }
 
     /**
@@ -175,7 +179,7 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
      */
     public function getEngine(): string
     {
-        return (string) $this->getConfig()['engine'];
+        return (string) $this->getConfig()['connections']['magento']['engine'];
     }
 
     /**
@@ -186,6 +190,6 @@ class Config implements \Magento\SearchStorefrontElasticsearch\Model\ConnectionC
      */
     public function getMinimumShouldMatch(): string
     {
-        return (string) $this->getConfig()['minimum_should_match'];
+        return (string) $this->getConfig()['connections']['magento']['minimum_should_match'];
     }
 }
