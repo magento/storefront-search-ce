@@ -1,5 +1,7 @@
 #!/bin/sh
-cp auth.json.tmpl auth.json
+if [[ ! -f auth.json ]] ; then
+  cp auth.json.tmpl auth.json
+fi
 cp composer.json.standalone composer.json
 cp composer.lock.standalone composer.lock
 cp app/etc/storefront_search/di.xml.standalone app/etc/storefront_search/di.xml
