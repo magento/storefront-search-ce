@@ -8,7 +8,9 @@ declare(strict_types=1);
 namespace Magento\SearchStorefront\DataProvider;
 
 use Magento\Framework\App\ResourceConnection;
+use Magento\Framework\DB\Adapter\AdapterInterface;
 use Magento\Framework\DB\Select;
+use Magento\Framework\EntityManager\EntityMetadataInterface;
 use Magento\Framework\EntityManager\MetadataPool;
 use Magento\SearchStorefrontStore\Model\Store;
 
@@ -85,7 +87,7 @@ class AttributeQuery
     public function getQuery(array $entityIds, array $attributes, int $storeId): Select
     {
         /**
-         * @var \Magento\Framework\EntityManager\EntityMetadataInterface $metadata
+         * @var EntityMetadataInterface $metadata
          */
         $metadata = $this->metadataPool->getMetadata($this->entityType);
         $entityTableName = $metadata->getEntityTable();
@@ -124,35 +126,33 @@ class AttributeQuery
     /**
      * Form and return query to get entity $entityTableAttributes for given $entityIds
      *
-     * @param  \Magento\Framework\DB\Adapter\AdapterInterface $connection
+     * @param  AdapterInterface $connection
      * @param  array                                          $entityTableAttributes
      * @param  array                                          $entityIds
      * @param  string                                         $entityTableName
      * @return Select
      */
     private function getAttributesFromEntityTable(
-        \Magento\Framework\DB\Adapter\AdapterInterface $connection,
+        AdapterInterface $connection,
         array $entityTableAttributes,
         array $entityIds,
         string $entityTableName
     ): Select {
-        $select = $connection->select()
+        return $connection->select()
             ->from(['e' => $entityTableName], $entityTableAttributes)
             ->where('e.entity_id IN (?)', $entityIds);
-
-        return $select;
     }
 
     /**
      * Return ids of eav attributes by $eavAttributeCodes.
      *
-     * @param  \Magento\Framework\DB\Adapter\AdapterInterface $connection
+     * @param  AdapterInterface $connection
      * @param  string                                         $attributeMetadataTable
      * @param  array                                          $eavAttributeCodes
      * @return array
      */
     private function getAttributesMetaData(
-        \Magento\Framework\DB\Adapter\AdapterInterface $connection,
+        AdapterInterface $connection,
         string $attributeMetadataTable,
         array $eavAttributeCodes
     ): array {
@@ -167,19 +167,19 @@ class AttributeQuery
     /**
      * Form and return query to get eav entity $attributes for given $entityIds.
      *
-     * @param  \Magento\Framework\DB\Adapter\AdapterInterface           $connection
-     * @param  \Magento\Framework\EntityManager\EntityMetadataInterface $metadata
-     * @param  array                                                    $entityTableAttributes
-     * @param  array                                                    $entityIds
-     * @param  array                                                    $eavAttributesMetaData
-     * @param  string                                                   $entityTableName
-     * @param  int                                                      $storeId
+     * @param  AdapterInterface        $connection
+     * @param  EntityMetadataInterface $metadata
+     * @param  array                   $entityTableAttributes
+     * @param  array                   $entityIds
+     * @param  array                   $eavAttributesMetaData
+     * @param  string                  $entityTableName
+     * @param  int                     $storeId
      * @return Select
      * @throws \Zend_Db_Select_Exception
      */
     private function getEavAttributes(
-        \Magento\Framework\DB\Adapter\AdapterInterface $connection,
-        \Magento\Framework\EntityManager\EntityMetadataInterface $metadata,
+        AdapterInterface $connection,
+        EntityMetadataInterface $metadata,
         array $entityTableAttributes,
         array $entityIds,
         array $eavAttributesMetaData,

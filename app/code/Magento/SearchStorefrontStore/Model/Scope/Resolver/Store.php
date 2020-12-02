@@ -7,7 +7,7 @@ namespace Magento\SearchStorefrontStore\Model\Scope\Resolver;
 
 use Magento\Framework\Exception\NoSuchEntityException;
 
-class Store implements \Magento\Framework\App\ScopeResolverInterface
+class  Store implements \Magento\Framework\App\ScopeResolverInterface
 {
     public const STORE_TABLE = 'store';
 
@@ -17,17 +17,17 @@ class Store implements \Magento\Framework\App\ScopeResolverInterface
     private $resourceConnection;
 
     /**
-     * @var \Magento\SearchStorefrontStore\Model\StoreFactory
+     * @var \Magento\SearchStorefrontStore\Model\StoreInterfaceFactory
      */
     private $scopeFactory;
 
     /**
-     * @param \Magento\Framework\App\ResourceConnection         $resourceConnection
-     * @param \Magento\SearchStorefrontStore\Model\StoreFactory $scopeFactory
+     * @param \Magento\Framework\App\ResourceConnection                  $resourceConnection
+     * @param \Magento\SearchStorefrontStore\Model\StoreInterfaceFactory $scopeFactory
      */
     public function __construct(
-        \Magento\Framework\App\ResourceConnection $resourceConnection,
-        \Magento\SearchStorefrontStore\Model\StoreFactory $scopeFactory
+        \Magento\Framework\App\ResourceConnection                  $resourceConnection,
+        \Magento\SearchStorefrontStore\Model\StoreInterfaceFactory $scopeFactory
     ) {
         $this->resourceConnection = $resourceConnection;
         $this->scopeFactory = $scopeFactory;
@@ -45,7 +45,7 @@ class Store implements \Magento\Framework\App\ScopeResolverInterface
     /**
      * Retrieve a list of available stores
      *
-     * @return \Magento\SearchStorefrontStore\Model\Store[]
+     * @return \Magento\SearchStorefrontStore\Model\StoreInterface[]
      */
     public function getScopes()
     {
@@ -90,7 +90,7 @@ class Store implements \Magento\Framework\App\ScopeResolverInterface
      * Fills model with data
      *
      * @param array $data
-     * @return \Magento\SearchStorefrontStore\Model\Store
+     * @return \Magento\SearchStorefrontStore\Model\StoreInterface
      * @throws NoSuchEntityException
      */
     private function populate(array $data = [])

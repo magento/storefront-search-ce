@@ -15,7 +15,7 @@ use Magento\SearchStorefront\DataProvider\Category\Query\CategoryAttributeQuery;
 use Magento\SearchStorefront\DataProvider\CategoryAttributesMapper;
 use Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\Formatter\LayerFormatter;
 use Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\LayerBuilderInterface;
-use Magento\SearchStorefrontStore\Model\Store;
+use Magento\SearchStorefrontStore\Model\StoreInterface;
 
 /**
  * @inheritdoc
@@ -57,8 +57,9 @@ class Category implements LayerBuilderInterface
      * @var LayerFormatter
      */
     private $layerFormatter;
+
     /**
-     * @var Store
+     * @var StoreInterface
      */
     private $store;
 
@@ -67,14 +68,14 @@ class Category implements LayerBuilderInterface
      * @param CategoryAttributesMapper $attributesMapper
      * @param ResourceConnection       $resourceConnection
      * @param LayerFormatter           $layerFormatter
-     * @param Store                    $store
+     * @param StoreInterface           $store
      */
     public function __construct(
         CategoryAttributeQuery $categoryAttributeQuery,
         CategoryAttributesMapper $attributesMapper,
         ResourceConnection $resourceConnection,
         LayerFormatter $layerFormatter,
-        Store $store
+        StoreInterface $store
     ) {
         $this->categoryAttributeQuery = $categoryAttributeQuery;
         $this->attributesMapper = $attributesMapper;
@@ -85,7 +86,6 @@ class Category implements LayerBuilderInterface
 
     /**
      * @inheritdoc
-     * @throws     \Magento\Framework\Exception\LocalizedException
      * @throws     \Zend_Db_Select_Exception
      */
     public function build(AggregationInterface $aggregation, ?int $storeId): array

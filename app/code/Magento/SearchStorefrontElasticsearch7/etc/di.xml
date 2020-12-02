@@ -9,7 +9,7 @@
     <type name="Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Adapter\FieldMapper\ProductFieldMapperProxy">
         <arguments>
             <argument name="productFieldMappers" xsi:type="array">
-                <item name="storefrontElasticsearch7" xsi:type="object">Magento\SearchStorefrontElasticsearch7\Model\Adapter\FieldMapper\ProductFieldMapper</item>
+                <item name="elasticsearch7" xsi:type="object">Magento\SearchStorefrontElasticsearch7\Model\Adapter\FieldMapper\ProductFieldMapper</item>
             </argument>
         </arguments>
     </type>
@@ -17,7 +17,7 @@
     <type name="Magento\SearchStorefrontSearch\Model\AdapterFactory">
         <arguments>
             <argument name="adapters" xsi:type="array">
-                <item name="storefrontElasticsearch7" xsi:type="string">Magento\SearchStorefrontElasticsearch7\SearchAdapter\Adapter</item>
+                <item name="elasticsearch7" xsi:type="string">Magento\SearchStorefrontElasticsearch7\SearchAdapter\Adapter</item>
             </argument>
         </arguments>
     </type>
@@ -25,9 +25,9 @@
     <type name="Magento\SearchStorefrontSearch\Model\EngineResolver">
         <arguments>
             <argument name="engines" xsi:type="array">
-                <item name="storefrontElasticsearch7" xsi:type="string">storefrontElasticsearch7</item>
+                <item name="elasticsearch7" xsi:type="string">elasticsearch7</item>
             </argument>
-            <argument name="defaultEngine" xsi:type="string">storefrontElasticsearch7</argument>
+            <argument name="defaultEngine" xsi:type="string">elasticsearch7</argument>
         </arguments>
     </type>
 
@@ -40,7 +40,7 @@
     <type name="Magento\SearchStorefrontElasticsearch\Elasticsearch5\Model\Client\ClientFactoryProxy">
         <arguments>
             <argument name="clientFactories" xsi:type="array">
-                <item name="storefrontElasticsearch7" xsi:type="object">Magento\SearchStorefrontElasticsearch7\Model\Client\ElasticsearchFactory</item>
+                <item name="elasticsearch7" xsi:type="object">Magento\SearchStorefrontElasticsearch7\Model\Client\ElasticsearchFactory</item>
             </argument>
         </arguments>
     </type>

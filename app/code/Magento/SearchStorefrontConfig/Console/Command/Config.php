@@ -7,10 +7,9 @@ declare(strict_types = 1);
 namespace Magento\SearchStorefrontConfig\Console\Command;
 
 use Magento\Framework\Console\Cli;
-use Magento\Framework\Exception\FileSystemException;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\SearchStorefrontConfig\Model\Installer;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -63,16 +62,16 @@ class Config extends Command
     /**
      * @inheritDoc
      *
-     * @param  InputInterface  $input
-     * @param  OutputInterface $output
+     * @param InputInterface  $input
+     * @param OutputInterface $output
      * @return int
-     * @throws FileSystemException
+     * @throws LocalizedException
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $this->checkOptions($input->getOptions());
         try {
             $this->installer->install(
-                $input->getArguments(),
                 $input->getOptions()
             );
         } catch (\Throwable $exception) {
@@ -92,24 +91,28 @@ class Config extends Command
     private function getOptionsList()
     {
         return [
-            new InputArgument(
+            new InputOption(
                 Installer::DB_HOST,
-                InputArgument::REQUIRED,
+                null,
+                InputOption::VALUE_REQUIRED,
                 'Database hostname'
             ),
-            new InputArgument(
+            new InputOption(
                 Installer::DB_NAME,
-                InputArgument::REQUIRED,
+                null,
+                InputOption::VALUE_REQUIRED,
                 'Database name',
             ),
-            new InputArgument(
+            new InputOption(
                 Installer::DB_USER,
-                InputArgument::REQUIRED,
+                null,
+                InputOption::VALUE_REQUIRED,
                 'Database user'
             ),
-            new InputArgument(
+            new InputOption(
                 Installer::DB_PASSWORD,
-                InputArgument::REQUIRED,
+                null,
+                InputOption::VALUE_REQUIRED,
                 'Database password'
             ),
             new InputOption(
@@ -119,14 +122,16 @@ class Config extends Command
                 'Database table prefix',
                 ''
             ),
-            new InputArgument(
+            new InputOption(
                 Installer::ES_ENGINE,
-                InputArgument::REQUIRED,
+                null,
+                InputOption::VALUE_REQUIRED,
                 'Elasticsearch engine'
             ),
-            new InputArgument(
+            new InputOption(
                 Installer::ES_HOSTNAME,
-                InputArgument::REQUIRED,
+                null,
+                InputOption::VALUE_REQUIRED,
                 'Elasticsearch hostname'
             ),
             new InputOption(
@@ -140,18 +145,47 @@ class Config extends Command
                 Installer::ES_USERNAME,
                 null,
                 InputOption::VALUE_OPTIONAL,
-                'Elasticsearch port'
-            ),new InputOption(
+                'Elasticsearch user name',
+                ''
+            ),
+            new InputOption(
                 Installer::ES_PASSWORD,
                 null,
                 InputOption::VALUE_OPTIONAL,
-                'Elasticsearch port'
+                'Elasticsearch user password',
+                ''
             ),
-            new InputArgument(
+            new InputOption(
                 Installer::ES_INDEX_PREFIX,
-                InputArgument::REQUIRED,
+                null,
+                InputOption::VALUE_REQUIRED,
                 'Elasticsearch index prefix'
             )
         ];
+    }
+
+    /**
+     * Checks if all options are set
+     *
+     * @param array $options
+     * @return void
+     * @throws LocalizedException
+     */
+    private function checkOptions($options)
+    {
+        $forgottenOptions = [];
+        foreach ($options as $optionKey => $option) {
+            if ($option === null) {
+                $forgottenOptions[] = $optionKey;
+            }
+        }
+        if (count($forgottenOptions) > 0) {
+            throw new LocalizedException(
+                __(
+                    'Please provide next options: '.PHP_EOL.'%1',
+                    implode(',' . PHP_EOL, $forgottenOptions)
+                )
+            );
+        }
     }
 }

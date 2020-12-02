@@ -19,5 +19,10 @@ atlassian*
 !/generated/.htaccess
 .DS_Store
 
+#Temporarery solution as we don't want this files on CI
 composer.json
 composer.lock
+/app/bootstrap.php
+/app/autoload.php
+/app/etc/storefront_search/di.xml
+auth.json

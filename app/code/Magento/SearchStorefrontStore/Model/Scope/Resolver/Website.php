@@ -17,17 +17,17 @@ class Website implements \Magento\Framework\App\ScopeResolverInterface
     private $resourceConnection;
 
     /**
-     * @var \Magento\SearchStorefrontStore\Model\StoreFactory
+     * @var \Magento\SearchStorefrontStore\Model\StoreInterfaceFactory
      */
     private $scopeFactory;
 
     /**
-     * @param \Magento\Framework\App\ResourceConnection         $resourceConnection
-     * @param \Magento\SearchStorefrontStore\Model\StoreFactory $scopeFactory
+     * @param \Magento\Framework\App\ResourceConnection                  $resourceConnection
+     * @param \Magento\SearchStorefrontStore\Model\StoreInterfaceFactory $scopeFactory
      */
     public function __construct(
-        \Magento\Framework\App\ResourceConnection $resourceConnection,
-        \Magento\SearchStorefrontStore\Model\StoreFactory $scopeFactory
+        \Magento\Framework\App\ResourceConnection                  $resourceConnection,
+        \Magento\SearchStorefrontStore\Model\StoreInterfaceFactory $scopeFactory
     ) {
         $this->resourceConnection = $resourceConnection;
         $this->scopeFactory = $scopeFactory;
@@ -36,7 +36,7 @@ class Website implements \Magento\Framework\App\ScopeResolverInterface
     /**
      * @inheritdoc
      *
-     * @throws \Magento\Framework\Exception\State\InitException
+     * @throws NoSuchEntityException
      */
     public function getScope($scopeId = null)
     {
@@ -47,7 +47,7 @@ class Website implements \Magento\Framework\App\ScopeResolverInterface
     /**
      * Retrieve a list of available stores
      *
-     * @return \Magento\SearchStorefrontStore\Model\Store[]
+     * @return \Magento\SearchStorefrontStore\Model\StoreInterface[]
      * @throws NoSuchEntityException
      */
     public function getScopes()

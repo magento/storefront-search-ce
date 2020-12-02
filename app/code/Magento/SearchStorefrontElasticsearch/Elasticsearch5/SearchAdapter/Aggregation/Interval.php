@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace Magento\SearchStorefrontElasticsearch\Elasticsearch5\SearchAdapter\Aggregation;
 
 use Magento\Framework\Search\Dynamic\IntervalInterface;
-use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Config;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\ConnectionManager;
 use Magento\SearchStorefrontElasticsearch\SearchAdapter\SearchIndexNameResolver;
@@ -29,11 +28,6 @@ class Interval implements IntervalInterface
      * @var ConnectionManager
      */
     private $connectionManager;
-
-    /**
-     * @var FieldMapperInterface
-     */
-    private $fieldMapper;
 
     /**
      * @var Config
@@ -62,7 +56,6 @@ class Interval implements IntervalInterface
 
     /**
      * @param ConnectionManager       $connectionManager
-     * @param FieldMapperInterface    $fieldMapper
      * @param Config                  $clientConfig
      * @param SearchIndexNameResolver $searchIndexNameResolver
      * @param string                  $fieldName
@@ -71,7 +64,6 @@ class Interval implements IntervalInterface
      */
     public function __construct(
         ConnectionManager $connectionManager,
-        FieldMapperInterface $fieldMapper,
         Config $clientConfig,
         SearchIndexNameResolver $searchIndexNameResolver,
         string $fieldName,
@@ -79,7 +71,6 @@ class Interval implements IntervalInterface
         array $entityIds
     ) {
         $this->connectionManager = $connectionManager;
-        $this->fieldMapper = $fieldMapper;
         $this->clientConfig = $clientConfig;
         $this->fieldName = $fieldName;
         $this->storeId = $storeId;

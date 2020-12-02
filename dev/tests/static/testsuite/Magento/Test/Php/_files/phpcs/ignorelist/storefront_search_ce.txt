@@ -1,0 +1,12 @@
+# Format: path to directory or path to file
+#
+# Example:
+# app/code/Magento/Catalog
+# dev/tests/static/framework/bootstrap.php
+# @todo remove when will be fixed into https://github.com/magento/catalog-storefront/issues/124
+app/code/Magento/SearchStorefrontApi
+app/code/Magento/SearchStorefrontStub
+app/code/Magento/SearchStorefrontStore
+app/code/Magento/SearchStorefrontElasticsearch7
+app/code/Magento/SearchStorefrontElasticsearch
+

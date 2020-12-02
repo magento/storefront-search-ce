@@ -68,7 +68,7 @@ class Attribute implements LayerBuilderInterface
     /**
      * @inheritdoc
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-     * @throws                                        \Zend_Db_Statement_Exception
+     * @throws \Zend_Db_Statement_Exception
      */
     public function build(AggregationInterface $aggregation, ?int $storeId): array
     {

@@ -1,0 +1,7 @@
+Magento/SearchStorefrontApi
+app/code/Magento/SearchStorefrontStub
+app/code/Magento/SearchStorefrontStore
+app/code/Magento/SearchStorefrontElasticsearch7
+app/code/Magento/SearchStorefrontElasticsearch
+app/code/Magento/SearchStorefrontSearch
+app/storefront_search_autoload

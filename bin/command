@@ -11,7 +11,7 @@ if (PHP_SAPI !== 'cli') {
 }
 
 try {
-    require __DIR__ . '/../app/storefront_search_bootstrap.php';
+    require __DIR__ . '/../app/bootstrap.php';
 } catch (\Exception $e) {
     echo 'Autoload error: ' . $e->getMessage();
     exit(1);
