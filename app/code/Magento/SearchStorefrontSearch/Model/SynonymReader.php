@@ -5,32 +5,41 @@
  */
 namespace Magento\SearchStorefrontSearch\Model;
 
+use Magento\SearchStorefrontSearch\Model\ResourceModel\SynonymReader as Reader;
+
 /**
  * Data model to retrieve synonyms by passed in phrase
- *
- * @method \Magento\SearchStorefrontSearch\Model\SynonymReader setGroupId(int $group)
- * @method int getGroupId()
- * @method \Magento\SearchStorefrontSearch\Model\SynonymReader setStoreId(int $storeId)
- * @method int getStoreId()
- * @method \Magento\SearchStorefrontSearch\Model\SynonymReader setWebsiteId(int $websiteId)
- * @method int getWebsiteId()
- * @method \Magento\SearchStorefrontSearch\Model\SynonymReader setSynonyms(string $value)
- * @method string getSynonyms()
+ * Adapted copy from Magento/Search
  */
 class SynonymReader extends \Magento\Framework\DataObject
 {
+    /**
+     * @var Reader
+     */
+    private $reader;
+
+    /**
+     * @param Reader $reader
+     * @param array  $data
+     */
+    public function __construct(
+        Reader $reader,
+        array $data = []
+    ) {
+        parent::__construct($data);
+        $this->reader = $reader;
+    }
+
     /**
      * Load synonyms by user query phrase in context of current store view
      *
      * @param string $phrase
      * @return $this
-     * @throws \Magento\Framework\Exception\LocalizedException
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function loadByPhrase($phrase)
+    public function loadByPhrase(string $phrase)
     {
-        // @TODO synonyms reader need to be implemented
-        // (eg create indexer to index synonyms to elastic)
+        // DB_query
+        $this->reader->loadByPhrase($this, $phrase);
         return $this;
     }
 }

@@ -12,8 +12,7 @@ class AdapterFactory
     /**
      * Scope configuration
      *
-     * @var        \Magento\Framework\App\Config\ScopeConfigInterface
-     * @deprecated 101.0.0 since it is not used anymore
+     * @var \Magento\Framework\App\Config\ScopeConfigInterface
      */
     protected $scopeConfig;
 
@@ -27,15 +26,12 @@ class AdapterFactory
     /**
      * Config path
      *
-     * @var        string
-     * @deprecated 101.0.0 since it is not used anymore
+     * @var string
      */
     protected $path;
 
     /**
      * Config Scope
-     *
-     * @deprecated 101.0.0 since it is not used anymore
      */
     protected $scope;
 
