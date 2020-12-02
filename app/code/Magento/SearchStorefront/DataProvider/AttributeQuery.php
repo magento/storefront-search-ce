@@ -127,9 +127,9 @@ class AttributeQuery
      * Form and return query to get entity $entityTableAttributes for given $entityIds
      *
      * @param  AdapterInterface $connection
-     * @param  array                                          $entityTableAttributes
-     * @param  array                                          $entityIds
-     * @param  string                                         $entityTableName
+     * @param  array            $entityTableAttributes
+     * @param  array            $entityIds
+     * @param  string           $entityTableName
      * @return Select
      */
     private function getAttributesFromEntityTable(
@@ -147,8 +147,8 @@ class AttributeQuery
      * Return ids of eav attributes by $eavAttributeCodes.
      *
      * @param  AdapterInterface $connection
-     * @param  string                                         $attributeMetadataTable
-     * @param  array                                          $eavAttributeCodes
+     * @param  string           $attributeMetadataTable
+     * @param  array            $eavAttributeCodes
      * @return array
      */
     private function getAttributesMetaData(
