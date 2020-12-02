@@ -72,16 +72,6 @@ class SynonymReader
     }
 
     /**
-     * Init resource data
-     *
-     * @return void
-     */
-    protected function _construct()
-    {
-        $this->_init('search_synonyms', 'group_id');
-    }
-
-    /**
      * A helper function to query by phrase and get results
      *
      * @param string $phrase
