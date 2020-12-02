@@ -24,8 +24,8 @@ class SynonymReader extends \Magento\Framework\DataObject
      */
     public function __construct(
         Reader $reader,
-        array $data = [])
-    {
+        array $data = []
+    ) {
         parent::__construct($data);
         $this->reader = $reader;
     }

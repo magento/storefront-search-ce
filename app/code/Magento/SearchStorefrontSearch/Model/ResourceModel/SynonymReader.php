@@ -7,7 +7,7 @@
 namespace Magento\SearchStorefrontSearch\Model\ResourceModel;
 
 use Magento\Framework\App\ResourceConnection;
-use Magento\Framework\DB\Helper\Mysql\Fulltext;;
+use Magento\Framework\DB\Helper\Mysql\Fulltext;
 use Magento\SearchStorefrontStore\Model\StoreManager;
 
 /**
