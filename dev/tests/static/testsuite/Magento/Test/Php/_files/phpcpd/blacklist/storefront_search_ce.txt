@@ -4,4 +4,6 @@ app/code/Magento/SearchStorefrontStore
 app/code/Magento/SearchStorefrontElasticsearch7
 app/code/Magento/SearchStorefrontElasticsearch
 app/code/Magento/SearchStorefrontSearch
-app/storefront_search_autoload
+app/code/Magento/SearchStorefront/DataProvider
+app/code/Magento/SearchStorefront/Plugin/Search/Request
+storefront_search_autoload.php
