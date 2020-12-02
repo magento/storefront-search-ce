@@ -168,7 +168,7 @@ class Config extends Command
     /**
      * Checks if all options are set
      *
-     * @param $options
+     * @param array $options
      * @return void
      * @throws LocalizedException
      */
@@ -184,7 +184,7 @@ class Config extends Command
             throw new LocalizedException(
                 __(
                     'Please provide next options: '.PHP_EOL.'%1',
-                   implode(',' . PHP_EOL, $forgottenOptions)
+                    implode(',' . PHP_EOL, $forgottenOptions)
                 )
             );
         }

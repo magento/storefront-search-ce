@@ -6,6 +6,7 @@
 namespace Magento\SearchStorefrontConfig\Model;
 
 use Magento\Framework\App\DeploymentConfig\Writer;
+use Magento\Framework\Exception\FileSystemException;
 use Magento\Framework\Stdlib\DateTime;
 
 class Installer
@@ -64,13 +65,12 @@ class Installer
     /**
      * Create env.php file configuration
      *
-     * @param  array $required
-     * @param  array $optional
-     * @throws \Magento\Framework\Exception\FileSystemException
+     * @param array $optional
+     * @throws FileSystemException
      *
      * @deprecated Later we will use another approach
      */
-    public function install(array $required, array $optional): void
+    public function install(array $optional): void
     {
         $config = [
             'app_env' => [
