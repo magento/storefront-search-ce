@@ -3,7 +3,6 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-/* @SuppressWarnings(PHPCPD) */
 declare(strict_types=1);
 
 namespace Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\Builder;
@@ -18,6 +17,7 @@ use Magento\SearchStorefront\DataProvider\Product\LayeredNavigation\LayerBuilder
 /**
  * @inheritdoc
  * Copied from Magento\CatalogGraphQl
+ * @SuppressWarnings(PHPCPD)
  */
 class Attribute implements LayerBuilderInterface
 {

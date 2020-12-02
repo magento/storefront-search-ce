@@ -3,7 +3,6 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-/* @SuppressWarnings(PHPCPD) */
 declare(strict_types=1);
 
 namespace Magento\SearchStorefront\DataProvider;
@@ -19,6 +18,7 @@ use Magento\SearchStorefrontStore\Model\Store;
  * Copied from Magento\CatalogGraphQl
  *
  * Generic for build Select object to fetch eav attributes for provided entity type
+ * @SuppressWarnings(PHPCPD)
  */
 class AttributeQuery
 {
