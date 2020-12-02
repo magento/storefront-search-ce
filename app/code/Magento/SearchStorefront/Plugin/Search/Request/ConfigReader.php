@@ -18,6 +18,7 @@ use Magento\SearchStorefront\Model\Search\RequestGenerator\GeneratorResolver;
  * Copied from Magento\CatalogGraphQl
  *
  * Add search request configuration to config for give ability filter and search products
+ * @SuppressWarnings(PHPCPD)
  */
 class ConfigReader
 {
