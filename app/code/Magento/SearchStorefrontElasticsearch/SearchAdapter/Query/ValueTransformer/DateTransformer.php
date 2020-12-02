@@ -35,7 +35,7 @@ class DateTransformer implements ValueTransformerInterface
     public function transform(string $value): ?string
     {
         try {
-            $formattedDate = $this->dateFieldType->formatDate(null, $value);
+            $formattedDate = $this->dateFieldType->formatDate($value);
         } catch (\Exception $e) {
             $formattedDate = null;
         }

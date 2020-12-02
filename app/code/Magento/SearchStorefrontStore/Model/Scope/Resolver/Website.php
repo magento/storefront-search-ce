@@ -36,7 +36,7 @@ class Website implements \Magento\Framework\App\ScopeResolverInterface
     /**
      * @inheritdoc
      *
-     * @throws \Magento\Framework\Exception\State\InitException
+     * @throws NoSuchEntityException
      */
     public function getScope($scopeId = null)
     {

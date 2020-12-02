@@ -57,8 +57,9 @@ class Category implements LayerBuilderInterface
      * @var LayerFormatter
      */
     private $layerFormatter;
+
     /**
-     * @var Store
+     * @var StoreInterface
      */
     private $store;
 

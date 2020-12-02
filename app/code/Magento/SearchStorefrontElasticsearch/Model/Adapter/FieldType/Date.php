@@ -51,12 +51,12 @@ class Date
      *
      * Example: 1995-12-31T23:59:59
      *
-     * @param                                         int         $storeId
-     * @param                                         string|null $date
-     * @return                                        string|null
+     * @param string|null $date
+     * @return string|null
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * @throws \Exception
      */
-    public function formatDate($storeId, $date = null)
+    public function formatDate($date = null)
     {
         if ($this->dateTime->isEmptyDate($date)) {
             return null;

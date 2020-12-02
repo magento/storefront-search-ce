@@ -22,9 +22,9 @@ class SynonymReader extends \Magento\Framework\DataObject
     /**
      * Load synonyms by user query phrase in context of current store view
      *
-     * @param                                         string $phrase
-     * @return                                        $this
-     * @throws                                        \Magento\Framework\Exception\LocalizedException
+     * @param string $phrase
+     * @return $this
+     * @throws \Magento\Framework\Exception\LocalizedException
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function loadByPhrase($phrase)

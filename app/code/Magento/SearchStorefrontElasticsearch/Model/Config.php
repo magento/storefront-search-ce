@@ -41,28 +41,6 @@ class Config implements ClientOptionsInterface
     protected $scopeConfig;
 
     /**
-     * @var string
-     */
-    private $prefix;
-
-    /**
-     * @var ClientResolver
-     */
-    private $clientResolver;
-
-    /**
-     * @var EngineResolverInterface
-     */
-    private $engineResolver;
-
-    /**
-     * Available Elasticsearch engines.
-     *
-     * @var array
-     */
-    private $engineList;
-
-    /**
      * @var ConnectionConfig
      */
     private $config;

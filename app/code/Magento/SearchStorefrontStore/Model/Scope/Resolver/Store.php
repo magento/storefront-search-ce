@@ -7,7 +7,7 @@ namespace Magento\SearchStorefrontStore\Model\Scope\Resolver;
 
 use Magento\Framework\Exception\NoSuchEntityException;
 
-class Store implements \Magento\Framework\App\ScopeResolverInterface
+class  Store implements \Magento\Framework\App\ScopeResolverInterface
 {
     public const STORE_TABLE = 'store';
 

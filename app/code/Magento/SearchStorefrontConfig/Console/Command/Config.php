@@ -72,7 +72,6 @@ class Config extends Command
         $this->checkOptions($input->getOptions());
         try {
             $this->installer->install(
-                $input->getArguments(),
                 $input->getOptions()
             );
         } catch (\Throwable $exception) {

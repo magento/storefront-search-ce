@@ -6,6 +6,7 @@
 namespace Magento\SearchStorefront\Plugin\Search\Request;
 
 use Magento\Framework\App\ResourceConnection;
+use Magento\Framework\Config\ReaderInterface;
 use Magento\Framework\DataObject;
 use Magento\Framework\ObjectManagerInterface;
 use Magento\Framework\Search\Request\FilterInterface;
@@ -76,13 +77,13 @@ class ConfigReader
     /**
      * Merge reader's value with generated
      *
-     * @param                                         \Magento\Framework\Config\ReaderInterface $subject
-     * @param                                         array                                     $result
-     * @return                                        array
+     * @param ReaderInterface $subject
+     * @param array           $result
+     * @return array
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function afterRead(
-        \Magento\Framework\Config\ReaderInterface $subject,
+        ReaderInterface $subject,
         array $result
     ) {
         $searchRequestNameWithAggregation = $this->generateRequest();
@@ -120,7 +121,7 @@ class ConfigReader
     /**
      * Generate search request for search products via GraphQL
      *
-     * @return                                       array
+     * @return array
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      */
     private function generateRequest()
