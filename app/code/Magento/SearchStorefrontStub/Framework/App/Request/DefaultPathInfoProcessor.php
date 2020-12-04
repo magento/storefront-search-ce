@@ -9,7 +9,7 @@ use Magento\Framework\App\ObjectManager;
 
 /**
  * Stub class required to build \Magento\Framework\App\Response\Http and \Magento\Framework\App\Request\Http
- * Do nothing for standalone installation and proxy request to Magento\Store\App\Request\PathInfoProcessor
+ * Do nothing for standalone installation and proxy request to PathInfoProcessor from Store module
  * with monolithic installation
  */
 class DefaultPathInfoProcessor implements \Magento\Framework\App\Request\PathInfoProcessorInterface
@@ -18,12 +18,13 @@ class DefaultPathInfoProcessor implements \Magento\Framework\App\Request\PathInf
      * Do not process pathinfo
      *
      * @param  \Magento\Framework\App\RequestInterface $request
-     * @param  string                                  $pathInfo
+     * @param  string $pathInfo
      * @return string
      */
     public function process(\Magento\Framework\App\RequestInterface $request, $pathInfo)
     {
-        $monolithClass = \Magento\Store\App\Request\PathInfoProcessor::class;
+        // ad-hoc to install as a monolith. No actual dependency with standalone installation
+        $monolithClass = '\Magento' . '\Store\App\Request\PathInfoProcessor';
         if (\class_exists($monolithClass)) {
             return ObjectManager::getInstance()->get($monolithClass)->process($request, $pathInfo);
         }

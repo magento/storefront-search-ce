@@ -9,7 +9,6 @@
     <module name="Magento_SearchStorefront">
         <sequence>
             <module name="Magento_SearchStorefrontApi"/>
-            <module name="Magento_Grpc"/>
             <module name="Magento_SearchStorefrontElasticsearch"/>
             <module name="Magento_SearchStorefrontElasticsearch7"/>
             <module name="Magento_SearchStorefrontSearch"/>
