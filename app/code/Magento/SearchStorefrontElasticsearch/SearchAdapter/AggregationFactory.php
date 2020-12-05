@@ -9,7 +9,7 @@ use Magento\Framework\ObjectManagerInterface;
 
 /**
  * Aggregation Factory
- * Copy of Magento\Elasticsearch\SearchAdapter\AggregationFactory
+ * Copy of Elasticsearch\SearchAdapter\AggregationFactory
  */
 class AggregationFactory
 {

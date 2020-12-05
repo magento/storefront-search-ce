@@ -13,7 +13,7 @@ use Magento\Framework\Search\Request\Aggregation\DynamicBucket;
 use Magento\Framework\Search\Request\BucketInterface as RequestBucketInterface;
 
 /**
- * Copy of Magento\Elasticsearch\SearchAdapter\Aggregation\Builder\Dynamic
+ * Copy of Elasticsearch\SearchAdapter\Aggregation\Builder\Dynamic
  */
 class Dynamic implements BucketBuilderInterface
 {

@@ -12,7 +12,7 @@ use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\ValueTransformerIn
 
 /**
  * Value transformer for date type fields.
- * Copy of Magento\Elasticsearch\SearchAdapter\Query\ValueTransformer\DateTransformer
+ * Copy of Elasticsearch\SearchAdapter\Query\ValueTransformer\DateTransformer
  */
 class DateTransformer implements ValueTransformerInterface
 {

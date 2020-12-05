@@ -10,7 +10,7 @@ use Magento\Framework\Search\Request\BucketInterface as RequestBucketInterface;
 
 /**
  * Builder for term buckets.
- * Copy of Magento\Elasticsearch\SearchAdapter\Aggregation\Builder\Term
+ * Copy of Elasticsearch\SearchAdapter\Aggregation\Builder\Term
  */
 class Term implements BucketBuilderInterface
 {

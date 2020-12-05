@@ -17,7 +17,7 @@ use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\Builder\Match as M
 /**
  * Mapper class
  *
- * Copy of Magento\Elasticsearch\Elasticsearch5\SearchAdapter\Mapper
+ * Copy of Elasticsearch\Elasticsearch5\SearchAdapter\Mapper
  */
 class Mapper
 {

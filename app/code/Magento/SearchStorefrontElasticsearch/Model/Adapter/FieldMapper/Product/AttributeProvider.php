@@ -13,7 +13,7 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\Attr
 
 /**
  * Provide attribute adapter.
- * Copied from Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\AttributeProvider
+ * Copied from Elasticsearch\Model\Adapter\FieldMapper\Product\AttributeProvider
  * removed dependencies on eav and catalog
  */
 class AttributeProvider

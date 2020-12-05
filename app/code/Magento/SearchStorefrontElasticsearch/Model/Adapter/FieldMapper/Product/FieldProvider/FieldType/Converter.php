@@ -9,7 +9,7 @@ namespace Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Produc
 
 /**
  * Field type converter from internal data types to elastic service.
- * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Converter
+ * Copy of Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldType\Converter
  */
 class Converter implements ConverterInterface
 {

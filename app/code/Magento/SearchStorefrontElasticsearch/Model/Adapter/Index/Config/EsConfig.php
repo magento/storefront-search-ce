@@ -8,7 +8,7 @@ namespace Magento\SearchStorefrontElasticsearch\Model\Adapter\Index\Config;
 use Magento\Framework\Config\Data;
 
 /**
- * Copy of Magento\Elasticsearch\Model\Adapter\Index\Config\Converter\EsConfig
+ * Copy of Elasticsearch\Model\Adapter\Index\Config\Converter\EsConfig
  */
 class EsConfig extends Data implements EsConfigInterface
 {

@@ -16,7 +16,7 @@ use Magento\SearchStorefrontStub\Framework\Model\EngineResolverInterface;
 
 /**
  * Elasticsearch config model
- * Copy Magento\Elasticsearch\Model\Config removed dependency on store module and read config from deployment
+ * Copy Elasticsearch\Model\Config removed dependency on store module and read config from deployment
  */
 class Config implements ClientOptionsInterface
 {

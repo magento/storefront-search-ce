@@ -9,7 +9,7 @@ use Magento\SearchStorefrontElasticsearch\Model\Config;
 
 /**
  * Alias name resolver
- * Copy of Magento\Elasticsearch\SearchAdapter\SearchIndexNameResolver
+ * Copy of Elasticsearch\SearchAdapter\SearchIndexNameResolver
  * removed usage of Fulltext::INDEXER_ID of catalog search module
  */
 class SearchIndexNameResolver

@@ -11,7 +11,7 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapper\Product\Attr
 
 /**
  * Field name resolver for preparing field key for elasticsearch mapping by attribute.
- * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\ResolverInterface
+ * Copy of Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\ResolverInterface
  */
 interface ResolverInterface
 {

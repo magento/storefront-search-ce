@@ -16,7 +16,7 @@ use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface;
 
 /**
  * Term filter builder
- * Copy of Magento\Elasticsearch\SearchAdapter\Filter\Builder\Term
+ * Copy of Elasticsearch\SearchAdapter\Filter\Builder\Term
  */
 class Term implements FilterInterface
 {

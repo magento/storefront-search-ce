@@ -14,7 +14,7 @@ use Magento\SearchStorefrontElasticsearch\SearchAdapter\SearchIndexNameResolver;
 
 /**
  * Aggregate price intervals for search query result.
- * Copy of Magento\Elasticsearch\Elasticsearch5\SearchAdapter\Aggregation\Interval
+ * Copy of Elasticsearch\Elasticsearch5\SearchAdapter\Aggregation\Interval
  * removed usage of Fulltext::INDEXER_ID constant
  */
 class Interval implements IntervalInterface

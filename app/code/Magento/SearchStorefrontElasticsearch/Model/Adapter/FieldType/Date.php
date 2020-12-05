@@ -10,7 +10,7 @@ use Magento\Framework\Stdlib\DateTime;
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
 
 /**
- * Copy of  Magento\Elasticsearch\Model\Adapter\FieldType\Date
+ * Copy of  Elasticsearch\Model\Adapter\FieldType\Date
  */
 class Date
 {

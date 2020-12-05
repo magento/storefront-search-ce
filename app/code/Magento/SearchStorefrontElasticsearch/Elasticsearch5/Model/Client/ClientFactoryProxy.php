@@ -10,7 +10,7 @@ use Magento\SearchStorefrontElasticsearch\Model\Client\ClientResolver;
 
 /**
  * Proxy for client factories
- * Copy of Magento\Elasticsearch\Elasticsearch5\Model\Client\ClientFactoryProxy
+ * Copy of Elasticsearch\Elasticsearch5\Model\Client\ClientFactoryProxy
  */
 class ClientFactoryProxy implements ClientFactoryInterface
 {

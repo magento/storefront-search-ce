@@ -19,7 +19,7 @@ use Magento\SearchStorefrontStore\Model\Scope\ScopeResolver;
 /**
  * Elasticsearch stopwords preprocessor
  *
- * Copy of Magento\Elasticsearch\SearchAdapter\Query\Preprocessor\Stopwords
+ * Copy of Elasticsearch\SearchAdapter\Query\Preprocessor\Stopwords
  */
 class Stopwords implements PreprocessorInterface
 {

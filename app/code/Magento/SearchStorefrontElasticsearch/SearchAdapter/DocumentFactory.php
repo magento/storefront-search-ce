@@ -14,7 +14,7 @@ use Magento\Framework\Search\EntityMetadata;
 
 /**
  * Document Factory to create Search Document instance
- * Copy of Magento\Elasticsearch\SearchAdapter\DocumentFactory
+ * Copy of Elasticsearch\SearchAdapter\DocumentFactory
  */
 class DocumentFactory
 {

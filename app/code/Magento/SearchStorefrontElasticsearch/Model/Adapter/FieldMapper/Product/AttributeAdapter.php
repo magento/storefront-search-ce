@@ -11,7 +11,7 @@ use Magento\Framework\DataObject;
 
 /**
  * Product attribute adapter for elasticsearch context.
- * Copied from Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\AttributeAdapter
+ * Copied from Elasticsearch\Model\Adapter\FieldMapper\Product\AttributeAdapter
  * removed dependencies on eav and catalog
  */
 class AttributeAdapter

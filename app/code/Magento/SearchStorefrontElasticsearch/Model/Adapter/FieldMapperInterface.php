@@ -6,7 +6,7 @@
 namespace Magento\SearchStorefrontElasticsearch\Model\Adapter;
 
 /**
- * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapperInterface
+ * Copy of Elasticsearch\Model\Adapter\FieldMapperInterface
  */
 interface FieldMapperInterface
 {

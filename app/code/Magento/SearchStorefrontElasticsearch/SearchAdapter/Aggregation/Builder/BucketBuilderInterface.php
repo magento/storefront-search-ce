@@ -10,7 +10,7 @@ use Magento\Framework\Search\Request\BucketInterface as RequestBucketInterface;
 use Magento\Framework\Search\Request\Dimension;
 
 /**
- * Copy of Magento\Elasticsearch\SearchAdapter\Aggregation\Builder\BucketBuilderInterface
+ * Copy of Elasticsearch\SearchAdapter\Aggregation\Builder\BucketBuilderInterface
  */
 interface BucketBuilderInterface
 {

@@ -17,7 +17,7 @@ use Magento\SearchStorefrontStore\Model\Scope\ScopeResolver;
 /**
  * Query builder for search adapter.
  *
- * Copy of Magento\Elasticsearch\Elasticsearch5\SearchAdapter\Query\Builder
+ * Copy of Elasticsearch\Elasticsearch5\SearchAdapter\Query\Builder
  */
 class Builder
 {

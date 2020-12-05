@@ -14,7 +14,7 @@ use Magento\SearchStorefrontElasticsearch\SearchAdapter\QueryContainer;
 
 /**
  * Elasticsearch aggregation builder
- * Copy of Magento\Elasticsearch\SearchAdapter\Aggregation\Builder
+ * Copy of Elasticsearch\SearchAdapter\Aggregation\Builder
  */
 class Builder
 {

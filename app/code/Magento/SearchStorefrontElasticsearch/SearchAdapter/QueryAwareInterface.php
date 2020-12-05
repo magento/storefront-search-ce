@@ -13,7 +13,7 @@ namespace Magento\SearchStorefrontElasticsearch\SearchAdapter;
  * Its goal is to mark the fact that a class which implements this interface requires
  * the QueryContainer object to be passed as constructor argument
  * with the name 'queryContainer' to work properly
- * Copy of Magento\Elasticsearch\SearchAdapter\QueryAwareInterface
+ * Copy of Elasticsearch\SearchAdapter\QueryAwareInterface
  */
 interface QueryAwareInterface
 {

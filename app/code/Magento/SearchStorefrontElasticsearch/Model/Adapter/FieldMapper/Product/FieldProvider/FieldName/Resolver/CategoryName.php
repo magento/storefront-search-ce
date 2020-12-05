@@ -13,7 +13,7 @@ use Magento\SearchStorefrontStore\Model\StoreManagerInterface as StoreManager;
 
 /**
  * Resolver field name for Category name attribute.
- * Copy of Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\Resolver\CategoryName
+ * Copy of Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldName\Resolver\CategoryName
  */
 class CategoryName implements ResolverInterface
 {

@@ -12,7 +12,7 @@ use Magento\SearchStorefrontElasticsearch\SearchAdapter\Query\ValueTransformerIn
 
 /**
  * Value transformer for fields with text types.
- * Copy of Magento\Elasticsearch\SearchAdapter\Query\ValueTransformer\TextTransformer
+ * Copy of Elasticsearch\SearchAdapter\Query\ValueTransformer\TextTransformer
  */
 class TextTransformer implements ValueTransformerInterface
 {

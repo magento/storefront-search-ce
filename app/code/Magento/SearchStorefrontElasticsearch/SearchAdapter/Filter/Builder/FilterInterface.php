@@ -8,7 +8,7 @@ namespace Magento\SearchStorefrontElasticsearch\SearchAdapter\Filter\Builder;
 use Magento\Framework\Search\Request\FilterInterface as RequestFilterInterface;
 
 /**
- * Copy of Magento\Elasticsearch\SearchAdapter\Filter\Builder\FilterInterface
+ * Copy of Elasticsearch\SearchAdapter\Filter\Builder\FilterInterface
  */
 interface FilterInterface
 {

@@ -14,7 +14,7 @@ use Magento\SearchStorefrontElasticsearch\SearchAdapter\QueryContainer;
 /**
  * It's a factory which allows to override instance of DataProviderInterface
  * with the instance of the same class but with injected search query.
- * Copy of Magento\Elasticsearch\SearchAdapter\Aggregation\DataProviderFactory
+ * Copy of Elasticsearch\SearchAdapter\Aggregation\DataProviderFactory
  */
 class DataProviderFactory
 {

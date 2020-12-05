@@ -10,7 +10,7 @@ use Magento\Framework\Search\Request\FilterInterface as RequestFilterInterface;
 use Magento\SearchStorefrontElasticsearch\Model\Adapter\FieldMapperInterface;
 
 /**
- * Copy of Magento\Elasticsearch\SearchAdapter\Filter\Builder\Wildcard
+ * Copy of Elasticsearch\SearchAdapter\Filter\Builder\Wildcard
  */
 class Wildcard implements FilterInterface
 {

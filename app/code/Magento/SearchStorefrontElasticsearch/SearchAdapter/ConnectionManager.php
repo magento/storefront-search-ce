@@ -13,7 +13,7 @@ use Psr\Log\LoggerInterface;
 /**
  * Class provides interface for Elasticsearch connection
  *
- * Copy of Magento\Elasticsearch\SearchAdapter\ConnectionManager
+ * Copy of Elasticsearch\SearchAdapter\ConnectionManager
  */
 class ConnectionManager
 {
