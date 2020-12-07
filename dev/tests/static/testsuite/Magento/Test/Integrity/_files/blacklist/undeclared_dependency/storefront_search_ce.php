@@ -7,5 +7,6 @@
  */
 return [
     'app/code/Magento/Store/etc/di.xml' => ['Magento\SearchStorefrontStore'],
-    'app/code/Magento/SearchStorefrontStore/etc/di.xml' => ['Magento\Store']
+    'app/code/Magento/SearchStorefrontStore/etc/di.xml' => ['Magento\Store'],
+    'app/code/Magento/SearchStorefrontElasticsearch7/etc/di.xml' => ['Magento\Elasticsearch']
 ];
