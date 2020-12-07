@@ -65,7 +65,7 @@ class AttributeProvider
     public function getByAttributeCode(string $attributeCode): AttributeAdapter
     {
         if (!isset($this->cachedPool[$attributeCode])) {
-            $attribute = $this->getAttributeByCode($attributeCode);
+            $attribute = $attributeCode !== '*' ? $this->getAttributeByCode($attributeCode) : null;
 
             if (null === $attribute) {
                 $attribute = $this->objectManager->create(DummyAttribute::class);
@@ -103,7 +103,6 @@ class AttributeProvider
                 'a.attribute_id = c.attribute_id',
                 [
                     'c.is_visible',
-                //                    'c.is_searchable',
                     'c.is_filterable',
                     'c.used_for_sort_by'
                 ]

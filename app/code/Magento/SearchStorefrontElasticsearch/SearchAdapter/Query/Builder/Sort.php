@@ -86,9 +86,19 @@ class Sort
         if (!method_exists($request, 'getSort')) {
             return $sorts;
         }
+        $specialFields = \array_keys($this->map);
         foreach ($request->getSort() as $item) {
             if (in_array($item['field'], $this->skippedFields)) {
                 continue;
+            }
+            if (\in_array($item['field'], $specialFields, true)) {
+                $fieldName = $this->map[$item['field']];
+                $sorts[] = [
+                    $fieldName => [
+                        'order' => strtolower($item['direction'])
+                    ]
+                ];
+                continue ;
             }
             $attribute = $this->attributeAdapterProvider->getByAttributeCode($item['field']);
             $fieldName = $this->fieldNameResolver->getFieldName($attribute);
