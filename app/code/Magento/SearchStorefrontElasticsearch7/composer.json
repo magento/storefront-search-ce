@@ -1,0 +1,24 @@
+{
+    "name": "magento/module-search-storefront-elasticsearch-7",
+    "description": "Copied and adapted magento/module-elasticsearch-7",
+    "require": {
+        "php": "~7.3.0||~7.4.0",
+        "magento/framework": "*",
+        "elasticsearch/elasticsearch": "~7.7.0",
+        "magento/module-search-storefront-search": "*",
+        "magento/module-search-storefront-elasticsearch": "*"
+    },
+    "type": "magento2-module",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Magento\\SearchStorefrontElasticsearch7\\": ""
+        }
+    }
+}

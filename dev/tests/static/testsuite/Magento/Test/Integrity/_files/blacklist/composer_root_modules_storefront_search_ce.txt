@@ -1,0 +1,8 @@
+magento/module-search-storefront
+magento/module-search-storefront-api
+magento/module-search-storefront-search
+magento/module-search-storefront-config
+magento/module-search-storefront-stub
+magento/module-search-storefront-elasticsearch
+magento/module-search-storefront-elasticsearch-7
+magento/module-search-storefront-store
