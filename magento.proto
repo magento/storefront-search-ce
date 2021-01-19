@@ -10,6 +10,7 @@ option php_metadata_namespace = "Magento\\SearchStorefrontApi\\Metadata";
 
 service Search {
   rpc searchProducts (ProductSearchRequest) returns (ProductsSearchResult) {}
+  rpc importConfig (ImportConfigRequest) returns (ImportConfigResponse)  {}
 }
 
 message ProductSearchRequest {
@@ -108,4 +109,19 @@ message Sort {
   string attribute = 1;
 
   string direction = 2;
+}
+
+message ImportConfigRequest {
+  repeated Config config = 1;
+}
+
+message Config {
+  string name = 1;
+  string value = 2;
+  string store = 3;
+}
+
+message ImportConfigResponse {
+  bool status = 1;
+  string message = 2;
 }

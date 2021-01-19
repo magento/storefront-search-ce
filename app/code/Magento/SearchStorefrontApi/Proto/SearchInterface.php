@@ -19,4 +19,13 @@ interface SearchInterface extends GRPC\ServiceInterface
      * @throws GRPC\Exception\InvokeException
      */
     public function searchProducts(GRPC\ContextInterface $ctx, ProductSearchRequest $in): ProductsSearchResult;
+
+    /**
+     * @param  GRPC\ContextInterface $ctx
+     * @param  ImportConfigRequest  $in
+     * @return ImportConfigResponse
+     *
+     * @throws GRPC\Exception\InvokeException
+     */
+    public function importConfig(GRPC\ContextInterface $ctx, ImportConfigRequest $in): ImportConfigResponse;
 }

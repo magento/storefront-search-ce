@@ -40,4 +40,23 @@ class SearchClient extends \Grpc\BaseStub
             $options
         );
     }
+
+    /**
+     * @param \Magento\SearchStorefrontApi\Proto\ImportConfigRequest $argument input argument
+     * @param array                                                   $metadata metadata
+     * @param array                                                   $options  call options
+     */
+    public function importConfig(
+        \Magento\SearchStorefrontApi\Proto\ImportConfigRequest $argument,
+        $metadata = [],
+        $options = []
+    ) {
+        return $this->_simpleRequest(
+            '/magento.searchStorefrontApi.proto.Search/importConfig',
+            $argument,
+            ['\Magento\SearchStorefrontApi\Proto\ImportConfigResponse', 'decode'],
+            $metadata,
+            $options
+        );
+    }
 }
