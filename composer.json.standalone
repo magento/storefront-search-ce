@@ -5,6 +5,10 @@
         "repo-magento": {
             "type": "composer",
             "url": "https://repo.magento.com/"
+        },
+        "module-grpc": {
+            "type": "git",
+            "url": "https://github.com/magento/module-grpc"
         }
     },
     "extra": {
@@ -46,7 +50,8 @@
         "colinmollenhour/php-redis-session-abstract": "^1.4",
         "elasticsearch/elasticsearch": "^7.9.0",
         "grpc/grpc": "^1.27",
-        "spiral/php-grpc": "^1.1"
+        "spiral/php-grpc": "^1.1",
+        "magento/module-grpc": "dev-master"
     },
     "autoload": {
         "psr-4": {
