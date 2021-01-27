@@ -87,24 +87,6 @@ class Installer
                         'connection' => 'default'
                     ]
                 ],
-                'db' => [
-                    'connection' => [
-                        'default' => [
-                            'host' => $optional[self::DB_HOST],
-                            'dbname' => $optional[self::DB_NAME],
-                            'username' => $optional[self::DB_USER],
-                            'password' => $optional[self::DB_PASSWORD],
-                            'model' => 'mysql4',
-                            'engine' => 'innodb',
-                            'initStatements' => 'SET NAMES utf8;',
-                            'active' => '1',
-                            'driver_options' => [
-                                1014 => false
-                            ]
-                        ]
-                    ],
-                    'table_prefix' => $optional[self::DB_TABLE_PREFIX]
-                ],
                 'storefront-search' => [
                     'connections' => [
                         //Connection config to monolith ES
