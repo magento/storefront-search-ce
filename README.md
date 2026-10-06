@@ -1,3 +1,9 @@
+## ⚠️ Archived — No Longer Maintained
+
+This repository is no longer maintained and has been archived. Please use [magento/magento2](https://github.com/magento/magento2) instead.
+
+---
+
 # Overview
 Provides Read API through gRPC to serve Catalog Search related requests
 
